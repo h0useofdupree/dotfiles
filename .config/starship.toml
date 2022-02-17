@@ -1,11 +1,98 @@
+## FIRST LINE/ROW: Info & Status
+# First param ─┌
+[username]
+format = " [╭─$user]($style)@"
+style_user = "bold red"
+style_root = "bold red"
+show_always = true
+
+# Second param
+[hostname]
+format = "[$hostname]($style) in "
+style = "bold dimmed red"
+trim_at = "-"
+ssh_only = false
+disabled = false
+
+# Third param
+[directory]
+style = "purple"
+truncation_length = 0
+truncate_to_repo = true
+truncation_symbol = "repo: "
+
+# Before all the version info (python, nodejs, php, etc.)
+[git_status]
+style = "white"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+deleted = "x"
+
+# Last param in the first line/row
+[cmd_duration]
+min_time = 1
+format = "took [$duration]($style)"
+disabled = false
+
+
+## SECOND LINE/ROW: Prompt
+# Somethere at the beginning
+[battery]
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+disabled = true
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 15
+style = "bold red"
+disabled = true
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 50
+style = "bold yellow"
+disabled = true
+
+[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
+threshold = 80
+style = "bold green"
+disabled = true
+
+# Prompt: optional param 1
+[time]
+format = " 🕙 $time($style)\n"
+time_format = "%H:%M"
+style = "bright-white"
+disabled = true
+
+# Prompt: param 2 └─
+[character]
+success_symbol = " [╰─λ](bold red)"
+error_symbol = " [×](bold red)"
+
+#[custom.emoji]
+#description = "Displays a (pseudo) random emoji for each prompt"
+## change the content of the EMOJIS array to your liking and replace the
+## number 12 with the number of items in the array, minus one
+#command = "EMOJIS=(⛵️ 🛰 🪐 🚀 🧡 🔭 🌍 💫 ☄️ ✨ 🌠 🌌 ⭐️); EMOJI_INDEX=$(( $RANDOM % 12 + 0 )); echo ${EMOJIS[$EMOJI_INDEX]}"
+## if you are on windows, replace "true" with "1"
+#when = "true"
+#shell = ["bash", "--noprofile", "--norc"]
+#format = "$output"
+
+# SYMBOLS
+[status]
+symbol = "🔴"
+format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
+map_symbol = true
+disabled = false
+
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
-
-[cmd_duration]
-format = '\[[⏱ $duration]($style)\]'
 
 [cobol]
 format = '\[[$symbol($version)]($style)\]'
@@ -42,9 +129,6 @@ format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
-
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
 
 [golang]
 format = '\[[$symbol($version)]($style)\]'
@@ -126,12 +210,6 @@ format = '\[[$symbol($version)]($style)\]'
 
 [terraform]
 format = '\[[$symbol$workspace]($style)\]'
-
-[time]
-format = '\[[$time]($style)\]'
-
-[username]
-format = '\[[$user]($style)\]'
 
 [vagrant]
 format = '\[[$symbol($version)]($style)\]'
