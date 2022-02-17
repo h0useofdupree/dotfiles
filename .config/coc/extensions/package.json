@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "coc-json": ">=1.4.1",
+    "coc-marketplace": ">=1.8.1",
+    "coc-prettier": ">=1.1.25"
+  }
+}

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=cerebro
+Comment=cerebrostartup script
+Exec=/opt/cerebro/cerebro
+StartupNotify=false
+Terminal=false
