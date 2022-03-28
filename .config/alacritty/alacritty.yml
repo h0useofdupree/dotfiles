@@ -27,7 +27,7 @@ window:
   dimensions:
     columns: 100
     lines: 30
-  opacity: .45
+  opacity: .3
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
@@ -40,7 +40,7 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0  
+    x: 0
     y: 0  
 
   # Spread additional padding evenly around the terminal content.

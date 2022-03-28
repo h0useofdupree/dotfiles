@@ -48,7 +48,7 @@ repeat = 'off'
 # Queue
 ##################
 # Add to queue
-" " = "queue"
+" " = "playnext"
 "Ctrl+s" = "save queue"
 # Move selected song up/down in the queue
 "J" = "shift down 1"
@@ -74,8 +74,9 @@ repeat = 'off'
 "F3" = "focus search"
 "1" = "focus queue"
 "2" = "focus library"
+"3" = "focus search"
 # Go to the playing track
-"." = "move playing"
+"." = "queue"
 # Navigation
 "Down" = "move down 1"
 "G" = "move bottom"
@@ -116,24 +117,24 @@ repeat = 'off'
 
 
 # Gruvbox dark [ originally based on base16 by Dawid Kurek (dawikur@gmail.com) ]
-#[theme]
-#background = "default"
-#primary = "#32302f"
-#secondary = "light black"
-#title = "#8ec07c"
-#playing = "#689d6a"
-#playing_bg = "#383838"
-#playing_selected = "#ebdbb2"
-#highlight = "#d5c4a1"
-#highlight_bg = "#383838"
-#error = "#fbf1c7"
-#error_bg = "#cc241d"
-#statusbar_progress = "#458588"
-#statusbar_bg = "#282828"
-#statusbar = "#98971a"
-#cmdline = "#d5c4a1"
-#cmdline_bg = "#383838"
-#search_match = "#fabd2f"
+# [theme]
+# background = "default"
+# primary = "#32302f"
+# secondary = "light black"
+# title = "#8ec07c"
+# playing = "#689d6a"
+# playing_bg = "#383838"
+# playing_selected = "#ebdbb2"
+# highlight = "#d5c4a1"
+# highlight_bg = "#383838"
+# error = "#fbf1c7"
+# error_bg = "#cc241d"
+# statusbar_progress = "#458588"
+# statusbar_bg = "#282828"
+# statusbar = "#98971a"
+# cmdline = "#d5c4a1"
+# cmdline_bg = "#383838"
+# search_match = "#fabd2f"
 
 ## Base16 solarized dark, originally form https://github.com/gidsi/base16-ncspot
 # [theme]
@@ -155,23 +156,23 @@ repeat = 'off'
 # cmdline_bg = "#002b36"
 
 ## Spotify
-[theme]
-background = "black"
-primary = "light white"
-secondary = "light black"
-title = "green"
-playing = "green"
-playing_selected = "light green"
-playing_bg = "black"
-highlight = "light white"
-highlight_bg = "#484848"
-error = "light white"
-error_bg = "red"
-statusbar = "black"
-statusbar_progress = "green"
-statusbar_bg = "green"
-cmdline = "light white"
-cmdline_bg = "black"
+# [theme]
+# background = "black"
+# primary = "light white"
+# secondary = "light black"
+# title = "green"
+# playing = "green"
+# playing_selected = "light green"
+# playing_bg = "black"
+# highlight = "light white"
+# highlight_bg = "#484848"
+# error = "light white"
+# error_bg = "red"
+# statusbar = "black"
+# statusbar_progress = "green"
+# statusbar_bg = "green"
+# cmdline = "light white"
+# cmdline_bg = "black"
 
 # [theme]
 # background = "#282828"

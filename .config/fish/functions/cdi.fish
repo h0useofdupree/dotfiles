@@ -1,9 +1,6 @@
-function cdi --wraps=cd
-if test -n $argv[2]
-cd ~/Documents/ITA/$argv[1]/$argv[2]
-else
-cd ~/Documents/ITA/$argv[]
-end
-clear
-lsa
+function cdi --wraps=cd --wraps='cd ~/Documents/ITA/'
+    set -l dir (echo $argv | tr \[:lower:\] \[:upper:\])
+    cd ~/Documents/ITA/$dir
+    clear
+    lsa
 end

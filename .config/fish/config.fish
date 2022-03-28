@@ -2,13 +2,13 @@
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
+
 ###### Autoset EDITOR and BROWSER
 set EDITOR nvim
-set BROWSER brave
+set BROWSER firefox
 set SHELL /bin/fish
 
 cat ~/.cache/wal/sequences
-
 
 ###### Autoset custom variables
 # Get the current connected network interface.
@@ -20,10 +20,18 @@ set TYPE (nmcli connection show | grep "wlp" | awk '{print $3}')
 set MIN 60
 set HOUR 3600
 set HALFHOUR 1800
-# set HOUR (echo '$MIN * 60') | bc
+set HOUR (echo '$MIN * 60') | bc
 # TODO: make this dynamic
 set ACTIVE_MONITORS (xrandr --listactivemonitors | grep "Monitors: " | awk '{print $2}')
 set CONNECTED_MONITORS (xrandr -q | grep -c " connected")
+set CURRENT_WALLPAPER (cat ~/.cache/wal/wal)
+set ACTIVE_SINK (pactl list short sinks | grep RUNNING | awk {'print $1'})
+## Export Variables to .env 
+echo -e "ACTIVE_SINK=$ACTIVE_SINK" > .env
+export (cat .env)
+
+# Misc
+set TERM_BACKGROUND 000000
 
 ###### ENV Vars
 set -p PATH /usr/share
@@ -177,7 +185,8 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 ## Run paleofetch if session is interactive
 if status --is-interactive
-   #neofetch
-   colorscript -r
+  # neofetch
+  paleofetch
+  # colorscript -r
 end
 export PATH="$PATH:$HOME/.spicetify"
