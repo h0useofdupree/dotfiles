@@ -16,7 +16,6 @@ from modules.cfg_colors import clr_bg_sec
 keys = getKeys()
 groups = getGroups()
 dgroups_key_binder = setGroupBindings()
-
 layouts = getLayouts()
 
 ##### DEFAULT WIDGET SETTINGS #####
@@ -31,9 +30,9 @@ extension_defaults = widget_defaults.copy()
 def init_screens():
     return [
         Screen(
-            top=bar.Bar(widgets=init_widgets_screen1(), opacity=1.0, size=27, margin=0)), # margin=[12,15,-4,15])),
+            top=bar.Bar(widgets=init_widgets_screen1(), opacity=.9, size=29, margin=0)), # margin=[12,15,-4,15])),
         Screen(
-            top=bar.Bar(widgets=init_widgets_screen2(), opacity=1.0, size=27, margin=0)), # margin=[12,15,-4,15]))
+            top=bar.Bar(widgets=init_widgets_screen2(), opacity=.9, size=29, margin=0)), # margin=[12,15,-4,15]))
     ]
 
 
