@@ -7,15 +7,15 @@ from libqtile.dgroups import simple_key_binder
 
 def getGroups():
     new_groups = [
-        Group("DEV", layout='floating'),
+        Group("DEV", layout='monadtall'),
         Group("WWW", layout='monadtall'),
-        Group("TRM", layout='floating'),
-        Group("SYS", layout='floating'),
-        Group("DOC", layout='floating'),
+        Group("TRM", layout='monadtall'),
+        Group("SYS", layout='monadtall'),
+        Group("DOC", layout='monadtall'),
         Group("VBOX", layout='monadtall'),
-        Group("CHAT", layout='floating'),
-        Group("VID", layout='floating'),
-        Group("MUS", layout='floating'),
+        Group("CHAT", layout='monadtall'),
+        Group("VID", layout='monadtall'),
+        Group("MUS", layout='monadtall'),
         Group("VIS", layout='floating')
     ]
     return new_groups

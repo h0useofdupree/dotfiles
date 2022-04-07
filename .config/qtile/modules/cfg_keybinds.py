@@ -10,7 +10,7 @@ from libqtile.lazy import lazy
 mod = "mod1"  # Sets mod key to SUPER/WINDOWS
 alt_mod = "mod4"
 term = "kitty"  # My terminal of choice
-browser = "firefox"
+browser = "qutebrowser"
 wp_folder = "pastel"
 
 def getKeys():
@@ -122,6 +122,10 @@ def getKeys():
         Key([], "XF86AudioMute", lazy.spawn("amixer set -M Master toggle")),
         Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 10")),
         Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 10")),
+        Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+        Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+        Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+        Key([alt_mod], "e", lazy.spawn("fish -c 'uml'")),
 
         # Lock / Suspend
         Key([alt_mod], "l", lazy.spawn("betterlockscreen -l dim")),
@@ -133,9 +137,9 @@ def getKeys():
             lazy.spawn("fish -c 'speakers off'")),
 
         ## Rofi: Launcher / Calculator / Emoji
-        Key([mod], "s", lazy.spawn("rofi -show run")),
-        Key([mod], "e", lazy.spawn("rofi -show emoji -modi emoji -theme arthur")),
-        Key([mod], "a", lazy.spawn("rofi -show calc -modi calc -theme arthur")),
+        Key([mod], "s", lazy.spawn("fish -c 'rofi_ribbon'")),
+        Key([mod], "e", lazy.spawn("rofi -show emoji -modi emoji -theme ~/.config/rofi/launchers/colorful/style_2.rasi")),
+        Key([mod], "a", lazy.spawn("rofi -show calc -modi calc -theme ~/.config/rofi/powermenu/message.rasi")),
 
         # ## huepywal
         # KeyChord([mod], "c", [

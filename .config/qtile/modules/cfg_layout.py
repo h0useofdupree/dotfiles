@@ -3,14 +3,14 @@
 Config Module for Layouts
 '''
 from libqtile import layout
-from .cfg_colors import colordict
+from .cfg_colors import clr_fg_main, clr_fg_sec
 
 def getLayouts():
     layout_theme = {
-        "border_width": 7,
+        "border_width": 5,
         "margin": 20,
-        "border_focus": colordict['colors']['color1'],
-        "border_normal": colordict['colors']['color5']
+        "border_focus": clr_fg_main,
+        "border_normal": clr_fg_sec,
     }
     layouts = [
         # layout.MonadWide(**layout_theme),

@@ -3,6 +3,8 @@
 Config Module for Colors
 '''
 import json, os
+
+
 def getColordict():
     colors_json = os.path.expanduser('~/.cache/wal/colors.json')
     colordict = json.load(open(colors_json))
@@ -13,13 +15,14 @@ colordict = getColordict()
 
 clr_bg_main = '#000000'
 clr_bg_sec = '#202020'
-clr_bg_ter = colordict['colors']['color1']
+clr_fg_main = colordict['colors']['color1']
+clr_fg_sec = colordict['colors']['color4']
 
 # Grey
-clr_dark_grey = '#141414'
-clr_light_grey = '#898989'
+clr_grey_dark = '#141414'
+clr_grey_light = '#898989'
 
 # White
-clr_dimmed_white = '#dfdfdf'
+clr_white_dimmed = '#dfdfdf'
 
 # 
