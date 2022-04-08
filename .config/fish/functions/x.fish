@@ -1,6 +1,7 @@
 function x --description 'Starts X clean'
-clear
-colorscript -e 7
-echo "Starting X-Server, $USER"
-startx 2&>/dev/null
+    echo "Starting X-Server"
+    clear
+    colorscript -e 7
+    pipes &
+    startx 2&>/dev/null
 end

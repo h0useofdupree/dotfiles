@@ -1,9 +1,11 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR 5:\x1d
+SETUVAR BW_SESSION:nQk9AY9A1rndCEr5PX2lzlfRbYvO\x2byO1ObzYEiojx0CjiiPvfxplyvw29oPq71cbXnWJ7UDzNpTDAcx93bvLWg\x3d\x3d
+SETUVAR CURRENT_WALLPAPER:/usr/share/wallpapers/neo/0019\x2ejpg
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __done_notification_urgency_level:low
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_cdf:cd\x20/home/juuls/\x2econfig/fish/
 SETUVAR _fish_abbr_cf:clear\x20\x26\x26\x20fish
 SETUVAR _fish_abbr_cl:clear
@@ -22,6 +24,9 @@ SETUVAR _fish_abbr_xcc:xclip\x20\x2dselection\x20clipboard
 SETUVAR _fish_abbr_xdg:xdg\x2dopen
 SETUVAR _fish_abbr_yar:yay\x20\x2dR
 SETUVAR _fish_abbr_yas:yay\x20\x2dS
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/juuls/\x2econfig/fish/functions/fisher\x2efish\x1e/home/juuls/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1esilver\x2dprompt/fish
+SETUVAR _fisher_silver_2D_prompt_2F_fish_files:/home/juuls/\x2econfig/fish/functions/silver\x2efish\x1e/home/juuls/\x2econfig/fish/conf\x2ed/silver\x2efish
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
@@ -50,4 +55,5 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_paths:/home/juuls/\x2ecargo/bin

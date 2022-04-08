@@ -1,2 +1,8 @@
 # pack-refs with: peeled fully-peeled sorted 
-3f8f1eacdb28bf66a64f723e95e2d71cb843acb1 refs/heads/main
+a8c3447d3dcb465d6af1d27de98cfd55fb8c0115 refs/heads/curvature
+16ed76f290b6295c9bdeb6959622489b839d7727 refs/heads/edgy
+13a2d742c6123f63b1e116d28df67bd0b47fa914 refs/heads/main
+7fedc8a9cde2b54ef91fd52b8ef2cc49142a324c refs/remotes/origin/edgy
+b2dab80763676d69a8960aa58855931b9d7f446a refs/remotes/origin/main
+bc31eb6edaa0f1fbee34804360ef121ba8d28d9e refs/remotes/origin/temp
+9395c50f1fda3fba774a430e119f582bd8586eae refs/stash

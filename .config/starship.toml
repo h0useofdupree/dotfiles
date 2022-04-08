@@ -31,7 +31,7 @@ deleted = "x"
 
 # Last param in the first line/row
 [cmd_duration]
-min_time = 1
+min_time = 2
 format = "took [$duration]($style)"
 disabled = false
 
@@ -75,7 +75,7 @@ error_symbol = " [×](bold red)"
 #description = "Displays a (pseudo) random emoji for each prompt"
 ## change the content of the EMOJIS array to your liking and replace the
 ## number 12 with the number of items in the array, minus one
-#command = "EMOJIS=(⛵️ 🛰 🪐 🚀 🧡 🔭 🌍 💫 ☄️ ✨ 🌠 🌌 ⭐️); EMOJI_INDEX=$(( $RANDOM % 12 + 0 )); echo ${EMOJIS[$EMOJI_INDEX]}"
+# command = "EMOJIS=(⛵️ 🛰 🪐 🚀 🧡 🔭 🌍 💫 ☄️ ✨ 🌠 🌌 ⭐️); EMOJI_INDEX=$(( $RANDOM % 12 + 0 )); echo ${EMOJIS[$EMOJI_INDEX]}"
 ## if you are on windows, replace "true" with "1"
 #when = "true"
 #shell = ["bash", "--noprofile", "--norc"]
@@ -86,7 +86,7 @@ error_symbol = " [×](bold red)"
 symbol = "🔴"
 format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
 map_symbol = true
-disabled = false
+disabled = true
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'

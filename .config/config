@@ -9,3 +9,6 @@
 [remote "origin"]
 	url = git@github.com:h0useofdupree/dotfiles.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "edgy"]
+	remote = origin
+	merge = refs/heads/edgy
