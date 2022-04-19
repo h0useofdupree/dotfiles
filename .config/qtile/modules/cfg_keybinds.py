@@ -11,7 +11,7 @@ mod = "mod1"  # Sets mod key to SUPER/WINDOWS
 alt_mod = "mod4"
 term = "kitty"  # My terminal of choice
 browser = "qutebrowser"
-wp_folder = "pastel"
+wp_folder = "neo"
 
 def getKeys():
     keys = [
@@ -172,8 +172,10 @@ def getKeys():
         #             lazy.spawn("fish -c qtile_reload")),
         #     ])
         # ]),
+        
         # Temp Wallpaper Changer
         Key([mod, "shift"], "w", lazy.spawn(f"fish -c 'wp {wp_folder}'")),
+        
         Key([mod], "t", lazy.spawn("todoist"))
     ]
     return keys

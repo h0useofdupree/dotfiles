@@ -7,7 +7,7 @@ from .cfg_colors import clr_fg_main, clr_fg_sec
 
 def getLayouts():
     layout_theme = {
-        "border_width": 5,
+        "border_width": 3,
         "margin": 20,
         "border_focus": clr_fg_main,
         "border_normal": clr_fg_sec,

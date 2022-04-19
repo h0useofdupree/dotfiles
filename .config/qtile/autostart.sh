@@ -36,7 +36,7 @@ kdeconnect-cli -l &
 # Screen Layout
 MONITOR_COUNT=$(xrandr -q | grep -c " connected")
 DATE=$(date)
-# TODO: Improve spontaneous monitor hotplugging capabilities
+# TODO: Improve spontaneous monitor hotplugging capabilities 
 
 # Favorites
 INV_MOUNT=wallhaven-k7v83q
@@ -46,7 +46,7 @@ TRIAD=wallhaven-j3qeyq
 RED_SUNSET=wallhaven-k7v9yq
 PURPLE_DROP=wallhaven-k761p6
 
-autorandr -c &
+autorandr -c
 
 fish -c "wp pastel" &
 
