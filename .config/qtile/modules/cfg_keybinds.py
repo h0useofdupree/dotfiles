@@ -132,9 +132,9 @@ def getKeys():
         Key([alt_mod, "shift"], "l", lazy.spawn("systemctl suspend")),
 
         # Smart Home
-        Key([alt_mod, "shift"], "s", lazy.spawn("fish -c 'speakers on'")),
+        Key([alt_mod, "shift"], "s", lazy.spawn("fish -c 'speakers -1'")),
         Key([alt_mod, "shift", "control"], "s",
-            lazy.spawn("fish -c 'speakers off'")),
+            lazy.spawn("fish -c 'speakers -0'")),
 
         ## Rofi: Launcher / Calculator / Emoji
         Key([mod], "s", lazy.spawn("fish -c 'rofi_ribbon'")),

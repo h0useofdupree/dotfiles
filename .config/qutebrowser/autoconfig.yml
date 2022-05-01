@@ -6,14 +6,22 @@
 
 config_version: 2
 settings:
+  content.blocking.method:
+    global: both
   content.notifications.enabled:
     https://web.whatsapp.com: true
     https://www.netflix.com: false
+    https://www.youtube.com: false
+  scrolling.smooth:
+    global: true
   url.default_page:
     global: localhost:5005
   url.searchengines:
     global:
-      DEFAULT: https://duckduckgo.com/?q={}
+      DEFAULT: https://search.brave.com/search?q={}
       am: https://amazon.de/s?k={}
+      gh: https://github.com/search?q={}
+      rd: https://reddit.com/search/?q={}
+      yt: https://youtube.com/results?search_query={}
   url.start_pages:
     global: localhost:5005

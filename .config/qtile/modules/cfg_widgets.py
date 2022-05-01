@@ -122,7 +122,7 @@ def init_widgets_list():
                             mouse_callbacks={
                                 'Button1':
                                 lambda: qtile.cmd_spawn(
-                                    term + ' -e sudo up')
+                                        term + ' -e sudo bash_pacman_updater')
                             },
                             padding=10,
                             background=clr_bg_sec),

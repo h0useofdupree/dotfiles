@@ -12,3 +12,5 @@
 [branch "edgy"]
 	remote = origin
 	merge = refs/heads/edgy
+[advice]
+	addIgnoredFile = false

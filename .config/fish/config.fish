@@ -23,7 +23,8 @@ if status is-interactive
     paleofetch
 end
 
-# NOTE: Execute commands based on current setup
+# HACK: Execute commands based on current setup
+# NOTE: This is only needed when a US-Keeb is used on a german-localized system and for umlauts
 if [ $CONNECTED_MONITORS = 1 ] # Mobile Setup
     setxkbmap de
 # else if [ $CONNECTED_MONITORS > 1 ] # Home Setup
