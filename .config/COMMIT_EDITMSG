@@ -1,4 +1,3 @@
-Late Update.
-Made some small changes.
-Pending switch to new 'startx-Helperscript' to add functionality, stability and hopefully speed.
-New Markdown Helperscript for neovim. After closing nvim, md2pdf (temperorary) converts the edited md file to pdf. Needs to be done inside of vim for every markdown file. (Maybe just a keybind)
+New AstroVim, now AstroNvim, config.
+added subrepo for lua/user/
+moved all changes to lua/user/init.lua for update compat
