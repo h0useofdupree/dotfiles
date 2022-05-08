@@ -2,7 +2,7 @@
 # VERSION: 3.0
 SETUVAR 5:\x1d
 SETUVAR BW_SESSION:nQk9AY9A1rndCEr5PX2lzlfRbYvO\x2byO1ObzYEiojx0CjiiPvfxplyvw29oPq71cbXnWJ7UDzNpTDAcx93bvLWg\x3d\x3d
-SETUVAR CURRENT_WALLPAPER:/usr/share/wallpapers/pastel/wallhaven\x2dey58lr\x2ejpg
+SETUVAR CURRENT_WALLPAPER:/usr/share/wallpapers/pastel/wallhaven\x2dlmg3kr\x2epng
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __done_notification_urgency_level:low
 SETUVAR __fish_initialized:3400
@@ -19,6 +19,7 @@ SETUVAR _fish_abbr_pxcc:\x7c\x20xclip\x20\x2dselection\x20clipboard
 SETUVAR _fish_abbr_py:python3
 SETUVAR _fish_abbr_rmdf:rm\x20\x2drdfv
 SETUVAR _fish_abbr_se:sudoedit
+SETUVAR _fish_abbr_srmdf:sudo\x20rm\x20\x2drdfv
 SETUVAR _fish_abbr_ss:sudo\x20systemctl
 SETUVAR _fish_abbr_sss:sudo\x20systemctl\x20status
 SETUVAR _fish_abbr_xcc:xclip\x20\x2dselection\x20clipboard

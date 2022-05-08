@@ -1,18 +1,19 @@
-00:00:00.247005 VirtualBox GUI VM Selector Window 6.1.32 r149290 linux.amd64 (Feb 10 2022 14:02:19) release log
-00:00:00.247006 Log opened 2022-03-25T07:06:40.916541000Z
-00:00:00.247007 Build Type: release
-00:00:00.247008 OS Product: Linux
-00:00:00.247008 OS Release: 5.16.16-arch1-1
-00:00:00.247009 OS Version: #1 SMP PREEMPT Mon, 21 Mar 2022 22:59:40 +0000
-00:00:00.247018 DMI Product Name: XPS 15 9510
-00:00:00.247023 DMI Product Version: 
-00:00:00.247026 Firmware type: UEFI
-00:00:00.247765 Secure Boot: Disabled
-00:00:00.247787 Host RAM: 15725MB (15.3GB) total, 13620MB (13.3GB) available
-00:00:00.247790 Executable: /usr/lib/virtualbox/VirtualBox
-00:00:00.247791 Process ID: 8921
-00:00:00.247791 Package type: LINUX_64BITS_GENERIC (OSE)
-00:00:00.247809 Qt version: 5.15.3
-00:00:00.263281 GUI: UIMediumEnumerator: Medium-enumeration started...
-00:00:00.263340 GUI: UIMediumEnumerator: Medium-enumeration finished!
-00:00:00.520213 GUI: UIDesktopWidgetWatchdog::sltHandleHostScreenAvailableGeometryCalculated: Screen 0 work area is actually resized to: 14x55 x 1888x1127
+00:00:00.274327 VirtualBox GUI VM Selector Window 6.1.32 r149290 linux.amd64 (Feb 10 2022 14:02:19) release log
+00:00:00.274328 Log opened 2022-03-28T19:24:30.367259000Z
+00:00:00.274328 Build Type: release
+00:00:00.274329 OS Product: Linux
+00:00:00.274329 OS Release: 5.16.16-arch1-1
+00:00:00.274329 OS Version: #1 SMP PREEMPT Mon, 21 Mar 2022 22:59:40 +0000
+00:00:00.274340 DMI Product Name: XPS 15 9510
+00:00:00.274343 DMI Product Version: 
+00:00:00.274346 Firmware type: UEFI
+00:00:00.275057 Secure Boot: Disabled
+00:00:00.275075 Host RAM: 15725MB (15.3GB) total, 12098MB (11.8GB) available
+00:00:00.275077 Executable: /usr/lib/virtualbox/VirtualBox
+00:00:00.275078 Process ID: 73404
+00:00:00.275078 Package type: LINUX_64BITS_GENERIC (OSE)
+00:00:00.275088 Qt version: 5.15.3
+00:00:00.292878 GUI: UIMediumEnumerator: Medium-enumeration started...
+00:00:00.292889 GUI: UIMediumEnumerator: Medium-enumeration finished!
+00:00:00.618657 GUI: UIDesktopWidgetWatchdog::sltHandleHostScreenAvailableGeometryCalculated: Screen 0 work area is actually resized to: 15x48 x 930x997
+00:00:00.618684 GUI: UIDesktopWidgetWatchdog::sltHandleHostScreenAvailableGeometryCalculated: Screen 1 work area is actually resized to: 975x48 x 910x997

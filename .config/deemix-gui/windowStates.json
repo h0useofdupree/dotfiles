@@ -1,0 +1,19 @@
+{
+  "states": [
+    {
+      "mainWindow": {
+        "dimensions": {
+          "width": 914,
+          "height": 1005
+        },
+        "positions": {
+          "x": 983,
+          "y": 52
+        },
+        "windowState": {
+          "maximized": false
+        }
+      }
+    }
+  ]
+}

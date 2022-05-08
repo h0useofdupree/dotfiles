@@ -1,1 +1,4 @@
-Stable
+Late Update.
+Made some small changes.
+Pending switch to new 'startx-Helperscript' to add functionality, stability and hopefully speed.
+New Markdown Helperscript for neovim. After closing nvim, md2pdf (temperorary) converts the edited md file to pdf. Needs to be done inside of vim for every markdown file. (Maybe just a keybind)
