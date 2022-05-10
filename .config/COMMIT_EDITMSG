@@ -1,3 +1,4 @@
-New AstroVim, now AstroNvim, config.
-added subrepo for lua/user/
-moved all changes to lua/user/init.lua for update compat
+Stable
+Migrated to new AstroNvim
+Installed Weechat - ready for rice and conf
+edited nvconf function
