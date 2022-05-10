@@ -8,7 +8,6 @@ function nvm --wraps=nvim --description 'open nvim with a markdown file and conv
     if test -z (diff -q $argv T$argv)
         echo 'No changes made, not converting.'
         mv T$argv $argv
-    else if test -z (diff -q $argv $HOME/Documents/defaults/Markdown/default.md)
     else 
         echo Changes were made, compiling now, $USER.
         mv T$argv $argv

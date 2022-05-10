@@ -1,0 +1,12 @@
+account joel.riekemann@gmail.com
+host smtp.gmail.com
+port 587
+from joel.riekemann@gmail.com
+user joel.riekemann@gmail.com
+passwordeval "pass joel.riekemann@gmail.com"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/juuls/.config/msmtp/msmtp.log
+# tls_starttls
+

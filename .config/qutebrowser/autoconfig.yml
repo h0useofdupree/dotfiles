@@ -6,6 +6,10 @@
 
 config_version: 2
 settings:
+  colors.webpage.darkmode.algorithm:
+    global: lightness-cielab
+  colors.webpage.darkmode.enabled:
+    global: true
   content.blocking.method:
     global: both
   content.notifications.enabled:
