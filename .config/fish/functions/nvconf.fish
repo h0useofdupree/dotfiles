@@ -12,9 +12,7 @@ function nvconf --description 'AstroNvim config helper'
     if set -q _flag_c
         cd ~/.config/nvim/lua/configs/
         lt -L2 
-    end 
-
-    if set -q _flag_core
+    else if set -q _flag_core
         echo "!!!WARNING!!!"
         echo "DO NOT EDIT THESE FILES! CONTINUE AT YOUR OWN RISK."
         echo "Edited files will result in update compat failing."
@@ -26,13 +24,14 @@ function nvconf --description 'AstroNvim config helper'
         else
             exit 0
         end
-    end
-    
-    if set -q _flag_u
+    else if set -q _flag_u
         set -l path '~/.config/nvim/lua/user/'
         if [ $_flag_u = '1' ]
             nvim ~/.config/nvim/lua/user/init.lua
         end
+    else 
+        cd ~/.config/nvim/ 
+        lt -L1 
     end
     
     # NOTE: Implement this function if possible

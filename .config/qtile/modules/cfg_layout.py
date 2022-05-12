@@ -5,6 +5,7 @@ Config Module for Layouts
 from libqtile import layout
 from .cfg_colors import clr_fg_main, clr_fg_sec
 
+
 def getLayouts():
     layout_theme = {
         "border_width": 3,
@@ -12,21 +13,30 @@ def getLayouts():
         "border_focus": clr_fg_main,
         "border_normal": clr_fg_sec,
     }
+    # HACK: Temp to make a quick no-border matrix-layout. NEED TO IMPROVE / FIX
+    layout_theme_2 = { 
+        "border_width": 1,
+        "margin": 0,
+        "border_focus": clr_fg_main,
+        "border_normal": clr_fg_sec,
+    }
     layouts = [
         # layout.MonadWide(**layout_theme),
         # layout.Bsp(**layout_theme),
         # layout.Stack(stacks=2, **layout_theme),
-        # layout.RatioTile(**layout_theme),
+        layout.RatioTile(**layout_theme),
+        layout.RatioTile(**layout_theme_2),
         # layout.Tile(shift_windows=True, **layout_theme),
         # layout.VerticalTile(**layout_theme),
-        # layout.Matrix(**layout_theme),
+        # layout.Matrix(**layout_theme_2),
         # layout.Zoomy(**layout_theme),
         # layout.Columns(**layout_theme),
-        layout.Floating(**layout_theme),
+        # layout.Floating(**layout_theme),
         layout.MonadTall(**layout_theme),
+        layout.MonadTall(**layout_theme_2),
         # layout.Max(**layout_theme),
         # layout.Stack(num_stacks=2),
-        layout.RatioTile(**layout_theme),
+        # layout.RatioTile(**layout_theme),
         # layout.TreeTab(
         # font = "Ubuntu Mono",
         # fontsize = 10,
