@@ -7,11 +7,11 @@ from libqtile.config import Key
 from libqtile.lazy import lazy
 
 
-mod = "mod1"  # Sets mod key to SUPER/WINDOWS
-alt_mod = "mod4"
-term = "kitty"  # My terminal of choice
+mod = "mod1" # ALT
+alt_mod = "mod4" # WIN
+term = "kitty"
 browser = "qutebrowser"
-wp_folder = "neo"
+wp_folder = "neo" # Wallpaper-Script
 
 def getKeys():
     keys = [
@@ -117,8 +117,8 @@ def getKeys():
             desc='Toggle between split and unsplit sides of stack'),
 
         # Fn-Keys
-        Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset -M Master 1%-")),
-        Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset -M Master 1%+")),
+        Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset -M Master 2%-")),
+        Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset -M Master 2%+")),
         Key([], "XF86AudioMute", lazy.spawn("amixer set -M Master toggle")),
         Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 10")),
         Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 10")),

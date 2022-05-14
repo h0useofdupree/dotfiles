@@ -7,9 +7,7 @@ function nvconf --description 'AstroNvim config helper'
         printf "\n\n\n"
         printf "options:\n\t-h / --help \t show this help message\n\n\t-c / --config \t cd and ls lua/config/\n\n\t--core \t\t cd and ls lua/core/ (Do not edit!)\n\n\t-g / --git \t Add, commit and push the userconfig /lua/user/*\n\n\t"
         echo "-u / --user      (=<config ID>) cd and ls lua/user/(<config ID>)"
-    end
-
-    if set -q _flag_c
+    else if set -q _flag_c
         cd ~/.config/nvim/lua/configs/
         lt -L2 
     else if set -q _flag_core

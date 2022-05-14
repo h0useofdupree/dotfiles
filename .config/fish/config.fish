@@ -1,13 +1,11 @@
 # Custom variables
+set -U CURRENT_WALLPAPER (cat ~/.cache/wal/wal)
+set CONNECTED_MONITORS (cat ~/.scripts/display/CONNECTED_MONITORS)
 set EDITOR nvim
 set BROWSER qutebrowser
 set SHELL /bin/fish
 set TERM_BACKGROUND 000000
 set PYWAL_BACKEND 'wal'
-# set ACTIVE_MONITORS (xrandr --listactivemonitors | grep "Monitors: " | awk '{print $2}')
-set CONNECTED_MONITORS (xrandr -q | grep -c " connected")
-set -U CURRENT_WALLPAPER (cat ~/.cache/wal/wal)
-# set ACTIVE_SINK (pactl list short sinks | grep RUNNING | awk {'print $1'})
 
 ## Export Variables to .env 
 echo -e "PATH=$PATH:~/.config/rofi/bin" > ~/.env
@@ -26,6 +24,6 @@ end
 # HACK: Execute commands based on current setup
 # NOTE: This is only needed when a US-Keeb is used on a german-localized system and for umlauts
 if [ $CONNECTED_MONITORS = 1 ] # Mobile Setup
-    setxkbmap de
+    setxkbmap de # Sets keyboard layout to de if laptop is used on the go
 # else if [ $CONNECTED_MONITORS > 1 ] # Home Setup
 end

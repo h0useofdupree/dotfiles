@@ -8,7 +8,7 @@ from .cfg_colors import clr_fg_main, clr_fg_sec
 
 def getLayouts():
     layout_theme = {
-        "border_width": 3,
+        "border_width": 4,
         "margin": 20,
         "border_focus": clr_fg_main,
         "border_normal": clr_fg_sec,
@@ -16,7 +16,7 @@ def getLayouts():
     # HACK: Temp to make a quick no-border matrix-layout. NEED TO IMPROVE / FIX
     layout_theme_2 = { 
         "border_width": 1,
-        "margin": 0,
+        "margin": 1,
         "border_focus": clr_fg_main,
         "border_normal": clr_fg_sec,
     }

@@ -30,9 +30,9 @@ extension_defaults = widget_defaults.copy()
 def init_screens():
     return [
         Screen(
-            top=bar.Bar(widgets=init_widgets_screen1(), opacity=.9, size=29, margin=0)), # margin=[12,15,-4,15])),
+            top=bar.Bar(widgets=init_widgets_screen1(), opacity=.9, size=32, margin=0)), # margin=[12,15,-4,15])),
         Screen(
-            top=bar.Bar(widgets=init_widgets_screen2(), opacity=.9, size=29, margin=0)), # margin=[12,15,-4,15]))
+            top=bar.Bar(widgets=init_widgets_screen2(), opacity=.9, size=32, margin=0)), # margin=[12,15,-4,15]))
     ]
 
 
