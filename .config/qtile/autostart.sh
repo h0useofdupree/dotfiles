@@ -51,7 +51,7 @@ FLOWERS=wallhaven-mpo33m # NEO
 autorandr -c
 
 # Random wallpaper from folder wp <folder>
-fish -c "wp pastel" &
+# fish -c "wp pastel" &
 # Select specific wallpaper with variables set above wps <folder> <name>
 fish -c "wps neo $FLOWERS"
 
