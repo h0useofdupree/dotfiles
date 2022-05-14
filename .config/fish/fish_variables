@@ -2,7 +2,7 @@
 # VERSION: 3.0
 SETUVAR 5:\x1d
 SETUVAR BW_SESSION:nQk9AY9A1rndCEr5PX2lzlfRbYvO\x2byO1ObzYEiojx0CjiiPvfxplyvw29oPq71cbXnWJ7UDzNpTDAcx93bvLWg\x3d\x3d
-SETUVAR CURRENT_WALLPAPER:/usr/share/wallpapers/pastel/c45V4qr\x2ejpeg
+SETUVAR CURRENT_WALLPAPER:/usr/share/wallpapers/neo/wallhaven\x2dmpo33m\x2ejpg
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __done_notification_urgency_level:low
 SETUVAR __fish_initialized:3400
@@ -58,6 +58,6 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/juuls/\x2ecargo/bin
+SETUVAR fish_user_paths:/home/juuls/\x2elocal/bin
 SETUVAR url_speakers_off:https\x3a//maker\x2eifttt\x2ecom/trigger/pc_speakers_off/with/key/pzJJnb6wYJWs6VRh1LDt0UXZNn\x2dSDmMa7RhdSEY9a2v
 SETUVAR url_speakers_on:https\x3a//maker\x2eifttt\x2ecom/trigger/pc_speakers_on/with/key/pzJJnb6wYJWs6VRh1LDt0UXZNn\x2dSDmMa7RhdSEY9a2v

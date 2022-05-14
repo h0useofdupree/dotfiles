@@ -8,7 +8,7 @@ set TERM_BACKGROUND 000000
 set PYWAL_BACKEND 'wal'
 
 ## Export Variables to .env 
-echo -e "PATH=$PATH:~/.config/rofi/bin" > ~/.env
+echo -e "PATH=$PATH:~/.config/rofi/bin:~/.local/bin" > ~/.env
 export (cat ~/.env)
 
 if status is-interactive

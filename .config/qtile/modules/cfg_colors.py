@@ -24,5 +24,3 @@ clr_grey_light = '#898989'
 
 # White
 clr_white_dimmed = '#dfdfdf'
-
-# 
