@@ -1,5 +1,5 @@
-Wohoo we're stable again.
-Two fricking curly braces where put into colors.json which caused json.loads to read two objects which in return doesn't work.
-Whoever put them there, fuck you!
-
-Propably was me anyways...
+Stable.
+- Added QTiles ScratchPad and DropDown feature
+- Cleanup
+- Moved to new qtile version
+- installed notion-app, awaiting for proper cli programm
