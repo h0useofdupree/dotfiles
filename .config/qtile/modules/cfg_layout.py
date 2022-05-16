@@ -13,7 +13,7 @@ def getLayouts():
         "border_focus": clr_fg_main,
         "border_normal": clr_fg_sec,
     }
-    # HACK: Temp to make a quick no-border matrix-layout. NEED TO IMPROVE / FIX
+    # HACK: Changing margin on the fly
     layout_theme_2 = { 
         "border_width": 1,
         "margin": 1,

@@ -54,6 +54,9 @@ PURPLE_DROP=wallhaven-k761p6
 ## Neo
 ROBOT=robot
 FLOWERS=wallhaven-mpo33m
+
+# Fractal
+BLACKBROWNWHITE=wallhaven-xld8rd
 ##############################
 
 # Finally set screen layout based on monitor config
@@ -62,7 +65,7 @@ autorandr -c
 # Random wallpaper from folder wp <folder>
 # fish -c "wp pastel" &
 # Select specific wallpaper with variables set above wps <folder> <name>
-fish -c "wp pastel" &
+fish -c "wps fractal $BLACKBROWNWHITE" &
 
 # NOTE: Actions for home setup
 if [[ $MONITOR_COUNT -gt 1 ]]; then
