@@ -175,8 +175,12 @@ def getKeys():
         
         # Temp Wallpaper Changer
         Key([mod, "shift"], "w", lazy.spawn(f"fish -c 'wp {wp_folder}'")),
-        
-        Key([mod], "t", lazy.spawn("todoist"))
+    
+        Key([mod], "t", lazy.spawn("todoist")),
+
+        # Scratchpad / DropDown
+        Key([], "F11", lazy.group['ScratchPad'].dropdown_toggle('term')),
+        Key([], "F12", lazy.group['ScratchPad'].dropdown_toggle('qtile shell')),
     ]
     return keys
 keys = getKeys

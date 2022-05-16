@@ -12,4 +12,10 @@ function wps
     end
         
     lockrender &
+
+    # HACK: This is only done in wp / wps while there is not other way to get the current monitor count in a short time critical way. 
+    # NOTE: Only important if new monitors are plugged in and the laptop is not relogged in.
+    
+    set -u MONITOR_COUNT (xrandr -q | grep -c " connected") 2&>/dev/null &
+    echo $MONITOR_COUNT > ~/.scripts/display/CONNECTED_MONITORS 
 end

@@ -1,0 +1,5 @@
+2022/05/16-16:58:32.208 35e0 Reusing MANIFEST /home/juuls/.config/notion-app/Partitions/notion/IndexedDB/notion_www.notion.so_0.indexeddb.leveldb/MANIFEST-000001
+2022/05/16-16:59:00.566 365f Level-0 table #5: started
+2022/05/16-16:59:00.572 365f Level-0 table #5: 4146 bytes OK
+2022/05/16-16:59:00.573 365f Delete type=0 #3
+2022/05/16-16:59:00.573 365f Manual compaction at level-0 from (begin) .. (end); will stop at (end)

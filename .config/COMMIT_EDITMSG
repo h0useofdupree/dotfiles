@@ -1,1 +1,5 @@
-Unstable. Not starting
+Wohoo we're stable again.
+Two fricking curly braces where put into colors.json which caused json.loads to read two objects which in return doesn't work.
+Whoever put them there, fuck you!
+
+Propably was me anyways...

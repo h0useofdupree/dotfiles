@@ -2,11 +2,17 @@
 '''
 Group configuration for Qtile
 '''
-from libqtile.config import Group
+from libqtile.config import Group, ScratchPad, DropDown
 from libqtile.dgroups import simple_key_binder
+from .cfg_keybinds import term
 
 def getGroups():
     new_groups = [
+        ScratchPad("ScratchPad", [
+            DropDown("term", term, opacity=.8),
+            DropDown("qtile shell", f"{term} --hold -e qtile shell",
+                      x=.05, y=.4, width=.9, height=.6, opacity=.8, on_focus_lost_hide=True)
+            ]),
         Group("DEV", layout='monadtall'),
         Group("WWW", layout='monadtall'),
         Group("TRM", layout='monadtall'),
