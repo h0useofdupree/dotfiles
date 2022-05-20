@@ -59,7 +59,7 @@ FLOWERS=wallhaven-mpo33m
 BLACKBROWNWHITE=wallhaven-xld8rd
 ##############################
 
-# Finally set screen layout based on monitor config
+# Set screen layout based on monitor config
 autorandr -c
 
 # Random wallpaper from folder wp <folder>
