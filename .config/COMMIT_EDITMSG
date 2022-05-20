@@ -1,1 +1,5 @@
-tried adding README
+Couple small changes.
+- round corners again
+- new update_wallpapers function with automatic folder creation
+- autostart.sh was improved
+- new wallpaper folder 'fractal' and new main wallpaper

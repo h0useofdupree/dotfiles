@@ -2,7 +2,7 @@
 # VERSION: 3.0
 SETUVAR 5:\x1d
 SETUVAR BW_SESSION:nQk9AY9A1rndCEr5PX2lzlfRbYvO\x2byO1ObzYEiojx0CjiiPvfxplyvw29oPq71cbXnWJ7UDzNpTDAcx93bvLWg\x3d\x3d
-SETUVAR CURRENT_WALLPAPER:/usr/share/wallpapers/fractal/wallhaven\x2dxld8rd\x2ejpg
+SETUVAR CURRENT_WALLPAPER:/usr/share/wallpapers/fractal/wallhaven\x2dodevqp\x2epng
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __done_notification_urgency_level:low
 SETUVAR __fish_initialized:3400
@@ -14,6 +14,7 @@ SETUVAR _fish_abbr_func:funced\x20\x2de\x20nvim\x20\x2ds
 SETUVAR _fish_abbr_ltc:lt\x20\x7c\x20cat
 SETUVAR _fish_abbr_mvh:mv\x20/home/juuls/
 SETUVAR _fish_abbr_nh:nhxdg
+SETUVAR _fish_abbr_nmcon:nmcli\x20device\x20wifi\x20connect
 SETUVAR _fish_abbr_nv:nvim
 SETUVAR _fish_abbr_pxcc:\x7c\x20xclip\x20\x2dselection\x20clipboard
 SETUVAR _fish_abbr_py:python3
