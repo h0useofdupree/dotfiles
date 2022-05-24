@@ -3,12 +3,12 @@
     {
       "mainWindow": {
         "dimensions": {
-          "width": 914,
-          "height": 1005
+          "width": 1632,
+          "height": 970
         },
         "positions": {
-          "x": 983,
-          "y": 52
+          "x": 1944,
+          "y": 56
         },
         "windowState": {
           "maximized": false

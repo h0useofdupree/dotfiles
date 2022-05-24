@@ -62,3 +62,8 @@
 
 ## Scope
 > The scope of this will be limited to running external processes (which will be tested seperately) and qtile's own functions. All the config files will be parsed by python py_compile and qtiles check function. 
+
+
+## Process 
+### Testing Testing 
+> The first script to test my config(s) will be running py_compile or qtile check on one or more config files. It will run a few of qtiles function through the shell and test some dependencies.

@@ -78,5 +78,6 @@
     "multiArtistSeparator": "default",
     "singleAlbumArtist": false,
     "coverDescriptionUTF8": false
-  }
+  },
+  "clearQueueOnExit": true
 }

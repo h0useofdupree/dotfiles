@@ -51,3 +51,6 @@ d45f0e3d1efa9e98d2e737ea7975bef7da863b8e 02f49bca518761c76cb4d1701d35215c02380b7
 56a0c1483b9369d8310e398eb13110f07ef92003 2fb913698933b4526a433f95a0ff1bcb03132a5d h0useofdupree <joel.riekemann@gmail.com> 1652722324 +0200	commit: tried adding README
 2fb913698933b4526a433f95a0ff1bcb03132a5d bd6188f04991313d74bdbe4f48622269114a6efa h0useofdupree <joel.riekemann@gmail.com> 1652737186 +0200	commit: Couple small changes.
 bd6188f04991313d74bdbe4f48622269114a6efa b6cc2941c91f0963202955a12a4c6755c34e6c88 h0useofdupree <joel.riekemann@gmail.com> 1653060215 +0200	commit: Routine backup
+b6cc2941c91f0963202955a12a4c6755c34e6c88 7d96393627876fafa7c2e508f74506794cf29c5e h0useofdupree <joel.riekemann@gmail.com> 1653061068 +0200	commit: Added tests folder for future tests
+7d96393627876fafa7c2e508f74506794cf29c5e 7d96393627876fafa7c2e508f74506794cf29c5e h0useofdupree <joel.riekemann@gmail.com> 1653400948 +0200	reset: moving to HEAD
+7d96393627876fafa7c2e508f74506794cf29c5e 7d96393627876fafa7c2e508f74506794cf29c5e h0useofdupree <joel.riekemann@gmail.com> 1653400971 +0200	reset: moving to HEAD
