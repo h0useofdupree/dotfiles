@@ -1,9 +1,7 @@
-{
-  ...
-}: {
+{...}: {
   imports = [
-        ./plugins
-        ./options.nix
+    ./plugins
+    ./options.nix
   ];
   programs = {
     nixvim = {
@@ -23,6 +21,7 @@
       plugins = {
         conform-nvim = {
           enable = true;
+          lazyLoad.enable = true;
         };
         lsp = {
           enable = true;
@@ -77,7 +76,6 @@
 
         hmts.enable = true;
       };
-
     };
   };
 }
