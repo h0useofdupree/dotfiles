@@ -5,10 +5,10 @@
   ...
 }: {
   imports = [
-        ./theme/filetype.nix
-        ./theme/icons.nix
-        ./theme/manager.nix
-        ./theme/status.nix
+    ./theme/filetype.nix
+    ./theme/icons.nix
+    ./theme/manager.nix
+    ./theme/status.nix
   ];
 
   home.packages = [pkgs.exiftool];

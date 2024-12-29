@@ -13,15 +13,14 @@
   networking.hostName = "linx";
 
   services = {
-      fstrim.enable = true;
+    fstrim.enable = true;
 
-      xserver.enable = true;
+    xserver.enable = true;
 
-      xserver.xkb.layout = "de";
-      libinput.enable = true;
+    xserver.xkb.layout = "de";
+    libinput.enable = true;
   };
 
-    
   # Consider this!
   # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
