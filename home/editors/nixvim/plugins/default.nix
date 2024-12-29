@@ -1,7 +1,8 @@
 {
-    imports = [
-        ./better-escape.nix
-        ./neotree.nix
-        # ./extraPlugins.nix
-    ];
+  imports = [
+    ./better-escape.nix
+    ./neotree.nix
+    ./otter.nix
+    # ./extraPlugins.nix
+  ];
 }
