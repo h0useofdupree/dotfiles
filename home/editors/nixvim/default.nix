@@ -12,7 +12,25 @@
       vimAlias = true;
       vimdiffAlias = true;
 
-      colorschemes.catppuccin.enable = true;
+      colorschemes = {
+        gruvbox = {
+          enable = false;
+          settings.transparent_mode = true;
+        };
+
+        catppuccin = {
+          enable = true;
+          settings = {
+            flavour = "mocha";
+            integrations = {
+              cmp = true;
+              gitsigns = true;
+              nvimtree = true;
+              treesitter = true;
+            };
+          };
+        };
+      };
 
       globals = {
         neovide.transparency = 0.8;
@@ -21,7 +39,6 @@
       plugins = {
         conform-nvim = {
           enable = true;
-          lazyLoad.enable = true;
         };
         lsp = {
           enable = true;

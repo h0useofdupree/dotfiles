@@ -9,6 +9,7 @@
     ./terminal
     inputs.nix-index-db.hmModules.nix-index
     inputs.nixvim.homeManagerModules.nixvim
+    inputs.hyprpanel.homeManagerModules.hyprpanel
     self.nixosModules.theme
   ];
 
@@ -22,7 +23,7 @@
   manual = {
     html.enable = false;
     json.enable = false;
-    manpages.enable = true;
+    manpages.enable = false;
   };
 
   programs.home-manager.enable = true;

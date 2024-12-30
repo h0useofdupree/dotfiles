@@ -152,6 +152,11 @@
       };
     };
 
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -160,15 +165,6 @@
     tailray = {
       url = "github:NotAShelf/tailray";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        flake-compat.follows = "flake-compat";
-      };
     };
 
     zen-browser = {

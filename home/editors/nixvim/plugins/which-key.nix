@@ -1,8 +1,7 @@
 {...}: {
   programs.nixvim.plugins = {
-    otter = {
+    which-key = {
       enable = true;
-      autoActivate = true;
     };
   };
 }

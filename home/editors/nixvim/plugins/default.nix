@@ -3,7 +3,11 @@
     ./better-escape.nix
     ./neotree.nix
     ./otter.nix
-    ./none-ls.nix
+    #./which-key.nix
+    #./indent-o-matic.nix
     # ./extraPlugins.nix
+    #./none-ls.nix
   ];
+  programs.nixvim = {
+  };
 }
