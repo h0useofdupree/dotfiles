@@ -4,5 +4,6 @@
     systemd.enable = true;
     hyprland.enable = false;
     overwrite.enable = false;
+    overlay.enable = true;
   };
 }
