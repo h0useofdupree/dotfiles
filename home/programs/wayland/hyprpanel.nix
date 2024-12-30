@@ -3,7 +3,7 @@
     enable = true;
     systemd.enable = true;
     hyprland.enable = false;
-    overwrite.enable = false;
+    overwrite.enable = true;
     overlay.enable = true;
   };
 }
