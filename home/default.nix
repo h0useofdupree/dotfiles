@@ -32,5 +32,6 @@
     (final: prev: {
       lib = prev.lib // {colors = import "${self}/lib/colors" lib;};
     })
+    inputs.hyprpanel.overlay
   ];
 }
