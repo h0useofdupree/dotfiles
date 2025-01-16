@@ -19,7 +19,7 @@
     grc
 
     overskride
-    mission-center
+    resources
     wineWowPackages.wayland
   ];
 }
