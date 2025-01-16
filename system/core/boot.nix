@@ -13,6 +13,7 @@
     consoleLogLevel = 3;
     kernelParams = [
       "quiet"
+      "splash"
       "systemd.show_status=auto"
       "rd.udev.log_level=3"
       "plymouth.use-simpledrm"
@@ -27,7 +28,7 @@
         device = "nodev";
         useOSProber = true;
       };
-      #systemd-boot.enable = false;
+      systemd-boot.enable = false;
     };
 
     plymouth.enable = true;
