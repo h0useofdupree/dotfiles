@@ -12,18 +12,17 @@
   networking.hostName = "nixus";
 
   services = {
-      fstrim.enable = true;
+    fstrim.enable = true;
 
-        # xserver.enable = true;
+    # xserver.enable = true;
 
-        # xserver.displayManager.gdm.enable = true;
-        # xserver.desktopManager.gnome.enable = true;
+    # xserver.displayManager.gdm.enable = true;
+    # xserver.desktopManager.gnome.enable = true;
 
-      xserver.xkb.layout = "us";
-      xserver.xkb.variant = "altgr-intl";
+    xserver.xkb.layout = "us";
+    xserver.xkb.variant = "altgr-intl";
   };
 
-    
   # Consider this!
   # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
@@ -44,6 +43,7 @@
     bat
     eza
     nixd
+    nitch
     tldr
     zoxide
     fd

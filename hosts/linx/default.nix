@@ -41,6 +41,7 @@
     bat
     eza
     nixd
+    nitch
     tldr
     zoxide
     fd
