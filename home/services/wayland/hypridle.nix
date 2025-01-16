@@ -23,13 +23,13 @@ in {
 
       listener = [
         {
-            # TODO: Enable only for linx (laptop)
-            # timeout = timeout - 10;
-            # # save the current brightness and dim the screen over a period of
-            # # 500 ms
-            # on-timeout = "${brillo} -O; ${brillo} -u 500000 -S 10";
-            # # brighten the screen over a period of 250ms to the saved value
-            # on-resume = "${brillo} -I -u 250000";
+          # TODO: Enable only for linx (laptop)
+          # timeout = timeout - 10;
+          # # save the current brightness and dim the screen over a period of
+          # # 500 ms
+          # on-timeout = "${brillo} -O; ${brillo} -u 500000 -S 10";
+          # # brighten the screen over a period of 250ms to the saved value
+          # on-resume = "${brillo} -I -u 250000";
         }
         {
           inherit timeout;

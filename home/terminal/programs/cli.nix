@@ -1,22 +1,22 @@
 {pkgs, ...}: {
-    home.packages = with pkgs; [
-        zip
-        unzip
-        unrar
+  home.packages = with pkgs; [
+    zip
+    unzip
+    unrar
 
-        libnotify
-        #sshfs
+    libnotify
+    #sshfs
 
-        du-dust
-        duf
-        fd
-        file
-        jaq
-        ripgrep
-    ];
+    du-dust
+    duf
+    fd
+    file
+    jaq
+    ripgrep
+  ];
 
-    programs = {
-        eza.enable = true;
-        ssh.enable = true;
-    };
+  programs = {
+    eza.enable = true;
+    ssh.enable = true;
+  };
 }

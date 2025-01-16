@@ -110,7 +110,7 @@
           yt = "https://www.youtube.com/results?search_query={}";
         };
 
-        start_pages = [ "https://startertab.com/" ];
+        start_pages = ["https://startertab.com/"];
       };
     };
   };

@@ -1,21 +1,21 @@
 {pkgs, ...}: {
-    imports = [
-        ./mpv.nix
-    ];
+  imports = [
+    ./mpv.nix
+  ];
 
-    home.packages = with pkgs; [
-        # Audio control
-        pulsemixer
-        pwvucontrol
+  home.packages = with pkgs; [
+    # Audio control
+    pulsemixer
+    pwvucontrol
 
-        # Audio
-        amberol
-        spotify
+    # Audio
+    amberol
+    spotify
 
-        # Image
-        loupe
+    # Image
+    loupe
 
-        # Video
-        celluloid
-    ];
+    # Video
+    celluloid
+  ];
 }

@@ -1,11 +1,11 @@
 {
-    programs.nh = {
-        enable = true;
+  programs.nh = {
+    enable = true;
 
-        # Weekly cleanup
-        clean = {
-            enable = true;
-            extraArgs = "--keep-since 30d";
-        };
+    # Weekly cleanup
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 30d";
     };
+  };
 }

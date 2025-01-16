@@ -1,26 +1,26 @@
 {config, ...}: let
-    data = config.xdg.dataHome;
-    conf = config.xdg.configHome;
-    cache = config.xdg.cacheHome;
+  data = config.xdg.dataHome;
+  conf = config.xdg.configHome;
+  cache = config.xdg.cacheHome;
 in {
-    imports = [
-        ./programs
-        ./shell/fish.nix
-        ./shell/bash.nix
-    ];
+  imports = [
+    ./programs
+    ./shell/fish.nix
+    ./shell/bash.nix
+  ];
 
-    home.sessionVariables = {
-        # Clean up
-        LESSHISTFILE = "${cache}/less/history";
-        LESSKEY = "${conf}/less/lesskey";
+  home.sessionVariables = {
+    # Clean up
+    LESSHISTFILE = "${cache}/less/history";
+    LESSKEY = "${conf}/less/lesskey";
 
-        WINEPREFIX = "${data}/wine";
-        XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
+    WINEPREFIX = "${data}/wine";
+    XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
 
-        EDITOR = "nvim";
-        DIRENV_LOG_FORMAT = "";
+    EDITOR = "nvim";
+    DIRENV_LOG_FORMAT = "";
 
-        # TODO: Consider this?
-        # NIX_AUTO_RUN = "1";
-    };
+    # TODO: Consider this?
+    # NIX_AUTO_RUN = "1";
+  };
 }

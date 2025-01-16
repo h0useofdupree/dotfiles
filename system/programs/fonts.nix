@@ -1,25 +1,25 @@
 {pkgs, ...}: {
-    fonts = {
-        packages = with pkgs; [
-            # Icons
-            material-symbols
+  fonts = {
+    packages = with pkgs; [
+      # Icons
+      material-symbols
 
-            # Sans(Serif)
-            libertinus
-            noto-fonts
-            noto-fonts-cjk-sans
-            noto-fonts-emoji
-            roboto
-            (google-fonts.override {fonts = ["Inter"];})
+      # Sans(Serif)
+      libertinus
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      roboto
+      (google-fonts.override {fonts = ["Inter"];})
 
-            # Monospace
-            jetbrains-mono
+      # Monospace
+      jetbrains-mono
 
-            # Nerd-Fonts
-            nerd-fonts.caskaydia-cove
-            nerd-fonts.symbols-only
-        ];
+      # Nerd-Fonts
+      nerd-fonts.caskaydia-cove
+      nerd-fonts.symbols-only
+    ];
 
-        enableDefaultPackages = false;
-    };
+    enableDefaultPackages = false;
+  };
 }

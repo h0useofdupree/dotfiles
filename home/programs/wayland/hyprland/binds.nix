@@ -95,21 +95,19 @@ in {
         # cycle monitors
         "$mod SHIFT, bracketleft, focusmonitor, l"
         "$mod SHIFT, bracketright, focusmonitor, r"
-
       ]
       ++ workspaces;
 
     binde = [
-        "$mod2 SHIFT, h, resizeactive, -10% 0"
-        "$mod2 SHIFT, l, resizeactive, 10% 0"
-        "$mod2 SHIFT, j, resizeactive, 0 10%"
-        "$mod2 SHIFT, k, resizeactive, 0 -10%"
+      "$mod2 SHIFT, h, resizeactive, -10% 0"
+      "$mod2 SHIFT, l, resizeactive, 10% 0"
+      "$mod2 SHIFT, j, resizeactive, 0 10%"
+      "$mod2 SHIFT, k, resizeactive, 0 -10%"
     ];
 
     bindr = [
       # launcher
       "$mod, R, exec, ${toggle "anyrun"}"
-
     ];
 
     bindl = [

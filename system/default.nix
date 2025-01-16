@@ -1,27 +1,26 @@
 let
-    desktop = [
-        ./core
-        ./core/boot.nix
+  desktop = [
+    ./core
+    ./core/boot.nix
 
-        ./hardware/graphics.nix
-        ./hardware/bluetooth.nix
+    ./hardware/graphics.nix
+    ./hardware/bluetooth.nix
 
-        ./network
+    ./network
 
-        ./programs
+    ./programs
 
-        ./services
-        ./services/greetd.nix
-        ./services/pipewire.nix
-        
+    ./services
+    ./services/greetd.nix
+    ./services/pipewire.nix
+  ];
+
+  laptop =
+    desktop
+    ++ [
+      ./services/backlight.nix
+      ./services/power.nix
     ];
-
-    laptop =
-        desktop
-        ++ [
-            ./services/backlight.nix
-            ./services/power.nix
-        ];
 in {
-    inherit desktop laptop;
+  inherit desktop laptop;
 }

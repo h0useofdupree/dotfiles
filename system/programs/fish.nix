@@ -1,11 +1,11 @@
 {
-    environment.pathsToLink = ["/share/fish"];
+  environment.pathsToLink = ["/share/fish"];
 
-    programs = {
-        less.enable = true;
+  programs = {
+    less.enable = true;
 
-        fish = {
-            enable = true;
-        };
+    fish = {
+      enable = true;
     };
+  };
 }

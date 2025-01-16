@@ -1,28 +1,25 @@
-{
-    pkgs,
-    ...
-}: {
-    imports = [
-        ./anyrun
-        ./browsers/firefox.nix
-        ./browsers/qutebrowser.nix
-        ./browsers/zen.nix
-        ./media
-        ./gtk.nix
-        ./office
-        ./qt.nix
-    ];
+{pkgs, ...}: {
+  imports = [
+    ./anyrun
+    ./browsers/firefox.nix
+    ./browsers/qutebrowser.nix
+    ./browsers/zen.nix
+    ./media
+    ./gtk.nix
+    ./office
+    ./qt.nix
+  ];
 
-    home.packages = with pkgs; [
-        signal-desktop
-        tdesktop
+  home.packages = with pkgs; [
+    signal-desktop
+    tdesktop
 
-        gnome-calculator
-        gnome-control-center
-        grc
+    gnome-calculator
+    gnome-control-center
+    grc
 
-        overskride
-        mission-center
-        wineWowPackages.wayland
-    ];
+    overskride
+    mission-center
+    wineWowPackages.wayland
+  ];
 }

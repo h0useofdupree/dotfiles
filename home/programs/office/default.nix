@@ -1,11 +1,11 @@
 {pkgs, ...}: {
-    imports = [
-        ./zathura.nix
-    ];
+  imports = [
+    ./zathura.nix
+  ];
 
-    home.packages = with pkgs; [
-        libreoffice
-        obsidian
-        # TODO: Add some notion stuff if possible
-    ];
+  home.packages = with pkgs; [
+    libreoffice
+    obsidian
+    # TODO: Add some notion stuff if possible
+  ];
 }
