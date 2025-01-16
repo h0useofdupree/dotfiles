@@ -18,7 +18,8 @@ in {
       # set cursor for HL itself
       "hyprctl setcursor ${cursorName} ${toString pointer.size}"
       "hyprlock"
-      "waybar"
+      #"waybar"
+      "hyprpanel"
     ];
 
     general = {
