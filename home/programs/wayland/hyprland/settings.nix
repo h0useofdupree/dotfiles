@@ -34,7 +34,8 @@ in {
     };
 
     decoration = {
-      rounding = 20;
+      rounding = 10;
+      rounding_power = 3;
       blur = {
         enabled = true;
         brightness = 1.0;
