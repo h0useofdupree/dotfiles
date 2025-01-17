@@ -29,7 +29,6 @@
   programs.home-manager.enable = true;
 
   nixpkgs.overlays = [
-    inputs.hyprpanel.overlay
     (final: prev: {
       lib = prev.lib // {colors = import "${self}/lib/colors" lib;};
     })
