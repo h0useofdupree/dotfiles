@@ -6,7 +6,7 @@
   imports = [
     ./hyprland
     # TEMP: Remove waybar once HyprPanel (AGSv2) instructions for NixOS are done!!!
-    #./waybar
+    ./waybar
     #./hyprpanel.nix
     ./hyprlock.nix
     ./wlogout.nix
