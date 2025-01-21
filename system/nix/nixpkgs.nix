@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  self,
+  inputs,
+  ...
+}: {
   nixpkgs = {
     config.allowUnfree = true;
     config.permittedInsecurePackages = [
@@ -13,6 +17,7 @@
             colors = import "${self}/lib/colors" prev.lib;
           };
       })
+      inputs.hyprpanel.overlay
     ];
   };
 }
