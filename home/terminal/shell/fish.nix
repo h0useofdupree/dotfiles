@@ -2,7 +2,6 @@
   # TODO: Run fish only interactively (see: https://nixos.wiki/wiki/Fish)
   programs.fish = {
     enable = true;
-    vendor.completions.enable = true;
 
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
