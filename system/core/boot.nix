@@ -31,7 +31,7 @@
       systemd-boot.enable = false;
     };
 
-    plymouth.enable = true;
+    plymouth.enable = false;
   };
 
   environment.systemPackages = [config.boot.kernelPackages.cpupower];
