@@ -26,7 +26,7 @@
 
     loader = {
       efi.canTouchEfiVariables = true;
-      timeout = 0;
+      # timeout = 0;
 
       grub = {
         enable = true;
