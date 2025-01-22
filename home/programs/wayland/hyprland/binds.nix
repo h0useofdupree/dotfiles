@@ -46,6 +46,8 @@ in {
         # utility
         # terminal
         "$mod, Return, exec, uwsm app -- kitty"
+        #browser
+        "$mod, B, exec, uwsm app -- zen"
         # logout menu
         "Control $mod, Delete, exec, ${toggle "wlogout"} -p layer-shell"
         # lock screen
@@ -54,7 +56,7 @@ in {
         "$mod, O, exec, ${runOnce "wl-ocr"}"
         ", XF86Favorites, exec, ${runOnce "wl-ocr"}"
         # open calculator
-        ", XF86Calculator, exec, ${toggle "gnome-calculator"}"
+        "$mod, C, exec, ${toggle "gnome-calculator"}"
         # open settings
         "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome ${runOnce "gnome-control-center"}"
 
