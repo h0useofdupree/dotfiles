@@ -21,6 +21,7 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       "plymouth.use-simpledrm"
+      "video=3440x1440"
     ];
 
     loader = {
