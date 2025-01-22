@@ -33,6 +33,10 @@ in {
       resize_on_border = false;
     };
 
+    experimental = {
+      hdr = true;
+    };
+
     decoration = {
       rounding = 20;
       rounding_power = 3;
