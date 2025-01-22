@@ -7,6 +7,7 @@ in {
     ./programs
     ./shell/fish.nix
     ./shell/bash.nix
+    ./shell/zsh.nix
   ];
 
   home.sessionVariables = {
