@@ -1,4 +1,4 @@
-# TODO: Split this up!
+# TODO: Split this up and FIX this!
 {
   programs.qutebrowser = {
     enable = true;
@@ -12,9 +12,11 @@
 
       # Colors
       colors.webpage = {
-        darkmode.algorithm = "lightness-cielab";
-        darkmode.enabled = false;
-        darkmode.policy.images = "smart";
+        darkmode = {
+          algorithm = "lightness-cielab";
+          enabled = false;
+          policy.images = "smart";
+        };
         preferred_color_scheme = "dark";
       };
 
