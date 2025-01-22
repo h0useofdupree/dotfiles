@@ -18,6 +18,10 @@
 
     # xserver.displayManager.gdm.enable = true;
     # xserver.desktopManager.gnome.enable = true;
+    # Disable wakeup from AMD USB-Controller
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1022" ATTR{device}=="0x43f7" ATTR{power/wakeup}="disabled"
+    '';
 
     xserver.xkb.layout = "us";
     xserver.xkb.variant = "altgr-intl";
