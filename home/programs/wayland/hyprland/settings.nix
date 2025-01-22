@@ -34,7 +34,7 @@ in {
     };
 
     experimental = {
-      hdr = true;
+      hdr = false;
     };
 
     decoration = {
