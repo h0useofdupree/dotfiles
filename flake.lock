@@ -134,11 +134,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1737474213,
-        "narHash": "sha256-p4hHWikaYgtZmZlas1b/p2+R72j7ZtUmGp2qoC1VcbI=",
+        "lastModified": 1737534778,
+        "narHash": "sha256-7h/lJWRzKKCmpKmgGk2ZzWbj73Dqi607grXC/EhFQMI=",
         "owner": "chaotic-cx",
         "repo": "nyx",
-        "rev": "04e70503425690319c25814497f682145dd442c6",
+        "rev": "a650b785c5d2b064777e0c5af7a414267a8fc934",
         "type": "github"
       },
       "original": {
@@ -852,11 +852,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1737487260,
-        "narHash": "sha256-9u56FK+N8Ab/i98bOa/kIzdm+0PapXDAYZPBIEtNNoM=",
+        "lastModified": 1737556066,
+        "narHash": "sha256-7X0RvVxmqd2OxS8FsOapMvB5NEzRElT0+RmRFENL4yc=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "ce48bc540824fcaefd777959703df9908e258d0a",
+        "rev": "fda5626594c3f31bbab08e877a797a623c98c450",
         "type": "github"
       },
       "original": {
@@ -1559,11 +1559,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1737484173,
-        "narHash": "sha256-bE9pTDqnSIMAwJeIu0MzA8ZR7LEwRbhnRpnImWIBejc=",
+        "lastModified": 1737547260,
+        "narHash": "sha256-BWJPFgLq0/3jxhkRXhiCAj8irjSkpgL1w8dUZcTy9M8=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "342161bf525dd64eb53fea295a2180f71ed06de1",
+        "rev": "e60ea678ac9a4154b641fdaacf03c600d1c661d8",
         "type": "github"
       },
       "original": {
@@ -1676,11 +1676,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737417184,
-        "narHash": "sha256-L63/ZzO5cFoU/cxCXLoJEGe8kTgoeXjwr2SZTomBgPc=",
+        "lastModified": 1737548168,
+        "narHash": "sha256-4YoBNVsBD5JhiNJsMdHH7TfW4R7tugst+vXmaWHPWho=",
         "ref": "refs/heads/master",
-        "rev": "bc73d35d03b00627d41616addf310e32af324597",
-        "revCount": 465,
+        "rev": "3c7dfcb220bf41bd13993191ac7014d1a7525bf4",
+        "revCount": 467,
         "type": "git",
         "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
       },
@@ -2005,11 +2005,11 @@
         "rust-overlay": "rust-overlay_3"
       },
       "locked": {
-        "lastModified": 1737370740,
-        "narHash": "sha256-RKd8w0fZAmwxnpC2k7LRZOk06MbVghygsxgTece+UME=",
+        "lastModified": 1737554445,
+        "narHash": "sha256-4P92mCsjr6r8m7LoqnwTSiDGFa7e3fI0iH+q80bJ4bE=",
         "owner": "sxyazi",
         "repo": "yazi",
-        "rev": "245fb030df2031a8bc27e61fe3b3fc4f3681fe39",
+        "rev": "234809d4e57f0fbde8ec13ca936c395ac11a5653",
         "type": "github"
       },
       "original": {
