@@ -26,6 +26,19 @@
               }
             '';
           };
+          telescope.setupOpts = ''
+            require("telescope").setup {
+              defaults = {
+                mappings = {
+                  i = {
+                      ["<C-j>"] = "move_selection_next", -- Map <C-j> to move down
+                      ["<C-k>"] = "move_selection_previous", -- Map <C-k> to move up
+                      ["<C-h>"] = "which_key", -- Preserve <C-h> mapping for which_key
+                    },
+                  },
+                },
+              }
+          '';
         };
 
         options = {
