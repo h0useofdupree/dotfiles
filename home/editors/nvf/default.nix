@@ -1,207 +1,262 @@
 {
   programs.nvf = {
     enable = true;
-    config.vim = {
-      viAlias = true;
-      vimAlias = true;
-      debugMode = {
-        enable = false;
-        level = 16;
-        logFile = "/tmp/nvim.log";
-      };
-
-      spellcheck = {
-        enable = true;
-      };
-
-      lsp = {
-        formatOnSave = true;
-        lspkind.enable = false;
-        lightbulb.enable = true;
-        lspsaga.enable = false;
-        trouble.enable = true;
-        lspSignature.enable = true;
-        otter-nvim.enable = true;
-        lsplines.enable = true;
-        nvim-docs-view.enable = true;
-      };
-
-      debugger = {
-        nvim-dap = {
-          enable = true;
-          ui.enable = true;
-        };
-      };
-
-      languages = {
-        enableLSP = true;
-        enableFormat = true;
-        enableTreesitter = true;
-        enableExtraDiagnostics = true;
-
-        nix.enable = true;
-        markdown.enable = true;
-        bash.enable = true;
-        clang.enable = true;
-        css.enable = true;
-        html.enable = true;
-        sql.enable = true;
-        java.enable = true;
-        kotlin.enable = true;
-        ts.enable = true;
-        go.enable = true;
-        lua.enable = true;
-        zig.enable = true;
-        python.enable = true;
-        typst.enable = true;
-        rust = {
-          enable = true;
-          crates.enable = true;
+    settings = {
+      vim = {
+        viAlias = true;
+        vimAlias = true;
+        debugMode = {
+          enable = false;
+          level = 16;
+          logFile = "/tmp/nvim.log";
         };
 
-        assembly.enable = false;
-        astro.enable = false;
-        nu.enable = false;
-        csharp.enable = false;
-        julia.enable = false;
-        vala.enable = false;
-        scala.enable = false;
-        r.enable = false;
-        gleam.enable = false;
-        dart.enable = false;
-        ocaml.enable = false;
-        elixir.enable = false;
-        haskell.enable = false;
-        ruby.enable = false;
+        options = {
+          updatetime = 100; # Faster completion
 
-        tailwind.enable = false;
-        svelte.enable = false;
-        nim.enable = false;
-      };
+          # Line numbers
+          relativenumber = true; # Relative line numbers
+          number = true; # Display the absolute line number of the current line
+          hidden = true; # Keep closed buffer open in the background
+          mouse = "a"; # Enable mouse control
+          mousemodel = "extend"; # Mouse right-click extends the current selection
+          splitbelow = true; # A new window is put below the current one
+          splitright = true; # A new window is put right of the current one
 
-      visuals = {
-        nvim-scrollbar.enable = true;
-        nvim-web-devicons.enable = true;
-        nvim-cursorline.enable = true;
-        cinnamon-nvim.enable = true;
-        fidget-nvim.enable = true;
-        highlight-undo.enable = true;
-        indent-blankline.enable = true;
-      };
+          swapfile = false; # Disable the swap file
+          modeline = true; # Tags such as 'vim:ft=sh'
+          modelines = 100; # Sets the type of modelines
+          undofile = true; # Automatically save and restore undo history
+          incsearch = true; # Incremental search: show match for partly typed search command
+          inccommand = "split"; # Search and replace: preview changes in quickfix list
+          ignorecase = true; # Match both lower- and upper-case for lowercase queries
+          smartcase = true; # Override 'ignorecase' if search query contains uppercase
+          scrolloff = 8; # Number of screen lines to show around the cursor
+          cursorline = false; # Highlight the screen line of the cursor
+          cursorcolumn = false; # Highlight the screen column of the cursor
+          signcolumn = "yes"; # Always show the signcolumn
+          laststatus = 3; # When to use a status line for the last window
+          fileencoding = "utf-8"; # File-content encoding for the current buffer
+          termguicolors = true; # Enable 24-bit RGB color
+          spell = false; # Highlight spelling mistakes (local to window)
+          wrap = true; # Prevent text wrapping
 
-      statusline = {
-        lualine = {
-          enable = true;
-          theme = "catppuccin";
+          # Tab options
+          tabstop = 2; # Number of spaces a <Tab> represents
+          shiftwidth = 2; # Number of spaces for each (auto)indent
+          expandtab = true; # Expand <Tab> to spaces in Insert mode
+          autoindent = true; # Enable autoindenting
+
+          textwidth = 0; # Disable automatic line-breaking on text width
+
+          # Folding
+          foldlevel = 300; # Folds deeper than this level are closed
         };
-      };
 
-      theme = {
-        enable = true;
-        name = "catppuccin";
-        style = "mocha";
-        transparent = false;
-      };
-
-      autopairs.nvim-autopairs.enable = true;
-
-      autocomplete.nvim-cmp.enable = true;
-      snippets.luasnip.enable = true;
-
-      filetree = {
-        neo-tree = {
-          enable = true;
-        };
-      };
-
-      tabline = {
-        nvimBufferline.enable = true;
-      };
-
-      treesitter.context.enable = true;
-
-      binds = {
-        whichKey.enable = true;
-        cheatsheet.enable = true;
-      };
-
-      telescope.enable = true;
-
-      git = {
-        enable = true;
-        gitsigns.enable = true;
-        gitsigns.codeActions.enable = false;
-      };
-
-      minimap = {
-        codewindow.enable = true;
-      };
-
-      dashboard = {
-        alpha.enable = true;
-      };
-
-      notify = {
-        nvim-notify.enable = true;
-      };
-
-      projects = {
-        project-nvim.enable = true;
-      };
-
-      utility = {
-        icon-picker.enable = true;
-        surround.enable = true;
-        diffview-nvim.enable = true;
-        motion = {
-          hop.enable = true;
-          leap.enable = true;
-          precognition.enable = true;
-        };
-      };
-
-      notes = {
-        mind-nvim.enable = true;
-        todo-comments.enable = true;
-      };
-
-      terminal = {
-        toggleterm = {
-          enable = true;
-          lazygit.enable = true;
-        };
-      };
-
-      ui = {
-        borders.enable = true;
-        noice.enable = true;
-        colorizer.enable = true;
-        illuminate.enable = true;
-        breadcrumbs = {
-          enable = true;
-          navbuddy.enable = true;
-        };
-        smartcolumn = {
-          enable = true;
-          setupOpts.custom_colorcolumn = {
-            nix = "110";
-            ruby = "120";
-            java = "130";
-            go = ["90" "130"];
+        clipboard = {
+          register = "unnamedplus";
+          providers = {
+            wl-copy = {
+              enable = true;
+            };
           };
         };
-        fastaction.enable = true;
-      };
 
-      assistant = {
-        copilot = {
-          enable = false;
-          cmp.enable = true;
+        spellcheck = {
+          enable = true;
         };
-      };
 
-      comments = {
-        comment-nvim.enable = true;
+        lsp = {
+          formatOnSave = true;
+          lspkind.enable = false;
+          lightbulb.enable = true;
+          lspsaga.enable = false;
+          trouble.enable = true;
+          lspSignature.enable = true;
+          otter-nvim.enable = true;
+          lsplines.enable = true;
+          nvim-docs-view.enable = true;
+        };
+
+        debugger = {
+          nvim-dap = {
+            enable = true;
+            ui.enable = true;
+          };
+        };
+
+        languages = {
+          enableLSP = true;
+          enableFormat = true;
+          enableTreesitter = true;
+          enableExtraDiagnostics = true;
+
+          nix.enable = true;
+          markdown.enable = true;
+          bash.enable = true;
+          clang.enable = true;
+          css.enable = true;
+          html.enable = true;
+          sql.enable = true;
+          java.enable = true;
+          kotlin.enable = true;
+          ts.enable = true;
+          go.enable = true;
+          lua.enable = true;
+          zig.enable = true;
+          python.enable = true;
+          typst.enable = true;
+          rust = {
+            enable = true;
+            crates.enable = true;
+          };
+
+          assembly.enable = false;
+          astro.enable = false;
+          nu.enable = false;
+          csharp.enable = false;
+          julia.enable = false;
+          vala.enable = false;
+          scala.enable = false;
+          r.enable = false;
+          gleam.enable = false;
+          dart.enable = false;
+          ocaml.enable = false;
+          elixir.enable = false;
+          haskell.enable = false;
+          ruby.enable = false;
+
+          tailwind.enable = false;
+          svelte.enable = false;
+          nim.enable = false;
+        };
+
+        visuals = {
+          nvim-scrollbar.enable = false;
+          nvim-web-devicons.enable = true;
+          nvim-cursorline.enable = true;
+          cinnamon-nvim.enable = true;
+          fidget-nvim.enable = true;
+          highlight-undo.enable = true;
+          indent-blankline.enable = true;
+        };
+
+        statusline = {
+          lualine = {
+            enable = true;
+            theme = "catppuccin";
+          };
+        };
+
+        theme = {
+          enable = true;
+          name = "catppuccin";
+          style = "macchiato";
+          transparent = false;
+        };
+
+        autopairs.nvim-autopairs.enable = true;
+
+        autocomplete.nvim-cmp.enable = true;
+        snippets.luasnip.enable = true;
+
+        filetree = {
+          neo-tree = {
+            enable = true;
+          };
+        };
+
+        tabline = {
+          nvimBufferline.enable = true;
+        };
+
+        treesitter.context.enable = true;
+
+        binds = {
+          whichKey.enable = true;
+          cheatsheet.enable = true;
+        };
+
+        telescope.enable = true;
+
+        git = {
+          enable = true;
+          gitsigns.enable = true;
+          gitsigns.codeActions.enable = false;
+        };
+
+        minimap = {
+          codewindow.enable = true;
+        };
+
+        dashboard = {
+          alpha.enable = true;
+        };
+
+        notify = {
+          nvim-notify.enable = true;
+        };
+
+        projects = {
+          project-nvim.enable = true;
+        };
+
+        utility = {
+          icon-picker.enable = true;
+          surround.enable = true;
+          diffview-nvim.enable = true;
+          motion = {
+            hop.enable = true;
+            leap.enable = true;
+            precognition.enable = true;
+          };
+        };
+
+        notes = {
+          mind-nvim.enable = true;
+          todo-comments.enable = true;
+        };
+
+        terminal = {
+          toggleterm = {
+            enable = true;
+            lazygit.enable = true;
+          };
+        };
+
+        ui = {
+          borders.enable = true;
+          noice.enable = true;
+          colorizer.enable = true;
+          illuminate.enable = true;
+          breadcrumbs = {
+            enable = true;
+            navbuddy.enable = false;
+          };
+          smartcolumn = {
+            enable = true;
+            setupOpts = {
+              custom_colorcolumn = {
+                nix = "110";
+                ruby = "120";
+                java = "130";
+                go = ["90" "130"];
+              };
+            };
+          };
+          fastaction.enable = true;
+        };
+
+        assistant = {
+          copilot = {
+            enable = false;
+            cmp.enable = true;
+          };
+        };
+
+        comments = {
+          comment-nvim.enable = true;
+        };
       };
     };
   };

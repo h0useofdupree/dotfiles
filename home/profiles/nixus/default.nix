@@ -4,6 +4,7 @@
     ../../editors/nixvim
     ../../editors/vscode
     ../../editors/neovide
+    ../../editors/nvf
 
     # Programs
     ../../programs
