@@ -19,29 +19,9 @@
                 default_mappings = false,
                 mappings = {
                   i = {
-                      j = {
-                          j = "<Esc>",
-                      },
-                  },
-                  c = {
-                      j = {
-                          j = "<Esc>",
-                      },
-                  },
-                  t = {
-                      j = {
-                          k = "<C-\\><C-n>",
-                      },
-                  },
-                  v = {
-                      j = {
-                          k = "<Esc>",
-                      },
-                  },
-                  s = {
-                      j = {
-                          k = "<Esc>",
-                      },
+                    j = {
+                      j = "<Esc>",
+                    },
                   },
                 },
               }
@@ -49,8 +29,41 @@
           };
         };
 
-        # keymaps = [
-        # ];
+        keymaps =
+          [
+            {
+              key = "<S-H>";
+              mode = "n";
+              silent = true;
+              action = "<C-w>h"; # Move to the left split
+            }
+            {
+              key = "<S-L>";
+              mode = "n";
+              silent = true;
+              action = "<C-w>l"; # Move to the right split
+            }
+          ]
+          ++ [
+            {
+              key = "<S-J>";
+              mode = "n";
+              silent = true;
+              action = ":bnext<CR>"; # Go to the next buffer
+            }
+            {
+              key = "<S-K>";
+              mode = "n";
+              silent = true;
+              action = ":bprevious<CR>"; # Go to the previous buffer
+            }
+            {
+              key = "<C-q>";
+              mode = "n";
+              silent = true;
+              action = ":bd<CR>"; # Close the current buffer
+            }
+          ];
 
         options = {
           updatetime = 100; # Faster completion
@@ -101,7 +114,7 @@
 
         lsp = {
           formatOnSave = true;
-          lspkind.enable = false;
+          lspkind.enable = true;
           lightbulb.enable = true;
           lspsaga.enable = false;
           trouble.enable = true;
@@ -209,7 +222,7 @@
           whichKey = {
             enable = true;
             register = {
-              #"<leader>j" = "File";
+              "<leader>/" = "Toggle Line Comment";
             };
           };
           cheatsheet.enable = true;
@@ -246,7 +259,7 @@
           motion = {
             hop.enable = true;
             leap.enable = true;
-            precognition.enable = true;
+            precognition.enable = false;
           };
         };
 
