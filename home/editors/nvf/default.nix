@@ -38,7 +38,6 @@
           laststatus = 3; # When to use a status line for the last window
           fileencoding = "utf-8"; # File-content encoding for the current buffer
           termguicolors = true; # Enable 24-bit RGB color
-          spell = false; # Highlight spelling mistakes (local to window)
           wrap = true; # Prevent text wrapping
 
           # Tab options
@@ -53,17 +52,8 @@
           foldlevel = 300; # Folds deeper than this level are closed
         };
 
-        clipboard = {
-          register = "unnamedplus";
-          providers = {
-            wl-copy = {
-              enable = true;
-            };
-          };
-        };
-
         spellcheck = {
-          enable = true;
+          enable = false;
         };
 
         lsp = {
