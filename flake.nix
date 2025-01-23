@@ -94,8 +94,14 @@
       url = "gitlab:doronbehar/nix-matlab";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nixvim = {
       url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nvf = {
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -106,8 +112,6 @@
         flake-compat.follows = "flake-compat";
       };
     };
-
-    yazi.url = "github:sxyazi/yazi";
 
     # hyprwm
     hyprland.url = "github:hyprwm/hyprland";
@@ -166,6 +170,8 @@
       url = "github:NotAShelf/tailray";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    yazi.url = "github:sxyazi/yazi";
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";

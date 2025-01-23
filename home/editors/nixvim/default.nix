@@ -5,7 +5,7 @@
   ];
   programs = {
     nixvim = {
-      enable = true;
+      enable = false;
       defaultEditor = true;
       enableMan = true;
       viAlias = true;
