@@ -15,31 +15,19 @@
           betterEscape = {
             package = pkgs.vimPlugins.better-escape-nvim;
             setup = ''
-              require("better_escape").setup {
-                mappings = {
-                  i = {
-                    j = {
-                      j = "<Esc>",
-                    },
+              mappings = {
+                i = {
+                  j = {
+                    j = "<Esc>",
                   },
                 },
-              }
+              },
             '';
           };
-          telescope.setupOpts = ''
-            require("telescope").setup {
-              defaults = {
-                mappings = {
-                  i = {
-                      ["<C-j>"] = "move_selection_next", -- Map <C-j> to move down
-                      ["<C-k>"] = "move_selection_previous", -- Map <C-k> to move up
-                      ["<C-h>"] = "which_key", -- Preserve <C-h> mapping for which_key
-                    },
-                  },
-                },
-              }
-          '';
         };
+
+        # keymaps = [
+        # ];
 
         options = {
           updatetime = 100; # Faster completion
@@ -195,12 +183,17 @@
         treesitter.context.enable = true;
 
         binds = {
-          whichKey.enable = true;
+          whichKey = {
+            enable = true;
+            register = {
+              #"<leader>j" = "File";
+            };
+          };
           cheatsheet.enable = true;
         };
 
+        # TODO: Support C-j and C-k binds for up/down
         telescope.enable = true;
-
         git = {
           enable = true;
           gitsigns.enable = true;
@@ -277,7 +270,12 @@
         };
 
         comments = {
-          comment-nvim.enable = true;
+          comment-nvim = {
+            enable = true;
+            mappings = {
+              toggleCurrentLine = "<leader>/";
+            };
+          };
         };
       };
     };
