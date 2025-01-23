@@ -15,13 +15,36 @@
           betterEscape = {
             package = pkgs.vimPlugins.better-escape-nvim;
             setup = ''
-              mappings = {
-                i = {
-                  j = {
-                    j = "<Esc>",
+              require("better_escape").setup {
+                default_mappings = false,
+                mappings = {
+                  i = {
+                      j = {
+                          j = "<Esc>",
+                      },
+                  },
+                  c = {
+                      j = {
+                          j = "<Esc>",
+                      },
+                  },
+                  t = {
+                      j = {
+                          k = "<C-\\><C-n>",
+                      },
+                  },
+                  v = {
+                      j = {
+                          k = "<Esc>",
+                      },
+                  },
+                  s = {
+                      j = {
+                          k = "<Esc>",
+                      },
                   },
                 },
-              },
+              }
             '';
           };
         };
