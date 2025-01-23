@@ -14,6 +14,12 @@ _: {
           silent = true;
           action = ":Neotree focus<CR>";
         }
+        {
+          key = "<leader>T";
+          mode = "n";
+          silent = true;
+          action = ":ToggleTerm direction=float";
+        }
         # Buffer navigation
         {
           key = "<S-H>"; # Shift + H
