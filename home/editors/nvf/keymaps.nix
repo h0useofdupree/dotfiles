@@ -59,6 +59,32 @@ _: {
           silent = true;
           action = "<C-w>k"; # Move to the split above
         }
+
+        # Window dimensions
+        {
+          key = "<C-S-H>"; # Ctrl + Shift + H
+          mode = "n";
+          silent = true;
+          action = ":vertical resize -2<CR>"; # Shrink horizontally
+        }
+        {
+          key = "<C-S-L>"; # Ctrl + Shift + L
+          mode = "n";
+          silent = true;
+          action = ":vertical resize +2<CR>"; # Expand horizontally
+        }
+        {
+          key = "<C-S-J>"; # Ctrl + Shift + J
+          mode = "n";
+          silent = true;
+          action = ":resize -2<CR>"; # Shrink vertically
+        }
+        {
+          key = "<C-S-K>"; # Ctrl + Shift + K
+          mode = "n";
+          silent = true;
+          action = ":resize +2<CR>"; # Expand vertically
+        }
       ];
     };
   };
