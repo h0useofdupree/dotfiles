@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  imports = [
+    ./keymaps.nix
+  ];
   programs.nvf = {
     enable = true;
     settings = {
@@ -28,42 +31,6 @@
             '';
           };
         };
-
-        keymaps =
-          [
-            {
-              key = "<S-H>";
-              mode = "n";
-              silent = true;
-              action = "<C-w>h"; # Move to the left split
-            }
-            {
-              key = "<S-L>";
-              mode = "n";
-              silent = true;
-              action = "<C-w>l"; # Move to the right split
-            }
-          ]
-          ++ [
-            {
-              key = "<S-J>";
-              mode = "n";
-              silent = true;
-              action = ":bnext<CR>"; # Go to the next buffer
-            }
-            {
-              key = "<S-K>";
-              mode = "n";
-              silent = true;
-              action = ":bprevious<CR>"; # Go to the previous buffer
-            }
-            {
-              key = "<C-q>";
-              mode = "n";
-              silent = true;
-              action = ":bd<CR>"; # Close the current buffer
-            }
-          ];
 
         options = {
           updatetime = 100; # Faster completion
