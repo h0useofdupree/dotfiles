@@ -2,6 +2,18 @@ _: {
   programs.nvf = {
     settings = {
       vim.keymaps = [
+        {
+          key = "<leader>e";
+          mode = "n";
+          silent = true;
+          action = ":Neotree toggle<CR>";
+        }
+        {
+          key = "<leader>o";
+          mode = "n";
+          silent = true;
+          action = ":Neotree focus<CR>";
+        }
         # Buffer navigation
         {
           key = "<S-H>"; # Shift + H
