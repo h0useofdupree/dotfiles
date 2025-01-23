@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   programs.nvf = {
     enable = true;
     settings = {
@@ -9,6 +9,23 @@
           enable = false;
           level = 16;
           logFile = "/tmp/nvim.log";
+        };
+
+        extraPlugins = {
+          betterEscape = {
+            package = pkgs.vimPlugins.better-escape-nvim;
+            setup = ''
+              require("better_escape").setup {
+                mappings = {
+                  i = {
+                    j = {
+                      j = "<Esc>",
+                    },
+                  },
+                },
+              }
+            '';
+          };
         };
 
         options = {
@@ -55,6 +72,8 @@
         spellcheck = {
           enable = false;
         };
+
+        useSystemClipboard = true;
 
         lsp = {
           formatOnSave = true;
