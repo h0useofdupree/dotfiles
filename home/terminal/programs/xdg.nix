@@ -74,7 +74,7 @@ in {
     # TODO: Find out if necessary!
     # used by `gio open` and xdp-gtk
     (pkgs.writeShellScriptBin "xdg-terminal-exec" ''
-      foot "$@"
+      kitty "$@"
     '')
     pkgs.xdg-utils
   ];
