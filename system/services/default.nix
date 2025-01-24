@@ -2,6 +2,8 @@
   services = {
     dbus.implementation = "broker";
 
+    udisks2.enable = true;
+
     # profile-sync-daemon
     psd = {
       enable = true;
