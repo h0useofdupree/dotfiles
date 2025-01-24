@@ -32,6 +32,7 @@
     neovim
     wget
     git
+    gnumake
     curl
     wget
     lazygit
