@@ -46,8 +46,7 @@
       # "immediate, class:^(osu\!|cs2)$"
 
       # make Firefox/Zen PiP window floating and sticky
-      "pseudo, title:^(Picture-in-Picture)$"
-      "size 50% 50%, title:^(Picture-in-Picture)$"
+      "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
 
       # throw sharing indicators away
