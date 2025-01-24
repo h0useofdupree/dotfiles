@@ -15,9 +15,6 @@
 
   programs.yazi = {
     enable = true;
-    flavors = {
-      package = "tkapias/moonfly.yazi";
-    };
 
     package = inputs.yazi.packages.${pkgs.system}.default;
 
