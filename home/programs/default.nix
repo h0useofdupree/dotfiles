@@ -18,6 +18,10 @@
     gnome-control-center
     grc
 
+    # TODO: Add seperate programs folder for latex and stuff
+    # WARNING: Temporary
+    jabref
+
     overskride
     resources
     wineWowPackages.wayland
