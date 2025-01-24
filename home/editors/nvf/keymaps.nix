@@ -8,7 +8,7 @@ _: {
           mode = "n";
           silent = true;
           action = ":bd<CR>";
-          desc = "Close current buffer";
+          desc = "which_key_ignore";
         }
         {
           key = "<leader>c"; # Leader + c
