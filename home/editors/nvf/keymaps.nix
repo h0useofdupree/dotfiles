@@ -2,6 +2,20 @@ _: {
   programs.nvf = {
     settings = {
       vim.keymaps = [
+        # Buffer/Window close
+        {
+          key = "<leader>q"; # Leader + q
+          mode = "n";
+          silent = true;
+          action = ":bd<CR>"; # Close the current buffer
+        }
+        {
+          key = "<leader>c"; # Leader + c
+          mode = "n";
+          silent = true;
+          action = "<C-w>c"; # Close the current window
+        }
+        # Neotree
         {
           key = "<leader>e";
           mode = "n";
@@ -14,11 +28,12 @@ _: {
           silent = true;
           action = ":Neotree focus<CR>";
         }
+        # Toggle Term
         {
           key = "<leader>T";
           mode = "n";
           silent = true;
-          action = ":ToggleTerm direction=float";
+          action = ":ToggleTerm direction=float<CR>";
         }
         # Buffer navigation
         {
