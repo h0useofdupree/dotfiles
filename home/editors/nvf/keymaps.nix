@@ -15,6 +15,7 @@ _: {
           mode = "n";
           silent = true;
           action = "<C-w>c";
+          desc = "which_key_ignore";
         }
 
         # Neotree
