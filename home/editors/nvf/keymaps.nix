@@ -7,7 +7,7 @@ _: {
           key = "<leader>c";
           mode = "n";
           silent = true;
-          action = ":bd<CR>";
+          action = ":bp <BAR> bd #<CR>";
           desc = "which_key_ignore";
         }
 
