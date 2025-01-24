@@ -128,14 +128,14 @@ _: {
           key = "<C-S-J>"; # Ctrl + Shift + J
           mode = "n";
           silent = true;
-          action = ":resize -2<CR>";
+          action = ":resize +2<CR>";
           desc = "Shrink split vertically";
         }
         {
           key = "<C-S-K>"; # Ctrl + Shift + K
           mode = "n";
           silent = true;
-          action = ":resize +2<CR>";
+          action = ":resize -2<CR>";
           desc = "Expand split vertically";
         }
       ];
