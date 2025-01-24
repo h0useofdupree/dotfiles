@@ -2,19 +2,21 @@ _: {
   programs.nvf = {
     settings = {
       vim.keymaps = [
-        # Buffer/Window close
+        # Close buffer
         {
-          key = "<leader>q"; # Leader + q
+          key = "<leader>c";
           mode = "n";
           silent = true;
           action = ":bd<CR>";
           desc = "which_key_ignore";
         }
+
+        # Quit window
         {
-          key = "<leader>c"; # Leader + c
+          key = "<leader>q";
           mode = "n";
           silent = true;
-          action = "<C-w>c";
+          action = ":q<CR>";
           desc = "which_key_ignore";
         }
 
