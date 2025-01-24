@@ -11,7 +11,7 @@
 
     settings = {
       general = {
-        disable_loading_bar = true;
+        disable_loading_bar = false;
         immediate_render = true;
         hide_cursor = false;
         no_fade_in = true;
