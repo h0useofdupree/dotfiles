@@ -8,6 +8,7 @@ _: {
           mode = "n";
           silent = true;
           action = ":bd<CR>"; # Close the current buffer
+          desc = "Helloo";
         }
         {
           key = "<leader>c"; # Leader + c
