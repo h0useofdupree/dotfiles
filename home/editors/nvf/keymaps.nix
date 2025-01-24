@@ -20,6 +20,24 @@ _: {
           desc = "which_key_ignore";
         }
 
+        # Force quit
+        {
+          key = "<C-q>";
+          mode = "n";
+          silent = true;
+          action = ":q!<CR>";
+          desc = "Force quit window";
+        }
+
+        # Save file
+        {
+          key = "<C-s>";
+          mode = "n";
+          silent = true;
+          action = ":w<CR>";
+          desc = "Save file";
+        }
+
         # Neotree
         {
           key = "<leader>e";
