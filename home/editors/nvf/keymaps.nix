@@ -7,47 +7,55 @@ _: {
           key = "<leader>q"; # Leader + q
           mode = "n";
           silent = true;
-          action = ":bd<CR>"; # Close the current buffer
-          desc = "Helloo";
+          action = ":bd<CR>";
+          desc = "Close current buffer";
         }
         {
           key = "<leader>c"; # Leader + c
           mode = "n";
           silent = true;
-          action = "<C-w>c"; # Close the current window
+          action = "<C-w>c";
         }
+
         # Neotree
         {
           key = "<leader>e";
           mode = "n";
           silent = true;
           action = ":Neotree toggle<CR>";
+          desc = "Toggle Neotree";
         }
         {
           key = "<leader>o";
           mode = "n";
           silent = true;
           action = ":Neotree focus<CR>";
+          desc = "Focus Neotree";
         }
+
         # Toggle Term
         {
           key = "<leader>T";
           mode = "n";
           silent = true;
           action = ":ToggleTerm direction=float<CR>";
+          desc = "Toggle floating terminal";
         }
+
         # Buffer navigation
         {
           key = "<S-H>"; # Shift + H
           mode = "n";
           silent = true;
-          action = ":bprevious<CR>"; # Move to the previous buffer
+          action = ":bprevious<CR>";
+          desc = "Go to previous buffer";
         }
         {
           key = "<S-L>"; # Shift + L
           mode = "n";
           silent = true;
-          action = ":bnext<CR>"; # Move to the next buffer
+          action = ":bnext<CR>";
+          desc = "Go to next buffer";
         }
 
         # Window navigation
@@ -55,25 +63,29 @@ _: {
           key = "<C-H>"; # Ctrl + H
           mode = "n";
           silent = true;
-          action = "<C-w>h"; # Move to the left split
+          action = "<C-w>h";
+          desc = "Go to left split";
         }
         {
           key = "<C-L>"; # Ctrl + L
           mode = "n";
           silent = true;
-          action = "<C-w>l"; # Move to the right split
+          action = "<C-w>l";
+          desc = "Go to right split";
         }
         {
           key = "<C-J>"; # Ctrl + J
           mode = "n";
           silent = true;
-          action = "<C-w>j"; # Move to the split below
+          action = "<C-w>j";
+          desc = "Go to split below";
         }
         {
           key = "<C-K>"; # Ctrl + K
           mode = "n";
           silent = true;
-          action = "<C-w>k"; # Move to the split above
+          action = "<C-w>k";
+          desc = "Go to split above";
         }
 
         # Window dimensions
@@ -81,25 +93,29 @@ _: {
           key = "<C-S-H>"; # Ctrl + Shift + H
           mode = "n";
           silent = true;
-          action = ":vertical resize -2<CR>"; # Shrink horizontally
+          action = ":vertical resize -2<CR>";
+          desc = "Shrink split horizontally";
         }
         {
           key = "<C-S-L>"; # Ctrl + Shift + L
           mode = "n";
           silent = true;
-          action = ":vertical resize +2<CR>"; # Expand horizontally
+          action = ":vertical resize +2<CR>";
+          desc = "Expand split horizontally";
         }
         {
           key = "<C-S-J>"; # Ctrl + Shift + J
           mode = "n";
           silent = true;
-          action = ":resize -2<CR>"; # Shrink vertically
+          action = ":resize -2<CR>";
+          desc = "Shrink split vertically";
         }
         {
           key = "<C-S-K>"; # Ctrl + Shift + K
           mode = "n";
           silent = true;
-          action = ":resize +2<CR>"; # Expand vertically
+          action = ":resize +2<CR>";
+          desc = "Expand split vertically";
         }
       ];
     };
