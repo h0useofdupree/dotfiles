@@ -59,7 +59,6 @@
     wl-clipboard
     texlive.combined.scheme-full
     zathura
-    microsoft-edge
   ];
 
   # Set user preferences for environment variables
