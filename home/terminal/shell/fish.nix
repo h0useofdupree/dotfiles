@@ -8,6 +8,11 @@
       nitch
     '';
 
+    shellAbbrs = {
+      lg = "lazygit";
+      cdd = "cd ~/.dotfiles/";
+      cd = "z";
+    };
     plugins = [
       {
         name = "grc";
