@@ -13,6 +13,18 @@
       cdd = "cd ~/.dotfiles/";
       cd = "z";
     };
+
+    functions = {
+      # eza (ls) settings wrapper
+      eza = "command eza --group-directories-first --total-size $argv";
+      # bat (cat) wrapper
+      cat = "bat $argv";
+      # nv (neovide) wrapper
+      nv = "neovide --no-fork $argv";
+      # gitignore templates
+      gitignore = "curl -sL https://www.gitignore.io/api/$argv";
+    };
+
     plugins = [
       {
         name = "grc";
