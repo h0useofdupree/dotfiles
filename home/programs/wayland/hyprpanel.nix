@@ -38,6 +38,9 @@
         bar = {
           location = "top";
           floating = true;
+          margin_sides = "1.0em";
+          transparent = true;
+          outer_spacing = "0.3em";
         };
       };
     };
