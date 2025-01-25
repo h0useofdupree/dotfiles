@@ -1,4 +1,4 @@
-{...}: {
+_: {
   programs.hyprpanel = {
     enable = true;
     systemd.enable = true;
@@ -37,8 +37,8 @@
       theme = {
         bar = {
           location = "top";
-          floating = true;
-          margin_sides = "1.0em";
+          floating = false;
+          margin_sides = "1.5em";
           transparent = false;
           outer_spacing = "0.3em";
         };

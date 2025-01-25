@@ -1,8 +1,6 @@
 {
-  config,
-  lib,
-  inputs,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -14,21 +12,19 @@
   services = {
     fstrim.enable = true;
 
-    # xserver.enable = true;
-
-    # xserver.displayManager.gdm.enable = true;
-    # xserver.desktopManager.gnome.enable = true;
     # Disable wakeup from AMD USB-Controller
     udev.extraRules = ''
       ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1022" ATTR{device}=="0x43f7" ATTR{power/wakeup}="disabled"
     '';
 
+    # xserver.enable = true;
+    # xserver.displayManager.gdm.enable = true;
+    # xserver.desktopManager.gnome.enable = true;
     xserver.xkb.layout = "us";
     xserver.xkb.variant = "altgr-intl";
   };
 
-  # Consider this!
-  # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
