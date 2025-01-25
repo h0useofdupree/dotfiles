@@ -21,6 +21,15 @@
       cat = "bat $argv";
       # nv (neovide) wrapper
       nv = "neovide --no-fork $argv";
+      # y (yazi) helper
+      y = ''
+        set tmp (mktemp -t "yazi-cwd.XXXXXX")
+        yazi $argv --cwd-file="$tmp"
+        if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+          builtin cd -- "$cwd"
+        end
+        rm -f -- "$tmp"
+      '';
       # gitignore templates
       gitignore = "curl -sL https://www.gitignore.io/api/$argv";
     };
