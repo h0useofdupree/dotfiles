@@ -25,6 +25,20 @@
           location = "Mettmann";
           unit = "metric";
         };
+        dashboard = {
+          shortcuts.enabled = false;
+          stats = {
+            enabled = true;
+            enable_gpu = true;
+            interval = 2000;
+          };
+        };
+      };
+      theme = {
+        bar = {
+          location = "top";
+          floating = true;
+        };
       };
     };
   };
