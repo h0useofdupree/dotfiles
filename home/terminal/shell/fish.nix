@@ -29,6 +29,14 @@
         name = "done";
         inherit (pkgs.fishPlugins.done) src;
       }
+      {
+        name = "z";
+        inherit (pkgs.fishPlugins.z) src;
+      }
+      {
+        name = "fzf-fish";
+        inherit (pkgs.fishPlugins.fzf-fish) src;
+      }
     ];
   };
 }
