@@ -11,27 +11,48 @@
     shellAbbrs = {
       lg = "lazygit";
       cdd = "cd ~/.dotfiles/";
-      cd = "z";
+      c = "z";
     };
 
     functions = {
       # eza (ls) settings wrapper
-      eza = "command eza --group-directories-first --total-size $argv";
+      eza = {
+        body = "command eza --group-directories-first --total-size $argv";
+        wraps = "eza";
+        description = "eza with options (wrapper)";
+      };
+
       # bat (cat) wrapper
-      cat = "bat $argv";
+      cat = {
+        body = "bat $argv";
+        wraps = "bat";
+        description = "bat (wrapper)";
+      };
+
       # nv (neovide) wrapper
-      nv = "neovide --no-fork $argv";
+      nv = {
+        body = "neovide --no-fork $argv";
+        wraps = "neovide";
+      };
+
       # y (yazi) helper
-      y = ''
-        set tmp (mktemp -t "yazi-cwd.XXXXXX")
-        yazi $argv --cwd-file="$tmp"
-        if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-          builtin cd -- "$cwd"
-        end
-        rm -f -- "$tmp"
-      '';
+      y = {
+        body = ''
+          set tmp (mktemp -t "yazi-cwd.XXXXXX")
+          yazi $argv --cwd-file="$tmp"
+          if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+            builtin cd -- "$cwd"
+          end
+          rm -f -- "$tmp"
+        '';
+        description = "yazi helper (cd cwd)";
+      };
+
       # gitignore templates
-      gitignore = "curl -sL https://www.gitignore.io/api/$argv";
+      gitignore = {
+        body = "curl -sL https://www.gitignore.io/api/$argv";
+        description = "fetches a gitignore template for a given language";
+      };
     };
 
     plugins = [
