@@ -90,6 +90,10 @@
         name = "fzf-fish";
         inherit (pkgs.fishPlugins.fzf-fish) src;
       }
+      {
+        name = "colored-man-pages";
+        inherit (pkgs.fishPlugins.colored-man-pages) src;
+      }
     ];
   };
 }
