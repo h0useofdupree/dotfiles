@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  # TODO: Run fish only interactively (see: https://nixos.wiki/wiki/Fish)
   programs.fish = {
     enable = true;
 
@@ -15,6 +14,13 @@
     };
 
     functions = {
+      # icat (kitten icat)
+      icat = {
+        body = "kitten icat $argv";
+        wraps = "kitten icat";
+        description = "shortcut for kitten icat";
+      };
+
       # eza (ls) settings wrapper
       eza = {
         body = "command eza --group-directories-first --total-size $argv";
