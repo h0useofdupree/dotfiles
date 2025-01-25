@@ -11,23 +11,23 @@
     plugins = [
       {
         name = "grc";
-        src = pkgs.fishPlugins.grc.src;
+        inherit (pkgs.fishPlugins.grc) src;
       }
       {
         name = "tide";
-        src = pkgs.fishPlugins.tide.src;
+        inherit (pkgs.fishPlugins.tide) src;
       }
       {
         name = "puffer";
-        src = pkgs.fishPlugins.puffer.src;
+        inherit (pkgs.fishPlugins.puffer) src;
       }
       {
         name = "autopair";
-        src = pkgs.fishPlugins.autopair.src;
+        inherit (pkgs.fishPlugins.autopair) src;
       }
       {
         name = "done";
-        src = pkgs.fishPlugins.done.src;
+        inherit (pkgs.fishPlugins.done) src;
       }
     ];
   };
