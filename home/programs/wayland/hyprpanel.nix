@@ -39,7 +39,7 @@
           location = "top";
           floating = true;
           margin_sides = "1.0em";
-          transparent = true;
+          transparent = false;
           outer_spacing = "0.3em";
         };
       };
