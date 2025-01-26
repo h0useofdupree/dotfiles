@@ -88,13 +88,6 @@
       };
     };
 
-    nixpkgs-howdy.url = "github:fufexan/nixpkgs/howdy";
-
-    nix-matlab = {
-      url = "gitlab:doronbehar/nix-matlab";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
