@@ -30,6 +30,17 @@
               }
             '';
           };
+          spider = {
+            package = pkgs.vimPlugins.nvim-spider;
+            setup = ''
+              require("spider").setup {
+                skipInsignificantPunctuation = true,
+                consistentOperatorPending = false,
+                subwordMovement = true,
+                customPatterns = {},
+              }
+            '';
+          };
         };
 
         options = {
