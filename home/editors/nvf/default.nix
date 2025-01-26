@@ -168,14 +168,14 @@
         statusline = {
           lualine = {
             enable = true;
-            theme = "catppuccin";
+            theme = "auto";
           };
         };
 
         theme = {
           enable = true;
-          name = "catppuccin";
-          style = "macchiato";
+          name = "rose-pine";
+          style = "main";
           transparent = false;
         };
 
