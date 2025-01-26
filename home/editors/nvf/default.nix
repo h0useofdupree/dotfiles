@@ -278,8 +278,14 @@
 
         assistant = {
           copilot = {
-            enable = false;
+            enable = true;
             cmp.enable = true;
+
+            mappings = {
+              panel = {
+                open = "<C-CR>";
+              };
+            };
           };
         };
 
