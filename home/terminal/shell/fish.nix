@@ -1,6 +1,13 @@
 {pkgs, ...}: {
   programs.fish = {
     enable = true;
+    generateCompletions = true;
+
+    vendor = {
+      completions.enable = true;
+      functions.enable = true;
+      config.enable = true;
+    };
 
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
