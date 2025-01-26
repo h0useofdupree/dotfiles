@@ -139,7 +139,11 @@ in {
       vrr = 1;
     };
 
-    render.direct_scanout = true;
+    render = {
+      direct_scanout = true;
+      explicit_sync = 0;
+      explicit_sync_kms = 0;
+    };
 
     # touchpad gestures
     gestures = {
