@@ -28,6 +28,6 @@
       confirm_os_window_close = "0";
     };
 
-    themeFile = "Catppuccin-Mocha";
+    themeFile = "rose-pine";
   };
 }
