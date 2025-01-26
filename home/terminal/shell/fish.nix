@@ -11,6 +11,7 @@
       lg = "lazygit";
       cdd = "cd ~/.dotfiles/";
       c = "z";
+      spt = "spotify_player";
     };
 
     functions = {
