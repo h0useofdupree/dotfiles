@@ -138,6 +138,33 @@ _: {
           action = ":resize -2<CR>";
           desc = "Expand split vertically";
         }
+
+        # Spider-w
+        {
+          key = "w";
+          mode = ["n" "o" "x"]; # Normal, Operator-pending, Visual modes
+          silent = true;
+          action = "<cmd>lua require('spider').motion('w')<CR>";
+          desc = "Spider-w";
+        }
+
+        # Spider-e
+        {
+          key = "e";
+          mode = ["n" "o" "x"]; # Normal, Operator-pending, Visual modes
+          silent = true;
+          action = "<cmd>lua require('spider').motion('e')<CR>";
+          desc = "Spider-e";
+        }
+
+        # Spider-b
+        {
+          key = "b";
+          mode = ["n" "o" "x"]; # Normal, Operator-pending, Visual modes
+          silent = true;
+          action = "<cmd>lua require('spider').motion('b')<CR>";
+          desc = "Spider-b";
+        }
       ];
     };
   };
