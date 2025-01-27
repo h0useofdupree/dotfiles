@@ -87,8 +87,8 @@ in {
         "$mod SHIFT ALT, R, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
 
         # special workspace
-        "$mod SHIFT, grave, movetoworkspace, special"
-        "$mod, grave, togglespecialworkspace, eDP-1"
+        "$mod SHIFT, code:20, movetoworkspace, special"
+        "$mod, code:20, togglespecialworkspace"
 
         # cycle workspaces
         "$mod, bracketleft, workspace, m-1"
