@@ -6,7 +6,7 @@ _: {
     overwrite.enable = true;
     overlay.enable = true;
 
-    theme = "rose_pine";
+    theme = "catppuccin_mocha";
 
     layout = {
       "bar.layouts" = {
@@ -18,6 +18,7 @@ _: {
       };
     };
 
+    # TODO: fonts,
     settings = {
       menus = {
         clock.weather = {
