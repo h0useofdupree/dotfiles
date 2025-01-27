@@ -60,9 +60,9 @@ in {
         enabled = true;
         color = "rgba(00000055)";
         ignore_window = true;
-        offset = "0 15";
-        range = 100;
-        render_power = 2;
+        offset = "0 2";
+        range = 20;
+        render_power = 4;
         scale = 0.97;
       };
     };
