@@ -26,7 +26,7 @@ _: {
           unit = "metric";
         };
         dashboard = {
-          shortcuts.enabled = false;
+          shortcuts.enabled = true;
           stats = {
             enabled = true;
             enable_gpu = true;
