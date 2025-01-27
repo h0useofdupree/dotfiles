@@ -37,7 +37,7 @@ _: {
       theme = {
         bar = {
           location = "top";
-          floating = false;
+          floating = true;
           margin_sides = "1.5em";
           transparent = false;
           outer_spacing = "0.3em";
