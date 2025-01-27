@@ -25,6 +25,7 @@ _: {
           enabled = true;
           location = "Mettmann";
           unit = "metric";
+          key = "55b82b6781af4a4c9b2165259221802";
         };
         dashboard = {
           shortcuts.enabled = true;
