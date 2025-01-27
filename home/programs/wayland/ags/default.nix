@@ -1,8 +1,15 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [inputs.ags.homeManagerModules.default];
 
   # TODO: Clean up these paths
   home = {
+    packages = [
+      inputs.ags.packages.${pkgs.system}.ags
+    ];
     file = {
       ".config/ags/config.js".source =
         ./../../../../modules/ags/config.js;
