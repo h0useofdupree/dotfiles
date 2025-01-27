@@ -40,7 +40,8 @@ in {
 
     decoration = {
       rounding = 20;
-      rounding_power = 3;
+      rounding_power = 4;
+      dim_special = 0;
       blur = {
         enabled = true;
         brightness = 1.0;
@@ -55,6 +56,8 @@ in {
 
         popups = true;
         popups_ignorealpha = 0.2;
+
+        special = true;
       };
 
       shadow = {
