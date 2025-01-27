@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./ags
     ./hyprland
     # TEMP: Remove waybar once HyprPanel (AGSv2) instructions for NixOS are done!!!
     ./waybar
