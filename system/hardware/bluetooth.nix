@@ -16,5 +16,6 @@
         };
       };
     };
+    xpadneo.enable = true;
   };
 }
