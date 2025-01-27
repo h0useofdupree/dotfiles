@@ -139,6 +139,7 @@ in {
     dwindle = {
       pseudotile = true;
       preserve_split = true;
+      special_scale_factor = 0.7;
     };
 
     misc = {
