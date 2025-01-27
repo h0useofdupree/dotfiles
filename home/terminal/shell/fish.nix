@@ -25,7 +25,7 @@
 
       # eza (ls) settings wrapper
       eza = {
-        body = "command eza --group-directories-first --total-size $argv";
+        body = "command eza --group-directories-first $argv";
         wraps = "eza";
         description = "eza with options (wrapper)";
       };
