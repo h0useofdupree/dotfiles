@@ -43,6 +43,12 @@ _: {
           margin_sides = "1.5em";
           transparent = false;
           outer_spacing = "0.3em";
+          border_radius = "0.9em";
+
+          buttons = {
+            enableBorders = true;
+            radius = "0.9em";
+          };
         };
       };
     };
