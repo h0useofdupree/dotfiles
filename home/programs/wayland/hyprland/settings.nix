@@ -83,17 +83,17 @@ in {
       ];
 
       animation = [
-        "global, 1, 10, default"
+        "global, 1, 4, default"
         "border, 1, 5, easeOutQuint"
-        "windows, 1, 5, easeOutQuint, popin 80%"
+        "windows, 1, 3, easeOutQuint, popin 80%"
         "fade, 1, 3, quick"
         "layers, 1, 4, easeOutQuint"
-        "layersIn, 1, 4, easeOutQuint, slide"
-        "layersOut, 1, 5, linear, slide"
+        "layersIn, 1, 2, easeOutQuint, slide"
+        "layersOut, 1, 3, linear, slide"
         "fadeLayersIn, 1, 2, almostLinear"
-        "fadeLayersOut, 1, 5, almostLinear"
-        "workspaces, 1, 4, almostLinear, slide"
-        "specialWorkspace, 1, 4, almostLinear, slidefadevert -50%"
+        "fadeLayersOut, 1, 3, almostLinear"
+        "workspaces, 1, 2, almostLinear, slide"
+        "specialWorkspace, 1, 2, almostLinear, slidevert"
       ];
     };
 
