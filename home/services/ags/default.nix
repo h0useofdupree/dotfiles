@@ -12,13 +12,13 @@
     ];
     file = {
       ".config/ags/config.js".source =
-        ./../../../../modules/ags/config.js;
+        ./config.js;
 
       ".config/ags/screencorners/main.js".source =
-        ./../../../../modules/ags/screencorners/main.js;
+        ./screencorners/main.js;
 
       ".config/ags/screencorners/cairo_corners.js".source =
-        ./../../../../modules/ags/screencorners/cairo_corners.js;
+        ./screencorners/cairo_corners.js;
     };
   };
 }

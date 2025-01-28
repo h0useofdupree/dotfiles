@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ./ags
     ./hyprland
     ./hyprpanel.nix
     ./hyprlock.nix
