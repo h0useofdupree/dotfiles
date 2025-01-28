@@ -51,6 +51,8 @@ _: {
           };
         };
       };
+
+      wallpaper.enable = false;
     };
   };
 }
