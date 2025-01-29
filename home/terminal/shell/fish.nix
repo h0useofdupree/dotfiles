@@ -8,6 +8,14 @@
       nitch
     '';
 
+    shellInitLast = ''
+      bind --erase \cf
+      bind --erase \ca
+
+      bind \ca accept-autosuggestion
+      bind \cf forward-bigword
+    '';
+
     shellAbbrs = {
       lg = "lazygit";
       cdd = "cd ~/.dotfiles/";
