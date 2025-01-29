@@ -1,11 +1,23 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   programs.fish = {
     enable = true;
     generateCompletions = true;
 
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+
       nitch
+
+      ${lib.optionalString config.services.gpg-agent.enable ''
+        if test -n "$XDG_RUNTIME_DIR"
+          set -l gnupg_path (ls $XDG_RUNTIME_DIR/gnupg)
+          set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/$gnupg_path/S.gpg-agent.ssh"
+      ''}
     '';
 
     shellInitLast = ''
