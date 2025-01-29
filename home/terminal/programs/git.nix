@@ -5,8 +5,12 @@
 }: let
   cfg = config.programs.git;
   # TODO: key
+  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1JYHp/ZXHErtQVer2eE393NoJgOB6LvVJ+x/IxayS9 joel.riekemann@gmail.com";
 in {
   home.packages = [pkgs.gh];
+
+  # Enable scrolling in `git diff` and `git log`
+  home.sessionVariables.DELTA_PAGER = "less -R";
 
   programs.git = {
     enable = true;
@@ -21,20 +25,44 @@ in {
       merge.conflictstyle = "diff3";
     };
 
+    aliases = let
+      log = "log --show-notes='*' --abbrev-commit --pretty=format:'%Cred%h %Cgreen(%aD)%Creset -%C(bold red)%d%Creset %s %C(bold blue)<%an>% %Creset' --graph";
+    in {
+      a = "add --patch";
+      ad = "add";
+
+      b = "branch";
+      ba = "branch -a";
+
+      c = "commit";
+      ca = "commit --amend";
+      cm = "commit -m";
+
+      co = "checkout";
+      cb = "checkout -b";
+
+      cl = "clone";
+
+      d = "diff";
+      ds = "diff --staged";
+
+      l = "log";
+      lp = "${log} --patch";
+      la = "${log} --all";
+    };
+
     ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
 
-    # TODO: signing
-    # signing = {
-    #     key = "${config.home.homeDirectory}/.ssh/id_ed25519";
-    #     signByDefault = true;
-    # };
+    signing = {
+      key = "${config.home.homeDirectory}/.ssh/id_ed25519";
+      signByDefault = true;
+    };
 
     extraConfig = {
-      # TODO: gpg
-      # gpg = {
-      #     format = "ssh";
-      #     ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
-      # };
+      gpg = {
+        format = "ssh";
+        ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
+      };
       pull.rebase = true;
       init.defaultBranch = "main";
     };
@@ -43,8 +71,7 @@ in {
     userName = "h0useofdupree";
   };
 
-  # TODO: allow signing
-  # xdg.configFile."git/allowed_signers".text = ''
-  #     ${cfg.userEmail} namespaces="git" ${key}
-  # '';
+  xdg.configFile."git/allowed_signers".text = ''
+    ${cfg.userEmail} namespaces="git" ${key}
+  '';
 }
