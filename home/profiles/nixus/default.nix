@@ -1,7 +1,6 @@
 {
   imports = [
     # Editors
-    ../../editors/nixvim
     ../../editors/vscode
     ../../editors/neovide
     ../../editors/nvf
