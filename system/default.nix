@@ -20,6 +20,7 @@ let
     ++ [
       ./services/backlight.nix
       ./services/power.nix
+      ./services/fwupd.nix
     ];
 in {
   inherit desktop laptop;

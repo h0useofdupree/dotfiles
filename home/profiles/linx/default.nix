@@ -19,7 +19,6 @@
     ../../services/system/polkit-agent.nix
     ../../services/system/theme.nix
     ../../services/system/udiskie.nix
-    ../../services/system/fwupd.nix
 
     # Wayland services
     ../../services/wayland/gammastep.nix
