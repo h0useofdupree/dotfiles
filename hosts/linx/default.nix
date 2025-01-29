@@ -1,6 +1,7 @@
 {
   pkgs,
   self,
+  lib,
   ...
 }: {
   imports = [
@@ -19,12 +20,11 @@
   };
 
   # Consider this!
-  # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    alejandra
     vim
     neovim
     wget
