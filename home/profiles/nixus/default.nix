@@ -15,6 +15,7 @@
 
     # System Services
     ../../services/ags/default.nix
+    ../../services/system/gnome-keyring.nix
     ../../services/system/kdeconnect.nix
     ../../services/system/polkit-agent.nix
     ../../services/system/theme.nix
