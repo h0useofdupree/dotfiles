@@ -4,15 +4,15 @@
   inputs,
   ...
 }: {
-  services.hyprpaper = {
-    enable = true;
-    package = inputs.hyprpaper.packages.${pkgs.system}.default;
+  # services.hyprpaper = {
+  #   enable = true;
+  #   package = inputs.hyprpaper.packages.${pkgs.system}.default;
 
-    settings = {
-      preload = [];
-      wallpaper = [];
-    };
-  };
+  #   settings = {
+  #     preload = [];
+  #     wallpaper = [];
+  #   };
+  # };
 
   systemd.user = {
     services.hyprpaper = {
@@ -31,13 +31,13 @@
     services.wallpaper-update = {
       Unit = {
         Description = "Fetch and apply dynamic wallpaper";
-        After = ["hyprpaper.service"];
-        Wants = ["hyprpaper.service"];
+        # After = ["graphical-session.target"];
       };
       Service = {
         Type = "oneshot";
-        ExecStart = pkgs.writeShellScript "update-wallpaper" ''
+        ExecStart = pkgs.writeShellScriptBin "update-wallpaper" ''
           #!/usr/bin/env bash
+          set -e  # Exit on error
 
           BASE_NAME="DesertSands"
           FILE_NAME="DesertSands"
@@ -45,13 +45,20 @@
           WALLPAPER_DIR="$HOME/.local/share/dynamic-wallpapers/$BASE_NAME"
           WALLPAPER_CACHE="$HOME/.cache/current-wallpaper-path"
           INDEX_FILE="$HOME/.cache/dynamic-wallpaper-index"
+
+          # Get command paths
+          SED="${pkgs.coreutils}/bin/sed"
+          CAT="${pkgs.coreutils}/bin/cat"
+          CURL="${pkgs.curl}/bin/curl"
+          HYPRCTL="${inputs.hyprland.packages.${pkgs.system}.default}/bin/hyprctl"
+
           mkdir -p "$WALLPAPER_DIR"
 
-          # Restore the last wallpaper if it exists (for first boot after reboot)
+          # Restore last wallpaper if available
           if [[ -f "$WALLPAPER_CACHE" ]]; then
-            echo "Restoring last used wallpaper..."
-            hyprctl hyprpaper preload "$(cat "$WALLPAPER_CACHE")"
-            hyprctl hyprpaper wallpaper ", $(cat "$WALLPAPER_CACHE")"
+            echo "Restoring last wallpaper..."
+            $HYPRCTL hyprpaper preload "$($CAT "$WALLPAPER_CACHE")"
+            $HYPRCTL hyprpaper wallpaper ", $($CAT "$WALLPAPER_CACHE")"
           fi
 
           HOUR=$(date +%H)
@@ -68,40 +75,40 @@
           fi
 
           WALLPAPER_PATH="$WALLPAPER_DIR/$BASE_NAME-$INDEX.$EXTENSION"
-          ENCODED_FILE_NAME="$(echo "$FILE_NAME" | sed 's/ /%20/g')"
+          ENCODED_FILE_NAME="$(echo "$FILE_NAME" | $SED 's/ /%20/g')"
           WALLPAPER_URL="https://github.com/saint-13/Linux_Dynamic_Wallpapers/blob/main/Dynamic_Wallpapers/$BASE_NAME/$ENCODED_FILE_NAME-$INDEX.$EXTENSION?raw=true"
 
-          # Check the last applied index
+          # Read last index
           if [[ -f "$INDEX_FILE" ]]; then
-            LAST_INDEX=$(cat "$INDEX_FILE")
+            LAST_INDEX=$($CAT "$INDEX_FILE")
           else
             LAST_INDEX=""
           fi
 
-          # If the index hasn't changed, but the wallpaper cache is missing, apply the wallpaper
+          # Skip updating if the index hasn't changed
           if [[ "$LAST_INDEX" == "$INDEX" && -f "$WALLPAPER_CACHE" ]]; then
             echo "No wallpaper change needed (still using index $INDEX)."
             exit 0
           fi
 
-          # Fetch new wallpaper if it doesn't exist
+          # Fetch new wallpaper if needed
           if [[ ! -f "$WALLPAPER_PATH" ]]; then
             echo "Fetching new wallpaper: $WALLPAPER_URL"
-            curl -o "$WALLPAPER_PATH" -L "$WALLPAPER_URL"
+            $CURL -o "$WALLPAPER_PATH" -L "$WALLPAPER_URL"
           else
             echo "Wallpaper already exists: $WALLPAPER_PATH"
           fi
 
-          # Apply the new wallpaper
-          hyprctl hyprpaper preload "$WALLPAPER_PATH"
-          hyprctl hyprpaper wallpaper ", $WALLPAPER_PATH"
+          # Apply wallpaper
+          $HYPRCTL hyprpaper preload "$WALLPAPER_PATH"
+          $HYPRCTL hyprpaper wallpaper ", $WALLPAPER_PATH"
 
-          # Store new index and path
+          # Save new index and wallpaper path
           echo "$INDEX" > "$INDEX_FILE"
           echo "$WALLPAPER_PATH" > "$WALLPAPER_CACHE"
         '';
       };
-      Install.WantedBy = ["default.target" "graphical-session.target"];
+      Install.WantedBy = ["default.target"];
     };
 
     timers.wallpaper-update = {
