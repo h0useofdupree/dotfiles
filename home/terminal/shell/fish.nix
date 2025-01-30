@@ -23,9 +23,11 @@
     shellInitLast = ''
       bind --erase \cf
       bind --erase \ca
+      bind --erase \cw
 
       bind \ca accept-autosuggestion
       bind \cf forward-bigword
+      bind \cw backward-kill-word
     '';
 
     shellAbbrs = {
