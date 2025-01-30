@@ -8,7 +8,6 @@
     ./specialisations.nix
     ./terminal
     inputs.nix-index-db.hmModules.nix-index
-    inputs.nixvim.homeManagerModules.nixvim
     inputs.hyprpanel.homeManagerModules.hyprpanel
     inputs.nvf.homeManagerModules.default
     self.nixosModules.theme
