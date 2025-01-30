@@ -32,6 +32,7 @@
       Unit = {
         Description = "Fetch and apply dynamic wallpaper";
         After = ["hyprpaper.service"];
+        Wants = ["hyprpaper.service"];
       };
       Service = {
         Type = "oneshot";
@@ -46,8 +47,14 @@
           INDEX_FILE="$HOME/.cache/dynamic-wallpaper-index"
           mkdir -p "$WALLPAPER_DIR"
 
+          # Restore the last wallpaper if it exists (for first boot after reboot)
+          if [[ -f "$WALLPAPER_CACHE" ]]; then
+            echo "Restoring last used wallpaper..."
+            hyprctl hyprpaper preload "$(cat "$WALLPAPER_CACHE")"
+            hyprctl hyprpaper wallpaper ", $(cat "$WALLPAPER_CACHE")"
+          fi
+
           HOUR=$(date +%H)
-          # HOUR=10 # Testing
           if (( HOUR >= 6 && HOUR < 10 )); then
             INDEX=1
           elif (( HOUR >= 10 && HOUR < 14 )); then
@@ -71,13 +78,13 @@
             LAST_INDEX=""
           fi
 
-          # If the index hasn't changed, exit to prevent redundant refreshes
-          # if [[ "$LAST_INDEX" == "$INDEX" ]]; then
-          #   echo "No wallpaper change needed (still using index $INDEX)."
-          #   exit 0
-          # fi
+          # If the index hasn't changed, but the wallpaper cache is missing, apply the wallpaper
+          if [[ "$LAST_INDEX" == "$INDEX" && -f "$WALLPAPER_CACHE" ]]; then
+            echo "No wallpaper change needed (still using index $INDEX)."
+            exit 0
+          fi
 
-          # Update wallpaper if a change is detected
+          # Fetch new wallpaper if it doesn't exist
           if [[ ! -f "$WALLPAPER_PATH" ]]; then
             echo "Fetching new wallpaper: $WALLPAPER_URL"
             curl -o "$WALLPAPER_PATH" -L "$WALLPAPER_URL"
@@ -85,14 +92,16 @@
             echo "Wallpaper already exists: $WALLPAPER_PATH"
           fi
 
-          # Apply wallpaper and store new index
+          # Apply the new wallpaper
           hyprctl hyprpaper preload "$WALLPAPER_PATH"
           hyprctl hyprpaper wallpaper ", $WALLPAPER_PATH"
+
+          # Store new index and path
           echo "$INDEX" > "$INDEX_FILE"
           echo "$WALLPAPER_PATH" > "$WALLPAPER_CACHE"
         '';
       };
-      Install.WantedBy = ["default.target"];
+      Install.WantedBy = ["default.target" "graphical-session.target"];
     };
 
     timers.wallpaper-update = {
