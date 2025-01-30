@@ -11,7 +11,7 @@ in {
     ./binds.nix
     ./rules.nix
     ./settings.nix
-    #./smartgaps.nix
+    ./smartgaps.nix
   ];
 
   home.packages = [
@@ -20,7 +20,6 @@ in {
 
   xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 
-  # enable hyprland
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -28,7 +27,7 @@ in {
 
     plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
       # hyprbars
-      # hyprexpo
+      hyprexpo
     ];
 
     systemd = {
