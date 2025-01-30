@@ -42,6 +42,7 @@
           FILE_NAME="DesertSands"
           EXTENSION="png"
           WALLPAPER_DIR="$HOME/.local/share/dynamic-wallpapers/$BASE_NAME"
+          WALLPAPER_CACHE="$HOME/.cache/current-wallpaper-path"
           INDEX_FILE="$HOME/.cache/dynamic-wallpaper-index"
           mkdir -p "$WALLPAPER_DIR"
 
@@ -71,10 +72,10 @@
           fi
 
           # If the index hasn't changed, exit to prevent redundant refreshes
-          if [[ "$LAST_INDEX" == "$INDEX" ]]; then
-            echo "No wallpaper change needed (still using index $INDEX)."
-            exit 0
-          fi
+          # if [[ "$LAST_INDEX" == "$INDEX" ]]; then
+          #   echo "No wallpaper change needed (still using index $INDEX)."
+          #   exit 0
+          # fi
 
           # Update wallpaper if a change is detected
           if [[ ! -f "$WALLPAPER_PATH" ]]; then
@@ -88,6 +89,7 @@
           hyprctl hyprpaper preload "$WALLPAPER_PATH"
           hyprctl hyprpaper wallpaper ", $WALLPAPER_PATH"
           echo "$INDEX" > "$INDEX_FILE"
+          echo "$WALLPAPER_PATH" > "$WALLPAPER_CACHE"
         '';
       };
       Install.WantedBy = ["default.target"];

@@ -3,7 +3,14 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  wallpaperCache = "/home/${config.home.username}/.cache/current-wallpaper-path";
+  defaultWallpaper = config.theme.wallpaper;
+  currentWallpaper =
+    if builtins.pathExists wallpaperCache
+    then builtins.readFile wallpaperCache
+    else defaultWallpaper;
+in {
   programs.hyprlock = {
     enable = true;
 
@@ -21,7 +28,7 @@
         {
           monitor = "";
           # path = config.theme.wallpaper;
-          path = "screenshot";
+          path = "${currentWallpaper}";
           blur_size = 1;
           blur_passes = 4;
         }
