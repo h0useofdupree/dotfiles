@@ -10,6 +10,9 @@
         enable = true;
         excludes = [".js" ".md" ".ts"];
       };
+      flake-checker.enable = true;
+      black.enable = true;
+      shellcheck.enable = true;
     };
   };
 }
