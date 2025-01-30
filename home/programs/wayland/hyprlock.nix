@@ -3,14 +3,17 @@
   inputs,
   pkgs,
   ...
-}: let
-  wallpaperCache = "/home/${config.home.username}/.cache/current-wallpaper-path";
-  defaultWallpaper = config.theme.wallpaper;
-  currentWallpaper =
-    if builtins.pathExists wallpaperCache
-    then builtins.readFile wallpaperCache
-    else defaultWallpaper;
-in {
+}:
+# FIXME: This somehow does not work. Path gets set to defaultWallpaper and hyprlock does not show any wallpaper anyways
+# let
+# wallpaperCache = "/home/${config.home.username}/.cache/current-wallpaper-path";
+# defaultWallpaper = config.theme.wallpaper;
+# currentWallpaper =
+# if builtins.pathExists wallpaperCache
+# then builtins.readFile wallpaperCache
+# else defaultWallpaper;
+# in
+{
   programs.hyprlock = {
     enable = true;
 
@@ -27,8 +30,8 @@ in {
       background = [
         {
           monitor = "";
-          # path = config.theme.wallpaper;
-          path = "${currentWallpaper}";
+          path = config.theme.wallpaper;
+          # path = "${currentWallpaper}";
           blur_size = 1;
           blur_passes = 4;
         }
