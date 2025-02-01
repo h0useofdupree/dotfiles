@@ -4,15 +4,15 @@
   inputs,
   ...
 }: {
-  # services.hyprpaper = {
-  #   enable = true;
-  #   package = inputs.hyprpaper.packages.${pkgs.system}.default;
+  services.hyprpaper = {
+    enable = true;
+    package = inputs.hyprpaper.packages.${pkgs.system}.default;
 
-  #   settings = {
-  #     preload = [];
-  #     wallpaper = [];
-  #   };
-  # };
+    settings = {
+      preload = [];
+      wallpaper = [];
+    };
+  };
 
   systemd.user = {
     services.hyprpaper = {
@@ -66,9 +66,9 @@
             INDEX=1
           elif (( HOUR >= 10 && HOUR < 14 )); then
             INDEX=2
-          elif (( HOUR >= 14 && HOUR < 18 )); then
+          elif (( HOUR >= 14 && HOUR < 17 )); then
             INDEX=3
-          elif (( HOUR >= 18 && HOUR < 22 )); then
+          elif (( HOUR >= 17 && HOUR < 20 )); then
             INDEX=4
           else
             INDEX=5
