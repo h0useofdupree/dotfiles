@@ -10,9 +10,14 @@
       };
       device = {
         audio_cache = false;
-        normalization = false;
+        normalization = true;
+        autoplay = true;
+        bitrate = 320;
+        initial_volume = 100;
       };
-
+      enable_notify = false;
+      play_icon = "▌▌";
+      pause_icon = "▶";
       client_id = "bd411790cddf4f6382e92bd325e8a586";
     };
   };
