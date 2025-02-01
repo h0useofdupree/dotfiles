@@ -38,7 +38,7 @@
     };
 
     plymouth = {
-      enable = true;
+      enable = false;
       theme = "rings";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
