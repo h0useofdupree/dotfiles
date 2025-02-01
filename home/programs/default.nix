@@ -2,7 +2,7 @@
   imports = [
     ./anyrun
     ./browsers/firefox.nix
-    ./browsers/qutebrowser.nix
+    ./browsers/qutebrowser
     ./browsers/zen.nix
     ./media
     ./gtk.nix
@@ -11,6 +11,8 @@
   ];
 
   home.packages = with pkgs; [
+    bitwarden-desktop
+
     signal-desktop
     tdesktop
 
