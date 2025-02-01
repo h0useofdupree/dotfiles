@@ -25,5 +25,7 @@
     overskride
     resources
     wineWowPackages.wayland
+
+    viddy
   ];
 }

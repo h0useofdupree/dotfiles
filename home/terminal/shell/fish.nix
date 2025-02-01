@@ -35,6 +35,7 @@
       cdd = "cd ~/.dotfiles/";
       c = "z";
       spt = "spotify_player";
+      watch = "viddy";
     };
 
     functions = {

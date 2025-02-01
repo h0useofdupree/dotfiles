@@ -3,7 +3,7 @@
   programs.spotify-player = {
     enable = true;
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "default";
       playback_window_position = "Top";
       copy_command = {
         command = "wl-copy";
