@@ -157,20 +157,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    tailray = {
-      url = "github:NotAShelf/tailray";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     yazi.url = "github:sxyazi/yazi";
 
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
