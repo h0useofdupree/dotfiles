@@ -1,6 +1,8 @@
 {
+  imports = [./themes.nix];
   programs.spotify-player = {
     enable = true;
+    theme = "catppuccin_mocha";
     settings = {
       theme = "default";
       playback_window_position = "Top";
@@ -10,10 +12,10 @@
       };
       device = {
         audio_cache = false;
-        normalization = true;
+        normalization = false;
         autoplay = true;
-        bitrate = 320;
         initial_volume = 100;
+        bitrate = 320;
       };
       enable_notify = false;
       play_icon = "▌▌";

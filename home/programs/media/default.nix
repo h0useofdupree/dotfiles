@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./mpv.nix
-    ./spotify-player.nix
+    ./spotify-player
   ];
 
   home.packages = with pkgs; [
