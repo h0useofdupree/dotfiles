@@ -2,9 +2,8 @@
   imports = [./themes.nix];
   programs.spotify-player = {
     enable = true;
-    theme = "catppuccin_mocha";
     settings = {
-      theme = "default";
+      theme = "catppuccin_mocha";
       playback_window_position = "Top";
       copy_command = {
         command = "wl-copy";
@@ -14,7 +13,7 @@
         audio_cache = false;
         normalization = false;
         autoplay = true;
-        initial_volume = 100;
+        volume = 100;
         bitrate = 320;
       };
       enable_notify = false;
