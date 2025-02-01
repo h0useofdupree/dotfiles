@@ -44,41 +44,42 @@
         };
 
         options = {
-          updatetime = 100; # Faster completion
+          updatetime = 100;
+          timeoutlen = 500;
 
           # Line numbers
-          relativenumber = true; # Relative line numbers
-          number = true; # Display the absolute line number of the current line
+          relativenumber = true;
+          number = true;
           hidden = true; # Keep closed buffer open in the background
-          mouse = "a"; # Enable mouse control
-          mousemodel = "extend"; # Mouse right-click extends the current selection
-          splitbelow = true; # A new window is put below the current one
-          splitright = true; # A new window is put right of the current one
+          mouse = "a";
+          mousemodel = "extend";
+          splitbelow = true;
+          splitright = true;
 
-          swapfile = false; # Disable the swap file
-          modeline = true; # Tags such as 'vim:ft=sh'
-          modelines = 100; # Sets the type of modelines
-          undofile = true; # Automatically save and restore undo history
-          incsearch = true; # Incremental search: show match for partly typed search command
-          inccommand = "split"; # Search and replace: preview changes in quickfix list
-          ignorecase = true; # Match both lower- and upper-case for lowercase queries
-          smartcase = true; # Override 'ignorecase' if search query contains uppercase
-          scrolloff = 8; # Number of screen lines to show around the cursor
-          cursorline = false; # Highlight the screen line of the cursor
-          cursorcolumn = false; # Highlight the screen column of the cursor
-          signcolumn = "yes"; # Always show the signcolumn
-          laststatus = 3; # When to use a status line for the last window
-          fileencoding = "utf-8"; # File-content encoding for the current buffer
-          termguicolors = true; # Enable 24-bit RGB color
-          wrap = true; # Prevent text wrapping
+          swapfile = false;
+          modeline = true;
+          modelines = 100;
+          undofile = true;
+          incsearch = true;
+          inccommand = "split";
+          ignorecase = true;
+          smartcase = true;
+          scrolloff = 8;
+          cursorline = false;
+          cursorcolumn = false;
+          signcolumn = "yes";
+          laststatus = 3;
+          fileencoding = "utf-8";
+          termguicolors = true;
+          wrap = true;
 
           # Tab options
           tabstop = 2; # Number of spaces a <Tab> represents
           shiftwidth = 2; # Number of spaces for each (auto)indent
           expandtab = true; # Expand <Tab> to spaces in Insert mode
-          autoindent = true; # Enable autoindenting
+          autoindent = true;
 
-          textwidth = 0; # Disable automatic line-breaking on text width
+          textwidth = 0;
 
           # Folding
           foldlevel = 300; # Folds deeper than this level are closed
@@ -99,7 +100,13 @@
           lspSignature.enable = true;
           otter-nvim.enable = true;
           lsplines.enable = true;
-          nvim-docs-view.enable = true;
+          nvim-docs-view = {
+            enable = false;
+            mappings = {
+              viewToggle = "";
+              viewUpdate = "";
+            };
+          };
         };
 
         debugger = {
@@ -194,7 +201,10 @@
           nvimBufferline.enable = true;
         };
 
-        treesitter.context.enable = true;
+        treesitter = {
+          fold = true;
+          context.enable = true;
+        };
 
         binds = {
           whichKey = {
