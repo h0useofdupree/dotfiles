@@ -34,39 +34,43 @@
       lg = "lazygit";
       cdd = "cd ~/.dotfiles/";
       c = "z";
-      spt = "spotify_player";
       watch = "viddy";
     };
 
     functions = {
-      # icat (kitten icat)
+      spt = {
+        body = ''
+          kitten @ set-spacing padding=10
+          spotify_player
+          kitten @ set-spacing padding=default
+        '';
+        wraps = "spotify-player";
+        description = "spotify-player (kitty padding adjusted)";
+      };
+
       icat = {
         body = "kitten icat $argv";
         wraps = "kitten icat";
         description = "shortcut for kitten icat";
       };
 
-      # eza (ls) settings wrapper
       eza = {
         body = "command eza --group-directories-first $argv";
         wraps = "eza";
         description = "eza with options (wrapper)";
       };
 
-      # bat (cat) wrapper
       cat = {
         body = "bat $argv";
         wraps = "bat";
         description = "bat (wrapper)";
       };
 
-      # nv (neovide) wrapper
       nv = {
         body = "neovide --no-fork $argv";
         wraps = "neovide";
       };
 
-      # y (yazi) helper
       y = {
         body = ''
           set tmp (mktemp -t "yazi-cwd.XXXXXX")
@@ -79,7 +83,6 @@
         description = "yazi helper (cd cwd)";
       };
 
-      # gitignore templates
       gitignore = {
         body = "curl -sL https://www.gitignore.io/api/$argv";
         description = "fetches a gitignore template for a given language";
