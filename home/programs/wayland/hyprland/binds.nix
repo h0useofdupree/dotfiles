@@ -46,8 +46,9 @@ in {
         # utility
         # terminal
         "$mod, Return, exec, uwsm app -- kitty"
-        #browser
+        #browsers
         "$mod, B, exec, uwsm app -- zen"
+        "$mod2, B, exec, uwsm app -- qutebrowser"
         # logout menu
         "Control $mod, Delete, exec, ${toggle "wlogout"} -p layer-shell"
         # lock screen
