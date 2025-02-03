@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -20,7 +24,10 @@
     xserver.xkb.variant = "altgr-intl";
   };
 
-  # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+  boot = {
+    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+    initrd.kernelModules = ["amdgpu"];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
