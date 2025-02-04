@@ -175,14 +175,14 @@
         statusline = {
           lualine = {
             enable = true;
-            theme = "auto";
+            # theme = "auto";
           };
         };
 
         theme = {
           enable = true;
-          name = "rose-pine";
-          style = "main";
+          name = "catppuccin";
+          style = "macchiato";
           transparent = false;
         };
 
@@ -270,7 +270,7 @@
           illuminate.enable = true;
           breadcrumbs = {
             enable = true;
-            navbuddy.enable = false;
+            navbuddy.enable = true;
           };
           smartcolumn = {
             enable = true;
@@ -303,6 +303,7 @@
           comment-nvim = {
             enable = true;
             mappings = {
+              # TODO: Map <leader>/ to toggle line-comment in VISUAL mode
               toggleCurrentLine = "<leader>/";
             };
           };
