@@ -5,7 +5,7 @@ _: {
     overwrite.enable = true;
     overlay.enable = true;
 
-    theme = "catppuccin_mocha";
+    theme = "catppuccin_macchiato_split";
 
     layout = {
       "bar.layouts" = {
