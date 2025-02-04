@@ -23,6 +23,8 @@ in {
     ];
 
     general = {
+      # layout = "master";
+      layout = "dwindle";
       gaps_in = 15;
       gaps_out = 20;
       border_size = 3;
@@ -39,7 +41,7 @@ in {
     };
 
     decoration = {
-      rounding = 20;
+      rounding = 18;
       rounding_power = 4;
       dim_special = 0;
       blur = {
@@ -139,6 +141,16 @@ in {
     dwindle = {
       pseudotile = true;
       preserve_split = true;
+      special_scale_factor = 0.7;
+    };
+
+    master = {
+      orientation = "center";
+      allow_small_split = true;
+      slave_count_for_center_master = 0;
+      new_status = "slave";
+      new_on_top = false;
+      mfact = 0.55;
       special_scale_factor = 0.7;
     };
 

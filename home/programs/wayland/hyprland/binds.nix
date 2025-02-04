@@ -39,9 +39,10 @@ in {
         "$mod SHIFT, N, changegroupactive, f"
         "$mod SHIFT, P, changegroupactive, b"
         "$mod, S, togglesplit,"
-        "$mod, f, togglefloating,"
-        "$mod SHIFT, f, pseudo,"
-        "$mod ALT, ,resizeactive,"
+        "$mod SHIFT, F, togglefloating,"
+        "$mod, F, pseudo,"
+        "$mod, M, layoutmsg, swapwithmaster"
+        "$mod SHIFT, M, layoutmsg, orientationcycle left center"
 
         # utility
         # terminal
