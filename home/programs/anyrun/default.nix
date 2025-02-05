@@ -30,7 +30,7 @@
     extraConfigFiles = {
       "uwsm_app.ron".text = ''
         Config(
-          desktop_actions: true,
+          desktop_actions: false,
           max_entries: 5,
         )
       '';
