@@ -8,6 +8,7 @@
     ./specialisations.nix
     ./terminal
     inputs.nix-index-db.hmModules.nix-index
+    # TODO: Put these imports into their respective files ({default,<name>}.nix)
     inputs.hyprpanel.homeManagerModules.hyprpanel
     inputs.nvf.homeManagerModules.default
     self.nixosModules.theme
