@@ -8,7 +8,7 @@
     ./gtk.nix
     ./office
     ./qt.nix
-    # ./walker
+    ./walker
   ];
 
   home.packages = with pkgs; [
