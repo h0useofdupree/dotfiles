@@ -43,7 +43,7 @@
 
       "randr.ron".text = ''
         Config(
-          prefi: ":dp",
+          prefix: ":dp",
           max_entries: 5,
         )
       '';
