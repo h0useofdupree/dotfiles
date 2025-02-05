@@ -11,6 +11,7 @@
     inputs.hyprpanel.homeManagerModules.hyprpanel
     inputs.nvf.homeManagerModules.default
     self.nixosModules.theme
+    inputs.self.homeModules.dynamicWallpaper
   ];
 
   home = {

@@ -11,14 +11,17 @@ with lib; let
     phases = ["buildPhase"];
     builder = ./dynamic-wallpaper-builder.sh;
     nativeBuildInputs = [pkgs.coreutils pkgs.curl pkgs.wget pkgs.bash];
-    PATH = lib.makeBinPath nativeBuildInputs;
+    buildPhase = ''
+      export PATH = lib.makeBinPath nativeBuildInputs;
+      echo "Building dynamic wallpaper script..."
+    '';
     # Pass configuration as environment variables (only strings can be passed)
-    cacheDir = config.dynamicWallpaper.cacheDir;
-    currentWallpaper = config.dynamicWallpaper.currentWallpaper;
-    themeSubdir = config.dynamicWallpaper.themeSubdir;
-    baseName = config.dynamicWallpaper.baseName;
-    namingPattern = config.dynamicWallpaper.namingPattern;
-    extension = config.dynamicWallpaper.extension;
+    inherit (config.dynamicWallpaper) cacheDir;
+    inherit (config.dynamicWallpaper) currentWallpaper;
+    inherit (config.dynamicWallpaper) themeSubdir;
+    inherit (config.dynamicWallpaper) baseName;
+    inherit (config.dynamicWallpaper) namingPattern;
+    inherit (config.dynamicWallpaper) extension;
     totalVariants = builtins.toString config.dynamicWallpaper.totalVariants;
   };
 in {
@@ -80,30 +83,32 @@ in {
 
   config = mkIf config.dynamicWallpaper.enable {
     # Install the generated dynamic wallpaper script into ~/.local/bin.
-    home.file."local/bin/dynamic-wallpaper.sh" = {
+    home.file.".local/bin/dynamic-wallpaper.sh" = {
       source = dynamicWallpaperScriptDrv;
-      mode = "0755";
+      executable = true;
     };
 
-    # Define the systemd user service.
     systemd.user.services.dynamic-wallpaper = {
-      description = "Dynamic Wallpaper Updater";
-      # Ensure the service starts after your graphical session is up.
-      wantedBy = ["graphical-session.target"];
-      serviceConfig = {
+      Unit = {
+        Description = "Dynamic Wallpaper Updater";
+        After = ["graphical-session.target"];
+      };
+      Service = {
         Type = "oneshot";
         ExecStart = "${pkgs.bash}/bin/bash ${config.home.homeDirectory}/.local/bin/dynamic-wallpaper.sh";
       };
+      Install.WantedBy = ["default.target"];
     };
 
-    # Define the systemd timer.
     systemd.user.timers.dynamic-wallpaper = {
-      description = "Timer for Dynamic Wallpaper Updater";
-      timerConfig = {
+      Unit = {
+        Description = "Timer for Dynamic Wallpaper Updater";
+      };
+      Timer = {
         OnCalendar = config.dynamicWallpaper.updateInterval;
         Persistent = true;
       };
-      wantedBy = ["timers.target"];
+      Install.WantedBy = ["timers.target"];
     };
   };
 }

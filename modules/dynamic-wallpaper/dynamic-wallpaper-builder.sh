@@ -6,7 +6,7 @@ set -euo pipefail
 #   cacheDir, currentWallpaper, themeSubdir, baseName, namingPattern,
 #   extension, totalVariants
 
-cat >"$out" <<'EOF'
+cat >"$out" <<EOF
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -22,13 +22,16 @@ NAMING_PATTERN="${namingPattern}"
 EXTENSION="${extension}"
 TOTAL_VARIANTS=${totalVariants}
 
+# DEBUGGING
+echo $TOTAL_VARIANTS > $HOME/.local/bin/log.txt
+
 current_index() {
   local midnight now elapsed slot_duration index
   midnight=$(date -d "today 00:00:00" +%s)
   now=$(date +%s)
-  elapsed=$(( now - midnight ))
-  slot_duration=$(( 86400 / TOTAL_VARIANTS ))
-  index=$(( elapsed / slot_duration + 1 ))
+  elapsed=$((now - midnight))
+  slot_duration=$((86400 / TOTAL_VARIANTS))
+  index=$((elapsed / slot_duration + 1))
   if [ "$index" -gt "$TOTAL_VARIANTS" ]; then
     index="$TOTAL_VARIANTS"
   fi
