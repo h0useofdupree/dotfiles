@@ -5,14 +5,14 @@ _: {
     overwrite.enable = true;
     overlay.enable = true;
 
-    theme = "catppuccin_macchiato_split";
+    theme = "catppuccin_frappe_split";
 
     layout = {
       "bar.layouts" = {
         "0" = {
           left = ["dashboard" "workspaces" "media"];
           middle = ["windowtitle"];
-          right = ["volume" "bluetooth" "network" "battery" "systray" "clock" "notifications"];
+          right = ["volume" "bluetooth" "network" "battery" "systray" "notifications" "clock"];
         };
       };
     };
@@ -38,20 +38,26 @@ _: {
       theme = {
         bar = {
           location = "top";
-          floating = true;
+          floating = false;
           margin_sides = "1.5em";
           transparent = false;
           outer_spacing = "0.3em";
-          border_radius = "0.9em";
+          border_radius = "1.0em";
 
           buttons = {
-            enableBorders = true;
-            radius = "0.9em";
+            enableBorders = false;
+            radius = "2em";
           };
         };
       };
 
-      wallpaper.enable = false;
+      bar = {
+        launcher = {
+          icon = "";
+        };
+      };
+
+      wallpaper.enable = true;
     };
   };
 }
