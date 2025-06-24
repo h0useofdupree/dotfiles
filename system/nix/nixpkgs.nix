@@ -17,7 +17,7 @@
             colors = import "${self}/lib/colors" prev.lib;
           };
       })
-      inputs.hyprpanel.overlay
+      # inputs.hyprpanel.overlay
     ];
   };
 }
