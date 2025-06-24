@@ -45,7 +45,6 @@
     fd
     kitty
     kitty-themes
-    qutebrowser
     os-prober
     fish
     wl-clipboard
