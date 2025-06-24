@@ -14,6 +14,34 @@
           logFile = "/tmp/nvim.log";
         };
 
+        clipboard = {
+          enable = true;
+          providers = {
+            wl-copy.enable = true;
+          };
+          registers = "unnamedplus";
+        };
+
+        diagnostics = {
+          enable = true;
+          config = {
+            virtual_lines = {
+              only_current_line = true;
+            };
+            virtual_text = false;
+            underline = true;
+            signs = {
+              text = {
+                "vim.diagnostic.severity.ERROR" = "";
+                "vim.diagnostic.severity.WARN" = "";
+                "vim.diagnostic.severity.INFO" = "";
+                "vim.diagnostic.severity.HINT" = "󰌶";
+              };
+            };
+            update_in_insert = false;
+          };
+        };
+
         extraPlugins = {
           betterEscape = {
             package = pkgs.vimPlugins.better-escape-nvim;
@@ -89,8 +117,6 @@
           enable = false;
         };
 
-        useSystemClipboard = true;
-
         lsp = {
           formatOnSave = true;
           lspkind.enable = true;
@@ -99,7 +125,6 @@
           trouble.enable = true;
           lspSignature.enable = true;
           otter-nvim.enable = true;
-          lsplines.enable = true;
           nvim-docs-view = {
             enable = false;
             mappings = {
