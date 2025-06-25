@@ -1,5 +1,4 @@
 {
-  lib,
   self,
   inputs,
   ...
@@ -30,9 +29,9 @@
 
   programs.home-manager.enable = true;
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      lib = prev.lib // {colors = import "${self}/lib/colors" lib;};
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     lib = prev.lib // {colors = import "${self}/lib/colors" lib;};
+  #   })
+  # ];
 }
