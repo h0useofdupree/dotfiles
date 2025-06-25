@@ -35,11 +35,6 @@ in {
       resize_on_border = false;
     };
 
-    experimental = {
-      hdr = false;
-      xx_color_management_v4 = true;
-    };
-
     decoration = {
       rounding = 18;
       rounding_power = 4;
