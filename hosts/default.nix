@@ -22,7 +22,7 @@
         ++ [
           ./nixus
           "${mod}/programs/gamemode.nix"
-          "${mod}/programs/hyprland.nix"
+          "${mod}/programs/hyprland"
           "${mod}/programs/games.nix"
 
           "${mod}/services/gnome-services.nix"

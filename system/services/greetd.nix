@@ -17,15 +17,6 @@
     };
   };
 
-  programs.uwsm = {
-    enable = true;
-    waylandCompositors.hyprland = {
-      binPath = "/run/current-system/sw/bin/Hyprland";
-      prettyName = "Hyprland";
-      comment = "Hyprland compositor managed by UWSM";
-    };
-  };
-
   # Unlock GPG keyring on login
   # NOTE: Does not work with autologin
   security.pam.services.greetd.enableGnomeKeyring = true;

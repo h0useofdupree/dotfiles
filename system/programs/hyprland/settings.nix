@@ -1,22 +1,27 @@
-{config, ...}: let
-  pointer = config.home.pointerCursor;
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  # pointer = config.home.pointerCursor;
   cursorName = "Bibata-Modern-Classic-Hyprcursor";
 in {
-  wayland.windowManager.hyprland.settings = {
+  programs.hyprland.settings = {
     "$mod" = "ALT";
     "$mod2" = "SUPER";
     env = [
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       "HYPRCURSOR_THEME,${cursorName}"
-      "HYPRCURSOR_SIZE,${toString pointer.size}"
+      "HYPRCURSOR_SIZE,${toString 16}"
+      "GRIMBLAST_NO_CURSOR,0"
     ];
 
     exec-once = [
       # finalize startup
       "uwsm finalize"
       # set cursor for HL itself
-      "hyprctl setcursor ${cursorName} ${toString pointer.size}"
+      "hyprctl setcursor ${cursorName} ${toString 16}"
       "hyprlock"
       # "hyprpanel"
       "ags"
@@ -118,6 +123,7 @@ in {
       };
     };
 
+    # TODO: Put this in hosts/nixus/hyprland.nix
     device = [
       {
         name = "keychron-keychron-q1";
@@ -169,8 +175,6 @@ in {
 
     render = {
       direct_scanout = true;
-      #explicit_sync = 0;
-      #explicit_sync_kms = 0;
     };
 
     # touchpad gestures
@@ -179,14 +183,28 @@ in {
       workspace_swipe_forever = true;
     };
 
-    # xwayland.force_zero_scaling = true;
+    permission = [
+      "${config.programs.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
+      "${lib.getExe pkgs.grim}, screencopy, allow"
+      "${lib.getExe pkgs.wl-screenrec}, screencopy, allow"
+    ];
+
+    xwayland.force_zero_scaling = true;
 
     debug.disable_logs = false;
+
+    hyprbars-button = [
+      # close
+      "rgb(ffb4ab), 15, , hyprctl dispatch killactive"
+      # maximize
+      "rgb(b6c4ff), 15, , hyprctl dispatch fullscreen 1"
+    ];
 
     plugin = {
       hyprbars = {
         bar_height = 20;
         bar_precedence_over_border = true;
+        icon_on_hover = true;
       };
 
       hyprexpo = {

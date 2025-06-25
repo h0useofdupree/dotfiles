@@ -1,10 +1,11 @@
 {
+  lib,
   pkgs,
   self,
   ...
 }: {
   imports = [
-    ./hyprland
+    # ./hyprland
     # ./hyprpanel.nix
     ./hyprlock.nix
     ./wlogout.nix
@@ -25,4 +26,5 @@
     SDL_VIDEODRIVER = "wayland";
     XDG_SESSION_TYPE = "wayland";
   };
+  systemd.user.targets.tray.Unit.Requires = lib.mkForce ["graphical-session.target"];
 }
