@@ -22,7 +22,7 @@
     waylandCompositors.hyprland = {
       binPath = "/run/current-system/sw/bin/Hyprland";
       prettyName = "Hyprland";
-      comment = "Hyprland UWSM";
+      comment = "Hyprland compositor managed by UWSM";
     };
   };
 
