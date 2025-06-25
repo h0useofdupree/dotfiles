@@ -66,6 +66,6 @@
     LC_MONETARY = "de_DE.UTF-8"; # Currency
     LC_MEASUREMENT = "de_DE.UTF-8"; # Units (e.g., metric)
     LANG = "en_US.UTF-8"; # Interface language
-    FLAKE = "/home/h0useofdupree/.dotfiles";
+    NH_FLAKE = "/home/h0useofdupree/.dotfiles";
   };
 }
