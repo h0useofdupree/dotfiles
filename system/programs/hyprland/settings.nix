@@ -123,23 +123,6 @@ in {
       };
     };
 
-    # TODO: Put this in hosts/nixus/hyprland.nix
-    device = [
-      {
-        name = "keychron-keychron-q1";
-        kb_layout = "us";
-        kb_variant = "altgr-intl";
-        kb_options = "compose:caps, level3:ralt_switch";
-      }
-
-      {
-        name = "keychron-keychron-q1-keyboard";
-        kb_layout = "us";
-        kb_variant = "altgr-intl";
-        kb_options = "compose:caps, level3:ralt_switch";
-      }
-    ];
-
     dwindle = {
       pseudotile = true;
       preserve_split = true;
