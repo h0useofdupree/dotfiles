@@ -12,13 +12,6 @@
     # ./smartgaps.nix
   ];
 
-  environment.systemPackages = [
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-    inputs.self.packages.${pkgs.system}.bibata-hyprcursor
-  ];
-
-  environment.pathsToLink = ["/share/icons/"];
-
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -36,7 +29,15 @@
     #     "systemctl --user start hyprland-session.target"
     #   ];
     # };
+  };
 
-    environment.variables.NIXOS_OZONE_WL = "1";
+  environment = {
+    systemPackages = [
+      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+      inputs.self.packages.${pkgs.system}.bibata-hyprcursor
+    ];
+
+    pathsToLink = ["/share/icons/"];
+    variables.NIXOS_OZONE_WL = "1";
   };
 }
