@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   inputs,
@@ -40,5 +41,12 @@
         cache_dir = config.xdg.cacheHome;
       };
     };
+
+    keymap.manager.prepend_keymap = [
+      {
+        on = ["<C-n>"];
+        run = ''shell '${lib.getExe pkgs.ripdrag} "$@" -x 2>/dev/null &' --confirm'';
+      }
+    ];
   };
 }
