@@ -1,5 +1,4 @@
 {
-  lib,
   inputs,
   pkgs,
   ...
@@ -26,7 +25,7 @@ in {
     package = inputs.hyprland.packages.${pkgs.system}.default;
 
     plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
-      # hyprbars
+      hyprbars
       hyprexpo
     ];
 
@@ -40,5 +39,5 @@ in {
     };
   };
 
-  systemd.user.targets.tray.Unit.Requires = lib.mkForce ["graphical-session.target"];
+  # systemd.user.targets.tray.Unit.Requires = lib.mkForce ["graphical-session.target"];
 }
