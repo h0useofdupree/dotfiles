@@ -32,6 +32,7 @@
       "ignorealpha 0.6, corner.*"
     ];
 
+    # TODO: windowrulev2 is deprecated, switch to windowrule when nix updates the syntax
     # window rules
     windowrulev2 = [
       # telegram media viewer
