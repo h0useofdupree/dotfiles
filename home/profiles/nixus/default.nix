@@ -15,6 +15,7 @@
 
     # System Services
     ../../services/ags/default.nix
+    ../../services/quickshell
     ../../services/system/gnome-keyring.nix
     ../../services/system/kdeconnect.nix
     ../../services/system/polkit-agent.nix
