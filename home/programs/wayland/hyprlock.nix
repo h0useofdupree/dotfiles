@@ -21,10 +21,10 @@
 
     settings = {
       general = {
-        disable_loading_bar = false;
+        ignore_empty_input = true;
         immediate_render = true;
-        hide_cursor = false;
-        no_fade_in = true;
+        hide_cursor = true;
+        fail_timeout = 1000;
       };
 
       animation = [
