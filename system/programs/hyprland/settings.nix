@@ -73,32 +73,30 @@ in {
       };
     };
 
-    animations = {
-      enabled = true;
+    animations.enabled = true;
 
-      bezier = [
-        "easeOutQuint,0.23,1,0.32,1"
-        "easeInOutCubic,0.65,0.05,0.36,1"
-        "linear,0,0,1,1"
-        "almostLinear,0.5,0.5,0.75,1.0"
-        "quick,0.15,0,0.1,1"
-      ];
+    bezier = [
+      "easeOutQuint,0.23,1,0.32,1"
+      "easeInOutCubic,0.65,0.05,0.36,1"
+      "linear,0,0,1,1"
+      "almostLinear,0.5,0.5,0.75,1.0"
+      "quick,0.15,0,0.1,1"
+    ];
 
-      animation = [
-        "global, 1, 4, default"
-        "border, 1, 5, easeOutQuint"
-        # "windows, 1, 3, easeOutQuint, popin 80%"
-        "windows, 1, 4, default, gnomed"
-        "fade, 1, 3, quick"
-        "layers, 1, 4, easeOutQuint"
-        "layersIn, 1, 2, easeOutQuint, slide"
-        "layersOut, 1, 3, linear, slide"
-        "fadeLayersIn, 1, 2, almostLinear"
-        "fadeLayersOut, 1, 3, almostLinear"
-        "workspaces, 1, 2, almostLinear, slide"
-        "specialWorkspace, 1, 2, almostLinear, slidevert"
-      ];
-    };
+    animation = [
+      "global, 1, 4, default"
+      "border, 1, 5, easeOutQuint"
+      # "windows, 1, 3, easeOutQuint, popin 80%"
+      "windows, 1, 4, default, gnomed"
+      "fade, 1, 3, quick"
+      "layers, 1, 4, easeOutQuint"
+      "layersIn, 1, 2, easeOutQuint, slide"
+      "layersOut, 1, 3, linear, slide"
+      "fadeLayersIn, 1, 2, almostLinear"
+      "fadeLayersOut, 1, 3, almostLinear"
+      "workspaces, 1, 2, almostLinear, slide"
+      "specialWorkspace, 1, 2, almostLinear, slidevert"
+    ];
 
     group = {
       groupbar = {
