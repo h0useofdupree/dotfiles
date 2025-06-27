@@ -28,7 +28,7 @@
       };
 
       animation = [
-        "inputFieldDots, 1, 2, linear"
+        "inputFieldDots, 1, 3, linear"
         "fadeIn, 0"
       ];
 
