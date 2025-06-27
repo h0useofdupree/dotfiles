@@ -9,8 +9,8 @@
     package = inputs.hyprpaper.packages.${pkgs.system}.default;
 
     settings = {
-      preload = [config.theme.wallpaper];
-      wallpaper = [config.theme.wallpaper];
+      preload = ["${config.theme.wallpaper}"];
+      wallpaper = [", ${config.theme.wallpaper}"];
     };
   };
 
