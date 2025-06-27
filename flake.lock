@@ -1469,6 +1469,26 @@
         "type": "github"
       }
     },
+    "quickshell": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1751022554,
+        "narHash": "sha256-+REvWf68WLbwacOsjs4CmJauE2vF+sPh++Jcxn3wSeQ=",
+        "ref": "refs/heads/master",
+        "rev": "1d02292fbf24c41f947cf72dd7de57f6dedf2173",
+        "revCount": 598,
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.outfoxxed.me/outfoxxed/quickshell"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -1492,6 +1512,7 @@
         "nixpkgs": "nixpkgs_5",
         "nvf": "nvf",
         "pre-commit-hooks": "pre-commit-hooks_2",
+        "quickshell": "quickshell",
         "systems": "systems_5",
         "walker": "walker",
         "yazi": "yazi",
@@ -1733,11 +1754,11 @@
         "rust-overlay": "rust-overlay_3"
       },
       "locked": {
-        "lastModified": 1751017439,
-        "narHash": "sha256-t/rzSZM7La/RxoXlI0IY3sOiCUpEYNPVA3NZK+Ibm4c=",
+        "lastModified": 1751028619,
+        "narHash": "sha256-W9F6lSXMXl78P+U6Z5hEgzzByM2ZWTwoIjzgYdnq0Hg=",
         "owner": "sxyazi",
         "repo": "yazi",
-        "rev": "2768fd22b10936a7f973fcf0e75482778950ecda",
+        "rev": "e16c0da5477183d0003efd4c7772bf25a6f61b08",
         "type": "github"
       },
       "original": {
