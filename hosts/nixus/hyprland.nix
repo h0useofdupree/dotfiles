@@ -7,7 +7,7 @@ let
 in {
   programs.hyprland.settings = {
     monitor = [
-      "DP-1, 3440x1440@144, auto, 1, cm, hdr"
+      "DP-1, 3440x1440@144, auto, 1, cm, auto"
       ", preferred, auto, 1"
     ];
 
