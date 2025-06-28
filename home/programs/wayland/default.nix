@@ -6,7 +6,7 @@
 }: {
   imports = [
     # ./hyprland
-    # ./hyprpanel.nix
+    ./hyprpanel.nix
     ./hyprlock.nix
     ./wlogout.nix
   ];

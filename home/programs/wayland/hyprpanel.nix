@@ -1,63 +1,45 @@
-_: {
+{
   programs.hyprpanel = {
     enable = true;
-    hyprland.enable = true;
-    overwrite.enable = true;
-    overlay.enable = true;
+    # overwrite.enable = true;
+    # overlay.enable = true;
+    # theme = "catppuccin_frappe_split";
 
-    theme = "catppuccin_frappe_split";
-
-    layout = {
+    settings = {
       "bar.layouts" = {
         "0" = {
-          left = ["dashboard" "workspaces" "media"];
+          left = ["dashboard" "workspaces" "media" "cava"];
           middle = ["windowtitle"];
           right = ["volume" "bluetooth" "network" "battery" "systray" "notifications" "clock"];
         };
       };
-    };
-
-    # TODO: fonts,
-    settings = {
-      menus = {
-        clock.weather = {
-          enabled = true;
-          location = "Mettmann";
-          unit = "metric";
-          key = "55b82b6781af4a4c9b2165259221802";
-        };
-        dashboard = {
-          shortcuts.enabled = true;
-          stats = {
-            enabled = true;
-            enable_gpu = true;
-            interval = 2000;
-          };
-        };
+      "bar.customModules.cava" = {
+        showIcon = false;
+        showActiveOnly = true;
       };
-      theme = {
-        bar = {
-          location = "top";
-          floating = false;
-          margin_sides = "1.5em";
-          transparent = false;
-          outer_spacing = "0.3em";
-          border_radius = "1.0em";
-
-          buttons = {
-            enableBorders = false;
-            radius = "2em";
-          };
-        };
+      "menus.clock.time.hideSeconds" = true;
+      "menus.clock.weather" = {
+        enabled = true;
+        location = "Mettmann";
+        unit = "metric";
+        key = "55b82b6781af4a4c9b2165259221802";
       };
+      "menus.dashboard.shortcuts.enabled" = true;
+      "menus.dashboard.stats.enabled" = true;
+      "menus.dashboard.stats.enable_gpu" = true;
+      "menus.dashboard.stats.interval" = 2000;
 
-      bar = {
-        launcher = {
-          icon = "";
-        };
-      };
+      "theme.bar.location" = "top";
+      "theme.bar.floating" = true;
+      "theme.bar.margin_sides" = "1.5em";
+      "theme.bar.transparent" = false;
+      "theme.bar.outer_spacing" = "0.3em";
+      "theme.bar.border_radius" = "1.0em";
+      "theme.bar.buttons.enableBorders" = false;
+      "theme.bar.buttons.radius" = "2em";
 
-      wallpaper.enable = true;
+      "bar.launcher.icon" = "";
+      "wallpaper.enable" = false;
     };
   };
 }
