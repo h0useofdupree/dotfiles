@@ -17,7 +17,8 @@
         showIcon = false;
         showActiveOnly = true;
       };
-      "menus.clock.time.hideSeconds" = true;
+      "bar.clock.format" = "%a %b %d %H:%M";
+      "menus.clock.time.hideSeconds" = false;
       "menus.clock.weather" = {
         enabled = true;
         location = "Mettmann";
