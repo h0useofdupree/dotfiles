@@ -5,7 +5,7 @@
   ...
 }: {
   services.hyprpaper = {
-    enable = false;
+    enable = true;
     package = inputs.hyprpaper.packages.${pkgs.system}.default;
 
     settings = {

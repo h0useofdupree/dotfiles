@@ -38,9 +38,9 @@
       "theme.bar.buttons.radius" = "2em";
 
       "bar.launcher.icon" = "";
-      "wallpaper.enable" = true;
-      "wallpaper.image" = config.theme.wallpaper;
-      "theme.matugen" = true;
+      "wallpaper.enable" = false;
+      "wallpaper.image" = "${config.theme.wallpaper}";
+      "theme.matugen" = false;
     };
   };
 }
