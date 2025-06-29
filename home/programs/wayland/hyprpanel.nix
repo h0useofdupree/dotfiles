@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   programs.hyprpanel = {
     enable = true;
     # overwrite.enable = true;
@@ -13,10 +13,8 @@
           right = ["volume" "bluetooth" "network" "battery" "systray" "notifications" "clock"];
         };
       };
-      "bar.customModules.cava" = {
-        showIcon = false;
-        showActiveOnly = true;
-      };
+      "bar.customModules.cava.showIcon" = false;
+      "bar.customModules.cava.showActiveOnly" = true;
       "bar.clock.format" = "%a %b %d %H:%M";
       "menus.clock.time.hideSeconds" = false;
       "menus.clock.weather" = {
@@ -40,7 +38,9 @@
       "theme.bar.buttons.radius" = "2em";
 
       "bar.launcher.icon" = "";
-      "wallpaper.enable" = false;
+      "wallpaper.enable" = true;
+      "wallpaper.image" = config.theme.wallpaper;
+      "theme.matugen" = true;
     };
   };
 }
