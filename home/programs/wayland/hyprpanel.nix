@@ -7,7 +7,7 @@
 
     settings = {
       "bar.layouts" = {
-        "0" = {
+        "*" = {
           left = ["dashboard" "workspaces" "media" "cava"];
           middle = ["windowtitle"];
           right = ["volume" "bluetooth" "network" "battery" "systray" "notifications" "clock"];
