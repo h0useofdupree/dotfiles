@@ -12,6 +12,7 @@
     inputs.nvf.homeManagerModules.default
     self.nixosModules.theme
     inputs.self.homeModules.dynamicWallpaper
+    inputs.self.homeModules.speakerctl
   ];
 
   home = {
