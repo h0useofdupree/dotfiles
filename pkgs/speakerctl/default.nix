@@ -1,8 +1,5 @@
-{
-  buildPythonApplication,
-  python3Packages,
-}:
-buildPythonApplication {
+{python3Packages}:
+python3Packages.buildPythonApplication {
   pname = "speakerctl";
   version = "1.0.0";
 
