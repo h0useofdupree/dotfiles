@@ -34,7 +34,9 @@
         };
         devShells.tinytuya = pkgs.mkShell {
           name = "tinytuya";
-          packages = [pkgs.python3.withPackages (p: [p.tinytuya])];
+          packages = [
+            (pkgs.python3.withPackages (p: [p.tinytuya]))
+          ];
         };
         formatter = pkgs.alejandra;
       };
