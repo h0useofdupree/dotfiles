@@ -8,6 +8,7 @@
     ./gtk.nix
     ./office
     ./qt.nix
+    ./scripts
     ./walker
   ];
 
