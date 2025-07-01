@@ -62,6 +62,10 @@ in {
         # open settings
         "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome ${runOnce "gnome-control-center"}"
 
+        # speaker control
+        "$mod2, 1, exec, speakerctl --on"
+        "$mod2, 0, exec, speakerctl --off"
+
         # move focus
         "$mod, h, movefocus, l"
         "$mod, l, movefocus, r"
