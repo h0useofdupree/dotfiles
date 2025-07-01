@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 with lib; let
@@ -30,7 +31,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = [pkgs.speakerctl];
+    home.packages = [
+      inputs.self.packages.${pkgs.system}.speakerctl
+    ];
 
     home.file.".config/speakerctl/devices.json".text = builtins.toJSON cfg.devices;
   };
