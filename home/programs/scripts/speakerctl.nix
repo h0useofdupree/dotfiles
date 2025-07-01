@@ -1,5 +1,5 @@
 {
-  programs.speakerctl = {
+  speakerctl = {
     enable = true;
   };
 }
