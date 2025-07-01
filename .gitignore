@@ -1,3 +1,7 @@
 result/
 .direnv
 .pre-commit-config.yaml
+modules/speakerctl/devices.json
+modules/speakerctl/snapshot.json
+modules/speakerctl/tinytuya.json
+modules/speakerctl/tuya-raw.json
