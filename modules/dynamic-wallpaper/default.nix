@@ -7,7 +7,7 @@
 }:
 with lib; let
   cfg = config.dynamicWallpaper;
-  defaultGroup = config.home.homeDirectory + "/.local/share/dynamic-wallpaper/default";
+  defaultGroup = config.home.homeDirectory + "/.local/share/dynamic-wallpaper/BigSur";
 in {
   options.dynamicWallpaper = {
     enable = mkOption {
