@@ -1,114 +1,75 @@
 {
   config,
-  lib,
   pkgs,
+  lib,
+  inputs,
   ...
 }:
 with lib; let
-  dynamicWallpaperScriptDrv = pkgs.stdenv.mkDerivation {
-    name = "dynamic-wallpaper.sh";
-    # Only the buildPhase is needed.
-    phases = ["buildPhase"];
-    builder = ./dynamic-wallpaper-builder.sh;
-    nativeBuildInputs = [pkgs.coreutils pkgs.curl pkgs.wget pkgs.bash];
-    buildPhase = ''
-      export PATH = lib.makeBinPath nativeBuildInputs;
-      echo "Building dynamic wallpaper script..."
-    '';
-    # Pass configuration as environment variables (only strings can be passed)
-    inherit (config.dynamicWallpaper) cacheDir;
-    inherit (config.dynamicWallpaper) currentWallpaper;
-    inherit (config.dynamicWallpaper) themeSubdir;
-    inherit (config.dynamicWallpaper) baseName;
-    inherit (config.dynamicWallpaper) namingPattern;
-    inherit (config.dynamicWallpaper) extension;
-    totalVariants = builtins.toString config.dynamicWallpaper.totalVariants;
-  };
+  cfg = config.dynamicWallpaper;
+  defaultGroup = config.home.homeDirectory + "/.local/share/dynamic-wallpapers/BigSur";
 in {
   options.dynamicWallpaper = {
     enable = mkOption {
       type = types.bool;
       default = false;
-      description = "Enable the dynamic wallpaper updater.";
+      description = "Enable dynamic wallpaper service";
     };
-
-    cacheDir = mkOption {
+    group = mkOption {
       type = types.str;
-      default = "$HOME/.cache/hyprpaper";
-      description = "Cache directory for wallpapers.";
+      default = defaultGroup;
+      description = "Directory containing wallpaper images.";
+    };
+    autoLight = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Use the lightest wallpaper when GNOME is set to light mode.";
     };
 
-    currentWallpaper = mkOption {
+    refreshInterval = mkOption {
       type = types.str;
-      default = "$HOME/.cache/hyprpaper/current_wallpaper";
-      description = "Symlink location that hyprpaper uses for the current wallpaper.";
-    };
-
-    themeSubdir = mkOption {
-      type = types.str;
-      default = "ChromeOSWind";
-      description = "Subdirectory in the repository for this wallpaper theme.";
-    };
-
-    baseName = mkOption {
-      type = types.str;
-      default = "ChromeOSWind";
-      description = "Base name for wallpaper files.";
-    };
-
-    namingPattern = mkOption {
-      type = types.str;
-      default = "ChromeOSWind-%d";
-      description = "Filename pattern (must include a %d for the index).";
-    };
-
-    extension = mkOption {
-      type = types.str;
-      default = "png";
-      description = "File extension for wallpaper files.";
-    };
-
-    totalVariants = mkOption {
-      type = types.int;
-      default = 3;
-      description = "Total number of wallpaper variants.";
-    };
-
-    updateInterval = mkOption {
-      type = types.str;
-      default = "*:0/10";
-      description = "Systemd timer OnCalendar value for update frequency.";
+      default = "30m";
+      description = "How often to refresh the wallpaper.";
     };
   };
 
-  config = mkIf config.dynamicWallpaper.enable {
-    # Install the generated dynamic wallpaper script into ~/.local/bin.
-    home.file.".local/bin/dynamic-wallpaper.sh" = {
-      source = dynamicWallpaperScriptDrv;
-      executable = true;
+  config = mkIf cfg.enable {
+    home.packages = [
+      inputs.self.packages.${pkgs.system}.dynamic-wallpaper
+    ];
+
+    home.sessionVariables = {
+      DYNAMIC_WALLPAPER_DIR = cfg.group;
+      DYNAMIC_WALLPAPER_AUTO_LIGHT =
+        if cfg.autoLight
+        then "1"
+        else "0";
     };
 
     systemd.user.services.dynamic-wallpaper = {
-      Unit = {
-        Description = "Dynamic Wallpaper Updater";
-        After = ["graphical-session.target"];
-      };
+      Unit.Description = "Update dynamic wallpaper";
       Service = {
         Type = "oneshot";
-        ExecStart = "${pkgs.bash}/bin/bash ${config.home.homeDirectory}/.local/bin/dynamic-wallpaper.sh";
+        ExecStart = lib.getExe inputs.self.packages.${pkgs.system}.dynamic-wallpaper;
+        Environment = [
+          "DYNAMIC_WALLPAPER_DIR=${cfg.group}"
+          "DYNAMIC_WALLPAPER_AUTO_LIGHT=${
+            if cfg.autoLight
+            then "1"
+            else "0"
+          }"
+        ];
       };
-      Install.WantedBy = ["default.target"];
     };
 
     systemd.user.timers.dynamic-wallpaper = {
-      Unit = {
-        Description = "Timer for Dynamic Wallpaper Updater";
-      };
+      Unit.Description = "Schedule dynamic wallpaper refresh";
       Timer = {
-        OnCalendar = config.dynamicWallpaper.updateInterval;
-        Persistent = true;
+        OnBootSec = "1m";
+        OnUnitActiveSec = cfg.refreshInterval;
       };
-      Install.WantedBy = ["timers.target"];
+      Timer.Unit = "dynamic-wallpaper.service";
+      Install.WantedBy = ["graphical-session.target"];
     };
   };
 }
