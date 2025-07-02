@@ -9,6 +9,7 @@
       Timer.OnCalendar = [
         "*-*-* 18:00:00"
       ];
+      Timer.Unit = "theme-toggle-dark.service";
       Install.WantedBy = ["graphical-session.target"];
     };
 
@@ -17,6 +18,7 @@
       Timer.OnCalendar = [
         "*-*-* 06:00:00"
       ];
+      Timer.Unit = "theme-toggle-light.service";
       Install.WantedBy = ["graphical-session.target"];
     };
   };
