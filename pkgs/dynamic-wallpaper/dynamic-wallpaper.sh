@@ -72,7 +72,13 @@ else
     total=$((hour * 60 + minute))
     interval=$((24 * 60 / count))
     index=$((total / interval))
+
     if ((index >= count)); then
+      index=$((count - 1))
+    fi
+
+    # Avoid light wallpaper before 05:00
+    if ((index == 0 && total < 300)); then
       index=$((count - 1))
     fi
   fi

@@ -4,6 +4,6 @@
     enable = true;
     autoLight = true;
     refreshInterval = "30m";
-    group = config.home.homeDirectory + "/.local/share/dynamic-wallpapers/BigSur";
+    group = config.home.homeDirectory + "/.local/share/dynamic-wallpapers/WaterHill";
   };
 }
