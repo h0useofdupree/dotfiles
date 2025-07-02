@@ -9,4 +9,6 @@ stdenvNoCC.mkDerivation {
     mkdir -p $out/bin
     install -m755 dynamic-wallpaper.sh $out/bin/dynamic-wallpaper
   '';
+
+  meta.mainProgram = "dynamic-wallpaper";
 }
