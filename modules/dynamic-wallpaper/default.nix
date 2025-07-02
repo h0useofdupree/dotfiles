@@ -51,6 +51,14 @@ in {
       Service = {
         Type = "oneshot";
         ExecStart = lib.getExe inputs.self.packages.${pkgs.system}.dynamic-wallpaper;
+        Environment = [
+          "DYNAMIC_WALLPAPER_DIR=${cfg.group}"
+          "DYNAMIC_WALLPAPER_AUTO_LIGHT=${
+            if cfg.autoLight
+            then "1"
+            else "0"
+          }"
+        ];
       };
     };
 
