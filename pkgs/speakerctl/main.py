@@ -5,7 +5,9 @@ import os
 import sys
 import tinytuya as tt
 
-CONFIG_PATH = os.path.expanduser("~/.config/speakerctl/devices.json")
+CONFIG_PATH = os.environ.get(
+    "SPEAKERCTL_DEVICES_FILE", "/run/agenix/speakerctl-devices"
+)
 
 
 def load_devices():
