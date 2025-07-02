@@ -1,0 +1,5 @@
+{
+  speakerctl = {
+    enable = true;
+  };
+}

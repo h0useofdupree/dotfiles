@@ -8,6 +8,8 @@
       bibata-hyprcursor = pkgs.callPackage ./bibata-hyprcursor {};
 
       wl-ocr = pkgs.callPackage ./wl-ocr {};
+
+      speakerctl = pkgs.callPackage ./speakerctl {};
     };
   };
 }
