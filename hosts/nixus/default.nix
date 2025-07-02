@@ -32,6 +32,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  # TODO: Clean this up!
   environment.systemPackages = with pkgs; [
     vim
     neovim
