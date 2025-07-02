@@ -1,12 +1,19 @@
 {
   pkgs,
   lib,
+  self,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
     ./hyprland.nix
   ];
+
+  age.secrets.speakerctl-devices = {
+    file = "${self}/secrets/speakerctl-devices.age";
+    owner = "h0useofdupree";
+    group = "users";
+  };
 
   networking.hostName = "nixus";
 
