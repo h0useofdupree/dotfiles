@@ -28,6 +28,12 @@ in {
         }
       ];
     };
+
+    devicesFile = mkOption {
+      type = with types; nullOr path;
+      default = null;
+      description = "Path to an existing devices.json file.";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -35,6 +41,9 @@ in {
       inputs.self.packages.${pkgs.system}.speakerctl
     ];
 
-    home.file.".config/speakerctl/devices.json".text = builtins.toJSON cfg.devices;
+    home.file.".config/speakerctl/devices.json" =
+      if cfg.devicesFile != null
+      then {source = cfg.devicesFile;}
+      else {text = builtins.toJSON cfg.devices;};
   };
 }
