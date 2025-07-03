@@ -110,6 +110,8 @@
           textwidth = 0;
 
           # Folding
+          foldmethod = "expr";
+          foldexpr = "nvim_treesitter#foldexpr()";
           foldlevel = 300; # Folds deeper than this level are closed
         };
 
