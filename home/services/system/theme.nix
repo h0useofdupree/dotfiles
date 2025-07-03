@@ -6,18 +6,24 @@
   systemd.user.timers = {
     theme-toggle-dark = {
       Unit.Description = "Toggle dark theme";
-      Timer.OnCalendar = [
-        "*-*-* 18:00:00"
-      ];
+      Timer = {
+        OnCalendar = [
+          "*-*-* 18:00:00"
+        ];
+        Persistent = true;
+      };
       Timer.Unit = "theme-toggle-dark.service";
       Install.WantedBy = ["graphical-session.target"];
     };
 
     theme-toggle-light = {
       Unit.Description = "Toggle light theme";
-      Timer.OnCalendar = [
-        "*-*-* 06:00:00"
-      ];
+      Timer = {
+        OnCalendar = [
+          "*-*-* 06:00:00"
+        ];
+        Persistent = true;
+      };
       Timer.Unit = "theme-toggle-light.service";
       Install.WantedBy = ["graphical-session.target"];
     };
