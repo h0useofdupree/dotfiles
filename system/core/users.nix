@@ -8,6 +8,7 @@
       "networkmanager"
       "video"
       "wheel"
+      "optical"
     ];
   };
 }
