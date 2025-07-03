@@ -13,6 +13,9 @@
     amberol
     spotify
 
+    # File Manager
+    nautilus
+
     # Image
     loupe
 
