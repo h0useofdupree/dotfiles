@@ -109,6 +109,36 @@ _: {
           desc = "Go to split above";
         }
 
+        # Window splits
+        {
+          key = "<leader>sv";
+          mode = "n";
+          silent = true;
+          action = ":vsplit<CR>";
+          desc = "Split window vertically";
+        }
+        {
+          key = "<leader>sh";
+          mode = "n";
+          silent = true;
+          action = ":split<CR>";
+          desc = "Split window horizontally";
+        }
+        {
+          key = "<leader>sx";
+          mode = "n";
+          silent = true;
+          action = ":close<CR>";
+          desc = "Close current split";
+        }
+        {
+          key = "<leader>se";
+          mode = "n";
+          silent = true;
+          action = "<C-w>=";
+          desc = "Equalize split sizes";
+        }
+
         # Window dimensions
         {
           key = "<C-S-H>"; # Ctrl + Shift + H
