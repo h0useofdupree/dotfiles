@@ -328,8 +328,8 @@
           comment-nvim = {
             enable = true;
             mappings = {
-              # TODO: Map <leader>/ to toggle line-comment in VISUAL mode
               toggleCurrentLine = "<leader>/";
+              toggleSelectedLine = "<leader>/";
             };
           };
         };
