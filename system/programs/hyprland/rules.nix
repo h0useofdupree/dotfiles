@@ -52,6 +52,10 @@
       "float, title:^(Picture-in-Picture)$"
       "pin, title:^(Picture-in-Picture)$"
 
+      # screencorners
+      # "opacity 0 1, class:^(screencorners)$, fullscreen:1"
+      # "animation slideOut, class:^(screencorners)$, fullscreen:1"
+
       # throw sharing indicators away
       "workspace special silent, title:^(Firefox — Sharing Indicator)$"
       "workspace special silent, title:^(Zen — Sharing Indicator)$"

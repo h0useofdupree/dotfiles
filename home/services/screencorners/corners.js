@@ -1,6 +1,8 @@
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
 import Hyprland from "resource:///com/github/Aylur/ags/service/hyprland.js";
+import App from "resource:///com/github/Aylur/ags/app.js";
 import Gdk from "gi://Gdk";
+import GLib from "gi://GLib";
 import Cairo from "gi://cairo?version=1.0";
 
 const COLOR = { red: 0, green: 0, blue: 0, alpha: 1.0 };
@@ -19,13 +21,16 @@ function CornerDrawing(position) {
       const screen = Gdk.Screen.get_default();
       if (toplevel && screen && screen.is_composited()) {
         const visual = screen.get_rgba_visual();
-        if (visual)
-          toplevel.set_visual(visual);
+        if (visual) toplevel.set_visual(visual);
+        toplevel.set_app_paintable(true);
       }
-      widget.set_app_paintable?.(true);
+
       widget.on("draw", (w, cr) => {
+        // Clear entire area
         cr.setOperator(Cairo.Operator.CLEAR);
         cr.paint();
+
+        // Draw only the rounded corner
         cr.setOperator(Cairo.Operator.OVER);
         switch (position) {
           case "topleft":
@@ -57,6 +62,7 @@ function CornerDrawing(position) {
 function CornerWindow(monitor, position) {
   const anchor = position.split(" ");
   const posKey = anchor.join("");
+
   return Widget.Window({
     monitor,
     name: `corner-${posKey}-${monitor}`,
@@ -73,23 +79,52 @@ function createCorners() {
   const display = Gdk.Display.get_default();
   const monitors = display ? display.get_n_monitors() : 1;
   const positions = ["top left", "top right", "bottom left", "bottom right"];
+
   return positions.flatMap(pos =>
     Array.from({ length: monitors }, (_, m) => CornerWindow(m, pos))
   );
 }
 
+function isReallyFullscreen(client) {
+  const mon = Hyprland.monitors.find(m => m.name === client?.monitor);
+  return mon
+    && client
+    && client.size[0] === mon.width
+    && client.size[1] === mon.height;
+}
+
 function updateVisibility(corners) {
-  const fullscreen = Hyprland.active.client?.fullscreen ?? false;
-  corners.forEach(c => c.visible = !fullscreen);
+  const client = Hyprland.active.client;
+
+  const isFullscreen = client?.fullscreen === "1" || isReallyFullscreen(client);
+  const isFloating = client?.floating === true;
+
+  const shouldHideCorners = isFullscreen || isFloating;
+
+  for (const corner of corners) {
+    if (shouldHideCorners) {
+      App.closeWindow(corner.name);
+    } else {
+      App.openWindow(corner.name);
+    }
+  }
 }
 
 export default () => {
   const corners = createCorners();
-  updateVisibility(corners);
+
+  // Initial update once AGS is ready
+  GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+    updateVisibility(corners);
+    return GLib.SOURCE_REMOVE;
+  });
+
+  // Update when fullscreen state or window focus changes
   Hyprland.connect("event", (_, name) => {
-    if (name === "fullscreen") {
+    if (["fullscreen", "activewindow"].includes(name)) {
       updateVisibility(corners);
     }
   });
+
   return corners;
 };
