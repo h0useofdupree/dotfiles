@@ -271,6 +271,7 @@
           icon-picker.enable = true;
           surround.enable = true;
           diffview-nvim.enable = true;
+          direnv.enable = true;
           motion = {
             hop.enable = true;
             leap.enable = true;
@@ -311,6 +312,8 @@
             };
           };
           fastaction.enable = true;
+          modes-nvim.enable = true;
+          nvim-ufo.enable = true;
         };
 
         assistant = {
