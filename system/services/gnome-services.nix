@@ -8,6 +8,7 @@
 
     gnome.gnome-keyring.enable = true;
 
-    gvfs.enable = false;
+    gvfs.enable = true;
+    tumbler.enable = true;
   };
 }
