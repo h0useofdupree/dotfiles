@@ -1,9 +1,7 @@
-{config, ...}: {
+{
   programs.hyprpanel = {
     enable = true;
-    # overwrite.enable = true;
-    # overlay.enable = true;
-    # theme = "catppuccin_frappe_split";
+    systemd.enable = true;
 
     settings = {
       "bar.layouts" = {
@@ -39,8 +37,8 @@
 
       "bar.launcher.icon" = "";
       "wallpaper.enable" = false;
-      "wallpaper.image" = "${config.theme.wallpaper}";
-      "theme.matugen" = false;
+      "wallpaper.image" = "/home/h0useofdupree/.local/share/dynamic-wallpapers/Mojave/mojave_dynamic_1.jpeg";
+      "theme.matugen" = true;
     };
   };
 }
