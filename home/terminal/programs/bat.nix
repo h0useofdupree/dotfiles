@@ -4,7 +4,9 @@
     config = {
       # TODO: Check this for alternatives used earlier on
       pager = "less -FR";
-      theme = "Catppuccin-mocha";
+      theme = "ansi";
+      # theme-dark = "Catppuccin-mocha";
+      # theme-light = "Cappuccin-latte";
     };
 
     themes = let
