@@ -28,6 +28,12 @@ swww_bin="${SWWW_BIN:-swww}"
 dir="${DYNAMIC_WALLPAPER_DIR:-}"
 force_light="${DYNAMIC_WALLPAPER_FORCE_LIGHT:-0}"
 auto_light="${DYNAMIC_WALLPAPER_AUTO_LIGHT:-0}"
+log_file="${DYNAMIC_WALLPAPER_LOG:-$HOME/.cache/dynamic-wallpaper.log}"
+
+log() {
+  mkdir -p "$(dirname "$log_file")"
+  printf '%s\n' "$(date '+%F %T') - $*" | tee -a "$log_file"
+}
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -42,6 +48,10 @@ while [[ $# -gt 0 ]]; do
   --auto-light)
     auto_light=1
     shift
+    ;;
+  -l | --log)
+    log_file="$2"
+    shift 2
     ;;
   -h | --help)
     usage
@@ -72,30 +82,43 @@ if [[ $count -eq 0 ]]; then
   exit 1
 fi
 
+interval=$((24 * 60 / count))
+start_minutes=360 # 06:00
+times=()
+for ((i = 0; i < count; i++)); do
+  t=$(((start_minutes + i * interval) % (24 * 60)))
+  times+=("$(printf '%02d:%02d' $((t / 60)) $((t % 60)))")
+done
+
+log "directory: $dir"
+log "found $count images"
+log "interval: $interval minutes"
+log "switch times: ${times[*]}"
+
+minute_of_day=$((10#$(date +%H) * 60 + 10#$(date +%M)))
+
 if [[ "$force_light" == "1" ]]; then
   index=0
 else
   if [[ "$auto_light" == "1" ]]; then
     color=$(dconf read /org/gnome/desktop/interface/color-scheme || echo "'prefer-dark'")
-    if [[ "$color" == "'prefer-light'" ]]; then
+    if [[ "$color" == "'prefer-light'" && $minute_of_day -ge $start_minutes ]]; then
       index=0
     fi
   fi
 
   if [[ -z "${index:-}" ]]; then
-    hour=$(date +%H)
-    hour=$((10#$hour))
-    minute=$(date +%M)
-    minute=$((10#$minute))
-    total=$((hour * 60 + minute))
-    interval=$((24 * 60 / count))
-    index=$((total / interval))
+    offset=$(((minute_of_day - start_minutes + 1440) % 1440))
+    index=$((offset / interval))
     if ((index >= count)); then
       index=$((count - 1))
     fi
   fi
 fi
 
+log "force_light=$force_light auto_light=$auto_light index=$index"
+
 wall="${files[$index]}"
 
+log "using file: $wall"
 exec "$swww_bin" img "$wall" --transition-type fade --transition-fps 144
