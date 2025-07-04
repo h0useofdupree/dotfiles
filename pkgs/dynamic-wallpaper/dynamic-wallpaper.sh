@@ -2,8 +2,26 @@
 set -euo pipefail
 
 usage() {
-  echo "Usage: $0 [--dir DIR] [--light] [--auto-light]" >&2
-  exit 1
+  cat <<EOF
+dynamic-wallpaper - change wallpaper depending on the time of day
+
+Usage: dynamic-wallpaper [options]
+
+Options:
+  -d, --dir DIR       Directory containing wallpapers.
+  --light             Always use the lightest wallpaper.
+  --auto-light        Use the lightest wallpaper when GNOME is in light mode
+                       (only after 06:00).
+  -l, --log FILE      Write log output to FILE.
+  -h, --help          Show this help text.
+
+The number of images in DIR determines how many times the wallpaper changes
+throughout the day. The cycle starts at 06:00. Images are sorted
+lexicographically; the first is assumed to be the lightest.
+Environment variables can also be used instead of command line options:
+  DYNAMIC_WALLPAPER_DIR, DYNAMIC_WALLPAPER_FORCE_LIGHT,
+  DYNAMIC_WALLPAPER_AUTO_LIGHT, DYNAMIC_WALLPAPER_LOG.
+EOF
 }
 
 swww_bin="${SWWW_BIN:-swww}"
