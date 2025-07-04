@@ -17,7 +17,7 @@
 
       copy_on_select = "clipboard";
 
-      background_opacity = "0.8";
+      background_opacity = "0.65";
       window_padding_width = "30";
 
       bold_font = "auto";
@@ -30,4 +30,7 @@
 
     themeFile = "Catppuccin-Macchiato";
   };
+
+  xdg.configFile."kitty/dark-theme.auto.conf".source = ./kitty-themes/dark-theme.auto.conf;
+  xdg.configFile."kitty/light-theme.auto.conf".source = ./kitty-themes/light-theme.auto.conf;
 }
