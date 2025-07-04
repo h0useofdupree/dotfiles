@@ -96,27 +96,26 @@ log "interval: $interval minutes"
 log "switch times: ${times[*]}"
 
 minute_of_day=$((10#$(date +%H) * 60 + 10#$(date +%M)))
+offset=$(((minute_of_day - start_minutes + 1440) % 1440))
+index=$((offset / interval))
+if ((index >= count)); then
+  index=$((count - 1))
+fi
 
+color=""
 if [[ "$force_light" == "1" ]]; then
   index=0
 else
   if [[ "$auto_light" == "1" ]]; then
-    color=$(dconf read /org/gnome/desktop/interface/color-scheme || echo "'prefer-dark'")
-    if [[ "$color" == "'prefer-light'" && $minute_of_day -ge $start_minutes ]]; then
+    color=$(dconf read /org/gnome/desktop/interface/color-scheme 2>/dev/null || echo "'prefer-dark'")
+    day_end_minutes=$(((start_minutes + (count / 2) * interval) % 1440))
+    if [[ "$color" == "'prefer-light'" ]] && ((minute_of_day < start_minutes || minute_of_day >= day_end_minutes)); then
       index=0
-    fi
-  fi
-
-  if [[ -z "${index:-}" ]]; then
-    offset=$(((minute_of_day - start_minutes + 1440) % 1440))
-    index=$((offset / interval))
-    if ((index >= count)); then
-      index=$((count - 1))
     fi
   fi
 fi
 
-log "force_light=$force_light auto_light=$auto_light index=$index"
+log "force_light=$force_light auto_light=$auto_light color=$color index=$index"
 
 wall="${files[$index]}"
 
