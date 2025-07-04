@@ -1,4 +1,4 @@
-let
+{pkgs, ...}: let
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (builtins.genList (
       x: let
@@ -18,6 +18,26 @@ let
   in "pkill ${prog} || uwsm app -- ${program}";
 
   runOnce = program: "pgrep ${program} || uwsm app -- ${program}";
+
+  toggleFloatResize = pkgs.writeShellScriptBin "toggle-float-resize" ''
+    STATE=$(hyprctl -j activewindow | jaq ".floating")
+    SIZE=$(hyprctl -j activewindow | jaq -r '.size | "\(.[0]) \(.[1])"')
+
+    if [ "$STATE" = "false" ]; then
+        hyprctl --batch "\
+            dispatch togglefloating;\
+            dispatch resizeactive exact 1440 810;\
+            dispatch centerwindow"
+    else
+        if [ "$SIZE" != "1440 810" ]; then
+            hyprctl --batch "\
+                dispatch resizeactive exact 1440 810;\
+                dispatch centerwindow"
+        else
+            hyprctl dispatch togglefloating
+        fi
+    fi
+  '';
 in {
   programs.hyprland.settings = {
     # mouse movements
@@ -39,7 +59,7 @@ in {
         "$mod SHIFT, N, changegroupactive, f"
         "$mod SHIFT, P, changegroupactive, b"
         "$mod, S, togglesplit,"
-        "$mod SHIFT, F, togglefloating,"
+        "$mod SHIFT, F, exec, ${toggleFloatResize}/bin/toggle-float-resize"
         "$mod, F, pseudo,"
         "$mod, M, layoutmsg, swapwithmaster"
         "$mod SHIFT, M, layoutmsg, orientationcycle left center"
