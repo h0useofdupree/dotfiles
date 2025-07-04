@@ -67,7 +67,7 @@ function CornerWindow(monitor, position) {
     monitor,
     name: `corner-${posKey}-${monitor}`,
     anchor,
-    layer: "overlay",
+    layer: "top",
     exclusivity: "ignore",
     visible: true,
     child: CornerDrawing(posKey),
