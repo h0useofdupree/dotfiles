@@ -68,6 +68,26 @@
         description = "bat (wrapper)";
       };
 
+      poweroff = {
+        body = ''
+          if command -v speakerctl &>/dev/null
+            speakerctl --off
+          end
+          command poweroff $argv
+        '';
+        description = "poweroff with speakers off";
+      };
+
+      reboot = {
+        body = ''
+          if command -v speakerctl &>/dev/null
+            speakerctl --off
+          end
+          command reboot $argv
+        '';
+        description = "reboot with speakers off";
+      };
+
       nv = {
         body = "neovide --no-fork $argv";
         wraps = "neovide";
