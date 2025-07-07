@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./bat.nix
     ./btop.nix
@@ -7,5 +7,9 @@
     ./nix.nix
     ./xdg.nix
     ./yazi
+  ];
+
+  home.packages = with pkgs; [
+    cava
   ];
 }
