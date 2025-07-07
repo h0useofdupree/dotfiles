@@ -25,6 +25,7 @@
     ../../services/wayland/gammastep.nix
     ../../services/wayland/hypridle.nix
     ../../services/wayland/hyprpaper.nix
+    ../../services/wayland/dynamic-wallpaper.nix
 
     # Terminal emulators
     ../../terminal/emulators/kitty.nix
