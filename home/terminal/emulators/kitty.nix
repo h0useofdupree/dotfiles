@@ -31,6 +31,6 @@
     themeFile = "Catppuccin-Macchiato";
   };
 
-  xdg.configFile."kitty/dark-theme.auto.conf".source = ./kitty-themes/dark-theme.auto.conf;
-  xdg.configFile."kitty/light-theme.auto.conf".source = ./kitty-themes/light-theme.auto.conf;
+  # xdg.configFile."kitty/dark-theme.auto.conf".source = ./kitty-themes/dark-theme.auto.conf;
+  # xdg.configFile."kitty/light-theme.auto.conf".source = ./kitty-themes/light-theme.auto.conf;
 }
