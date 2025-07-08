@@ -15,8 +15,6 @@
   services = {
     fstrim.enable = true;
 
-    xserver.enable = true;
-
     xserver.xkb.layout = "de";
     libinput.enable = true;
   };

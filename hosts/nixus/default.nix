@@ -25,7 +25,6 @@
       ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1022" ATTR{device}=="0x43f7" ATTR{power/wakeup}="disabled"
     '';
 
-    # xserver.enable = true;
     # xserver.displayManager.gdm.enable = true;
     # xserver.desktopManager.gnome.enable = true;
     xserver.xkb.layout = "us";
