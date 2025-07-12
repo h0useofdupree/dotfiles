@@ -13,6 +13,7 @@
   ];
 
   home.packages = with pkgs; [
+    ausweisapp
     bitwarden-desktop
 
     signal-desktop
