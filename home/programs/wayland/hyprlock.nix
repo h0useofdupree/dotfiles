@@ -25,7 +25,7 @@
       background = [
         {
           monitor = "";
-          path = config.theme.wallpaper;
+          path = config.dynamicWallpaper.currentLink;
           blur_size = 1;
           blur_passes = 4;
         }
