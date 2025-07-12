@@ -31,6 +31,12 @@ in {
       default = "30m";
       description = "How often to refresh the wallpaper.";
     };
+
+    currentLink = mkOption {
+      type = types.path;
+      default = config.home.homeDirectory + "/.cache/dynamic-wallpaper/current";
+      description = "Symlink updated to point at the current wallpaper.";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -44,6 +50,7 @@ in {
         if cfg.autoLight
         then "1"
         else "0";
+      DYNAMIC_WALLPAPER_LINK = cfg.currentLink;
     };
 
     systemd.user.services.dynamic-wallpaper = {
@@ -58,6 +65,7 @@ in {
             then "1"
             else "0"
           }"
+          "DYNAMIC_WALLPAPER_LINK=${cfg.currentLink}"
         ];
       };
     };

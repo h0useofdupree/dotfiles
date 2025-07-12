@@ -5,6 +5,7 @@
     autoLight = false;
     refreshInterval = "5m";
     group = config.home.homeDirectory + "/.local/share/dynamic-wallpapers/Mojave";
+    currentLink = config.home.homeDirectory + "/.cache/dynamic-wallpaper/current";
     # Favorites
     # - DesertSands - 5 images - Ultrawide
     # - Mojave - 16 images - 4K

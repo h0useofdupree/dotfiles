@@ -120,4 +120,9 @@ log "force_light=$force_light auto_light=$auto_light color=$color index=$index"
 wall="${files[$index]}"
 
 log "using file: $wall"
+current_link="${DYNAMIC_WALLPAPER_LINK:-}"
+if [[ -n "$current_link" ]]; then
+  mkdir -p "$(dirname "$current_link")"
+  ln -sf "$wall" "$current_link"
+fi
 exec "$swww_bin" img "$wall" --transition-type fade --transition-fps 144
