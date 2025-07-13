@@ -208,8 +208,8 @@
 
         theme = {
           enable = true;
-          name = "onedark";
-          style = "darker";
+          name = "catppuccin";
+          style = "mocha";
           transparent = false;
         };
 
