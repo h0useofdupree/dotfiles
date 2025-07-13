@@ -28,6 +28,18 @@ in {
       description = "Use the lightest wallpaper when GNOME is set to light mode.";
     };
 
+    startTime = mkOption {
+      type = types.str;
+      default = "06:00";
+      description = "Start time of the wallpaper cycle (HH:MM).";
+    };
+
+    endTime = mkOption {
+      type = types.str;
+      default = "22:00";
+      description = "End time of the wallpaper cycle (HH:MM).";
+    };
+
     refreshInterval = mkOption {
       type = types.str;
       default = "30m";
@@ -53,6 +65,8 @@ in {
         then "1"
         else "0";
       DYNAMIC_WALLPAPER_LINK = cfg.currentLink;
+      DYNAMIC_WALLPAPER_START = cfg.startTime;
+      DYNAMIC_WALLPAPER_END = cfg.endTime;
     };
 
     systemd.user.services.dynamic-wallpaper = {
@@ -68,6 +82,8 @@ in {
             else "0"
           }"
           "DYNAMIC_WALLPAPER_LINK=${cfg.currentLink}"
+          "DYNAMIC_WALLPAPER_START=${cfg.startTime}"
+          "DYNAMIC_WALLPAPER_END=${cfg.endTime}"
         ];
       };
     };
