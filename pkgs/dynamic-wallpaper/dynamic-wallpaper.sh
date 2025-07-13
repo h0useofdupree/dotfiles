@@ -28,7 +28,7 @@ swww_bin="${SWWW_BIN:-swww}"
 dir="${DYNAMIC_WALLPAPER_DIR:-}"
 force_light="${DYNAMIC_WALLPAPER_FORCE_LIGHT:-0}"
 auto_light="${DYNAMIC_WALLPAPER_AUTO_LIGHT:-0}"
-log_file="${DYNAMIC_WALLPAPER_LOG:-$HOME/.cache/dynamic-wallpaper.log}"
+log_file="${DYNAMIC_WALLPAPER_LOG:-$HOME/.cache/dynamic-wallpaper/dynamic-wallpaper.log}"
 
 log() {
   mkdir -p "$(dirname "$log_file")"

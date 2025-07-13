@@ -15,11 +15,13 @@ in {
       default = false;
       description = "Enable dynamic wallpaper service";
     };
+
     group = mkOption {
       type = types.str;
       default = defaultGroup;
       description = "Directory containing wallpaper images.";
     };
+
     autoLight = mkOption {
       type = types.bool;
       default = false;
