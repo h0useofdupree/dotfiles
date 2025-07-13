@@ -312,7 +312,12 @@
             };
           };
           fastaction.enable = true;
-          modes-nvim.enable = true;
+          modes-nvim = {
+            enable = true;
+            setupOpts = {
+              line_opacity.visual = 0.2;
+            };
+          };
           nvim-ufo.enable = true;
         };
 
