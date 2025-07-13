@@ -4,8 +4,8 @@
     tray = true;
 
     provider = "manual";
-    latitude = 51.1;
-    longitude = 7.3;
+    latitude = 51.2;
+    longitude = 6.9;
 
     enableVerboseLogging = true;
 
