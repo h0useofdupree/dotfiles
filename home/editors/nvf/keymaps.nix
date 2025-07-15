@@ -53,6 +53,13 @@ _: {
           action = ":Neotree focus<CR>";
           desc = "Focus Neotree";
         }
+        {
+          key = "|";
+          mode = "n";
+          silent = true;
+          action = ":Neotree reveal<CR>";
+          desc = "Reveal current file in Neotree";
+        }
 
         # Toggle Term
         {
