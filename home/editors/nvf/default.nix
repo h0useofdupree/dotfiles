@@ -265,7 +265,14 @@
         };
 
         dashboard = {
-          alpha.enable = true;
+          alpha.enable = false;
+          startify = {
+            enable = true;
+            # bookmarks = {
+            #   f = "~/.dotfiles/flake.nix";
+            #   c = "~/.dotfiles/home/editors/nvf/default.nix";
+            # };
+          };
         };
 
         notify = {
@@ -306,7 +313,7 @@
           colorizer.enable = true;
           illuminate.enable = true;
           breadcrumbs = {
-            enable = true;
+            enable = false;
             navbuddy.enable = true;
           };
           smartcolumn = {
