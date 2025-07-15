@@ -36,6 +36,12 @@ auto_light="${DYNAMIC_WALLPAPER_AUTO_LIGHT:-0}"
 log_file="${DYNAMIC_WALLPAPER_LOG:-$HOME/.cache/dynamic-wallpaper/dynamic-wallpaper.log}"
 start_time="${DYNAMIC_WALLPAPER_START:-06:00}"
 end_time="${DYNAMIC_WALLPAPER_END:-22:00}"
+MAX_LOG_LINES=500
+
+# Clean up log file
+if [[ -f "$log_file" ]]; then
+  tail -n "$MAX_LOG_LINES" "$log_file" >"${log_file}.tmp" && mv "${log_file}.tmp" "$log_file"
+fi
 
 log() {
   mkdir -p "$(dirname "$log_file")"
@@ -126,7 +132,8 @@ done
 log "directory: $dir"
 log "found $count images"
 log "interval: $interval minutes"
-log "switch times: ${times[*]}"
+# log "switch times: ${times[*]}"
+log "switch times:"$'\n'"$(printf '  %s\n' "${times[@]}")"
 
 minute_of_day=$((10#$(date +%H) * 60 + 10#$(date +%M)))
 current=$minute_of_day
