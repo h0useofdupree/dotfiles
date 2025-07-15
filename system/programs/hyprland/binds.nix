@@ -52,6 +52,8 @@ in {
       [
         # compositor commands
         "$mod SHIFT, E, exec, pkill Hyprland"
+        "$mod SHIFT, R, exec, hyprctl reload"
+        "$mod SHIFT, R, exec, pkill hyprpanel || systemctl --user restart hyprpanel.service"
         "$mod SHIFT, Q, killactive,"
         "$mod SHIFT, D, fullscreen, 0"
         "$mod, D, fullscreen, 1"
@@ -101,16 +103,14 @@ in {
         "$mod SHIFT, j, movewindow, d"
 
         # screenshot
-        # area
+        ## area
         "$mod, Next, exec, ${runOnce "grimblast"} --notify copysave area"
 
-        # current screen
-        "CTRL, Prior, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
-        "$mod SHIFT CTRL, R, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
+        ## current screen
+        "$mod, Prior, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
 
-        # all screens
+        ## all screens
         "$mod $mod2, Next, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
-        "$mod SHIFT ALT, R, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
 
         # special workspace
         "$mod SHIFT, code:20, movetoworkspace, special"
