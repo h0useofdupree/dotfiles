@@ -16,10 +16,15 @@
     enable = true;
     withUWSM = true;
 
-    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
-      hyprbars
-      hyprexpo
-    ];
+    plugins = let
+      hyprlandPlugins = inputs.hyprland-plugins.packages.${pkgs.system};
+    in
+      with hyprlandPlugins; [
+        hyprbars
+        hyprexpo
+        hyprfocus
+        inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      ];
 
     # systemd = {
     #   enable = false;
