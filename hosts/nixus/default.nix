@@ -15,11 +15,11 @@
     group = "users";
   };
 
-  age.secrets.weatherapi-key = {
-    file = "${self}/secrets/weatherapi-key.age";
-    owner = "h0useofdupree";
-    group = "users";
-  };
+  # age.secrets.weatherapi-key = {
+  #   file = "${self}/secrets/weatherapi-key.age";
+  #   owner = "h0useofdupree";
+  #   group = "users";
+  # };
 
   networking.hostName = "nixus";
 
