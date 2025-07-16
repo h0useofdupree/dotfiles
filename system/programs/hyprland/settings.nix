@@ -135,7 +135,6 @@ in {
     };
 
     misc = {
-      # disable auto polling for config file changes
       disable_autoreload = true;
 
       force_default_wallpaper = 0;
@@ -173,70 +172,77 @@ in {
 
     hyprbars-button = [
       # close
-      "rgb(ffb4ab), 15, , hyprctl dispatch killactive"
+      "rgb(E2E2E2), 15, , hyprctl dispatch killactive"
       # maximize
-      "rgb(b6c4ff), 15, , hyprctl dispatch fullscreen 1"
+      "rgb(C6C6C6), 15, , hyprctl dispatch fullscreen 1"
     ];
 
     plugin = {
       hyprbars = {
-        bar_height = 20;
+        bar_height = 25;
+        bar_blur = true;
+        bar_button_padding = 10;
+        bar_padding = 10;
         bar_precedence_over_border = true;
         icon_on_hover = true;
+        on_double_click = "hyprctl dispatch fullscreen 1";
       };
 
       hyprexpo = {
         columns = 3;
         gap_size = 30;
         bg_col = "rgb(000000)";
+        workspace_method = "center current";
+        skip_empty = true;
 
         enable_gesture = true;
+        gesture_fingers = 3;
         gesture_distance = 300;
         gesture_positive = false;
       };
 
-      #overview = {
-      #  # Color
-      #  panelColor = "rgba(51, 51, 51, 0.133)";
-      #  panelBorderColor = "rgba(59, 59, 59, 0.0)";
-      #  workspaceActiveBorder = "rgba(255, 255, 255, 1.0)";
-      #  workspaceInactiveBorder = "rgba(59, 59, 59, 1.0)";
-      #  dragAlpha = 0.9;
+      overview = {
+        # Color
+        panelColor = "rgba(51, 51, 51, 0.133)";
+        panelBorderColor = "rgba(59, 59, 59, 0.0)";
+        workspaceActiveBorder = "rgba(255, 255, 255, 1.0)";
+        workspaceInactiveBorder = "rgba(59, 59, 59, 1.0)";
+        dragAlpha = 0.9;
 
-      #  # Layout
-      #  panelHeight = 300;
-      #  panelBorderWidth = 5;
-      #  workspaceMargin = 20;
-      #  workspaceBorderSize = 2;
-      #  onBottom = false;
-      #  adaptiveHeight = true;
-      #  centerAligned = true;
+        # Layout
+        panelHeight = 300;
+        panelBorderWidth = 5;
+        workspaceMargin = 20;
+        workspaceBorderSize = 2;
+        onBottom = false;
+        adaptiveHeight = true;
+        centerAligned = true;
 
-      #  # Visibility
-      #  hideBackgroundLayers = false;
-      #  hideTopLayers = true;
-      #  hideOverlayLayers = true;
-      #  hideRealLayers = true;
+        # Visibility
+        hideBackgroundLayers = false;
+        hideTopLayers = true;
+        hideOverlayLayers = true;
+        hideRealLayers = true;
 
-      #  # Workspace
-      #  drawActiveWorkspace = true;
-      #  showNewWorkspace = false;
-      #  showEmptyWorkspace = false;
-      #  showSpecialWorkspace = true;
+        # Workspace
+        drawActiveWorkspace = true;
+        showNewWorkspace = false;
+        showEmptyWorkspace = false;
+        showSpecialWorkspace = true;
 
-      #  # Gaps
-      #  affectStruct = false;
-      #  overrideGaps = true;
-      #  gapsIn = 50;
-      #  gapsOut = 50;
+        # Gaps
+        affectStruct = false;
+        overrideGaps = true;
+        gapsIn = 50;
+        gapsOut = 50;
 
-      #  # Behavior
-      #  autoDrag = true;
-      #  autoScroll = true;
+        # Behavior
+        autoDrag = true;
+        autoScroll = true;
 
-      #  # Animation
-      #  # overrideAnimSpeed = 5;
-      #};
+        # Animation
+        # overrideAnimSpeed = 5;
+      };
     };
   };
 }

@@ -22,7 +22,7 @@
       with hyprlandPlugins; [
         hyprbars
         hyprexpo
-        hyprfocus
+        # hyprfocus
         inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       ];
 
