@@ -1,0 +1,371 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [1.2.0-stable] - 2025-07-16
+
+### 🚀 Features
+
+- Dynamic-wallpaper: expose current wallpaper as symlink
+- Dynamic-wallpaper: add startTime/endTime
+- *(git)* Add git-cliff
+
+### 💼 Other
+
+- Update
+- Disable
+- Replace deprecated vim options with nvf equivalents
+- Replace deprecated initExtra with initContent
+- Disable until dep tests are fixedx
+- Update
+- Improve emojis
+- Fix after graphical-session
+- Remove overlays
+- Add ripdrag
+- Remove try require graphical-session.target
+- Enable withUWSM
+- Update env var FLAKE -> NH_FLAKE
+- Add repl-flake and keep-{derivations,outputs}
+- Fix renamed options
+- Update
+- Fix comment name
+- Fix nixus hyprland display
+- Add gnomed window animations
+- Enable new cm (hdr) per monitor
+- Use NixOS module for hyprland config
+- Add transmission for torrents
+- Fix and refactor environment options
+- Move keyboard config from sys to hosts (the nice way)
+- Move hyprland monitor config from profiles to hosts
+- Fix hyprpaper wallpaper paths
+- Add animation
+- Fix animation declaration (due to switching to nixos module)
+- Update
+- Longer typing anim
+- Add quickshell (config by fufexan for now)
+- Update
+- Fix format
+- Update general settings
+- Enable
+- Adjust animations
+- Apply bar to all monitors
+- Adjust clock format
+- Enable wallpaper & matugen
+- Revert to hyprpanel
+- Update
+- Add speakerctl and scripts parent folder
+- Add tinytuya temp files
+- Fix mistake
+- Use correct package scope for speakerctl
+- Use python3Packages.buildPythonApplication
+- Disable checks and set format correctly
+- Set binds for speakerctl
+- Update
+- Add secrets.nix
+- Add encrytped file
+- Add devicesFile option
+- Add age config for speakerctl-devices
+- Use age encrypted devicesFile
+- Use fixed path for devices file (for now)
+- Remove devices options
+- Update
+- Prepare hyprpaper for switch to dynamic-wallpaper
+- Fix theme.nix?
+- Add dynamic-wallpaper package/script
+- Add dynamic-wallpaper module with service/timer
+- Set default group
+- Add dynamic-wallpaper
+- Fix file name mistake
+- Disable hyprpaper and enable swww
+- Fix group names error
+- Set env vars in service environment
+- Fix meta.mainProgram error
+- Avoid light wallpaper before morning
+- Update
+- Add Persistent option to timers
+- Add split bindings
+- Add toggle comment visual
+- Set foldmethod/expr
+- Enable some plugins
+- Delete old ags screencorners
+- Add new screencorners widget
+- Add new screencorners and remove old ones
+- Add favs and adjust interval
+- Enable gvfs and tumbler
+- Add nautilus
+- Add user to optical group (?)
+- Fix time based wp?
+- Correct vol binds
+- Add simple-scripts folder
+- Fix ?
+- No fix
+- Implement better help dialog
+- Add logging and better scheduling
+- Only use auto_light outside of schedule
+- Change layer to top
+- Add automatic color-scheme support
+- Use ansi until auto:system works on linux
+- Remove theme imports
+- Enable matugen
+- Remove hyprpanel from exec
+- Adjust settings
+- Add toggle float script
+- Add poweroff and reboot wrapper functions which turn off speakers
+- Re-enable qutebrowser
+- Disable auto theme
+- Remove hyprpanel overlay
+- Add cava
+- Update
+- Add dynamic-wallpaper service
+- Clean up
+- Add linx pub key
+- Disable autoLight
+- Add MacOS style accelpoints
+- Update
+- Disable firefox
+- Add ausweisapp
+- Use current wallpaper
+- Update
+- Change log file location
+- Activate cursor_trail
+- Switch to master layout
+- Add actual coordinates (bruh)
+- Switch theme
+- Use correct location values
+- Switch theme again
+- Adjust modes-nvim to show visual highlighting
+- Clean up bindings and add restart bind
+- Add Session.vim
+- Add 'Neotree reveal'
+- Add Neotree options
+- Enable startify
+- Improve logging
+- Complete redesign and config structure
+- Implement actual Hyprpanel layer names
+- Add Hyprspace plugin
+- Revert to theme
+- Host specific bar config
+- Customize plugins
+- Improve bindings
+- Use lib.optional instead of if
+- Add linx pub key
+- Add weatherapi-key.age
+- Use home module for agenix
+- Add weatherapi-key
+- Disable use of encrypted API key for now
+- Created custom service to use instead of default one
+
+## [1.1.0] - 2025-02-19
+
+### 💼 Other
+
+- Disably plymouth temporarily
+- Next next try
+- Add outsourced options.nix
+- Outsource options with mkMerge
+- Undo outsourcing
+- Disable docs-view
+- Extend config
+- Move to seperate folder
+- Fix theme and volume
+- Add viddy (watch replacement)
+- Make spt a function to wrap kitten commands
+- Update
+- Switch zen repo
+- Update
+- Move to seperate folder
+- Add catppuccin theme
+- Update
+- Add qutebrowser bind
+- Add forward-word bind
+- Switch to cachyos kernel and enable amdgpu driver on startup
+- Change theme
+- Add master layout (and binds)
+- Switch to catppuccin macchiato
+- Disable shellcheck
+- Add dynamicWallpaper module v0.1
+- Enable dynamicWallpaper module
+- Fix import module name?
+- Make dynmaicWallpaper a homeModule
+- Revert to standard hyprpaper service for now
+- Fix typo
+- Fix typo
+- Update
+- Build without installing walker to enable subst?
+- Install walker
+- Disable desktop_actions for app launcher
+- Basic setup
+- Update
+- Small design changes
+
+## [1.0.0] - 2025-01-30
+
+### 🚀 Features
+
+- Add otter plugin
+- Add none-ls
+
+### 💼 Other
+
+- Multiple device settings for q1
+- Temporarly disable hyprpanel again
+- Don't accept flake config
+- Use new rounded corners
+- Enable plymouth with simpledrm
+- Add hyprpanel overlay manually
+- Revert to grub
+- Remove HyprPanel for now
+- Add udev rule for suspend wakeup problem
+- Temp remove udev
+- Add udev suspend rule
+- Add udev rules to desktop (correct) configuration
+- Add waybar again
+- Enable vendor completions
+- Disable wrong option
+- Enable hyprpanel
+- Add hyprpanel overlay
+- Add spotify_player
+- Add build status badge
+- Add browser bind
+- Disable plymouth because of reboot hang (test this)
+- Update
+- Configure plymouth and kernelParams for graphical silent boot
+- Test hdr
+- Disable rounding=0 for xwayland rule (steam?)
+- Disable hdr option
+- Add host specific udev wakeup rule (AMD USB)
+- Update
+- Activate zsh config
+- Formatting/syntax
+- Syntax
+- Remove unnecessary import
+- Add video kernelParam
+- Re-enable loader UI
+- Turn off gvfs
+- Update
+- Add nvf
+- Update
+- Default (maximal) config
+- Add nvf input import
+- Add nvf settings
+- Update
+- Disable spellcheck and remopve wrong clipboard config
+- Add better-escape plugin
+- Adjust telescope settings
+- Misc
+- Try to fix better-escape options
+- Add movement keymaps
+- Outsource keymaps
+- Add Neotree binds
+- Add ToggleTerm binds
+- Add window dimension binds
+- Add buf/window close binds
+- Test desc field for which-key
+- Add desc for which-key
+- Test which_key_ignore
+- Ignore more bindings for whichkey
+- *(TEMP)* Add microsoft-edge :(
+- Test disable_loading_bar option
+- Add udiskie.tray
+- Increase dpms timeout
+- Fix udiskie tray
+- Fix udiskie tray again?
+- Move udisks2 to system
+- Add flavor
+- Remove flavor (for now)
+- Fix <leader>c/q binds
+- Add save, quit and force-quit binds
+- Try fixing mime assoc.
+- Try to add close "tab" func of AstroNvim
+- (TEMP) add gnumake here
+- PiP pseudo rule
+- Revert PiP rule
+- Fix window resize bindings
+- Switch to inherit src
+- Add z and fzf-fish plugins
+- Add shellAbbr
+- Add functions
+- Add y (yazi) helper function
+- Add function args (wrap/desc)
+- Add more configuration
+- Add icat shortcut function
+- Add colored-man-pages
+- Fix battery bar module
+- Fix settings nesting
+- Stuff
+- Disable transparency
+- Enable CachyOS Kernel
+- Disable CachyOS kernel
+- Update
+- Switch theme
+- Add nvim-spider plugin
+- Switch to rose-pine theme
+- Add spt (spotify_player) abbr
+- Enable copilot
+- Add nvim-spider (and its bindings)
+- Turn off explicit_sync
+- Remove unused flakes
+- Hypr{lock,paper} make hyprgraphics follow
+- Remove helix
+- Update
+- Force completion generation
+- Update screenshot bindings
+- Remove redundant vendor settings
+- Enable shortcuts
+- Add ags roundedcorners with home-manager file.
+- Add ags v1
+- Toggle floating
+- Update
+- Source original files instead of writing text to them
+- Add ags module
+- Add ags package
+- Add layerrules for corners
+- Exec-once ags (corners)
+- Adjust shadows to work with corners
+- Enable xx-color-mgmt_v4
+- Remove waybar
+- Switch theme
+- Add working weather
+- Border style
+- Add xbox controller fixes
+- Add xpadneo (xbox wireless controller driver)
+- Update
+- Remove --total-size
+- Rebind special workspace
+- Decoration
+- Add beziers and change animations
+- Add special scale factor
+- Adjust animations
+- Move ags to home/services
+- Completely migrate ags to per host configuration
+- Disable wallpaper
+- Add wallpaper.nix
+- Make hyprpaper fetch dynamic wallpapers by current hour
+- Remove wallpaper.nix
+- Formatting
+- Remove nixvim importe
+- Switch to cachyos kernel
+- Clean up
+- Misc
+- Add fwupd for linx
+- Update
+- Move fwupd to system config
+- Only update wallpaper if index changed
+- Improve auto-suggest bindings
+- Remove obsolete systemd option
+- Enable signing
+- Add SSH_AUTH_SOCK export
+- Add gnome-keyring ssh component
+- Add hyprexpo plugin
+- Remove smartgaps
+- Show cached wallpaper when login
+- Temp remove dynamic-wallpaper cache functionality
+- Remove nixvim
+- Add black, flake-checker and shellcheck
+- Try to automatically start wallpaper-update
+- Update
+- Next try
+- More binds
+- Enable ollama
+
+<!-- generated by git-cliff -->
