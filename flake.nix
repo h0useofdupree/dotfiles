@@ -27,6 +27,7 @@
           ];
           name = "dots";
           DIRENV_LOG_FORMAT = "";
+          # GIT_CLIFF_CONFIG = "${toString ./.}/cliff.toml";
           shellHook = ''
             echo "Welcome to NixOS";
             ${config.pre-commit.installationScript}
