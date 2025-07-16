@@ -4,4 +4,5 @@ let
   linx = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOUt3ZeBEajsvYdWePId2leizebVy+awgNaZPcrIWngi root@nixos";
 in {
   "speakerctl-devices.age".publicKeys = [h0useofdupree nixus];
+  "weatherapi-key.age".publicKeys = [h0useofdupree nixus linx];
 }
