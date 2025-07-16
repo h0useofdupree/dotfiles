@@ -53,7 +53,7 @@ in {
         # compositor commands
         "$mod SHIFT, E, exec, pkill Hyprland"
         "$mod SHIFT, R, exec, hyprctl reload"
-        "$mod SHIFT, R, exec, pkill hyprpanel || systemctl --user restart hyprpanel.service"
+        "$mod2 SHIFT, R, exec, pkill hyprpanel || systemctl --user restart hyprpanel.service"
         "$mod SHIFT, Q, killactive,"
         "$mod SHIFT, D, fullscreen, 0"
         "$mod, D, fullscreen, 1"
@@ -136,6 +136,10 @@ in {
     bindr = [
       # launcher
       "$mod, R, exec, ${toggle "anyrun"}"
+
+      # overview
+      "$mod2, SUPER_L, overview:toggle"
+      ", mouse:277, overview:toggle"
     ];
 
     bindl = [
