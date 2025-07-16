@@ -5,7 +5,7 @@
 }: let
   cfg = config.programs.git;
   # TODO: key
-  key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1JYHp/ZXHErtQVer2eE393NoJgOB6LvVJ+x/IxayS9 joel.riekemann@gmail.com";
+  pubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1JYHp/ZXHErtQVer2eE393NoJgOB6LvVJ+x/IxayS9 joel.riekemann@gmail.com";
 in {
   home.packages = [pkgs.gh];
 
@@ -71,7 +71,102 @@ in {
     userName = "h0useofdupree";
   };
 
+  programs.git-cliff = {
+    enable = true;
+    settings = {
+      header = "Changelog";
+      trim = true;
+
+      changelog = {
+        path = "CHANGELOG.md";
+        tag_pattern = "^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-z]+)?$"; # supports -beta, -stable
+        include_unreleased = true;
+        sort_commits = "newest";
+        filter_commits = true;
+      };
+
+      commit_parsers = [
+        # New conventional commits
+        {pattern = "^(?P<type>feat|fix|docs|style|refactor|perf|test|chore)(\\([^)]*\\))?: ";}
+
+        # Old-style path prefixes (past commits)
+        {pattern = "^(?P<type>h/p/w/hyprpanel):";}
+        {pattern = "^(?P<type>s/p/hyprland):";}
+        {pattern = "^(?P<type>hosts/linx):";}
+        {pattern = "^(?P<type>hosts/nixus):";}
+        {pattern = "^(?P<type>secrets):";}
+        {pattern = "^(?P<type>flake\\.lock):";}
+        {pattern = "^(?P<type>README):";}
+      ];
+
+      commit_types = [
+        {
+          type = "feat";
+          section = "✨ Features";
+        }
+        {
+          type = "fix";
+          section = "🐛 Fixes";
+        }
+        {
+          type = "docs";
+          section = "📝 Docs";
+        }
+        {
+          type = "style";
+          section = "🎨 Styling";
+        }
+        {
+          type = "refactor";
+          section = "🛠 Refactors";
+        }
+        {
+          type = "perf";
+          section = "⚡ Performance";
+        }
+        {
+          type = "test";
+          section = "✅ Tests";
+        }
+        {
+          type = "chore";
+          section = "🧹 Chores";
+        }
+
+        # Custom commit categories based on your prefixes
+        {
+          type = "h/p/w/hyprpanel";
+          section = "🧱 Hyprpanel Config";
+        }
+        {
+          type = "s/p/hyprland";
+          section = "🎮 Hyprland System";
+        }
+        {
+          type = "hosts/linx";
+          section = "💻 Linx Host";
+        }
+        {
+          type = "hosts/nixus";
+          section = "🖥 Nixus Host";
+        }
+        {
+          type = "secrets";
+          section = "🔐 Secrets";
+        }
+        {
+          type = "flake.lock";
+          section = "📦 Flake Lock Updates";
+        }
+        {
+          type = "README";
+          section = "📚 Documentation";
+        }
+      ];
+    };
+  };
+
   xdg.configFile."git/allowed_signers".text = ''
-    ${cfg.userEmail} namespaces="git" ${key}
+    ${cfg.userEmail} namespaces="git" ${pubKey}
   '';
 }
