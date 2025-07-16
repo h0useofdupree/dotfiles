@@ -1,4 +1,6 @@
 {
+  self,
+  config,
   isLaptop,
   lib,
   ...
@@ -26,6 +28,9 @@
 
   clockFormat = "%a %b %d %H:%M";
 in {
+  age.secrets.weatherapi-key = {
+    file = "${self}/secrets/weatherapi-key.age";
+  };
   programs.hyprpanel = {
     enable = true;
     systemd.enable = true;
@@ -62,7 +67,8 @@ in {
             enabled = true;
             location = "Mettmann";
             unit = "metric";
-            key = "55b82b6781af4a4c9b2165259221802";
+            key = builtins.readFile config.age.secrets.weatherapi-key.path;
+            # key = "55b82b6781af4a4c9b2165259221802";
           };
         };
 
