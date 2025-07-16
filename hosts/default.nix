@@ -31,7 +31,11 @@
           {
             home-manager = {
               users.h0useofdupree.imports = homeImports."h0useofdupree@nixus";
-              extraSpecialArgs = specialArgs;
+              extraSpecialArgs =
+                specialArgs
+                // {
+                  isLaptop = false;
+                };
               backupFileExtension = "hm-backup";
             };
           }
@@ -58,7 +62,11 @@
           {
             home-manager = {
               users.h0useofdupree.imports = homeImports."h0useofdupree@linx";
-              extraSpecialArgs = specialArgs;
+              extraSpecialArgs =
+                specialArgs
+                // {
+                  isLaptop = true;
+                };
               backupFileExtension = "hm-backup";
             };
           }

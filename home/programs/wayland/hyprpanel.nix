@@ -1,4 +1,29 @@
-{
+{isLaptop, ...}: let
+  rightModules =
+    [
+      "volume"
+      "bluetooth"
+      "network"
+    ]
+    ++ (
+      if isLaptop
+      then ["battery"]
+      else []
+    )
+    ++ [
+      "systray"
+      "notifications"
+      "clock"
+    ];
+  leftModules = [
+    "dashboard"
+    "workspaces"
+    "media"
+  ];
+  middleModules = [
+    "windowtitle"
+  ];
+in {
   programs.hyprpanel = {
     enable = true;
     systemd.enable = true;
@@ -7,9 +32,10 @@
       # Bar: Layouts
       "bar.layouts" = {
         "*" = {
-          left = ["dashboard" "workspaces" "media"];
-          middle = ["windowtitle"];
-          right = ["volume" "bluetooth" "network" "battery" "systray" "notifications" "clock"];
+          left = leftModules;
+          middle =
+            middleModules;
+          right = rightModules;
         };
       };
       bar = {
