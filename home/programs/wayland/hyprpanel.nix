@@ -1,45 +1,48 @@
-{isLaptop, ...}: let
+{
+  isLaptop,
+  lib,
+  ...
+}: let
   rightModules =
     [
       "volume"
       "bluetooth"
       "network"
     ]
-    ++ (
-      if isLaptop
-      then ["battery"]
-      else []
-    )
+    ++ lib.optional isLaptop "battery"
     ++ [
       "systray"
       "notifications"
       "clock"
     ];
+  middleModules = [
+    "windowtitle"
+  ];
   leftModules = [
     "dashboard"
     "workspaces"
     "media"
   ];
-  middleModules = [
-    "windowtitle"
-  ];
+
+  clockFormat = "%a %b %d %H:%M";
 in {
   programs.hyprpanel = {
     enable = true;
     systemd.enable = true;
 
     settings = {
-      # Bar: Layouts
-      "bar.layouts" = {
-        "*" = {
-          left = leftModules;
-          middle =
-            middleModules;
-          right = rightModules;
-        };
-      };
+      tear = true;
       bar = {
-        clock.format = "%a %b %d %H:%M";
+        # Bar: Layouts
+        layouts = {
+          "*" = {
+            left = leftModules;
+            middle = middleModules;
+            right = rightModules;
+          };
+        };
+
+        clock.format = clockFormat;
         customModules = {
           cava = {
             showIcon = false;
@@ -51,7 +54,6 @@ in {
         shadow = "0px 0px 0px 0px #16161e";
         shadowMargins = "10px 10px";
       };
-      tear = true;
 
       menus = {
         clock = {
