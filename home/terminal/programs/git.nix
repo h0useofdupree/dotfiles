@@ -74,95 +74,112 @@ in {
   programs.git-cliff = {
     enable = true;
     settings = {
-      header = "Changelog";
-      trim = true;
-
       changelog = {
         path = "CHANGELOG.md";
-        tag_pattern = "^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-z]+)?$"; # supports -beta, -stable
+        tag_pattern = "^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-z]+)?$";
         include_unreleased = true;
         sort_commits = "newest";
-        filter_commits = true;
+        filter_commits = false;
+        header = ''
+          # Changelog
+        '';
+        body = ''
+          {% if version %}
+          ## {{ version | trim_start_matches(pat="v") }} - {{ timestamp | date(format="%Y-%m-%d") }}
+          {% else %}
+          ## Unreleased
+          {% endif %}
+
+          {% for group, commits in commits | group_by(attribute="group") %}
+          ### {{ group }}
+          {% for commit in commits %}
+          - [{{ commit.id | truncate(length=7, end="") }}](https://github.com/h0useofdupree/dotfiles/commit/{{ commit.id }}) {{ commit.message | split(pat="\n") | first | trim }} [@{{ commit.author.name }}](https://github.com/{{ commit.author.name }})
+          {% endfor %}
+          {% endfor %}
+        '';
+        footer = ''
+          End of changelog
+          goodbye 👋
+        '';
+        trim = true;
       };
 
-      commit_parsers = [
-        # New conventional commits
-        {pattern = "^(?P<type>feat|fix|docs|style|refactor|perf|test|chore)(\\([^)]*\\))?: ";}
+      git = {
+        conventional_commits = true;
+        filter_unconventional = false;
+        require_conventional = false;
+        sort_commits = "newest";
+        filter_commits = false;
 
-        # Old-style path prefixes (past commits)
-        {pattern = "^(?P<type>h/p/w/hyprpanel):";}
-        {pattern = "^(?P<type>s/p/hyprland):";}
-        {pattern = "^(?P<type>hosts/linx):";}
-        {pattern = "^(?P<type>hosts/nixus):";}
-        {pattern = "^(?P<type>secrets):";}
-        {pattern = "^(?P<type>flake\\.lock):";}
-        {pattern = "^(?P<type>README):";}
-      ];
+        commit_parsers = [
+          {
+            message = "^feat";
+            group = "🚀 Features";
+          }
+          {
+            message = "^fix";
+            group = "🐛 Fixes";
+          }
+          {
+            message = "^docs";
+            group = "📝 Documentation";
+          }
+          {
+            message = "^style";
+            group = "🎨 Styling";
+          }
+          {
+            message = "^refactor";
+            group = "🛠 Refactors";
+          }
+          {
+            message = "^perf";
+            group = "⚡ Performance";
+          }
+          {
+            message = "^test";
+            group = "✅ Tests";
+          }
+          {
+            message = "^chore";
+            group = "🧹 Chores";
+          }
 
-      commit_types = [
-        {
-          type = "feat";
-          section = "✨ Features";
-        }
-        {
-          type = "fix";
-          section = "🐛 Fixes";
-        }
-        {
-          type = "docs";
-          section = "📝 Docs";
-        }
-        {
-          type = "style";
-          section = "🎨 Styling";
-        }
-        {
-          type = "refactor";
-          section = "🛠 Refactors";
-        }
-        {
-          type = "perf";
-          section = "⚡ Performance";
-        }
-        {
-          type = "test";
-          section = "✅ Tests";
-        }
-        {
-          type = "chore";
-          section = "🧹 Chores";
-        }
+          {
+            message = "^h/p/w/hyprpanel";
+            group = "🧱 Hyprpanel Config";
+          }
+          {
+            message = "^s/p/hyprland";
+            group = "🎮 Hyprland System";
+          }
+          {
+            message = "^hosts/linx";
+            group = "💻 Linx Host";
+          }
+          {
+            message = "^hosts/nixus";
+            group = "🖥 Nixus Host";
+          }
+          {
+            message = "^secrets";
+            group = "🔐 Secrets";
+          }
+          {
+            message = "^flake\\.lock";
+            group = "📦 Flake Lock Updates";
+          }
+          {
+            message = "^README";
+            group = "📚 Documentation";
+          }
 
-        # Custom commit categories based on your prefixes
-        {
-          type = "h/p/w/hyprpanel";
-          section = "🧱 Hyprpanel Config";
-        }
-        {
-          type = "s/p/hyprland";
-          section = "🎮 Hyprland System";
-        }
-        {
-          type = "hosts/linx";
-          section = "💻 Linx Host";
-        }
-        {
-          type = "hosts/nixus";
-          section = "🖥 Nixus Host";
-        }
-        {
-          type = "secrets";
-          section = "🔐 Secrets";
-        }
-        {
-          type = "flake.lock";
-          section = "📦 Flake Lock Updates";
-        }
-        {
-          type = "README";
-          section = "📚 Documentation";
-        }
-      ];
+          {
+            message = ".*";
+            group = "💼 Other";
+          }
+        ];
+      };
     };
   };
 
