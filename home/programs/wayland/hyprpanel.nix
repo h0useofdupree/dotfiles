@@ -1,6 +1,7 @@
 {
   isLaptop,
   lib,
+  pkgs,
   ...
 }: let
   rightModules =
@@ -28,12 +29,11 @@
 in {
   programs.hyprpanel = {
     enable = true;
-    systemd.enable = true;
+    systemd.enable = false;
 
     settings = {
       tear = true;
       bar = {
-        # Bar: Layouts
         layouts = {
           "*" = {
             left = leftModules;
@@ -118,6 +118,27 @@ in {
           orientation = "horizontal";
         };
       };
+    };
+  };
+
+  systemd.user.services.hyprpanel = {
+    Unit = {
+      Description = "Custom Hyprpanel Service";
+      After = ["graphical-session.target" "hyprland-session.target"];
+      PartOf = ["graphical-session.target"];
+      ConditionEnvironment = "WAYLAND_DISPLAY";
+    };
+
+    Service = {
+      ExecStart = "${pkgs.hyprpanel}/bin/hyprpanel";
+      ExecReload = "${pkgs.coreutils}/bin/kill -SIGUSR2 $MAINPID";
+      Restart = "always";
+      RestartSec = 2;
+      KillMode = "mixed";
+    };
+
+    Install = {
+      WantedBy = ["graphical-session.target"];
     };
   };
 }
