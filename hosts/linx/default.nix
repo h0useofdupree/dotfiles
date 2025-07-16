@@ -10,6 +10,12 @@
     ./hyprland.nix
   ];
 
+  age.secrets.weatherapi-key = {
+    file = "${self}/secrets/weatherapi-key.age";
+    owner = "h0useofdupree";
+    group = "users";
+  };
+
   networking.hostName = "linx";
 
   services = {
