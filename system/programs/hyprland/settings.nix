@@ -23,7 +23,10 @@ in {
       # set cursor for HL itself
       "hyprctl setcursor ${cursorName} ${toString 18}"
       "hyprlock"
-      # "ags"
+    ];
+
+    exec = [
+      "ags"
     ];
 
     general = {
