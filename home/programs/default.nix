@@ -9,7 +9,6 @@
     ./office
     ./qt.nix
     ./scripts
-    ./walker
   ];
 
   home.packages = with pkgs; [

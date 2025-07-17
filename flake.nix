@@ -79,8 +79,6 @@
 
     anyrun.url = "github:fufexan/anyrun/launch-prefix";
 
-    walker.url = "github:abenz1267/walker";
-
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     hm = {
