@@ -6,7 +6,7 @@
   imports = [
     ./specialisations.nix
     ./terminal
-    inputs.nix-index-db.hmModules.nix-index
+    inputs.nix-index-db.homeModules.nix-index
     # TODO: Put these imports into their respective files ({default,<name>}.nix)
     inputs.nvf.homeManagerModules.default
     self.nixosModules.theme
