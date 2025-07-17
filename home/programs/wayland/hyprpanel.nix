@@ -124,12 +124,31 @@ in {
   systemd.user.services.hyprpanel = {
     Unit = {
       Description = "Custom Hyprpanel Service";
-      After = ["graphical-session.target" "hyprland-session.target"];
+      After = ["hyprland-session.target"];
       PartOf = ["graphical-session.target"];
       ConditionEnvironment = "WAYLAND_DISPLAY";
     };
 
     Service = {
+      Type = "simple";
+
+      # Wait until hyprland reports monitors
+      ExecStartPre = pkgs.writeShellScript "wait-for-hyprland" ''
+        export PATH=${pkgs.hyprland}/bin:${pkgs.coreutils}/bin:${pkgs.gnugrep}/bin:${pkgs.findutils}/bin:$PATH
+
+        echo "Waiting for HYPRLAND_INSTANCE_SIGNATURE..."
+        while [ -z "$HYPRLAND_INSTANCE_SIGNATURE" ]; do
+          sleep 0.2
+        done
+
+        echo "Waiting for at least one monitor..."
+        while ! hyprctl monitors | grep -q "^Monitor .* (ID [0-9]\+):"; do
+          sleep 0.2
+        done
+
+        echo "Monitors detected, starting Hyprpanel..."
+      '';
+
       ExecStart = "${pkgs.hyprpanel}/bin/hyprpanel";
       ExecReload = "${pkgs.coreutils}/bin/kill -SIGUSR2 $MAINPID";
       Restart = "always";
