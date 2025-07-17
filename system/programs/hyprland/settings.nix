@@ -13,7 +13,7 @@ in {
     env = [
       "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       "HYPRCURSOR_THEME,${cursorName}"
-      "HYPRCURSOR_SIZE,${toString 16}"
+      "HYPRCURSOR_SIZE,${toString 18}"
       "GRIMBLAST_NO_CURSOR,0"
     ];
 
@@ -21,17 +21,17 @@ in {
       # finalize startup
       "uwsm finalize"
       # set cursor for HL itself
-      "hyprctl setcursor ${cursorName} ${toString 16}"
+      "hyprctl setcursor ${cursorName} ${toString 18}"
       "hyprlock"
-      "ags"
+      # "ags"
     ];
 
     general = {
       layout = "master";
-      gaps_in = 15;
+      gaps_in = 10;
       gaps_out = 20;
       border_size = 3;
-      "col.active_border" = "rgba(88888888)";
+      "col.active_border" = "rgba(AAAAAA88)";
       "col.inactive_border" = "rgba(00000088)";
 
       allow_tearing = true;
