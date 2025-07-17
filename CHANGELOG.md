@@ -4,12 +4,24 @@
 
 
 
+### 🎨 Styling
+
+- [1c8e4fa](https://github.com/h0useofdupree/dotfiles/commit/1c8e4facfdce46908210efb841cb8b96186afb8a) adjust cursor/gaps [@h0useofdupree](https://github.com/h0useofdupree)
+
+
+### 🐛 Fixes
+
+- [c2e8776](https://github.com/h0useofdupree/dotfiles/commit/c2e8776a3793f05fd9ab1ae12c7c492113338da7) fixed custom hyprpanel service [@h0useofdupree](https://github.com/h0useofdupree)
+
+
 ### 📝 Documentation
 
-- [d4904f5](https://github.com/h0useofdupree/dotfiles/commit/d4904f542584bfa5eebdefab7ce4b58c3451e6ae) update [@h0useofdupree](https://github.com/h0useofdupree)
+- [3584f9f](https://github.com/h0useofdupree/dotfiles/commit/3584f9f649838b3f7d2c7a98b4233166cfec8202) update [@h0useofdupree](https://github.com/h0useofdupree)
 
 
 ### 🚀 Features
+
+- [e8051de](https://github.com/h0useofdupree/dotfiles/commit/e8051dee9c8bf31acfbcaa22259254f7c0939fbb) add custom service to automatically start ags [@h0useofdupree](https://github.com/h0useofdupree)
 
 - [903b2b8](https://github.com/h0useofdupree/dotfiles/commit/903b2b8ef83989a71f87f1f9326ede54f8314bb6) add proper cliff body with links [@h0useofdupree](https://github.com/h0useofdupree)
 
