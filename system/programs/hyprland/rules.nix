@@ -34,8 +34,8 @@
       ];
     in [
       "blur, ${toRegex blurred}"
-      "xray 1, ${toRegex ["bar"]}"
-      "ignorealpha 0.5, ${toRegex (highopacity ++ ["music"])}"
+      # "xray 1, ${toRegex ["bar-0"]}"
+      "ignorealpha 0.5, ${toRegex (highopacity ++ ["mediamenu"])}"
       "ignorealpha 0.2, ${toRegex lowopacity}"
       # "blur, corner.*"
       # "ignorealpha 0.6, corner.*"
