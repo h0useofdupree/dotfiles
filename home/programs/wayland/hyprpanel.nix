@@ -99,7 +99,7 @@ in {
             padding_x = "1.0em";
             background_opacity = "0";
           };
-          floating = false;
+          floating = true;
           location = "top";
           margin_sides = "1.5em";
           menus = {
