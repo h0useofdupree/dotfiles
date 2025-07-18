@@ -87,7 +87,7 @@ in {
           ---
           {% if version %}\
               {% if previous.version %}\
-                  ## [{{ version | trim_start_matches(pat="v") }}]($REPO/compare/{{ previous.version }}..{{ version }}) - {{ timestamp | date(format="%Y-%m-%d") }}
+                  ## [{{ version | trim_start_matches(pat="v") }}](https://github.com/h0useofdupree/dotfiles/compare/{{ previous.version }}..{{ version }}) - {{ timestamp | date(format="%Y-%m-%d") }}
               {% else %}\
                   ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
               {% endif %}\
@@ -100,14 +100,14 @@ in {
               | filter(attribute="scope")
               | sort(attribute="scope") %}
                   - **({{commit.scope}})**{% if commit.breaking %} [**breaking**]{% endif %} \
-                      {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})) - {{ commit.author.name }}
+                      {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/h0useofdupree/dotfiles/commit/{{ commit.id }})) - {{ commit.author.name }}
               {%- endfor -%}
               {% raw %}\n{% endraw %}\
               {%- for commit in commits %}
                   {%- if commit.scope -%}
                   {% else -%}
                       - {% if commit.breaking %} [**breaking**]{% endif %}\
-                          {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})) - {{ commit.author.name }}
+                          {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/h0useofdupree/dotfiles/commit/{{ commit.id }})) - {{ commit.author.name }}
                   {% endif -%}
               {% endfor -%}
           {% endfor %}\n
@@ -116,13 +116,6 @@ in {
           End of changelog
           goodbye 👋
         '';
-        postprocessors = [
-          # Replace the placeholder `<REPO>` with a URL.
-          {
-            pattern = "\$REPO";
-            replace = "https://github.com/h0useofdupree/dotfiles";
-          }
-        ];
         trim = true;
       };
 
