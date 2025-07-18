@@ -108,7 +108,7 @@ in {
             popover.radius = "1.5em";
             opacity = "60";
           };
-          opacity = "100";
+          opacity = "70";
           outer_spacing = "0.5em";
           transparent = false;
           workspaces.showApplicationIcons = true;
