@@ -100,14 +100,14 @@ in {
               | filter(attribute="scope")
               | sort(attribute="scope") %}
                   - **({{commit.scope}})**{% if commit.breaking %} [**breaking**]{% endif %} \
-                      {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/h0useofdupree/dotfiles/commit/{{ commit.id }})) - {{ commit.author.name }}
+                      {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/h0useofdupree/dotfiles/commit/{{ commit.id }}))
               {%- endfor -%}
               {% raw %}\n{% endraw %}\
               {%- for commit in commits %}
                   {%- if commit.scope -%}
                   {% else -%}
                       - {% if commit.breaking %} [**breaking**]{% endif %}\
-                          {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/h0useofdupree/dotfiles/commit/{{ commit.id }})) - {{ commit.author.name }}
+                          {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/h0useofdupree/dotfiles/commit/{{ commit.id }}))
                   {% endif -%}
               {% endfor -%}
           {% endfor %}\n
