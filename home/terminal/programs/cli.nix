@@ -13,6 +13,7 @@
     file
     jaq
     ripgrep
+    ripdrag
   ];
 
   programs = {
