@@ -7,6 +7,7 @@
     libnotify
     #sshfs
 
+    comma
     du-dust
     duf
     fd
