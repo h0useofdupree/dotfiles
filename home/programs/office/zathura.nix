@@ -5,7 +5,7 @@
       recolor-lightcolor = "rgba(0,0,0,0)";
       default-bg = "rgba(0,0,0,0.7)";
 
-      font = "Inter 12";
+      font = "Inter 13";
       selection-notification = true;
 
       selection-clipboard = "clipboard";
