@@ -84,23 +84,45 @@ in {
           # Changelog
         '';
         body = ''
-          {% if version %}
-          ## {{ version | trim_start_matches(pat="v") }} - {{ timestamp | date(format="%Y-%m-%d") }}
-          {% else %}
-          ## Unreleased
-          {% endif %}
-
+          ---
+          {% if version %}\
+              {% if previous.version %}\
+                  ## [{{ version | trim_start_matches(pat="v") }}]($REPO/compare/{{ previous.version }}..{{ version }}) - {{ timestamp | date(format="%Y-%m-%d") }}
+              {% else %}\
+                  ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
+              {% endif %}\
+          {% else %}\
+              ## [unreleased]
+          {% endif %}\
           {% for group, commits in commits | group_by(attribute="group") %}
-          ### {{ group }}
-          {% for commit in commits %}
-          - [{{ commit.id | truncate(length=7, end="") }}](https://github.com/h0useofdupree/dotfiles/commit/{{ commit.id }}) {{ commit.message | split(pat="\n") | first | trim }} [@{{ commit.author.name }}](https://github.com/{{ commit.author.name }})
-          {% endfor %}
-          {% endfor %}
+              ### {{ group | striptags | trim | upper_first }}
+              {% for commit in commits
+              | filter(attribute="scope")
+              | sort(attribute="scope") %}
+                  - **({{commit.scope}})**{% if commit.breaking %} [**breaking**]{% endif %} \
+                      {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})) - {{ commit.author.name }}
+              {%- endfor -%}
+              {% raw %}\n{% endraw %}\
+              {%- for commit in commits %}
+                  {%- if commit.scope -%}
+                  {% else -%}
+                      - {% if commit.breaking %} [**breaking**]{% endif %}\
+                          {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}]($REPO/commit/{{ commit.id }})) - {{ commit.author.name }}
+                  {% endif -%}
+              {% endfor -%}
+          {% endfor %}\n
         '';
         footer = ''
           End of changelog
           goodbye 👋
         '';
+        postprocessors = [
+          # Replace the placeholder `<REPO>` with a URL.
+          {
+            pattern = "\$REPO";
+            replace = "https://github.com/h0useofdupree/dotfiles";
+          }
+        ];
         trim = true;
       };
 
@@ -133,6 +155,10 @@ in {
             group = "🛠 Refactors";
           }
           {
+            message = "^revert";
+            group = "⏪ Reverts";
+          }
+          {
             message = "^perf";
             group = "⚡ Performance";
           }
@@ -144,7 +170,12 @@ in {
             message = "^chore";
             group = "🧹 Chores";
           }
+          {
+            footer = "^changelog: ?ignore";
+            skip = true;
+          }
 
+          # For old commits that don't follow "Conventional Commits Specification"
           {
             message = "^h/p/w/hyprpanel";
             group = "🧱 Hyprpanel Config";
@@ -168,10 +199,6 @@ in {
           {
             message = "^flake\\.lock";
             group = "📦 Flake Lock Updates";
-          }
-          {
-            message = "^README";
-            group = "📚 Documentation";
           }
 
           {
