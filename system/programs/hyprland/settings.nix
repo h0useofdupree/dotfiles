@@ -34,8 +34,8 @@ in {
       gaps_in = 10;
       gaps_out = 20;
       border_size = 3;
-      "col.active_border" = "rgba(AAAAAA88)";
-      "col.inactive_border" = "rgba(00000088)";
+      "col.active_border" = "rgba(00000088)";
+      "col.inactive_border" = "rgba(AAAAAA88)";
 
       allow_tearing = true;
       resize_on_border = false;
