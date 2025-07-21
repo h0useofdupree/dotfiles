@@ -129,39 +129,39 @@ in {
         commit_parsers = [
           {
             message = "^feat";
-            group = "🚀 Features";
+            group = "Features";
           }
           {
             message = "^fix";
-            group = "🐛 Fixes";
+            group = "Fixes";
           }
           {
             message = "^docs";
-            group = "📝 Documentation";
+            group = "Documentation";
           }
           {
             message = "^style";
-            group = "🎨 Styling";
+            group = "Styling";
           }
           {
             message = "^refactor";
-            group = "🛠 Refactors";
+            group = "Refactors";
           }
           {
             message = "^revert";
-            group = "⏪ Reverts";
+            group = "Reverts";
           }
           {
             message = "^perf";
-            group = "⚡ Performance";
+            group = "Performance";
           }
           {
             message = "^test";
-            group = "✅ Tests";
+            group = "Tests";
           }
           {
             message = "^chore";
-            group = "🧹 Chores";
+            group = "Chores";
           }
           {
             footer = "^changelog: ?ignore";
@@ -171,32 +171,32 @@ in {
           # For old commits that don't follow "Conventional Commits Specification"
           {
             message = "^h/p/w/hyprpanel";
-            group = "🧱 Hyprpanel Config";
+            group = "Hyprpanel Config";
           }
           {
             message = "^s/p/hyprland";
-            group = "🎮 Hyprland System";
+            group = "Hyprland System";
           }
           {
             message = "^hosts/linx";
-            group = "💻 Linx Host";
+            group = "Linx Host";
           }
           {
             message = "^hosts/nixus";
-            group = "🖥 Nixus Host";
+            group = "Nixus Host";
           }
           {
             message = "^secrets";
-            group = "🔐 Secrets";
+            group = "Secrets";
           }
           {
             message = "^flake\\.lock";
-            group = "📦 Flake Lock Updates";
+            group = "Flake Lock Updates";
           }
 
           {
             message = ".*";
-            group = "💼 Other";
+            group = "Other";
           }
         ];
       };
