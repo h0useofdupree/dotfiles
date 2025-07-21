@@ -17,18 +17,24 @@
 
   systemd.user.services.ags-corners = {
     Unit = {
-      Description = "Aylur's GTK Shell";
-      PartOf = [
-        # "tray.target"
-        "graphical-session.target"
-      ];
-      After = "graphical-session.target";
+      Description = "screencorners (ags)";
+      PartOf = ["graphical-session.target"];
+      After = ["graphical-session.target"];
+      StartLimitIntervalSec = 10;
+      StartLimitBurst = 5;
     };
 
     Service = {
+      ExecStartPre = [
+        "${pkgs.runtimeShell} -c '${pkgs.procps}/bin/pkill -u $USER -x ags || true'"
+      ];
       ExecStart = "${inputs.ags.packages.${pkgs.system}.ags}/bin/ags";
-      Restart = "on-failure";
+      ExecStop = "${pkgs.procps}/bin/pkill -u $USER -x ags";
+      Restart = "always";
+      RestartSec = 2;
+      KillMode = "mixed";
     };
+
     Install.WantedBy = ["graphical-session.target"];
   };
 }
