@@ -1,4 +1,3 @@
-# security tweaks borrowed from @fufexan from @hlissner
 {
   boot.kernel.sysctl = {
     # The Magic SysRq key is a key combo that allows users connected to the
@@ -59,10 +58,8 @@
 
     sudo-rs = {
       enable = true;
-      wheelNeedsPassword = false;
-
+      wheelNeedsPassword = true;
       extraConfig = ''
-        Defaults lecture = never
         Defaults pwfeedback
         Defaults timestamp_timeout = 300
       '';
