@@ -9,7 +9,7 @@
         "workspaces": {
             "activeIndicator": true,
             "activeLabel": "󰮯 ",
-            "activeTrail": false,
+            "activeTrail": true,
             "label": "  ",
             "occupiedBg": false,
             "occupiedLabel": "󰮯 ",
@@ -44,7 +44,7 @@
         "maxNotifs": 5
     },
     "notifs": {
-        "actionOnClick": false,
+        "actionOnClick": true,
         "clearThreshold": 0.3,
         "defaultExpireTimeout": 5000,
         "expandThreshold": 20,
@@ -59,7 +59,7 @@
         "wallpaperDir": "~/Pictures/Wallpapers"
     },
     "services": {
-      "weatherLocation": "10,10",
+      "weatherLocation": "51.24,6.95",
       "useFahrenheit": false
     },
     "session": {
