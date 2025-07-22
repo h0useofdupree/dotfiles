@@ -23,7 +23,7 @@ in {
       # set cursor for HL itself
       "hyprctl setcursor ${cursorName} ${toString 18}"
       # "hyprlock"
-      "caelestia shell lock lock"
+      "sleep 2 && caelestia shell lock lock"
     ];
 
     general = {
