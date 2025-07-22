@@ -5,6 +5,11 @@
   ...
 }: let
   shellPkg = inputs.caelestia-shell.packages.${pkgs.system}.default;
+  quickshellPkg = inputs.quickshell.packages.${pkgs.system}.default.override {
+    withX11 = false;
+    withI3 = false;
+  };
+  cliPkg = inputs.caelestia-cli.packages.${pkgs.system}.default;
   logging = lib.concatStringsSep ";" [
     "quickshell.dbus.properties.warning=false"
     "quickshell.dbus.dbusmenu.warning=false"
@@ -13,7 +18,7 @@
     "qt.qpa.wayland.textinput.warning=false"
   ];
 in {
-  home.packages = [shellPkg];
+  home.packages = [shellPkg quickshellPkg cliPkg];
 
   home.file.".config/caelestia/shell.json".source = ./shell.json;
 
