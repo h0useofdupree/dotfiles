@@ -5,7 +5,7 @@
   ...
 }: {
   programs.hyprlock = {
-    enable = true;
+    enable = false;
 
     package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
 

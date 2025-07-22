@@ -1,7 +1,7 @@
 {config, ...}: {
   services.swww.enable = true;
   dynamicWallpaper = {
-    enable = true;
+    enable = false;
     autoLight = false;
     startTime = "06:00";
     endTime = "23:00";
