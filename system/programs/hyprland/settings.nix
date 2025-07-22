@@ -22,12 +22,8 @@ in {
       "uwsm finalize"
       # set cursor for HL itself
       "hyprctl setcursor ${cursorName} ${toString 18}"
-      "hyprlock"
-      # TODO: Add quickshell exec
-    ];
-
-    exec = [
-      "ags"
+      # "hyprlock"
+      "caelestia shell lock lock"
     ];
 
     general = {
@@ -35,8 +31,8 @@ in {
       gaps_in = 10;
       gaps_out = 20;
       border_size = 3;
-      "col.active_border" = "rgba(00000088)";
-      "col.inactive_border" = "rgba(AAAAAA88)";
+      "col.active_border" = "rgba(AAAAAA88)";
+      "col.inactive_border" = "rgba(00000088)";
 
       allow_tearing = true;
       resize_on_border = false;

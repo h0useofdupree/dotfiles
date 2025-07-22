@@ -53,8 +53,7 @@ in {
         # compositor commands
         "$mod SHIFT, E, exec, pkill Hyprland"
         "$mod SHIFT, R, exec, hyprctl reload"
-        # TODO: Add restart bind for Quickshell
-        # "$mod2 SHIFT, R, exec, ..."
+        "$mod2 SHIFT, R, exec, systemctl --user restart caelestia-shell.service"
         "$mod SHIFT, Q, killactive,"
         "$mod SHIFT, D, fullscreen, 0"
         "$mod, D, fullscreen, 1"
@@ -74,16 +73,22 @@ in {
         "$mod, B, exec, uwsm app -- zen"
         "$mod2, B, exec, uwsm app -- qutebrowser"
         # logout menu
-        "Control $mod, Delete, exec, ${toggle "wlogout"} -p layer-shell"
+        # "Control $mod, Delete, exec, ${toggle "wlogout"} -p layer-shell"
+        "Control $mod, Delete, global, caelestia:session"
         # lock screen
-        "$mod $mod2, L, exec, ${runOnce "hyprlock"}"
+        # "$mod $mod2, L, exec, ${runOnce "hyprlock"}"
+        # "$mod, L, global, systemctl --user start caelestia-shell.service"
+        "$mod2, L, global, caelestia:lock"
         # select area to perform OCR on
         "$mod, O, exec, ${runOnce "wl-ocr"}"
         ", XF86Favorites, exec, ${runOnce "wl-ocr"}"
         # open calculator
         "$mod, C, exec, ${toggle "gnome-calculator"}"
         # open settings
-        "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome ${runOnce "gnome-control-center"}"
+        # "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome ${runOnce "gnome-control-center"}"
+        # Caelestia misc
+        "$mod SHIFT, n, global, caelestia:clearNotifs"
+        "$mod, a, global, caelestia:showall"
 
         # speaker control
         "$mod2, 1, exec, speakerctl --on"
@@ -105,13 +110,23 @@ in {
 
         # screenshot
         ## area
-        "$mod, Next, exec, ${runOnce "grimblast"} --notify copysave area"
+        # "$mod, Next, exec, ${runOnce "grimblast"} --notify copysave area"
+        "$mod, Next, global, caelestia:screenshot"
+        ## area freeze
+        "$mod SHIFT, Next, global, caelestia:screenshotFreeze"
 
         ## current screen
-        "$mod, Prior, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
+        # "$mod, Prior, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
+        "$mod, Prior, exec, caelestia screenshot"
 
         ## all screens
-        "$mod $mod2, Next, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
+        # "$mod $mod2, Next, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
+
+        # screen-recording
+        ## Sound
+        "$mod, Insert, exec, caelestia record -s"
+        ## No-Sound
+        "$mod SHIFT, Insert, exec, caelestia record"
 
         # special workspace
         "$mod SHIFT, code:20, movetoworkspace, special"
@@ -136,10 +151,10 @@ in {
 
     bindr = [
       # launcher
-      "$mod, R, exec, ${toggle "anyrun"}"
+      # "$mod, R, exec, ${toggle "anyrun"}"
 
-      # overview
-      "$mod2, SUPER_L, overview:toggle"
+      # launcher
+      "Super, Super_L, global, caelestia:launcher"
       ", mouse:277, overview:toggle"
     ];
 
