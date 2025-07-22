@@ -85,9 +85,7 @@ include:
 I daily drive the [Hyprland](https://github.com/hyprwm/Hyprland) compositor
 along with several extras:
 
-- **HyprPanel** using the AGS framework.
-- Wayland utilities such as `wl-ocr`, `grim` and `slurp`.
-- Custom scripts and the `nvf` Neovim distribution.
+<!-- TODO: add Quickshell (thanks to Caelestia creators!!)-->
 
 Browser wise I use `zen-browser` and `qutebrowser`. My main shell is `fish` but
 `zsh` is also configured.

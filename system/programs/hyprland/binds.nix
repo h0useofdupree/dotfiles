@@ -53,7 +53,8 @@ in {
         # compositor commands
         "$mod SHIFT, E, exec, pkill Hyprland"
         "$mod SHIFT, R, exec, hyprctl reload"
-        "$mod2 SHIFT, R, exec, pkill hyprpanel || systemctl --user restart hyprpanel.service"
+        # TODO: Add restart bind for Quickshell
+        # "$mod2 SHIFT, R, exec, ..."
         "$mod SHIFT, Q, killactive,"
         "$mod SHIFT, D, fullscreen, 0"
         "$mod, D, fullscreen, 1"

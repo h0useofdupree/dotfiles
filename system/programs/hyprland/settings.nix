@@ -23,7 +23,7 @@ in {
       # set cursor for HL itself
       "hyprctl setcursor ${cursorName} ${toString 18}"
       "hyprlock"
-      "sleep 2 && systemctl --user start hyprpanel.service"
+      # TODO: Add quickshell exec
     ];
 
     exec = [
