@@ -8,6 +8,7 @@
     # Audio control
     pulsemixer
     pwvucontrol
+    pulseaudio
 
     # Audio
     amberol
