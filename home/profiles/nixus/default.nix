@@ -14,7 +14,6 @@
     ../../services/media/playerctl.nix
 
     # System Services
-    ../../services/quickshell
     ../../services/screencorners
     ../../services/system/gnome-keyring.nix
     ../../services/system/kdeconnect.nix
