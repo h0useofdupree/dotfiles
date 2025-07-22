@@ -69,14 +69,6 @@
       };
     };
 
-    ags = {
-      url = "github:Aylur/ags/60180a184cfb32b61a1d871c058b31a3b9b0743d";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
-
     anyrun.url = "github:fufexan/anyrun/launch-prefix";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -162,6 +154,27 @@
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
+    };
+
+    app2unit = {
+      url = "github:soramanew/app2unit";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    caelestia-cli = {
+      url = "github:caelestia-dots/cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.app2unit.follows = "app2unit";
+    };
+
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        quickshell.follows = "quickshell";
+        app2unit.follows = "app2unit";
+        caelestia-cli.follows = "caelestia-cli";
+      };
     };
 
     quickshell = {
