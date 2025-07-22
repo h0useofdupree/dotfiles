@@ -151,11 +151,7 @@ in {
 
     bindr = [
       # launcher
-      # "$mod, R, exec, ${toggle "anyrun"}"
-
-      # launcher
-      "Super, Super_L, global, caelestia:launcher"
-      ", mouse:277, overview:toggle"
+      "$mod, R, global, caelestia:launcher"
     ];
 
     bindl = [
