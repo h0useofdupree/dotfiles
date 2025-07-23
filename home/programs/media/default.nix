@@ -2,7 +2,6 @@
   imports = [
     ./mpv.nix
     ./spotify-player
-    ./spicetify
   ];
 
   home.packages = with pkgs; [

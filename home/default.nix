@@ -12,7 +12,6 @@
     self.nixosModules.theme
     inputs.self.homeModules.dynamicWallpaper
     inputs.self.homeModules.speakerctl
-    inputs.spicetify-nix.homeManagerModules.default
   ];
 
   home = {
