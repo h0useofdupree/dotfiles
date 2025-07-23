@@ -32,10 +32,14 @@
       bind \cw backward-kill-word
     '';
 
+    shellAliases = lib.mkForce {};
+
     shellAbbrs = {
-      lg = "lazygit";
       cdd = "cd ~/.dotfiles/";
       c = "z";
+      g = "git";
+      lg = "lazygit";
+      ls = "eza";
       watch = "viddy";
     };
 
@@ -60,6 +64,30 @@
         body = "command eza --group-directories-first $argv";
         wraps = "eza";
         description = "eza with options (wrapper)";
+      };
+
+      la = {
+        body = "eza -a --icons always $argv";
+        wraps = "eza -a --icons always --git";
+        description = "alias la eza -a --icons always";
+      };
+
+      ll = {
+        body = "eza -l --icons always --git $argv";
+        wraps = "eza -l --icons always --git";
+        description = "alias ll eza -l --icons always --git";
+      };
+
+      lla = {
+        body = "eza -la --icons always --git $argv";
+        wraps = "eza -la --icons always --git";
+        description = "alias lla eza -la --icons always --git";
+      };
+
+      lt = {
+        body = "eza --tree $argv";
+        wraps = "eza --tree";
+        description = "alias lt eza --tree";
       };
 
       cat = {
