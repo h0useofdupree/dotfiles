@@ -18,6 +18,10 @@
         normal = [];
         size = 14.0;
       };
+
+      box-drawing = {
+        mode = "native";
+      };
     };
   };
 }
