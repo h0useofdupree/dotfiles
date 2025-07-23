@@ -206,6 +206,12 @@
           };
         };
 
+        mini = {
+          statusline = {
+            enable = false;
+          };
+        };
+
         theme = {
           enable = true;
           name = "catppuccin";
@@ -227,7 +233,7 @@
               auto_clean_after_session_restore = true;
               source_selector = {
                 statusline = false;
-                winbar = true;
+                winbar = false;
               };
             };
           };
@@ -265,9 +271,9 @@
         };
 
         dashboard = {
-          alpha.enable = false;
+          alpha.enable = true;
           startify = {
-            enable = true;
+            enable = false;
             # bookmarks = {
             #   f = "~/.dotfiles/flake.nix";
             #   c = "~/.dotfiles/home/editors/nvf/default.nix";
