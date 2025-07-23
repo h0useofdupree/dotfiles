@@ -2,6 +2,7 @@
   imports = [
     ./mpv.nix
     ./spotify-player
+    ./spicetify
   ];
 
   home.packages = with pkgs; [
@@ -12,7 +13,7 @@
 
     # Audio
     amberol
-    spotify
+    # spotify
 
     # File Manager
     nautilus
