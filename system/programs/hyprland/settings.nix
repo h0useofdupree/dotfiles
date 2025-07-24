@@ -22,8 +22,8 @@ in {
       "uwsm finalize"
       # set cursor for HL itself
       "hyprctl setcursor ${cursorName} ${toString 18}"
-      # "hyprlock"
-      "sleep 2 && caelestia shell lock lock"
+      "hyprlock"
+      # "sleep 2 && caelestia shell lock lock"
     ];
 
     general = {
