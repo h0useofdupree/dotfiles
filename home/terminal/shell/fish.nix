@@ -11,6 +11,8 @@
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
 
+      command cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
+
       nitch
 
       ${lib.optionalString config.services.gpg-agent.enable ''

@@ -31,7 +31,7 @@
       cursor_trail_decay = "0.1 0.4";
     };
 
-    themeFile = "Catppuccin-Macchiato";
+    # themeFile = "Catppuccin-Macchiato";
   };
 
   # xdg.configFile."kitty/dark-theme.auto.conf".source = ./kitty-themes/dark-theme.auto.conf;
