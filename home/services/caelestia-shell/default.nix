@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  isLaptop,
   ...
 }: let
   shellPkg = inputs.caelestia-shell.packages.${pkgs.system}.default;
@@ -18,9 +19,87 @@
     "qt.qpa.wayland.textinput.warning=false"
   ];
 in {
-  home.packages = [shellPkg quickshellPkg cliPkg];
+  home.packages = [
+    shellPkg
+    quickshellPkg
+    cliPkg
+  ];
 
-  home.file.".config/caelestia/shell.json".source = ./shell.json;
+  home.file.".config/caelestia/shell.json".text = builtins.toJSON {
+    background = {
+      enabled = true;
+      desktopClock = true;
+    };
+    bar = {
+      dragThreshold = 20;
+      persistent = true;
+      showOnHover = true;
+      workspaces = {
+        activeIndicator = true;
+        activeLabel = "󰮯 ";
+        activeTrail = true;
+        label = "  ";
+        occupiedBg = false;
+        occupiedLabel = "󰮯 ";
+        rounded = true;
+        showWindows = true;
+        shown = 5;
+      };
+      status = {
+        showAudio = !isLaptop;
+        showBattery = isLaptop;
+        showNetwork = isLaptop;
+      };
+    };
+    border = {
+      rounding = 25;
+      thickness = 10;
+    };
+    dashboard = {
+      mediaUpdateInterval = 500;
+      visualiserBars = 45;
+    };
+    launcher = {
+      actionPrefix = ">";
+      dragThreshold = 50;
+      vimKeybinds = true;
+      enableDangerousActions = false;
+      maxShown = 8;
+      maxWallpapers = 9;
+      useFuzzy = {
+        apps = false;
+        actions = false;
+        schemes = false;
+        variants = false;
+        wallpapers = true;
+      };
+    };
+    lock = {
+      maxNotifs = 5;
+    };
+    notifs = {
+      actionOnClick = true;
+      clearThreshold = 0.3;
+      defaultExpireTimeout = 5000;
+      expandThreshold = 20;
+      expire = true;
+    };
+    osd = {
+      hideDelay = 2000;
+    };
+    paths = {
+      mediaGif = "root:/assets/bongocat.gif";
+      sessionGif = "root:/assets/kurukuru.gif";
+      wallpaperDir = "~/Pictures/Wallpapers";
+    };
+    services = {
+      weatherLocation = "51.24,6.95";
+      useFahrenheit = false;
+    };
+    session = {
+      dragThreshold = 30;
+    };
+  };
 
   systemd.user.services.caelestia-shell = {
     Unit = {

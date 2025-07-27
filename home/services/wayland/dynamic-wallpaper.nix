@@ -1,5 +1,5 @@
 {config, ...}: {
-  services.swww.enable = true;
+  services.swww.enable = false;
   dynamicWallpaper = {
     enable = false;
     autoLight = false;

@@ -12,7 +12,7 @@
 
     # Audio
     amberol
-    # spotify
+    spotify
 
     # File Manager
     nautilus
