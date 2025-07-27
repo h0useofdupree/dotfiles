@@ -1,17 +1,31 @@
 # Changelog
 ---
 \
-## [unreleased]
+\
+## [1.3.0](https://github.com/h0useofdupree/dotfiles/compare/v1.2.0-stable..v1.3.0) - 2025-07-27
+\
 \
 
 ### Chores
 
+- **(flake.lock)** \
+update - ([aa632f7](https://github.com/h0useofdupree/dotfiles/commit/aa632f71d1342499eab89294fcefb09897d16ed2))
+- **(flake.lock)** \
+update - ([e9c68bb](https://github.com/h0useofdupree/dotfiles/commit/e9c68bb394a68c8af4d845227c6eebef1f690682))
+- **(flake.lock)** \
+update - ([db0ebc8](https://github.com/h0useofdupree/dotfiles/commit/db0ebc8615c2be18693d3282f8f80c2724beab36))
+- **(flake.nix)** \
+update - ([8c8722d](https://github.com/h0useofdupree/dotfiles/commit/8c8722d1e9fe19f9be0d621785f9b53e3d75937d))
 - **(programs)** \
 remove walker - ([2b328b6](https://github.com/h0useofdupree/dotfiles/commit/2b328b647a8e00859307745855386eb94fc51cd3))\n\
 ### Documentation
 
+- **(README)** \
+update Desktop section - ([b62c307](https://github.com/h0useofdupree/dotfiles/commit/b62c307a578a3fd59d42787a5c2dd1eb19084d15))
+- **(README)** \
+add more badges - ([66e370e](https://github.com/h0useofdupree/dotfiles/commit/66e370e7b54c9bcb7b5ad6de5f8253f104a126cb))
 - **(changelog)** \
-update changelog - ([b130c71](https://github.com/h0useofdupree/dotfiles/commit/b130c7163a848d69e61e2af64c004d058ce0d870))
+update changelog - ([208da40](https://github.com/h0useofdupree/dotfiles/commit/208da40df7397a939d42f7f8db0fa2f70d637775))
 - **(changelog)** \
 update changelog - ([fa5cd55](https://github.com/h0useofdupree/dotfiles/commit/fa5cd5509dc15239962a9ac5cc86332e929b3546))
 - **(changelog)** \
@@ -22,22 +36,60 @@ update - ([3584f9f](https://github.com/h0useofdupree/dotfiles/commit/3584f9f6498
 enable plymouth - ([736dfca](https://github.com/h0useofdupree/dotfiles/commit/736dfca890cf9dc75383da75ccfd813c5940fa37))
 - **(cli-programs)** \
 add comma - ([72ec740](https://github.com/h0useofdupree/dotfiles/commit/72ec740c6fde1143c5b6efe2e4d376b6044ac3ca))
+- **(fish)** \
+add wl-copy abbreviation - ([bb37c99](https://github.com/h0useofdupree/dotfiles/commit/bb37c99d19a2480507a9d660c17d8cdd8c878b28))
 - **(git)** \
 add proper cliff body with links - ([903b2b8](https://github.com/h0useofdupree/dotfiles/commit/903b2b8ef83989a71f87f1f9326ede54f8314bb6))
+- **(hyprland)** \
+set caps->ctrl and remove compose - ([b92135d](https://github.com/h0useofdupree/dotfiles/commit/b92135ddbf76611080e955fe5b0c86f8c963c13a))
+- **(hyprland)** \
+adjust binds/settings for quickshell/caelestial - ([fe1750b](https://github.com/h0useofdupree/dotfiles/commit/fe1750b66409e6cbb6d97ea95efd156de79ddbbb))
 - **(hyprpanel)** \
 turn on floating - ([871b792](https://github.com/h0useofdupree/dotfiles/commit/871b792b448c9ef5e19b24331363bb97c8392f5f))
+- **(kitty)** \
+enable theme by sequences - ([ae5922d](https://github.com/h0useofdupree/dotfiles/commit/ae5922dffd36fe0f05e63c2985e3edd2e88581f0))
+- **(neovide)** \
+activate new native box-drawing - ([1549a05](https://github.com/h0useofdupree/dotfiles/commit/1549a054023784dfce6b86392fa8a7a744f467c0))
+- **(nvf)** \
+add jsonls - ([65ee2b6](https://github.com/h0useofdupree/dotfiles/commit/65ee2b60104993b01adbc1428ca26f36f37d26d8))
 - **(office)** \
 add texlive (small) and pandoc - ([9de4b86](https://github.com/h0useofdupree/dotfiles/commit/9de4b86430c590264b22b7e3e98ec653743d360e))
+- **(quickshell)** \
+use fork main to temporarly have my own implemented feature - ([1cd7656](https://github.com/h0useofdupree/dotfiles/commit/1cd76564e3e98c1dfde7afb4784e33c4faf08b08))
+- **(quickshell)** \
+enable fuzzy search for wallpapers - ([3cabf19](https://github.com/h0useofdupree/dotfiles/commit/3cabf19b80868ed2e272f279c2bb334887bc4912))
+- **(quickshell)** \
+enable caelestia for linx - ([33cbb86](https://github.com/h0useofdupree/dotfiles/commit/33cbb86616fa20a7828eec7b64fc60927fd5496f))
+- **(quickshell)** \
+add caelestia-cli and qs executables - ([842dca1](https://github.com/h0useofdupree/dotfiles/commit/842dca1c425472937c4a1932c1a48ec3dda01ef9))
+- **(quickshell)** \
+add caelestia-shell - ([5cf91a9](https://github.com/h0useofdupree/dotfiles/commit/5cf91a9212b920b8ebf259b84d6d5488eff7e5a4))
 - **(screencorners)** \
 add custom service to automatically start ags - ([e8051de](https://github.com/h0useofdupree/dotfiles/commit/e8051dee9c8bf31acfbcaa22259254f7c0939fbb))
 - **(security)** \
-add hardened security settings - ([23a6e5c](https://github.com/h0useofdupree/dotfiles/commit/23a6e5c3ee787acd47dfc9f5f756252607a3075c))\n\
+add hardened security settings - ([23a6e5c](https://github.com/h0useofdupree/dotfiles/commit/23a6e5c3ee787acd47dfc9f5f756252607a3075c))
+- **(spicetify)** \
+add spicetify - ([b619e9e](https://github.com/h0useofdupree/dotfiles/commit/b619e9e0d263d1380df54c5044f1cee6e59fbd09))
+- **(zen)** \
+add tridactyl-native - ([6f5970b](https://github.com/h0useofdupree/dotfiles/commit/6f5970b99567b2f074660eac51140e84426241b4))\n\
 ### Fixes
 
 - **(changelog)** \
 fix url replacement - ([021aedf](https://github.com/h0useofdupree/dotfiles/commit/021aedf83e1b6fdc82f28ea03b73e3877f847069))
+- **(fish)** \
+force-remove default Aliases and create improved ones - ([ec66e9d](https://github.com/h0useofdupree/dotfiles/commit/ec66e9d44d0647daca5fc60e780db531b2a33ecc))
+- **(git)** \
+fix cliff tag_pattern - ([5022e4f](https://github.com/h0useofdupree/dotfiles/commit/5022e4f6111720dc9d851d258578c5a567d9b7b0))
+- **(hyprland)** \
+remove Hyprspace plugin - ([b784e2d](https://github.com/h0useofdupree/dotfiles/commit/b784e2d002ea257c1440874a25ca1d034092f67f))
+- **(hyprland)** \
+fix lock after startup - ([db257d3](https://github.com/h0useofdupree/dotfiles/commit/db257d31a7c0e656496b7b02030fde8f1e9cd012))
+- **(hyprland)** \
+fix launcher bind conflict - ([1eac14e](https://github.com/h0useofdupree/dotfiles/commit/1eac14e5a637529d0fe40b11478d01d10d0c46f7))
 - **(hyprland)** \
 adjust rules - ([f84c7e5](https://github.com/h0useofdupree/dotfiles/commit/f84c7e599f83a2980847f3873089986dad55c1d2))
+- **(hyprpanel)** \
+delay exec of hyprpanel - ([cd247a7](https://github.com/h0useofdupree/dotfiles/commit/cd247a7587fb0b1f45f5261eacdd608c56e6f02f))
 - **(hyprpanel)** \
 convert to simple service thats started by hyprland (exec-once) - ([715c235](https://github.com/h0useofdupree/dotfiles/commit/715c23593361cf009c8c4a27ccd7fba625ff106d))
 - **(hyprpanel)** \
@@ -46,6 +98,8 @@ temp remove transparency due to bug - ([ebb80ca](https://github.com/h0useofdupre
 fixed custom hyprpanel service - ([c2e8776](https://github.com/h0useofdupree/dotfiles/commit/c2e8776a3793f05fd9ab1ae12c7c492113338da7))
 - **(nh)** \
 avoid huge store size by reducing time-fram of generations kept - ([76ddf9b](https://github.com/h0useofdupree/dotfiles/commit/76ddf9bbc2a5dd8abf08c7f072f0a0786ae0ed48))
+- **(quickshell)** \
+install pulseaudio for pactl (hopefully temp) - ([7051bd1](https://github.com/h0useofdupree/dotfiles/commit/7051bd157be0a5bf329ae9eeaa215dc462c6fae2))
 - **(screencorners)** \
 make service more robust - ([f88f4ed](https://github.com/h0useofdupree/dotfiles/commit/f88f4ed10051cd6edb7507d9038cfd7ce18da5ba))
 - **(screencorners)** \
@@ -56,6 +110,12 @@ revert to exec method for now - ([0bcdbf3](https://github.com/h0useofdupree/dotf
 remove 'lecture' config for sudo-rs - ([7d9e5df](https://github.com/h0useofdupree/dotfiles/commit/7d9e5df6e8ec18e45a23071dda50fee1fab96ce7))
 - **(security)** \
 import security.nix - ([af51a34](https://github.com/h0useofdupree/dotfiles/commit/af51a3433c06c1a08178729504f73877702e3cf4))
+- **(services)** \
+disable colliding services - ([e504739](https://github.com/h0useofdupree/dotfiles/commit/e5047392970b6b6a4b5afd49ea990320242423ec))
+- **(spicetify)** \
+move user.css to folder - ([1c1b421](https://github.com/h0useofdupree/dotfiles/commit/1c1b421eeffdada7980d8080daac21b8428e20f7))
+- **(xdg)** \
+use correct zen-browser flake - ([a07df39](https://github.com/h0useofdupree/dotfiles/commit/a07df3978dd0b065ecc3e934f277c1a99b4d5eb5))
 - **(xdg)** \
 force mimeapps.list replacement - ([ae5f14c](https://github.com/h0useofdupree/dotfiles/commit/ae5f14c3b8e151464d256025a3eb22a02d614ea5))
 - **(yazi)** \
@@ -66,6 +126,24 @@ fixup! style(changelog): use cocogitto style changelog - ([ba18607](https://gith
 \n\- \
 update - ([709fbbf](https://github.com/h0useofdupree/dotfiles/commit/709fbbf5a9c769453ecb0d517034403dc384754f))
 
+### Other
+
+- **(hyprlock)** \
+re-enable - ([c722a57](https://github.com/h0useofdupree/dotfiles/commit/c722a57106ae6b0fa0d5c26a44dc05659fa72687))\n\
+### Refactors
+
+- **(quickshell)** \
+move shell.json config to default.nix with toJSON - ([70fea23](https://github.com/h0useofdupree/dotfiles/commit/70fea2371e00023f42b8df82a5cda5e35bbfa6d5))\n\
+### Reverts
+
+- **(hyprpanel)** \
+remove HyprPanel from config - ([de4dcf2](https://github.com/h0useofdupree/dotfiles/commit/de4dcf2b0a9faad7bb164a7bc21d7139a7688493))
+- **(quickshell)** \
+remove quickshell config - ([7eaa927](https://github.com/h0useofdupree/dotfiles/commit/7eaa927998087bfa4cd20657bec4bc1654884d5a))
+- **(screencorners)** \
+remove screencorners - ([b358964](https://github.com/h0useofdupree/dotfiles/commit/b35896479650466fff4469686267a5779e06dd75))
+- **(spicetify)** \
+remove spicetify - ([d2e2fa6](https://github.com/h0useofdupree/dotfiles/commit/d2e2fa65223b3bffb9b3c6788f6d00659783f42f))\n\
 ### Styling
 
 - **(changelog)** \
@@ -73,9 +151,17 @@ remove emojis - ([5b791ad](https://github.com/h0useofdupree/dotfiles/commit/5b79
 - **(changelog)** \
 use cocogitto style changelog - ([82164e2](https://github.com/h0useofdupree/dotfiles/commit/82164e241b27bcf8540e617619a3454c551da929))
 - **(hyprland)** \
+layout switch & style changes - ([9b49905](https://github.com/h0useofdupree/dotfiles/commit/9b499052facb8c5918bfe3b4ea371b4288d39f3f))
+- **(hyprland)** \
 swap border (in)active colors - ([74cd872](https://github.com/h0useofdupree/dotfiles/commit/74cd872e68ca2ac2d67574821796586b0dbfa0fa))
 - **(hyprland)** \
 adjust cursor/gaps - ([1c8e4fa](https://github.com/h0useofdupree/dotfiles/commit/1c8e4facfdce46908210efb841cb8b96186afb8a))
+- **(nvf)** \
+startpage and statusline adjustments - ([4b61343](https://github.com/h0useofdupree/dotfiles/commit/4b613435deddbe5bf61ece9f084728a116115a8e))
+- **(quickshell)** \
+adjust some caelestial settings - ([f0c0198](https://github.com/h0useofdupree/dotfiles/commit/f0c0198c19a4166372ed4ad3702221e04d5ceb97))
+- **(qutebrowser)** \
+re-activate theme import - ([b7cd876](https://github.com/h0useofdupree/dotfiles/commit/b7cd876fde2bc031488ef0d64b0707bfbb24f795))
 - **(zathura)** \
 change font size - ([0db2557](https://github.com/h0useofdupree/dotfiles/commit/0db2557fbc06f952783bde015f4d933a84b54595))\n\\n---
 \

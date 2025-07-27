@@ -263,7 +263,7 @@
               auto_clean_after_session_restore = true;
               source_selector = {
                 statusline = false;
-                winbar = false;
+                winbar = true;
               };
             };
           };

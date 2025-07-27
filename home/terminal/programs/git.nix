@@ -76,7 +76,7 @@ in {
     settings = {
       changelog = {
         path = "CHANGELOG.md";
-        tag_pattern = "^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-z]+)?$";
+        # tag_pattern = "^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-z]+)?$";
         include_unreleased = true;
         sort_commits = "newest";
         filter_commits = false;
