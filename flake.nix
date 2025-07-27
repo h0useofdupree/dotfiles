@@ -151,11 +151,6 @@
       };
     };
 
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     app2unit = {
       url = "github:soramanew/app2unit";
       inputs.nixpkgs.follows = "nixpkgs";
