@@ -124,6 +124,7 @@ in {
       pseudotile = true;
       preserve_split = true;
       special_scale_factor = 0.85;
+      single_window_aspect_ratio = "14 9";
     };
 
     master = {
