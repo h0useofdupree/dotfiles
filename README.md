@@ -18,7 +18,6 @@
   - [Custom modules](#custom-modules)
   - [Custom packages](#custom-packages)
   - [Desktop usage](#desktop-usage)
-  - [Getting started](#getting-started)
 
 <!--toc:end-->
 
