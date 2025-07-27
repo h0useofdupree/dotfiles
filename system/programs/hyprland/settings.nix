@@ -154,6 +154,7 @@ in {
 
     render = {
       direct_scanout = true;
+      cm_auto_hdr = 1;
     };
 
     # touchpad gestures
