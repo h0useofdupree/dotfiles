@@ -43,6 +43,7 @@
       lg = "lazygit";
       ls = "eza";
       watch = "viddy";
+      wlc = "wl-copy";
     };
 
     functions = {
