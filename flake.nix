@@ -163,7 +163,7 @@
     };
 
     caelestia-shell = {
-      url = "github:caelestia-dots/shell";
+      url = "github:h0useofdupree/shell/main";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         quickshell.follows = "quickshell";
