@@ -23,27 +23,24 @@ in {
       # set cursor for HL itself
       "hyprctl setcursor ${cursorName} ${toString 18}"
       "hyprlock"
-      "sleep 2 && systemctl --user start hyprpanel.service"
-    ];
-
-    exec = [
-      "ags"
+      # "sleep 2 && caelestia shell lock lock"
     ];
 
     general = {
-      layout = "master";
+      # layout = "master";
+      layout = "dwindle";
       gaps_in = 10;
       gaps_out = 20;
       border_size = 3;
-      "col.active_border" = "rgba(00000088)";
-      "col.inactive_border" = "rgba(AAAAAA88)";
+      "col.active_border" = "rgba(AAAAAA88)";
+      "col.inactive_border" = "rgba(00000088)";
 
       allow_tearing = true;
       resize_on_border = false;
     };
 
     decoration = {
-      rounding = 18;
+      rounding = 20;
       rounding_power = 4;
       dim_special = 0;
       blur = {
@@ -55,8 +52,8 @@ in {
         vibrancy = 0.2;
         vibrancy_darkness = 0.5;
 
-        passes = 4;
-        size = 7;
+        passes = 3;
+        size = 6;
 
         popups = true;
         popups_ignorealpha = 0.2;

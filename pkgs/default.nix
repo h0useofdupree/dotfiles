@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   systems = ["x86_64-linux"];
 
   perSystem = {pkgs, ...}: {
@@ -12,6 +12,8 @@
       speakerctl = pkgs.callPackage ./speakerctl {};
 
       dynamic-wallpaper = pkgs.callPackage ./dynamic-wallpaper {};
+
+      caelestia-shell = inputs.caelestia-shell.packages.${pkgs.system}.default;
     };
   };
 }

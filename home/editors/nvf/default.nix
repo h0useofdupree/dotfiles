@@ -69,6 +69,35 @@
               }
             '';
           };
+
+          # Plugin to provide JSON schemas
+          schemastore = {
+            package = pkgs.vimPlugins.SchemaStore-nvim;
+          };
+
+          # Plugin that registers json-ls manually
+          jsonLsp = {
+            package = pkgs.vimPlugins.nvim-lspconfig;
+            setup = ''
+              local lspconfig = require("lspconfig")
+              local schemastore = require("schemastore")
+
+              lspconfig.jsonls.setup {
+                cmd = { "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server", "--stdio" },
+                capabilities = capabilities,
+                on_attach = default_on_attach,
+                settings = {
+                  json = {
+                    schemas = schemastore.json.schemas(),
+                    validate = { enable = true },
+                  },
+                },
+                init_options = {
+                  provideFormatter = true,
+                },
+              }
+            '';
+          };
         };
 
         options = {
@@ -168,6 +197,7 @@
             enable = true;
             crates.enable = true;
           };
+          yaml.enable = true;
 
           assembly.enable = false;
           astro.enable = false;
@@ -203,6 +233,12 @@
           lualine = {
             enable = true;
             # theme = "auto";
+          };
+        };
+
+        mini = {
+          statusline = {
+            enable = false;
           };
         };
 
@@ -265,9 +301,9 @@
         };
 
         dashboard = {
-          alpha.enable = false;
+          alpha.enable = true;
           startify = {
-            enable = true;
+            enable = false;
             # bookmarks = {
             #   f = "~/.dotfiles/flake.nix";
             #   c = "~/.dotfiles/home/editors/nvf/default.nix";

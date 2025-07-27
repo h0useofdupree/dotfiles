@@ -23,7 +23,7 @@
         hyprbars
         hyprexpo
         # hyprfocus
-        inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+        # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       ];
 
     # systemd = {

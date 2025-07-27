@@ -10,20 +10,20 @@
     settings = {
     };
 
-    # extraConfig =
-    /*
-    python
-    */
-    # ''
-    # import catppuccin
-    # catppuccin.setup(c, 'mocha')
-    #
-    # c.tabs.padding = {'top': 10, 'bottom': 10, 'left': 15, 'right': 15}
-    # c.hints.padding = {'top': 3, 'bottom': 3, 'left': 5, 'right': 5}
-    # c.scrolling.smooth = True
-    # c.statusbar.padding = {'top': 10, 'bottom': 10, 'left': 15, 'right': 15}
-    # c.tabs.favicons.scale = 1.5
-    # '';
+    extraConfig =
+      /*
+      python
+      */
+      ''
+        import catppuccin
+        catppuccin.setup(c, 'mocha')
+
+        c.tabs.padding = {'top': 10, 'bottom': 10, 'left': 15, 'right': 15}
+        c.hints.padding = {'top': 3, 'bottom': 3, 'left': 5, 'right': 5}
+        c.scrolling.smooth = True
+        c.statusbar.padding = {'top': 10, 'bottom': 10, 'left': 15, 'right': 15}
+        c.tabs.favicons.scale = 1.5
+      '';
 
     searchEngines = {
       DEFAULT = "https://duckduckgo.com/?q={}";

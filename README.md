@@ -2,7 +2,10 @@
 
 ## Build
 
-![Build status](https://github.com/h0useofdupree/dotfiles/actions/workflows/nix-flake-check.yml/badge.svg)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/h0useofdupree/dotfiles/.github%2Fworkflows%2Fnix-flake-check.yml?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/h0useofdupree/dotfiles?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/h0useofdupree/dotfiles?style=for-the-badge)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/h0useofdupree/dotfiles/latest?style=for-the-badge)
 
 <!--toc:start-->
 
@@ -75,6 +78,7 @@ The `pkgs/` directory contains small utilities packaged with Nix. Notable ones
 include:
 
 - **bibata-hyprcursor** – Bibata cursor theme packaged for `hyprcursor`.
+  (credits to mihai)
 - **dynamic-wallpaper** – script used by the dynamic wallpaper module.
 - **speakerctl** – Python script to control smart plugs.
 - **wl-ocr** – screenshot an area and OCR it using Tesseract.
@@ -83,18 +87,11 @@ include:
 ## Desktop usage
 
 I daily drive the [Hyprland](https://github.com/hyprwm/Hyprland) compositor
-along with several extras:
+along with several extras including
 
-- **HyprPanel** using the AGS framework.
-- Wayland utilities such as `wl-ocr`, `grim` and `slurp`.
-- Custom scripts and the `nvf` Neovim distribution.
+- [Quickshell](https://quickshell.outfoxxed.me) using the
+  - [Caelestia](https://github.com/caelestia-dots/shell) configuration, of which
+    I am currently using my own fork.
 
 Browser wise I use `zen-browser` and `qutebrowser`. My main shell is `fish` but
-`zsh` is also configured.
-
-## Getting started
-
-Clone the repository and run `nix develop` to enter the dev environment. From
-there you can build any host with
-`nix build .#nixosConfigurations.<hostname>.config.system.build.toplevel` or
-switch to it with `sudo nixos-rebuild switch --flake .#<hostname>`.
+`zsh` is also lightly configured.

@@ -14,8 +14,6 @@
     ../../services/media/playerctl.nix
 
     # System Services
-    ../../services/quickshell
-    ../../services/screencorners
     ../../services/system/gnome-keyring.nix
     ../../services/system/kdeconnect.nix
     ../../services/system/polkit-agent.nix
@@ -23,6 +21,7 @@
     ../../services/system/udiskie.nix
 
     # Wayland services
+    ../../services/caelestia-shell
     ../../services/wayland/gammastep.nix
     ../../services/wayland/hypridle.nix
     ../../services/wayland/hyprpaper.nix

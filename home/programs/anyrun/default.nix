@@ -4,7 +4,7 @@
   ...
 }: {
   programs.anyrun = {
-    enable = true;
+    enable = false;
 
     config = {
       plugins = with inputs.anyrun.packages.${pkgs.system}; [
