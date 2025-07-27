@@ -2,7 +2,10 @@
 
 ## Build
 
-![Build status](https://github.com/h0useofdupree/dotfiles/actions/workflows/nix-flake-check.yml/badge.svg)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/h0useofdupree/dotfiles/.github%2Fworkflows%2Fnix-flake-check.yml?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/h0useofdupree/dotfiles?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/h0useofdupree/dotfiles?style=for-the-badge)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/h0useofdupree/dotfiles/latest?style=for-the-badge)
 
 <!--toc:start-->
 
