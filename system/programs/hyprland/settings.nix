@@ -41,6 +41,11 @@ in {
           resize_on_border = false;
         };
 
+        ecosystem = {
+          no_update_news = false;
+          no_donation_nag = true;
+        };
+
         decoration = {
           rounding = 20;
           rounding_power = 4;
@@ -122,6 +127,10 @@ in {
           };
         };
 
+        cursor = {
+          hide_on_key_press = true;
+        };
+
         dwindle = {
           pseudotile = true;
           preserve_split = true;
@@ -144,7 +153,8 @@ in {
           force_default_wallpaper = 0;
 
           # disable dragging animation
-          animate_mouse_windowdragging = false;
+          animate_manual_resizes = true;
+          animate_mouse_windowdragging = true;
 
           enable_swallow = true;
           swallow_regex = "(foot|kitty|alacritty)";
@@ -152,6 +162,10 @@ in {
 
           # enable variable refresh rate (effective depending on hardware)
           vrr = 1;
+        };
+
+        binds = {
+          hide_special_on_workspace_change = true;
         };
 
         render = {
