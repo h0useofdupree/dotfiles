@@ -42,6 +42,7 @@
       g = "git";
       lg = "lazygit";
       ls = "eza";
+      nhs = "nh os switch";
       watch = "viddy";
       wlc = "wl-copy";
     };
