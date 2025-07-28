@@ -55,8 +55,8 @@
                     },
                   },
                   t = {
-                    j = {
-                      j = "<C-\\><C-n>",
+                    ["<leader>"] = {
+                      q = "<C-\\><C-n>",
                     },
                   },
                 },
@@ -380,7 +380,7 @@
 
         assistant = {
           copilot = {
-            enable = true;
+            enable = false;
             cmp.enable = true;
 
             mappings = {
