@@ -4,7 +4,7 @@
 
     font = {
       size = 13;
-      name = "Cascadia Mono NF";
+      name = "MesloLGLDZ Nerd Font Mono";
     };
 
     settings = {

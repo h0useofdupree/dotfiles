@@ -17,6 +17,7 @@
 
       # Nerd-Fonts
       nerd-fonts.caskaydia-cove
+      nerd-fonts.meslo-lg
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
     ];
