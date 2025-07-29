@@ -1,5 +1,6 @@
-{
+{pkgs, ...}: {
   imports = [./themes.nix];
+
   programs.spotify-player = {
     enable = true;
     settings = {
@@ -10,7 +11,7 @@
         args = [];
       };
       device = {
-        audio_cache = false;
+        audio_cache = true;
         normalization = false;
         autoplay = true;
         volume = 100;
@@ -19,7 +20,10 @@
       enable_notify = false;
       play_icon = "▌▌";
       pause_icon = "▶";
-      client_id = "bd411790cddf4f6382e92bd325e8a586";
+      client_id_command = {
+        command = "${pkgs.coreutils}/bin/cat";
+        args = ["/run/agenix/spotify-client-id"];
+      };
     };
   };
 }

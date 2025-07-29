@@ -9,6 +9,7 @@
     inputs.nix-index-db.homeModules.nix-index
     # TODO: Put these imports into their respective files ({default,<name>}.nix)
     inputs.nvf.homeManagerModules.default
+    inputs.agenix.homeManagerModules.default
     self.nixosModules.theme
     inputs.self.homeModules.dynamicWallpaper
     inputs.self.homeModules.speakerctl
