@@ -269,7 +269,15 @@
         snippets.luasnip.enable = true;
 
         tabline = {
-          nvimBufferline.enable = true;
+          nvimBufferline = {
+            enable = true;
+            setupOpts = {
+              options = {
+                tab_size = 18;
+                indicator.style = "icon";
+              };
+            };
+          };
         };
 
         treesitter = {
