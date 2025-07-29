@@ -135,7 +135,7 @@
           fileencoding = "utf-8";
           termguicolors = true;
           wrap = true;
-          linespace = 7;
+          linespace = 8;
 
           # Tab options
           tabstop = 2; # Number of spaces a <Tab> represents
@@ -160,7 +160,7 @@
           formatOnSave = true;
           lspkind.enable = true;
           lightbulb.enable = true;
-          lspsaga.enable = false;
+          lspsaga.enable = true;
           trouble.enable = true;
           lspSignature.enable = true;
           otter-nvim.enable = true;
@@ -185,6 +185,7 @@
           enableTreesitter = true;
           enableExtraDiagnostics = true;
 
+          assembly.enable = true;
           nix.enable = true;
           markdown.enable = true;
           bash.enable = true;
@@ -206,7 +207,6 @@
           };
           yaml.enable = true;
 
-          assembly.enable = false;
           astro.enable = false;
           nu.enable = false;
           csharp.enable = false;
