@@ -16,7 +16,7 @@
 
       font = {
         normal = [];
-        size = 14.0;
+        size = 13.0;
       };
 
       box-drawing = {

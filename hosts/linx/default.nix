@@ -16,6 +16,12 @@
   #   group = "users";
   # };
 
+  age.secrets.spotify-client-id = {
+    file = "${self}/secrets/spotify-client-id.age";
+    owner = "h0useofdupree";
+    group = "users";
+  };
+
   networking.hostName = "linx";
 
   services = {
