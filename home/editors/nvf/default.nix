@@ -354,7 +354,15 @@
         };
 
         ui = {
-          borders.enable = true;
+          borders = {
+            enable = true;
+            plugins = {
+              fastaction.enable = true;
+              lsp-signature.enable = true;
+              nvim-cmp.enable = true;
+              which-key.enable = true;
+            };
+          };
           noice.enable = true;
           colorizer.enable = true;
           illuminate.enable = true;
