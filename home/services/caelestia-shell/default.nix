@@ -98,6 +98,13 @@ in {
     };
     session = {
       dragThreshold = 30;
+      vimKeybinds = true;
+      commands = {
+        logout = ["loginctl" "terminate-user" ""];
+        shutdown = ["systemctl" "poweroff"];
+        hibernate = ["systemctl" "suspend"];
+        reboot = ["systemctl" "reboot"];
+      };
     };
   };
 

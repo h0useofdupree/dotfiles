@@ -254,6 +254,14 @@
           transparent = false;
         };
 
+        # extraLuaFiles = [
+        #   ./m3scheme.lua
+        # ];
+
+        # luaConfigPost = ''
+        #   ${builtins.readFile ./m3scheme.lua}
+        # '';
+
         autopairs.nvim-autopairs.enable = true;
 
         autocomplete.nvim-cmp.enable = true;
