@@ -89,10 +89,7 @@ in {
         # Caelestia misc
         "$mod SHIFT, n, global, caelestia:clearNotifs"
         "$mod, a, global, caelestia:showall"
-
-        # speaker control
-        "$mod2, 1, exec, speakerctl --on"
-        "$mod2, 0, exec, speakerctl --off"
+        "$mod, m, exec, caelestia shell drawers toggle dashboard"
 
         # move focus
         "$mod, h, movefocus, l"
@@ -163,6 +160,10 @@ in {
       # volume
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+      # speaker control
+      "$mod2, 1, exec, speakerctl --on"
+      "$mod2, 0, exec, speakerctl --off"
     ];
 
     bindle = [
