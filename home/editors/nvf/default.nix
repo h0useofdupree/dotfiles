@@ -135,6 +135,7 @@
           fileencoding = "utf-8";
           termguicolors = true;
           wrap = true;
+          linespace = 7;
 
           # Tab options
           tabstop = 2; # Number of spaces a <Tab> represents
