@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./keymaps.nix
+    ./filetree.nix
   ];
   programs.nvf = {
     enable = true;
@@ -266,21 +267,6 @@
 
         autocomplete.nvim-cmp.enable = true;
         snippets.luasnip.enable = true;
-
-        filetree = {
-          neo-tree = {
-            enable = true;
-            setupOpts = {
-              enable_cursor_hijack = true;
-              close_if_last_window = true;
-              auto_clean_after_session_restore = true;
-              source_selector = {
-                statusline = false;
-                winbar = true;
-              };
-            };
-          };
-        };
 
         tabline = {
           nvimBufferline.enable = true;
