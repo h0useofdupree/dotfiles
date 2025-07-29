@@ -10,7 +10,32 @@
           source_selector = {
             statusline = false;
             winbar = true;
+            sources = [
+              {
+                source = "filesystem";
+                display_name = "File";
+              }
+              {
+                source = "buffers";
+                display_name = "Bufs";
+              }
+              {
+                source = "git_status";
+                display_name = "Git";
+              }
+              {
+                source = "document_symbols";
+                display_name = "DS";
+              }
+            ];
           };
+
+          sources = [
+            "filesystem"
+            "buffers"
+            "git_status"
+            "document_symbols"
+          ];
 
           default_component_configs = {
             indent = {
@@ -48,8 +73,7 @@
             filtered_items = {
               hide_gitignored = true;
             };
-            hijack_netrw_behavior = "open_current";
-            use_libuv_file_watcher = true; # Optional for Linux
+            hijack_netrw_behavior = "open_default";
           };
 
           window = {
