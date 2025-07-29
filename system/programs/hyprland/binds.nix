@@ -51,10 +51,9 @@ in {
     bind =
       [
         # compositor commands
-        "$mod SHIFT, E, exec, pkill Hyprland"
         "$mod SHIFT, R, exec, hyprctl reload"
         "$mod2 SHIFT, R, exec, systemctl --user restart caelestia-shell.service"
-        "$mod SHIFT, Q, killactive,"
+        "$mod, Q, killactive,"
         "$mod SHIFT, D, fullscreen, 0"
         "$mod, D, fullscreen, 1"
         "$mod, G, togglegroup,"
