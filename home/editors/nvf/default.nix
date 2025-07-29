@@ -297,6 +297,7 @@
 
         # TODO: Support C-j and C-k binds for up/down
         telescope.enable = true;
+
         git = {
           enable = true;
           gitsigns.enable = true;
@@ -308,7 +309,9 @@
         };
 
         dashboard = {
-          alpha.enable = true;
+          alpha = {
+            enable = true;
+          };
           startify = {
             enable = false;
             # bookmarks = {
@@ -333,13 +336,13 @@
           direnv.enable = true;
           motion = {
             hop.enable = true;
-            leap.enable = true;
+            leap.enable = false;
             precognition.enable = false;
           };
         };
 
         notes = {
-          mind-nvim.enable = true;
+          mind-nvim.enable = false;
           todo-comments.enable = true;
         };
 
