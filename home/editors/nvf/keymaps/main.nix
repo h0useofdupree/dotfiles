@@ -36,21 +36,8 @@
       key = "<ESC>";
       mode = "n";
       silent = true;
-      action =
-        #lua
-        ''
-          function()
-            if vim.fn.hlexists("Search") then
-              vim.cmd("nohlsearch")
-            else
-              vim.api.nvim_feedkeys(
-                vim.api.nvim_replace_termcodes("<ESC>", true, true, true),
-                "n",
-                true
-              )
-            end
-          end
-        '';
+      action = "<cmd>nohlsearch<CR>";
+      desc = "Clear search highlights";
     }
 
     # Quit window
