@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./filetree.nix
     ./keymaps
+    ./plugins
   ];
   programs.nvf = {
     enable = true;
@@ -255,10 +255,6 @@
           style = "mocha";
           transparent = false;
         };
-
-        # extraLuaFiles = [
-        #   ./m3scheme.lua
-        # ];
 
         # FIX: Theme is ugly and unreadable
         # luaConfigPost = ''
