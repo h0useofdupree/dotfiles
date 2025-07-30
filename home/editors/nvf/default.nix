@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./keymaps
     ./plugins
@@ -144,6 +148,7 @@
           autoindent = true;
 
           textwidth = 0;
+          sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,terminal";
 
           # Folding
           foldcolumn = "1";
@@ -395,7 +400,36 @@
             enable = true;
             setupOpts = {
               # Use LSP, then Treesitter, then indent
-              provider_selector = ["lsp" "treesitter" "indent"];
+              provider_selector =
+                lib.generators.mkLuaInline
+                #lua
+                ''
+                  function(_, filetype, buftype)
+                    local function handleFallbackException(bufnr, err, providerName)
+                      if type(err) == "string" and err:match "UfoFallbackException" then
+                        return require("ufo").getFolds(bufnr, providerName)
+                      else
+                        return require("promise").reject(err)
+                      end
+                    end
+
+                    return (filetype == "" or buftype == "nofile") and "indent"
+                        or function(bufnr)
+                          return require("ufo")
+                              .getFolds(bufnr, "lsp")
+                              :catch(
+                                function(err)
+                                  return handleFallbackException(bufnr, err, "treesitter")
+                                end
+                              )
+                              :catch(
+                                function(err)
+                                  return handleFallbackException(bufnr, err, "indent")
+                                end
+                              )
+                        end
+                  end,
+                '';
               close_fold_kinds_for_ft = {default = ["comment" "imports"];};
               preview = {
                 win_config = {
