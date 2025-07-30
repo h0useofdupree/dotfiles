@@ -1,5 +1,28 @@
-_: {
+{
   programs.nvf.settings.vim.keymaps = [
+    {
+      key = "j";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      expr = true;
+      desc = "Move cursor down";
+      action = "v:count == 0 ? 'gj' : 'j'";
+    }
+    {
+      key = "k";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      expr = true;
+      desc = "Move cursor up";
+      action = "v:count == 0 ? 'gk' : 'k'";
+    }
+
     # Close buffer
     {
       key = "<leader>c";
@@ -7,6 +30,27 @@ _: {
       silent = true;
       action = ":bp <BAR> bd #<CR>";
       desc = "which_key_ignore";
+    }
+
+    {
+      key = "<ESC>";
+      mode = "n";
+      silent = true;
+      action =
+        #lua
+        ''
+          function()
+            if vim.fn.hlexists("Search") then
+              vim.cmd("nohlsearch")
+            else
+              vim.api.nvim_feedkeys(
+                vim.api.nvim_replace_termcodes("<ESC>", true, true, true),
+                "n",
+                true
+              )
+            end
+          end
+        '';
     }
 
     # Quit window
