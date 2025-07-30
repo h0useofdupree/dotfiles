@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   boot = {
@@ -33,6 +34,7 @@
         efiSupport = true;
         device = "nodev";
         useOSProber = true;
+        theme = inputs.grub-themes.packages.${pkgs.system}.hyperfluent;
       };
       systemd-boot.enable = false;
     };

@@ -106,6 +106,8 @@
       };
     };
 
+    grub-themes.url = "github:jeslie0/nixos-grub-themes";
+
     # hyprwm
     hyprland.url = "github:hyprwm/hyprland";
 
