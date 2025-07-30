@@ -146,9 +146,12 @@
           textwidth = 0;
 
           # Folding
-          foldmethod = "expr";
-          foldexpr = "nvim_treesitter#foldexpr()";
-          foldlevel = 300; # Folds deeper than this level are closed
+          foldcolumn = "1";
+          foldlevel = 99; # Folds deeper than this level are closed
+          foldlevelstart = 99;
+          foldenable = true;
+          foldmethod = "manual";
+          # foldexpr = "nvim_treesitter#foldexpr()";
         };
 
         spellcheck = {
@@ -388,7 +391,31 @@
               line_opacity.visual = 0.2;
             };
           };
-          nvim-ufo.enable = true;
+          nvim-ufo = {
+            enable = true;
+            setupOpts = {
+              # Use LSP, then Treesitter, then indent
+              provider_selector = ["lsp" "treesitter" "indent"];
+              close_fold_kinds_for_ft = {default = ["comment" "imports"];};
+              preview = {
+                win_config = {
+                  border = "rounded";
+                  winblend = 12;
+                  winhighlight = "Normal:Normal";
+                  maxheight = 20;
+                };
+                mappings = {
+                  scrollU = "<C-u>";
+                  scrollD = "<C-d>";
+                  jumpTop = "[";
+                  jumpBot = "]";
+                  close = "q";
+                  switch = "<Tab>";
+                  trace = "<CR>";
+                };
+              };
+            };
+          };
         };
 
         assistant = {
