@@ -10,13 +10,13 @@
     dirHashes = {
       dl = "$HOME/Downloads";
       docs = "$HOME/Documents";
-      code = "$HOME/Documents/code";
-      dots = "$HOME/Documents/code/dotfiles";
+      # code = "$HOME/Documents/code";
+      # dots = "$HOME/Documents/code/dotfiles";
       pics = "$HOME/Pictures";
       vids = "$HOME/Videos";
-      nixpkgs = "$HOME/Documents/code/git/nixpkgs";
+      # nixpkgs = "$HOME/Documents/code/git/nixpkgs";
     };
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
     history = {
       expireDuplicatesFirst = true;
       path = "${config.xdg.dataHome}/zsh_history";
