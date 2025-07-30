@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
-    ./keymaps.nix
     ./filetree.nix
+    ./keymaps
   ];
   programs.nvf = {
     enable = true;
@@ -260,8 +260,9 @@
         #   ./m3scheme.lua
         # ];
 
+        # FIX: Theme is ugly and unreadable
         # luaConfigPost = ''
-        #   ${builtins.readFile ./m3scheme.lua}
+        #   ${builtins.readFile ./lua/themes/m3scheme.lua}
         # '';
 
         autopairs.nvim-autopairs.enable = true;

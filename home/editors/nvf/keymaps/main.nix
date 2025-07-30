@@ -70,6 +70,15 @@ _: {
           desc = "Toggle floating terminal";
         }
 
+        # UI
+        {
+          key = "<leader>tt";
+          mode = "n";
+          silent = true;
+          action = ":if &background ==# 'dark'<BAR>set background=light<BAR>else<BAR>set background=dark<BAR>endif<CR>";
+          desc = "Toggle dark/light mode";
+        }
+
         # Buffer navigation
         {
           key = "<S-H>"; # Shift + H
