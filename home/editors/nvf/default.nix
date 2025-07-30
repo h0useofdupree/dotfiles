@@ -252,7 +252,7 @@
         theme = {
           enable = true;
           name = "catppuccin";
-          style = "mocha";
+          style = "frappe";
           transparent = false;
         };
 
@@ -287,13 +287,12 @@
           whichKey = {
             enable = true;
             register = {
-              "<leader>/" = "Toggle Line Comment";
+              "<leader>/" = "Toggle Line/Block Comment";
             };
           };
           cheatsheet.enable = true;
         };
 
-        # TODO: Support C-j and C-k binds for up/down
         telescope.enable = false;
         fzf-lua = {
           enable = true;
