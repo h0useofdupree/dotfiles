@@ -6,6 +6,7 @@
   imports = [
     ./specialisations.nix
     ./terminal
+
     inputs.nix-index-db.homeModules.nix-index
     # TODO: Put these imports into their respective files ({default,<name>}.nix)
     inputs.nvf.homeManagerModules.default
@@ -18,7 +19,7 @@
   home = {
     username = "h0useofdupree";
     homeDirectory = "/home/h0useofdupree";
-    stateVersion = "24.11"; # Please read the comment before changing.
+    stateVersion = "24.11";
     extraOutputsToInstall = ["doc" "devdoc"];
   };
 
@@ -29,10 +30,4 @@
   };
 
   programs.home-manager.enable = true;
-
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     lib = prev.lib // {colors = import "${self}/lib/colors" lib;};
-  #   })
-  # ];
 }

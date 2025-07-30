@@ -297,7 +297,10 @@
         };
 
         # TODO: Support C-j and C-k binds for up/down
-        telescope.enable = true;
+        telescope.enable = false;
+        fzf-lua = {
+          enable = true;
+        };
 
         git = {
           enable = true;
