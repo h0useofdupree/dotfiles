@@ -19,6 +19,8 @@
           logFile = "/tmp/nvim.log";
         };
 
+        #TODO: Add some autocmds
+
         clipboard = {
           enable = true;
           providers = {
