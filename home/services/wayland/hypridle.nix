@@ -7,26 +7,28 @@
 }: let
   lock = "${pkgs.systemd}/bin/loginctl lock-session";
 
-  brillo = lib.getExe pkgs.brillo;
+  # brillo = lib.getExe pkgs.brillo;
 
-  # timeout after which DPMS kicks in
-  timeout = 600;
+  # 20min
+  timeout = 1200;
 in {
-  # screen idle
   services.hypridle = {
     enable = true;
 
     package = inputs.hypridle.packages.${pkgs.system}.hypridle;
 
     settings = {
-      general.lock_cmd = lib.getExe config.programs.hyprlock.package;
+      general = {
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+        lock_cmd = "pgrep hyprlock || ${lib.getExe config.programs.hyprlock.package}";
+      };
 
       listener = [
         {
-          # TODO: Enable only for linx (laptop)
+          #TODO: Enable only for linx (laptop) and maybe for nixus (with ddc? meh)
           # timeout = timeout - 10;
-          # # save the current brightness and dim the screen over a period of
-          # # 500 ms
+          # # save the current brightness and dim the screen over a period of 500ms
           # on-timeout = "${brillo} -O; ${brillo} -u 500000 -S 10";
           # # brighten the screen over a period of 250ms to the saved value
           # on-resume = "${brillo} -I -u 250000";
@@ -43,6 +45,5 @@ in {
       ];
     };
   };
-
   # systemd.user.services.hypridle.Unit.After = lib.mkForce "graphical-session.target";
 }
