@@ -35,6 +35,7 @@
     # Disable wakeup from AMD USB-Controller
     udev.extraRules = ''
       ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1022" ATTR{device}=="0x43f7" ATTR{power/wakeup}="disabled"
+      KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
     '';
 
     # xserver.displayManager.gdm.enable = true;
@@ -46,6 +47,7 @@
   boot = {
     kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
     initrd.kernelModules = ["amdgpu"];
+    kernelModules = ["i2c-dev"];
   };
 
   # List packages installed in system profile. To search, run:
@@ -79,6 +81,7 @@
     zathura
   ];
 
+  users.users.h0useofdupree.extraGroups = ["i2c"];
   # Set user preferences for environment variables
   environment.variables = {
     LC_TIME = "de_DE.UTF-8"; # Time format
