@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (builtins.genList (
       x: let
@@ -38,6 +42,14 @@
         fi
     fi
   '';
+  brightnessUp =
+    if config.hardware.brillo.enable
+    then "brillo -q -u 300000 -A 5"
+    else "ddcutil setvcp 10 + 10";
+  brightnessDown =
+    if config.hardware.brillo.enable
+    then "brillo -q -u 300000 -U 5"
+    else "ddcutil setvcp 10 - 10";
 in {
   programs.hyprland.settings = {
     # mouse movements
@@ -171,8 +183,8 @@ in {
       ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%-"
 
       # backlight
-      ", XF86MonBrightnessUp, exec, brillo -q -u 300000 -A 5"
-      ", XF86MonBrightnessDown, exec, brillo -q -u 300000 -U 5"
+      ", XF86MonBrightnessUp, exec, ${brightnessUp}"
+      ", XF86MonBrightnessDown, exec, ${brightnessDown}"
     ];
   };
 }
