@@ -57,6 +57,7 @@
     vim
     neovim
     wget
+    ddcutil
     git
     gnumake
     curl
@@ -81,6 +82,7 @@
     zathura
   ];
 
+  users.groups.i2c = {};
   users.users.h0useofdupree.extraGroups = ["i2c"];
   # Set user preferences for environment variables
   environment.variables = {
