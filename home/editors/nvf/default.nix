@@ -197,7 +197,14 @@
 
           assembly.enable = true;
           nix.enable = true;
-          markdown.enable = true;
+          markdown = {
+            enable = true;
+            extensions = {
+              render-markdown-nvim = {
+                enable = true;
+              };
+            };
+          };
           bash.enable = true;
           clang.enable = true;
           css.enable = true;
