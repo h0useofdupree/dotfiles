@@ -1,9 +1,13 @@
-result/
 .direnv
 .pre-commit-config.yaml
+
+result/
+
 modules/speakerctl/devices.json
 modules/speakerctl/snapshot.json
 modules/speakerctl/tinytuya.json
 modules/speakerctl/tuya-raw.json
+
 macos_accel.py
+
 Session.vim
