@@ -216,7 +216,18 @@
           go.enable = true;
           lua.enable = true;
           zig.enable = true;
-          python.enable = true;
+          python = {
+            enable = true;
+            format = {
+              enable = true;
+              type = "black"; #NOTE: ["black", "black-and-isort", "isort", "ruff"]
+            };
+            lsp = {
+              enable = true;
+              server = "basedpyright";
+            };
+            treesitter.enable = true;
+          };
           typst.enable = true;
           rust = {
             enable = true;
