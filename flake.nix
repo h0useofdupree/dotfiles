@@ -108,6 +108,8 @@
 
     grub-themes.url = "github:jeslie0/nixos-grub-themes";
 
+    elegant-grub.url = "github:h0useofdupree/elegant-grub";
+
     # hyprwm
     hyprland.url = "github:hyprwm/hyprland";
 
