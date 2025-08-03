@@ -4,14 +4,14 @@
       enable = true;
       setupOpts = {
         arg = "leetcode.nvim";
-        image_support = true;
+        image_support = false;
         lang = "python3";
       };
     };
 
     # For leetcode-nvim image-support
-    image-nvim = {
-      enable = true;
+    images.image-nvim = {
+      enable = false;
       setupOpts = {
         backend = "kitty";
         integrations = {
