@@ -17,7 +17,7 @@
     ];
   };
 
-  # DO NOT TOUCH THIS
+  # WARN: DO NOT TOUCH THIS
   system.stateVersion = "24.11";
 
   time.timeZone = lib.mkDefault "Europe/Berlin";
