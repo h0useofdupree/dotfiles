@@ -8,13 +8,22 @@
     #sshfs
 
     comma
+    curl
+    cowsay
     du-dust
     duf
     fd
     file
+    fortune
+    gnumake
+    go
     jaq
+    lazygit
+    nitch
     ripgrep
     ripdrag
+    tldr
+    wget
   ];
 
   programs = {

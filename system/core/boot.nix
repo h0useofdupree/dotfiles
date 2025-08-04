@@ -51,5 +51,8 @@
     };
   };
 
-  environment.systemPackages = [config.boot.kernelPackages.cpupower];
+  environment.systemPackages = with pkgs; [
+    config.boot.kernelPackages.cpupower
+    os-prober
+  ];
 }

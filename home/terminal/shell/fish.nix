@@ -15,6 +15,10 @@
 
       nitch
 
+      if command -v fortune >/dev/null; and command -v cowsay >/dev/null
+        fortune | cowsay
+      end
+
       ${lib.optionalString config.services.gpg-agent.enable ''
         if test -n "$XDG_RUNTIME_DIR"
           set -l gnupg_path (ls $XDG_RUNTIME_DIR/gnupg)

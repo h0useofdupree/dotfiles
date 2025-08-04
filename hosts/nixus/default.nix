@@ -50,38 +50,6 @@
     kernelModules = ["i2c-dev"];
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  # TODO: Clean this up!
-  environment.systemPackages = with pkgs; [
-    vim
-    neovim
-    wget
-    ddcutil
-    git
-    gnumake
-    curl
-    wget
-    lazygit
-    ripgrep
-    go
-    fzf
-    bat
-    eza
-    nixd
-    nitch
-    tldr
-    zoxide
-    fd
-    kitty
-    kitty-themes
-    os-prober
-    fish
-    wl-clipboard
-    # texlive.combined.scheme-full
-    zathura
-  ];
-
   users.groups.i2c = {};
   users.users.h0useofdupree.extraGroups = ["i2c"];
   # Set user preferences for environment variables

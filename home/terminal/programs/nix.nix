@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     alejandra
     deadnix
+    nixd
     statix
     self.packages.${pkgs.system}.repl
   ];
