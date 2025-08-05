@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     # Editors
     ../../editors/vscode
@@ -31,4 +31,5 @@
     ../../terminal/emulators/kitty.nix
     ../../terminal/emulators/alacritty.nix
   ];
+  home.packages = [pkgs.ddcutil];
 }

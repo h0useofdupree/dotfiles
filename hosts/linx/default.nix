@@ -31,39 +31,10 @@
     libinput.enable = true;
   };
 
-  # Consider this!
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    neovim
-    wget
-    git
-    gnumake
-    curl
-    wget
-    lazygit
-    ripgrep
-    go
-    fzf
-    bat
-    eza
-    nixd
-    nitch
-    tldr
-    zoxide
-    fd
-    kitty
-    kitty-themes
-    os-prober
-    fish
-    wl-clipboard
-    #texlive.combined.scheme-full
-    zathura
-  ];
-
   # Set user preferences for environment variables
   environment.variables = {
     LC_TIME = "de_DE.UTF-8"; # Time format
