@@ -10,14 +10,9 @@
 
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
-
       command cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
 
       nitch
-
-      if command -v fortune >/dev/null; and command -v cowsay >/dev/null
-        fortune | cowsay
-      end
 
       ${lib.optionalString config.services.gpg-agent.enable ''
         if test -n "$XDG_RUNTIME_DIR"
