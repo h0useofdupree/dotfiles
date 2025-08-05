@@ -32,6 +32,10 @@ The code is tailored for my own use, but it can also serve as an example of how
 to structure a multi‑host setup. Feel free to explore and adapt pieces that
 interest you.
 
+I treat this repo as a training ground for version-control and coding
+practises - don't take stuff like releases seriously. I am just trying to learn,
+**like you**.
+
 ## Repository layout
 
 - **hosts** – NixOS configuration for each machine.
