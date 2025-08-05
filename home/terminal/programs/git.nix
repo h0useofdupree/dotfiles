@@ -137,8 +137,16 @@ in {
             group = "Features";
           }
           {
+            message = "^add";
+            group = "Added programs/tools";
+          }
+          {
             message = "^fix";
             group = "Fixes";
+          }
+          {
+            message = "^meta";
+            group = "Meta & Tooling";
           }
           {
             message = "^docs";
