@@ -6,6 +6,9 @@
   cfg = config.programs.git;
   # TODO: key
   pubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1JYHp/ZXHErtQVer2eE393NoJgOB6LvVJ+x/IxayS9 joel.riekemann@gmail.com";
+  ghOwner = "h0useofdupree";
+  ghRepo = "dotfiles";
+  ghRepoUrl = "https://github.com/h0useofdupree/dotfiles";
 in {
   home.packages = [pkgs.gh];
 
@@ -82,36 +85,37 @@ in {
         filter_commits = false;
         header = ''
           # Changelog
+
+          All notable changes to my configuration will be documented in this file.
         '';
+
         body = ''
           ---
-          {% if version %}\
-              {% if previous.version %}\
-                  ## [{{ version | trim_start_matches(pat="v") }}](https://github.com/h0useofdupree/dotfiles/compare/{{ previous.version }}..{{ version }}) - {{ timestamp | date(format="%Y-%m-%d") }}
-              {% else %}\
+          {% if version %}
+              {% if previous.version %}
+                  ## [{{ version | trim_start_matches(pat="v") }}](${ghRepoUrl}/compare/{{ previous.version }}..{{ version }}) - {{ timestamp | date(format="%Y-%m-%d") }}
+              {% else %}
                   ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
-              {% endif %}\
-          {% else %}\
+              {% endif %}
+          {% else %}
               ## [unreleased]
-          {% endif %}\
+          {% endif %}
+
           {% for group, commits in commits | group_by(attribute="group") %}
-              ### {{ group | striptags | trim | upper_first }}
-              {% for commit in commits
-              | filter(attribute="scope")
-              | sort(attribute="scope") %}
-                  - **({{commit.scope}})**{% if commit.breaking %} [**breaking**]{% endif %} \
-                      {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/h0useofdupree/dotfiles/commit/{{ commit.id }}))
-              {%- endfor -%}
-              {% raw %}\n{% endraw %}\
-              {%- for commit in commits %}
-                  {%- if commit.scope -%}
-                  {% else -%}
-                      - {% if commit.breaking %} [**breaking**]{% endif %}\
-                          {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/h0useofdupree/dotfiles/commit/{{ commit.id }}))
-                  {% endif -%}
-              {% endfor -%}
-          {% endfor %}\n
+          ### {{ group | striptags | trim | upper_first }}
+
+          {% for commit in commits | filter(attribute="scope") | sort(attribute="scope") %}
+          - **({{ commit.scope }})**{% if commit.breaking %} [**breaking**]{% endif %} {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](${ghRepoUrl}/commit/{{ commit.id }})) - {{ commit.author.name }}
+          {% endfor %}
+
+          {% for commit in commits %}
+              {% if not commit.scope %}
+              - {% if commit.breaking %} [**breaking**]{% endif %} {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](${ghRepoUrl}/commit/{{ commit.id }})) - {{ commit.author.name }}
+              {% endif %}
+          {% endfor %}
+          {% endfor %}
         '';
+
         footer = ''
           End of changelog
           goodbye 👋
@@ -123,6 +127,7 @@ in {
         conventional_commits = true;
         filter_unconventional = false;
         require_conventional = false;
+        split_commits = false;
         sort_commits = "newest";
         filter_commits = false;
 
@@ -164,7 +169,7 @@ in {
             group = "Chores";
           }
           {
-            footer = "^changelog: ?ignore";
+            body = "^changelog: ?ignore";
             skip = true;
           }
 
