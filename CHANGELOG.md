@@ -3,6 +3,45 @@
 All notable changes to my configuration will be documented in this file.
 ---
 
+## [unreleased]
+
+
+
+### Added programs/tools
+
+
+
+
+
+-  gnome-clocks - ([23b9245](https://github.com/h0useofdupree/dotfiles/commit/23b924545ccd5a86cea8a35c130d49bb6e5484c4)) - h0useofdupree
+
+
+
+### Chores
+
+
+- **(readme)** update - ([19b532a](https://github.com/h0useofdupree/dotfiles/commit/19b532a20d26b41d8a4821efc3e653aaf83de676)) - h0useofdupree
+
+
+
+
+
+
+### Features
+
+
+- **(fish)** add python3 abbr - ([038234e](https://github.com/h0useofdupree/dotfiles/commit/038234e5529c42a2936abffd2e29890643ded747)) - h0useofdupree
+
+- **(git)** add more commit parsers - ([3f127f8](https://github.com/h0useofdupree/dotfiles/commit/3f127f87d050b0c10e28c725fa410b0f40943782)) - h0useofdupree
+
+
+
+
+
+
+
+---
+
 
 ## [1.4.0](https://github.com/h0useofdupree/dotfiles/compare/v1.3.0..v1.4.0) - 2025-08-05
 
@@ -11,6 +50,8 @@ All notable changes to my configuration will be documented in this file.
 
 ### Chores
 
+
+- **(changelog)** bumb minor - ([f1b7ec4](https://github.com/h0useofdupree/dotfiles/commit/f1b7ec4b4cabe008bdbdf0480d7d0027fabcd3cb)) - h0useofdupree
 
 - **(flake.lock)** update caelestia - ([2839913](https://github.com/h0useofdupree/dotfiles/commit/2839913236285ce579b456c09784cdfadfbdbcb5)) - h0useofdupree
 
@@ -23,6 +64,8 @@ All notable changes to my configuration will be documented in this file.
 - **(gitignore)** update formatting - ([719dde4](https://github.com/h0useofdupree/dotfiles/commit/719dde42bf45b1425bb302875d202c9b01715719)) - h0useofdupree
 
 - **(nvf)** disable unused plugins - ([e36bbfb](https://github.com/h0useofdupree/dotfiles/commit/e36bbfb8190ceaa4764c1a8d31e73b2178c9a1df)) - h0useofdupree
+
+
 
 
 
@@ -655,6 +698,20 @@ Quickshell caelestia - ([273ca78](https://github.com/h0useofdupree/dotfiles/comm
 
 
 
+### Added programs/tools
+
+
+
+
+
+-  add tinytuya shell - ([946f2d8](https://github.com/h0useofdupree/dotfiles/commit/946f2d81d8880be84a6e62097c3473104ffad7ae)) - h0useofdupree
+
+
+
+-  add tinytuya module and package - ([4f9154c](https://github.com/h0useofdupree/dotfiles/commit/4f9154c10bfd3673323aa20bb1265a8db3338e7e)) - h0useofdupree
+
+
+
 ### Documentation
 
 
@@ -1161,14 +1218,6 @@ Add speakerctl (tinytuya python script) - ([3305f3f](https://github.com/h0useofd
 
 
 
--  add tinytuya shell - ([946f2d8](https://github.com/h0useofdupree/dotfiles/commit/946f2d81d8880be84a6e62097c3473104ffad7ae)) - h0useofdupree
-
-
-
--  add tinytuya module and package - ([4f9154c](https://github.com/h0useofdupree/dotfiles/commit/4f9154c10bfd3673323aa20bb1265a8db3338e7e)) - h0useofdupree
-
-
-
 -  revert to hyprpanel - ([7dc4506](https://github.com/h0useofdupree/dotfiles/commit/7dc4506f7876cc44daa230b7804ca699f7701fb3)) - h0useofdupree
 
 
@@ -1516,6 +1565,28 @@ Add speakerctl (tinytuya python script) - ([3305f3f](https://github.com/h0useofd
 
 ## [1.0.0] - 2025-01-30
 
+
+
+
+### Added programs/tools
+
+
+
+
+
+-  add more zen associations - ([b32500e](https://github.com/h0useofdupree/dotfiles/commit/b32500e1df242ee6c356f8ff841b57993ab59596)) - h0useofdupree
+
+
+
+-  add nitch - ([c312819](https://github.com/h0useofdupree/dotfiles/commit/c312819535f8e5c1e699e574531f9f57677c80c6)) - h0useofdupree
+
+
+
+-  add hyprpanel as overlay?? - ([e781d3c](https://github.com/h0useofdupree/dotfiles/commit/e781d3cdb2aa00d42b77bf119606b5bf1adbd415)) - h0useofdupree
+
+
+
+-  add hyprpanel as overlay? - ([4c26b90](https://github.com/h0useofdupree/dotfiles/commit/4c26b906663e5b5c82a66b3292b2c3d9493120ab)) - h0useofdupree
 
 
 
@@ -2211,10 +2282,6 @@ Add speakerctl (tinytuya python script) - ([3305f3f](https://github.com/h0useofd
 
 
 
--  add more zen associations - ([b32500e](https://github.com/h0useofdupree/dotfiles/commit/b32500e1df242ee6c356f8ff841b57993ab59596)) - h0useofdupree
-
-
-
 -  mission-control -> resources - ([622be04](https://github.com/h0useofdupree/dotfiles/commit/622be04f03b4965acd32dd044b6dc579f5b8d51f)) - h0useofdupree
 
 
@@ -2243,23 +2310,11 @@ Add speakerctl (tinytuya python script) - ([3305f3f](https://github.com/h0useofd
 
 
 
--  add nitch - ([c312819](https://github.com/h0useofdupree/dotfiles/commit/c312819535f8e5c1e699e574531f9f57677c80c6)) - h0useofdupree
-
-
-
 -  multiple device settings for q1 - ([5e64454](https://github.com/h0useofdupree/dotfiles/commit/5e644548a66a7f76a6e317658befe8566181ccd4)) - h0useofdupree
 
 
 
 -  reactivate waybar - ([afde979](https://github.com/h0useofdupree/dotfiles/commit/afde979d990c0da8a3a6f1bd1143c1b596ed961c)) - h0useofdupree
-
-
-
--  add hyprpanel as overlay?? - ([e781d3c](https://github.com/h0useofdupree/dotfiles/commit/e781d3cdb2aa00d42b77bf119606b5bf1adbd415)) - h0useofdupree
-
-
-
--  add hyprpanel as overlay? - ([4c26b90](https://github.com/h0useofdupree/dotfiles/commit/4c26b906663e5b5c82a66b3292b2c3d9493120ab)) - h0useofdupree
 
 
 

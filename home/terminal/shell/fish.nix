@@ -42,6 +42,7 @@
       lg = "lazygit";
       ls = "eza";
       nhs = "nh os switch";
+      py = "python3";
       watch = "viddy";
       wlc = "wl-copy";
     };
