@@ -26,8 +26,14 @@ in {
   ];
 
   home.file.".config/caelestia/shell.json".text = builtins.toJSON {
+    general = {
+      apps = {
+        terminal = ["kitty"];
+        audio = ["pwvucontrol"];
+      };
+    };
     background = {
-      enabled = true;
+      enabled = false;
       desktopClock = true;
     };
     bar = {
