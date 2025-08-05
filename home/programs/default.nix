@@ -19,6 +19,7 @@
     tdesktop
 
     gnome-calculator
+    gnome-clocks
     gnome-control-center
     grc
 

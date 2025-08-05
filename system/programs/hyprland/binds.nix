@@ -80,21 +80,28 @@ in {
         # utility
         # terminal
         "$mod, Return, exec, uwsm app -- kitty"
+
         #browsers
         "$mod, B, exec, uwsm app -- zen"
         "$mod2, B, exec, uwsm app -- qutebrowser"
+
         # logout menu
         # "Control $mod, Delete, exec, ${toggle "wlogout"} -p layer-shell"
         "Control $mod, Delete, global, caelestia:session"
+
         # lock screen
         # "$mod $mod2, L, exec, ${runOnce "hyprlock"}"
         # "$mod, L, global, systemctl --user start caelestia-shell.service"
         "$mod2, L, global, caelestia:lock"
+
         # select area to perform OCR on
         "$mod, O, exec, ${runOnce "wl-ocr"}"
         ", XF86Favorites, exec, ${runOnce "wl-ocr"}"
-        # open calculator
+
+        # gnome-apps
         "$mod, C, exec, ${toggle "gnome-calculator"}"
+        "$mod SHIFT, C, exec, [float; center] ${toggle "gnome-clocks"}"
+
         # open settings
         # "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome ${runOnce "gnome-control-center"}"
         # Caelestia misc
