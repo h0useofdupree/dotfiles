@@ -7,7 +7,18 @@
 }:
 with lib; let
   cfg = config.dynamicWallpaper;
-  defaultGroup = config.home.homeDirectory + "/.local/share/dynamic-wallpapers/BigSur";
+  repoWallpapers = "${inputs.self}/lib/wallpapers";
+  allowedGroups = [
+    "DesertSands"
+    "Mojave"
+    "WaterHill"
+    "Ocean"
+    "ZorinMountain"
+  ];
+  wallpapersDir =
+    if cfg.directory != null
+    then cfg.directory
+    else "${repoWallpapers}/${cfg.group}";
 in {
   options.dynamicWallpaper = {
     enable = mkOption {
@@ -17,9 +28,15 @@ in {
     };
 
     group = mkOption {
-      type = types.str;
-      default = defaultGroup;
-      description = "Directory containing wallpaper images.";
+      type = types.enum allowedGroups;
+      default = "Mojave";
+      description = "Wallpaper set included in the repository.";
+    };
+
+    directory = mkOption {
+      type = types.nullOr types.path;
+      default = null;
+      description = "Override directory containing wallpaper images.";
     };
 
     autoLight = mkOption {
@@ -59,7 +76,7 @@ in {
     ];
 
     home.sessionVariables = {
-      DYNAMIC_WALLPAPER_DIR = cfg.group;
+      DYNAMIC_WALLPAPER_DIR = wallpapersDir;
       DYNAMIC_WALLPAPER_AUTO_LIGHT =
         if cfg.autoLight
         then "1"
@@ -75,7 +92,7 @@ in {
         Type = "oneshot";
         ExecStart = lib.getExe inputs.self.packages.${pkgs.system}.dynamic-wallpaper;
         Environment = [
-          "DYNAMIC_WALLPAPER_DIR=${cfg.group}"
+          "DYNAMIC_WALLPAPER_DIR=${wallpapersDir}"
           "DYNAMIC_WALLPAPER_AUTO_LIGHT=${
             if cfg.autoLight
             then "1"

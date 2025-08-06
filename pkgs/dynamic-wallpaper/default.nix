@@ -4,6 +4,11 @@ stdenvNoCC.mkDerivation {
   version = "1.0.0";
 
   src = ./.;
+  wallpapers = ../../lib/wallpapers/Mojave;
+
+  patchPhase = ''
+    substituteAllInPlace dynamic-wallpaper.sh
+  '';
 
   installPhase = ''
     mkdir -p $out/bin
