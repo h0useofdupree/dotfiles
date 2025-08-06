@@ -3,7 +3,9 @@
 All notable changes to my configuration will be documented in this file.
 ---
 
-## [unreleased]
+
+## [1.4.1](https://github.com/h0useofdupree/dotfiles/compare/v1.4.0..v1.4.1) - 2025-08-06
+
 
 
 
@@ -30,9 +32,13 @@ All notable changes to my configuration will be documented in this file.
 ### Features
 
 
-- **(fish)** add python3 abbr - ([038234e](https://github.com/h0useofdupree/dotfiles/commit/038234e5529c42a2936abffd2e29890643ded747)) - h0useofdupree
+- **(dynamic-wallpaper)** move assets to lib/wallpapers - ([90e62e6](https://github.com/h0useofdupree/dotfiles/commit/90e62e62fd5b6c0e417ce6e7f9eb46196c08d2c9)) - h0useofdupree
+
+- **(fish)** add python3 abbr - ([185cb2c](https://github.com/h0useofdupree/dotfiles/commit/185cb2cf19a284686e95a3bb577b1b401bc17afb)) - h0useofdupree
 
 - **(git)** add more commit parsers - ([3f127f8](https://github.com/h0useofdupree/dotfiles/commit/3f127f87d050b0c10e28c725fa410b0f40943782)) - h0useofdupree
+
+
 
 
 
