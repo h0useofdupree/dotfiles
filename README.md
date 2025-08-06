@@ -44,7 +44,7 @@ practises - don't take stuff like releases seriously. I am just trying to learn,
   theme).
 - **pkgs** – custom packages (scripts, helpers and small utilities).
 - **system** – common NixOS modules shared by all hosts.
-- **lib** – helper functions used throughout the flake.
+- **lib** – helper functions and wallpaper assets used throughout the flake.
 
 ## Hosts
 
