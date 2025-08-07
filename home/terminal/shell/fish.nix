@@ -144,6 +144,56 @@
         body = "curl -sL https://www.gitignore.io/api/$argv";
         description = "fetches a gitignore template for a given language";
       };
+
+      hyprlock-restart = {
+        body = ''
+          set logdir (test -n "$XDG_STATE_HOME"; and echo $XDG_STATE_HOME; or echo "$HOME/.local/state")
+          set logfile "$logdir/hyprlock-restart.log"
+
+          function _log
+            echo -n (date "+%Y-%m-%d %H:%M:%S")" | " >> $logfile
+            echo $argv >> $logfile
+          end
+
+          _log "===== Hyprlock Restart Triggered ====="
+          _log "TTY: "(tty)
+          _log "Uptime: "(uptime -p)
+          _log "Kernel: "(uname -r)
+          _log "User: $USER"
+          _log "Shell: $SHELL"
+          _log "Fish Version: "(fish --version)
+          _log "Hyprctl instance list:"
+          command hyprctl instances >> $logfile ^/dev/null
+
+          echo "[hyprlock-restart] Allowing session lock restore..."
+          _log "Enabling session lock restore"
+          command hyprctl --instance 0 "keyword misc:allow_session_lock_restore 1"
+
+          if pgrep -x hyprlock > /dev/null
+            echo "[hyprlock-restart] Killing existing hyprlock process..."
+            _log "Existing hyprlock process found. Killing it."
+            command killall -9 hyprlock
+            sleep 1
+          else
+            _log "No running hyprlock instance detected"
+          end
+
+          echo "[hyprlock-restart] Starting hyprlock..."
+          _log "Starting new hyprlock instance..."
+          command hyprctl --instance 0 "dispatch exec hyprlock"
+
+          sleep 2
+
+          echo "[hyprlock-restart] Disabling session lock restore..."
+          _log "Disabling session lock restore"
+          command hyprctl --instance 0 "keyword misc:allow_session_lock_restore 0"
+
+          echo "[hyprlock-restart] Done. You can now switch back to TTY1 (Ctrl+Alt+F1)"
+          _log "Restart complete — waiting for user to switch TTY"
+          _log "========================================"
+        '';
+        description = "Restart hyprlock after a crash, with automatic logging and state info";
+      };
     };
 
     plugins = [
