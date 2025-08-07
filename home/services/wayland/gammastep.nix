@@ -3,9 +3,16 @@
     enable = true;
     tray = true;
 
-    provider = "manual";
+    provider = "geoclue2";
+
+    #NOTE: Fallback
     latitude = 51.2;
     longitude = 6.9;
+
+    temperature = {
+      day = 6000;
+      night = 3700;
+    };
 
     enableVerboseLogging = true;
 
