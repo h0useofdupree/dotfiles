@@ -4,6 +4,10 @@
   config,
   ...
 }: {
+  imports = [
+    ./fish_completions
+  ];
+  xdg.configFile."fish/completions/nix.fish".source = "${pkgs.nix}/share/fish/vendor_completions.d/nix.fish";
   programs.fish = {
     enable = true;
     generateCompletions = true;
