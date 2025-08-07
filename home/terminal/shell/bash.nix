@@ -1,4 +1,3 @@
-# TODO: Fix this!
 {pkgs, ...}: {
   programs.bash = {
     enable = true;
