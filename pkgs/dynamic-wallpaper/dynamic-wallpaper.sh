@@ -16,6 +16,7 @@ Options:
                        Format: HH:MM, e.g., 06:00.
   --end TIME          End time for the cycle (default: 22:00).
                        Format: HH:MM, e.g., 22:00.
+  --time TIME         Use TIME instead of the current system time (HH:MM)
   -l, --log FILE      Write log output to FILE.
   -h, --help          Show this help text.
 
@@ -25,7 +26,8 @@ lexicographically; the first is assumed to be the lightest.
 Environment variables can also be used instead of command line options:
   DYNAMIC_WALLPAPER_DIR, DYNAMIC_WALLPAPER_FORCE_LIGHT,
   DYNAMIC_WALLPAPER_AUTO_LIGHT, DYNAMIC_WALLPAPER_LOG,
-  DYNAMIC_WALLPAPER_START, DYNAMIC_WALLPAPER_END.
+  DYNAMIC_WALLPAPER_START, DYNAMIC_WALLPAPER_END,
+  DYNAMIC_WALLPAPER_TIME.
 EOF
 }
 
@@ -36,6 +38,7 @@ auto_light="${DYNAMIC_WALLPAPER_AUTO_LIGHT:-0}"
 log_file="${DYNAMIC_WALLPAPER_LOG:-$HOME/.cache/dynamic-wallpaper/dynamic-wallpaper.log}"
 start_time="${DYNAMIC_WALLPAPER_START:-06:00}"
 end_time="${DYNAMIC_WALLPAPER_END:-22:00}"
+fake_time="${DYNAMIC_WALLPAPER_TIME:-}"
 MAX_LOG_LINES=500
 
 # Clean up log file
@@ -68,6 +71,10 @@ while [[ $# -gt 0 ]]; do
     ;;
   --end)
     end_time="$2"
+    shift 2
+    ;;
+  --time)
+    fake_time="$2"
     shift 2
     ;;
   -l | --log)
@@ -135,7 +142,13 @@ log "interval: $interval minutes"
 # log "switch times: ${times[*]}"
 log "switch times:"$'\n'"$(printf '  %s\n' "${times[@]}")"
 
-minute_of_day=$((10#$(date +%H) * 60 + 10#$(date +%M)))
+if [[ -n "$fake_time" ]]; then
+  minute_of_day=$(parse_minutes "$fake_time")
+  log "faketime=$fake_time"
+else
+  minute_of_day=$((10#$(date +%H) * 60 + 10#$(date +%M)))
+fi
+
 current=$minute_of_day
 start=$start_minutes
 end=$end_minutes
