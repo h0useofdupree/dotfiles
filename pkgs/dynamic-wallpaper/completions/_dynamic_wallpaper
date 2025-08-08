@@ -1,0 +1,15 @@
+#compdef dynamic-wallpaper
+
+local -a times
+ times=(${(f)$(for h in {00..23}; do for m in 00 15 30 45; do printf '%02d:%02d\n' $h $m; done; done)})
+
+_arguments \
+  '(-d --dir)'{-d,--dir}'[Directory containing wallpapers]:directory:_files -/' \
+  '--light[Always use the lightest wallpaper]' \
+  '--auto-light[Use the lightest wallpaper when GNOME is in light mode]' \
+  '--start[Start time for the cycle]:time:(${times})' \
+  '--end[End time for the cycle]:time:(${times})' \
+  '--time[Use fake current time]:time:(${times})' \
+  '(-l --log)'{-l,--log}'[Write log output to FILE]:file:_files' \
+  '(-h --help)'{-h,--help}'[Show help]' \
+  '*:file:_files'
