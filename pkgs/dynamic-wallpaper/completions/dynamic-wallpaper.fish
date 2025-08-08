@@ -8,6 +8,7 @@ end
 
 function __dynamic_wallpaper_groups
     echo -e DesertSands\\t5\ images\ 5160x2160
+    echo -e Fuji\\t7\ images\ 5719x3720
     echo -e Mojave\\t16\ images\ 5120x2880
     echo -e Ocean\\t2\ images\ 4096x2621
     echo -e WaterHill\\t2\ images\ 4096x2621

@@ -3,6 +3,7 @@
 ## Available groups
 
 - 'DesertSands' - 5 images - 5160x2160
+- 'Fuji' - 7 images - 5719x3720
 - 'Mojave' - 16 images - 5120x2880
 - 'Ocean' - 2 images - 4096x2621
 - 'WaterHill' - 2 images - 4096x2621
