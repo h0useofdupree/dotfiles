@@ -1,3 +1,5 @@
+shopt -q progcomp 2>/dev/null || return
+
 _dynamic_wallpaper() {
   local cur prev opts times
   COMPREPLY=()
