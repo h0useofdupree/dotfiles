@@ -103,12 +103,12 @@ fi
 
 shopt -s nullglob
 files=("$dir"/*.{jpg,jpeg,png})
-IFS=$'\n' files=($(printf '%s\n' "${files[@]}" | sort -V))
-count=${#files[@]}
-if [[ $count -eq 0 ]]; then
+if [[ ${#files[@]} -eq 0 ]]; then
   echo "dynamic-wallpaper: no images found in $dir" >&2
   exit 1
 fi
+mapfile -t files < <(printf '%s\n' "${files[@]}" | sort -V)
+count=${#files[@]}
 
 parse_minutes() {
   IFS=: read -r h m <<<"$1"
@@ -160,7 +160,7 @@ if ((end <= start)); then
 fi
 
 if ((current < start)); then
-  index=0
+  index=$((count - 1))
 elif ((current >= end)); then
   index=$((count - 1))
 else
