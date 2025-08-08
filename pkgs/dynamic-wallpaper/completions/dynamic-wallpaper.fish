@@ -6,6 +6,15 @@ function __dynamic_wallpaper_times
     end
 end
 
+function __dynamic_wallpaper_groups
+    echo -e DesertSands\\t5\ images\ 5160x2160
+    echo -e Mojave\\t16\ images\ 5120x2880
+    echo -e Ocean\\t2\ images\ 4096x2621
+    echo -e WaterHill\\t2\ images\ 4096x2621
+    echo -e ZorinMountain\\t5\ images\ 5760x3600
+end
+
+complete -c dynamic-wallpaper -s g -l group -r -d 'Wallpaper group' -a '(__dynamic_wallpaper_groups)'
 complete -c dynamic-wallpaper -s d -l dir -r -d 'Directory containing wallpapers' -a '(__fish_complete_directories)'
 complete -c dynamic-wallpaper -l light -d 'Always use the lightest wallpaper'
 complete -c dynamic-wallpaper -l auto-light -d 'Use the lightest wallpaper when GNOME is in light mode'
