@@ -51,6 +51,7 @@
                 runtimeInputs = [pkgs.imagemagick pkgs.file pkgs.git pkgs.findutils pkgs.coreutils];
                 text = builtins.readFile ./pkgs/dynamic-wallpaper/add-wallpaper-group.sh;
               })
+              # TODO: Add update-wallpapers command, just in case
             ];
           };
         };

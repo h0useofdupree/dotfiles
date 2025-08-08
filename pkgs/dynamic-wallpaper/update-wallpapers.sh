@@ -56,13 +56,15 @@ mapfile -t groups < <(find "$base" -mindepth 1 -maxdepth 1 -type d -printf '%f\n
   done
   echo "end"
   echo
-  echo "complete -c dynamic-wallpaper -s g -l group -r -d 'Wallpaper group' -a '(__dynamic_wallpaper_groups)'"
+  echo "complete -c dynamic-wallpaper -s g -l group -r -d 'Wallpaper group' -a '(__dynamic_wallpaper_groups)' -f"
   echo "complete -c dynamic-wallpaper -s d -l dir -r -d 'Directory containing wallpapers' -a '(__fish_complete_directories)'"
   echo "complete -c dynamic-wallpaper -l light -d 'Always use the lightest wallpaper'"
   echo "complete -c dynamic-wallpaper -l auto-light -d 'Use the lightest wallpaper when GNOME is in light mode'"
-  echo "complete -c dynamic-wallpaper -l start -r -d 'Start time for the cycle (HH:MM)' -a '(__dynamic_wallpaper_times)'"
-  echo "complete -c dynamic-wallpaper -l end -r -d 'End time for the cycle (HH:MM)' -a '(__dynamic_wallpaper_times)'"
-  echo "complete -c dynamic-wallpaper -l time -r -d 'Use fake current time (HH:MM)' -a '(__dynamic_wallpaper_times)'"
+  echo "complete -c dynamic-wallpaper -l start -r -d 'Start time for the cycle (HH:MM)' -a '(__dynamic_wallpaper_times)' -f"
+  echo "complete -c dynamic-wallpaper -l end -r -d 'End time for the cycle (HH:MM)' -a '(__dynamic_wallpaper_times)' -f"
+  echo "complete -c dynamic-wallpaper -l time -r -d 'Use fake current time (HH:MM)' -a '(__dynamic_wallpaper_times)' -f"
   echo "complete -c dynamic-wallpaper -s l -l log -r -d 'Write log output to FILE' -a '(__fish_complete_files)'"
   echo "complete -c dynamic-wallpaper -s h -l help -d 'Show help text'"
 } >"$completion"
+
+echo "Rebuild system to source fish-completions."
