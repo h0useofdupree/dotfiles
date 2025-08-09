@@ -7,9 +7,9 @@
 }:
 with lib; let
   cfg = config.dynamicWallpaper;
-  repoWallpapers = "${inputs.self}/lib/wallpapers";
-  allowedGroups =
-    attrNames (filterAttrs (_: v: v == "directory") (builtins.readDir repoWallpapers));
+  # repoWallpapers = "${inputs.self}/lib/wallpapers";
+  # allowedGroups =
+  #   attrNames (filterAttrs (_: v: v == "directory") (builtins.readDir repoWallpapers));
 in {
   options.dynamicWallpaper = {
     enable = mkOption {
@@ -19,7 +19,7 @@ in {
     };
 
     group = mkOption {
-      type = types.enum allowedGroups;
+      type = types.str;
       default = "Mojave";
       description = "Wallpaper set included in the repository";
     };
@@ -75,6 +75,7 @@ in {
         DYNAMIC_WALLPAPER_LINK = cfg.currentLink;
         DYNAMIC_WALLPAPER_START = cfg.startTime;
         DYNAMIC_WALLPAPER_END = cfg.endTime;
+        DYNAMIC_WALLPAPERS_ROOT = "${config.home.homeDirectory}/.dotfiles/lib/wallpapers";
       }
       // (
         if cfg.directory != null
@@ -88,6 +89,7 @@ in {
         Type = "oneshot";
         ExecStart = lib.getExe inputs.self.packages.${pkgs.system}.dynamic-wallpaper;
         Environment = [
+          "DYNAMIC_WALLPAPERS_ROOT=${config.home.homeDirectory}/.dotfiles/lib/wallpapers"
           (
             if cfg.directory != null
             then "DYNAMIC_WALLPAPER_DIR=${cfg.directory}"
