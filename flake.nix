@@ -40,20 +40,6 @@
               (pkgs.python3.withPackages (p: [p.tinytuya]))
             ];
           };
-          wallpapers = pkgs.mkShell {
-            name = "wallpapers";
-            packages = [
-              pkgs.imagemagick
-              pkgs.file
-              pkgs.git
-              (pkgs.writeShellApplication {
-                name = "add-wallpaper-group";
-                runtimeInputs = [pkgs.imagemagick pkgs.file pkgs.git pkgs.findutils pkgs.coreutils];
-                text = builtins.readFile ./pkgs/dynamic-wallpaper/add-wallpaper-group.sh;
-              })
-              # TODO: Add update-wallpapers command, just in case
-            ];
-          };
         };
         formatter = pkgs.alejandra;
       };
