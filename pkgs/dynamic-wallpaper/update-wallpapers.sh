@@ -31,6 +31,10 @@ mapfile -t groups < <(find "$base" -mindepth 1 -maxdepth 1 -type d -printf '%f\n
   echo "> Images in groups need to be named \`<group_name>-n.<file_extenstion>\` in order"
   echo "> to work in a time-based manner. The appropriate wallpaper for the current time"
   echo "> will be selected by its n-index."
+  echo
+  echo "## Packaging"
+  echo "Use $(scripts/package_wallpapers.sh) to create zip archives and accompanying"
+  echo "SHA-256 checksum files for each wallpaper group. The archives are written to $(lib/wallpapers/archives) and can be uploaded as release assets."
 } >"$readme"
 
 # Generate fish completions
