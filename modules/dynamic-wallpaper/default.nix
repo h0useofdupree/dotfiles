@@ -7,18 +7,9 @@
 }:
 with lib; let
   cfg = config.dynamicWallpaper;
-  repoWallpapers = "${inputs.self}/lib/wallpapers";
-  allowedGroups = [
-    "DesertSands"
-    "Mojave"
-    "WaterHill"
-    "Ocean"
-    "ZorinMountain"
-  ];
-  wallpapersDir =
-    if cfg.directory != null
-    then cfg.directory
-    else "${repoWallpapers}/${cfg.group}";
+  # repoWallpapers = "${inputs.self}/lib/wallpapers";
+  # allowedGroups =
+  #   attrNames (filterAttrs (_: v: v == "directory") (builtins.readDir repoWallpapers));
 in {
   options.dynamicWallpaper = {
     enable = mkOption {
@@ -28,7 +19,7 @@ in {
     };
 
     group = mkOption {
-      type = types.enum allowedGroups;
+      type = types.str;
       default = "Mojave";
       description = "Wallpaper set included in the repository";
     };
@@ -75,16 +66,22 @@ in {
       inputs.self.packages.${pkgs.system}.dynamic-wallpaper
     ];
 
-    home.sessionVariables = {
-      DYNAMIC_WALLPAPER_DIR = wallpapersDir;
-      DYNAMIC_WALLPAPER_AUTO_LIGHT =
-        if cfg.autoLight
-        then "1"
-        else "0";
-      DYNAMIC_WALLPAPER_LINK = cfg.currentLink;
-      DYNAMIC_WALLPAPER_START = cfg.startTime;
-      DYNAMIC_WALLPAPER_END = cfg.endTime;
-    };
+    home.sessionVariables =
+      {
+        DYNAMIC_WALLPAPER_AUTO_LIGHT =
+          if cfg.autoLight
+          then "1"
+          else "0";
+        DYNAMIC_WALLPAPER_LINK = cfg.currentLink;
+        DYNAMIC_WALLPAPER_START = cfg.startTime;
+        DYNAMIC_WALLPAPER_END = cfg.endTime;
+        DYNAMIC_WALLPAPERS_ROOT = "${config.home.homeDirectory}/.dotfiles/lib/wallpapers";
+      }
+      // (
+        if cfg.directory != null
+        then {DYNAMIC_WALLPAPER_DIR = cfg.directory;}
+        else {DYNAMIC_WALLPAPER_GROUP = cfg.group;}
+      );
 
     systemd.user.services.dynamic-wallpaper = {
       Unit.Description = "Update dynamic wallpaper";
@@ -92,7 +89,12 @@ in {
         Type = "oneshot";
         ExecStart = lib.getExe inputs.self.packages.${pkgs.system}.dynamic-wallpaper;
         Environment = [
-          "DYNAMIC_WALLPAPER_DIR=${wallpapersDir}"
+          "DYNAMIC_WALLPAPERS_ROOT=${config.home.homeDirectory}/.dotfiles/lib/wallpapers"
+          (
+            if cfg.directory != null
+            then "DYNAMIC_WALLPAPER_DIR=${cfg.directory}"
+            else "DYNAMIC_WALLPAPER_GROUP=${cfg.group}"
+          )
           "DYNAMIC_WALLPAPER_AUTO_LIGHT=${
             if cfg.autoLight
             then "1"

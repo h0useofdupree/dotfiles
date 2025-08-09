@@ -1,8 +1,4 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+{self, ...}: {
   nixpkgs = {
     config.allowUnfree = true;
     config.permittedInsecurePackages = [

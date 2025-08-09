@@ -8,6 +8,15 @@ modules/speakerctl/snapshot.json
 modules/speakerctl/tinytuya.json
 modules/speakerctl/tuya-raw.json
 
+lib/wallpapers/**/*jpg
+lib/wallpapers/**/*jpeg
+lib/wallpapers/**/*heic
+lib/wallpapers/**/*webp
+lib/wallpapers/**/*png
+lib/wallpapers/archives/
+lib/wallpapers/**/*.zip
+lib/wallpapers/**/*.sha256
+
 macos_accel.py
 
 Session.vim

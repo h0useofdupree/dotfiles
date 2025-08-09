@@ -18,26 +18,28 @@
         pkgs,
         ...
       }: {
-        devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.alejandra
-            pkgs.git
-            pkgs.nodePackages.prettier
-            config.packages.repl
-          ];
-          name = "dots";
-          DIRENV_LOG_FORMAT = "";
-          # GIT_CLIFF_CONFIG = "${toString ./.}/cliff.toml";
-          shellHook = ''
-            echo "Welcome to NixOS, $USER";
-            ${config.pre-commit.installationScript}
-          '';
-        };
-        devShells.tinytuya = pkgs.mkShell {
-          name = "tinytuya";
-          packages = [
-            (pkgs.python3.withPackages (p: [p.tinytuya]))
-          ];
+        devShells = {
+          default = pkgs.mkShell {
+            packages = [
+              pkgs.alejandra
+              pkgs.git
+              pkgs.nodePackages.prettier
+              config.packages.repl
+            ];
+            name = "dots";
+            DIRENV_LOG_FORMAT = "";
+            # GIT_CLIFF_CONFIG = "${toString ./.}/cliff.toml";
+            shellHook = ''
+              echo "Welcome to NixOS, $USER";
+              ${config.pre-commit.installationScript}
+            '';
+          };
+          tinytuya = pkgs.mkShell {
+            name = "tinytuya";
+            packages = [
+              (pkgs.python3.withPackages (p: [p.tinytuya]))
+            ];
+          };
         };
         formatter = pkgs.alejandra;
       };

@@ -9,6 +9,7 @@ Usage: dynamic-wallpaper [options]
 
 Options:
   -d, --dir DIR       Directory containing wallpapers.
+  -g, --group NAME    Wallpaper group name.
   --light             Always use the lightest wallpaper.
   --auto-light        Use the lightest wallpaper when GNOME is in light mode
                        (only after 06:00).
@@ -24,15 +25,18 @@ The number of images in DIR determines how many times the wallpaper changes
 throughout the day. The cycle starts at 06:00. Images are sorted
 lexicographically; the first is assumed to be the lightest.
 Environment variables can also be used instead of command line options:
-  DYNAMIC_WALLPAPER_DIR, DYNAMIC_WALLPAPER_FORCE_LIGHT,
-  DYNAMIC_WALLPAPER_AUTO_LIGHT, DYNAMIC_WALLPAPER_LOG,
-  DYNAMIC_WALLPAPER_START, DYNAMIC_WALLPAPER_END,
-  DYNAMIC_WALLPAPER_TIME.
+  DYNAMIC_WALLPAPER_DIR, DYNAMIC_WALLPAPER_GROUP,
+  DYNAMIC_WALLPAPER_FORCE_LIGHT, DYNAMIC_WALLPAPER_AUTO_LIGHT,
+  DYNAMIC_WALLPAPER_LOG, DYNAMIC_WALLPAPER_START,
+  DYNAMIC_WALLPAPER_END, DYNAMIC_WALLPAPER_TIME.
 EOF
 }
 
 swww_bin="${SWWW_BIN:-swww}"
-dir="${DYNAMIC_WALLPAPER_DIR:-@wallpapers@}"
+wallpapers_root="${DYNAMIC_WALLPAPERS_ROOT:-@wallpapers@}"
+default_group="@default_group@"
+dir="${DYNAMIC_WALLPAPER_DIR:-}"
+group="${DYNAMIC_WALLPAPER_GROUP:-$default_group}"
 force_light="${DYNAMIC_WALLPAPER_FORCE_LIGHT:-0}"
 auto_light="${DYNAMIC_WALLPAPER_AUTO_LIGHT:-0}"
 log_file="${DYNAMIC_WALLPAPER_LOG:-$HOME/.cache/dynamic-wallpaper/dynamic-wallpaper.log}"
@@ -55,6 +59,10 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
   -d | --dir)
     dir="$2"
+    shift 2
+    ;;
+  -g | --group)
+    group="$2"
     shift 2
     ;;
   --light)
@@ -91,9 +99,12 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+if [[ -n "$group" ]]; then
+  dir="$wallpapers_root/$group"
+fi
+
 if [[ -z "$dir" ]]; then
-  echo "dynamic-wallpaper: directory not specified" >&2
-  exit 1
+  dir="$wallpapers_root/$default_group"
 fi
 
 if [[ ! -d "$dir" ]]; then
