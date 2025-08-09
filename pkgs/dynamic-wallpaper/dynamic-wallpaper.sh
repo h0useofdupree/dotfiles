@@ -33,7 +33,7 @@ EOF
 }
 
 swww_bin="${SWWW_BIN:-swww}"
-wallpapers_root="@wallpapers@"
+wallpapers_root="${DYNAMIC_WALLPAPERS_ROOT:-@wallpapers@}"
 default_group="@default_group@"
 dir="${DYNAMIC_WALLPAPER_DIR:-}"
 group="${DYNAMIC_WALLPAPER_GROUP:-$default_group}"
