@@ -12,6 +12,8 @@ mapfile -t groups < <(find "$base" -mindepth 1 -maxdepth 1 -type d -printf '%f\n
 {
   echo "# Wallpapers for \`dynamic-wallpaper\`"
   echo
+  echo "> Wallpapers are not stored here in this repo due to size limitations and performance hits with push/pull actions."
+  echo
   echo "## Available groups"
   echo
   for g in "${groups[@]}"; do
