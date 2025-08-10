@@ -117,6 +117,7 @@ in {
 
         input = {
           kb_layout = "de";
+          kb_options = "ctrl:nocaps";
 
           # focus change on cursor move
           follow_mouse = 1;
