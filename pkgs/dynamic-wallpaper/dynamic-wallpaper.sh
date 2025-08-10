@@ -175,7 +175,11 @@ log "directory: $dir"
 log "found $count images"
 log "interval: $interval minutes"
 # log "switch times: ${times[*]}"
-log "switch times:"$'\n'"$(printf '  %s\n' "${times[@]}")"
+log "switch times with corresponding wallpapers:"$'\n'"$(
+  for ((i = 0; i < count; i++)); do
+    printf '  %-5s  %s\n' "${times[$i]}" "$(basename "${files[$i]}")"
+  done
+)"
 
 if [[ -n "$fake_time" ]]; then
   minute_of_day=$(parse_minutes "$fake_time")
