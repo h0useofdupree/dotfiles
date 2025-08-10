@@ -205,8 +205,32 @@ wall="${files[$index]}"
 
 log "using file: $wall"
 current_link="${DYNAMIC_WALLPAPER_LINK:-}"
+
 if [[ -n "$current_link" ]]; then
   mkdir -p "$(dirname "$current_link")"
   ln -sf "$wall" "$current_link"
 fi
+
+visible_dir="$HOME/Pictures/WallpapersCache"
+mkdir -p "$visible_dir"
+
+ext="${wall##*.}"
+copy_target="$visible_dir/current.$ext"
+
+base_keep="$(basename "$copy_target")"
+find "$visible_dir" -maxdepth 1 -type f -name 'current.*' ! -name "$base_keep" -delete
+
+# Atomic write with hardlink → reflink → copy
+tmp="${copy_target}.tmp.$$"
+if ln -f "$wall" "$tmp" 2>/dev/null; then
+  :
+elif cp --reflink=auto "$wall" "$tmp" 2>/dev/null; then
+  :
+else
+  cp -f "$wall" "$tmp"
+fi
+mv -f "$tmp" "$copy_target"
+
+log "mirrored current wallpaper to: $copy_target"
+
 exec "$swww_bin" img "$wall" --transition-type fade --transition-fps 144
