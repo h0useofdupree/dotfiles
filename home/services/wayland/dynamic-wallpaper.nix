@@ -1,4 +1,11 @@
-{config, ...}: {
+{
+  config,
+  isLaptop,
+  ...
+}: let
+  groupLinx = "AnimeCity";
+  groupNixus = "Fuji";
+in {
   services.swww.enable = true;
   dynamicWallpaper = {
     enable = true;
@@ -6,7 +13,10 @@
     startTime = "06:00";
     endTime = "23:00";
     refreshInterval = "5m";
-    group = "Fuji";
+    group =
+      if isLaptop
+      then groupLinx
+      else groupNixus;
     currentLink = config.home.homeDirectory + "/.cache/dynamic-wallpaper/current";
 
     # NOTE: Available groups:
