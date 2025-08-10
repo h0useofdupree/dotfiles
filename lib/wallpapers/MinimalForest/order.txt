@@ -1,0 +1,6 @@
+# 2 and 4 are dupes so simply use this to pretend 2 can be morning and evening darkness
+MinimalForest-2
+MinimalForest-3
+MinimalForest-1
+MinimalForest-3
+MinimalForest-2
