@@ -23,11 +23,6 @@ in {
       options.dark = true;
     };
 
-    extraConfig = {
-      diff.colorMoved = "default";
-      merge.conflictstyle = "diff3";
-    };
-
     aliases = let
       log = "log --show-notes='*' --abbrev-commit --pretty=format:'%Cred%h %Cgreen(%aD)%Creset -%C(bold red)%d%Creset %s %C(bold blue)<%an>% %Creset' --graph";
     in {
@@ -68,6 +63,9 @@ in {
       };
       pull.rebase = true;
       init.defaultBranch = "main";
+      diff.colorMoved = "default";
+      merge.conflictstyle = "diff3";
+      fetch.tags = true;
     };
 
     userEmail = "joel.riekemann@gmail.com";
