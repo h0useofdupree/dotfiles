@@ -26,6 +26,8 @@
         "verification"
         "powermenu"
         "powerdropdownmenu"
+        "caelestia-border-exclusion"
+        "caelestia-drawers"
       ];
 
       blurred = lib.concatLists [

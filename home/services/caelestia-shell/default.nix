@@ -27,6 +27,25 @@ in {
   ];
 
   home.file.".config/caelestia/shell.json".text = builtins.toJSON {
+    appearance = {
+      anim.durations.scale = 1;
+      font = {
+        family = {
+          material = "Material Symbols Rounded";
+          mono = "MesloLGLDZ Nerd Font Mono";
+          sans = "Inter";
+        };
+        size.scale = 1;
+      };
+      padding.scale = 1;
+      rounding.scale = 1;
+      spacing.scale = 1;
+      transparency = {
+        enabled = true;
+        base = 0.5;
+        layers = 0.4;
+      };
+    };
     general = {
       apps = {
         terminal = ["kitty"];
@@ -53,9 +72,11 @@ in {
         shown = 5;
       };
       status = {
-        showAudio = !isLaptop;
+        showAudio = true;
         showBattery = isLaptop;
+        showBluetooth = true;
         showNetwork = isLaptop;
+        showKbLayout = false;
       };
     };
     border = {
@@ -67,29 +88,35 @@ in {
       visualiserBars = 45;
     };
     launcher = {
-      actionPrefix = ">";
+      actionPrefix = "!";
       dragThreshold = 50;
       vimKeybinds = true;
       enableDangerousActions = false;
-      maxShown = 8;
+      maxShown =
+        if isLaptop
+        then 6
+        else 10;
       maxWallpapers = 9;
       useFuzzy = {
-        apps = false;
+        apps = true;
         actions = false;
-        schemes = false;
-        variants = false;
+        schemes = true;
+        variants = true;
         wallpapers = true;
       };
     };
     lock = {
-      maxNotifs = 5;
+      maxNotifs =
+        if isLaptop
+        then 5
+        else 8;
     };
     notifs = {
       actionOnClick = true;
       clearThreshold = 0.3;
       defaultExpireTimeout = 5000;
       expandThreshold = 20;
-      expire = true;
+      expire = false;
     };
     osd = {
       hideDelay = 2000;
@@ -102,6 +129,8 @@ in {
     services = {
       weatherLocation = "51.24,6.95";
       useFahrenheit = false;
+      useTwelveHourClock = false;
+      audioIncrement = 0.05;
     };
     session = {
       dragThreshold = 30;
