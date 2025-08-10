@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   lib,
@@ -96,7 +97,7 @@ in {
     paths = {
       mediaGif = "root:/assets/bongocat.gif";
       sessionGif = "root:/assets/kurukuru.gif";
-      wallpaperDir = "~/Pictures/Wallpapers";
+      wallpaperDir = config.home.homeDirectory + "/Pictures/WallpapersCache";
     };
     services = {
       weatherLocation = "51.24,6.95";
