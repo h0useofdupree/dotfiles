@@ -120,8 +120,11 @@ order_file="$dir/order.txt"
 files=()
 if [[ -f "$order_file" ]]; then
   declare -A seen=()
-  while IFS= read -r line; do
-    [[ -z "$line" || "$line" == \#* ]] && continue
+  while IFS= read -r raw; do
+    line="${raw%%#*}"                       # strip inline comment
+    line="${line#"${line%%[![:space:]]*}"}" # ltrim
+    line="${line%"${line##*[![:space:]]}"}" # rtrim
+    [[ -z "$line" ]] && continue
     base="$dir/$line"
     for ext in jpg jpeg png; do
       candidate="$base.$ext"
