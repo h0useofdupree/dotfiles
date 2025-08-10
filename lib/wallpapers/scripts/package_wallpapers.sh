@@ -61,7 +61,9 @@ zip_group() {
   (
     cd "$wallpaper_root"
     # -9 max compression, -X strip extra file attrs/timestamps for smaller diffs
-    zip -r -q -9 -X "$zip_path" "$name"
+    zip_args=("$name")
+    [[ -f "$name/order.txt" ]] && zip_args+=("$name/order.txt")
+    zip -r -q -9 -X "$zip_path" "${zip_args[@]}"
   )
 
   # per-zip checksum with relative path (so sha256sum -c works anywhere)

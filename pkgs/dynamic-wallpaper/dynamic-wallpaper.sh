@@ -113,12 +113,37 @@ if [[ ! -d "$dir" ]]; then
 fi
 
 shopt -s nullglob
-files=("$dir"/*.{jpg,jpeg,png})
-if [[ ${#files[@]} -eq 0 ]]; then
+all_files=("$dir"/*.{jpg,jpeg,png})
+if [[ ${#all_files[@]} -eq 0 ]]; then
   echo "dynamic-wallpaper: no images found in $dir" >&2
   exit 1
 fi
-mapfile -t files < <(printf '%s\n' "${files[@]}" | sort -V)
+mapfile -t all_files < <(printf '%s\n' "${all_files[@]}" | sort -V)
+
+order_file="$dir/order.txt"
+files=()
+if [[ -f "$order_file" ]]; then
+  declare -A seen=()
+  while IFS= read -r line; do
+    [[ -z "$line" || "$line" == \#* ]] && continue
+    base="$dir/$line"
+    for ext in jpg jpeg png; do
+      candidate="$base.$ext"
+      if [[ -f "$candidate" ]]; then
+        files+=("$candidate")
+        seen["$candidate"]=1
+        break
+      fi
+    done
+  done <"$order_file"
+
+  for f in "${all_files[@]}"; do
+    [[ -n "${seen[$f]:-}" ]] && continue
+    files+=("$f")
+  done
+else
+  files=("${all_files[@]}")
+fi
 count=${#files[@]}
 
 parse_minutes() {
@@ -217,20 +242,25 @@ mkdir -p "$visible_dir"
 ext="${wall##*.}"
 copy_target="$visible_dir/current.$ext"
 
+# Keep only the current extension, prune others.
 base_keep="$(basename "$copy_target")"
 find "$visible_dir" -maxdepth 1 -type f -name 'current.*' ! -name "$base_keep" -delete
 
-# Atomic write with hardlink → reflink → copy
-tmp="${copy_target}.tmp.$$"
-if ln -f "$wall" "$tmp" 2>/dev/null; then
-  :
-elif cp --reflink=auto "$wall" "$tmp" 2>/dev/null; then
-  :
+# If the target already references the same inode as $wall, skip work.
+if [[ -e "$copy_target" ]] && [[ "$wall" -ef "$copy_target" ]]; then
+  log "cache already up to date: $copy_target"
 else
-  cp -f "$wall" "$tmp"
-fi
-mv -f "$tmp" "$copy_target"
+  # Write atomically inside the same filesystem/dir.
+  tmp="$(mktemp -p "$visible_dir" .current.tmp.XXXXXX)"
 
-log "mirrored current wallpaper to: $copy_target"
+  # Prefer reflink (fast on btrfs); fall back to a regular copy.
+  if ! cp --reflink=auto -f -- "$wall" "$tmp" 2>/dev/null; then
+    cp -f -- "$wall" "$tmp"
+  fi
+
+  # Atomically replace (even if $copy_target exists).
+  mv -fT -- "$tmp" "$copy_target"
+  log "mirrored current wallpaper to: $copy_target"
+fi
 
 exec "$swww_bin" img "$wall" --transition-type fade --transition-fps 144
