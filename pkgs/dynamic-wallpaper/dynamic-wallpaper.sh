@@ -2,7 +2,10 @@
 set -euo pipefail
 
 usage() {
-  cat <<EOF
+  local ec="${1:-0}"
+  local out="/dev/stdout"
+  ((ec != 0)) && out="/dev/stderr"
+  cat >"$out" <<'EOF'
 dynamic-wallpaper - change wallpaper depending on the time of day
 
 Usage: dynamic-wallpaper [options]
@@ -14,22 +17,17 @@ Options:
   --auto-light        Use the lightest wallpaper when GNOME is in light mode
                        (only after 06:00).
   --start TIME        Start time for the cycle (default: 06:00).
-                       Format: HH:MM, e.g., 06:00.
   --end TIME          End time for the cycle (default: 22:00).
-                       Format: HH:MM, e.g., 22:00.
   --time TIME         Use TIME instead of the current system time (HH:MM)
   -l, --log FILE      Write log output to FILE.
   -h, --help          Show this help text.
-
-The number of images in DIR determines how many times the wallpaper changes
-throughout the day. The cycle starts at 06:00. Images are sorted
-lexicographically; the first is assumed to be the lightest.
 Environment variables can also be used instead of command line options:
   DYNAMIC_WALLPAPER_DIR, DYNAMIC_WALLPAPER_GROUP,
   DYNAMIC_WALLPAPER_FORCE_LIGHT, DYNAMIC_WALLPAPER_AUTO_LIGHT,
   DYNAMIC_WALLPAPER_LOG, DYNAMIC_WALLPAPER_START,
   DYNAMIC_WALLPAPER_END, DYNAMIC_WALLPAPER_TIME.
 EOF
+  exit "$ec"
 }
 
 swww_bin="${SWWW_BIN:-swww}"
@@ -44,16 +42,6 @@ start_time="${DYNAMIC_WALLPAPER_START:-06:00}"
 end_time="${DYNAMIC_WALLPAPER_END:-22:00}"
 fake_time="${DYNAMIC_WALLPAPER_TIME:-}"
 MAX_LOG_LINES=500
-
-# Clean up log file
-if [[ -f "$log_file" ]]; then
-  tail -n "$MAX_LOG_LINES" "$log_file" >"${log_file}.tmp" && mv "${log_file}.tmp" "$log_file"
-fi
-
-log() {
-  mkdir -p "$(dirname "$log_file")"
-  printf '%s\n' "$(date '+%F %T') - $*" | tee -a "$log_file"
-}
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -89,15 +77,23 @@ while [[ $# -gt 0 ]]; do
     log_file="$2"
     shift 2
     ;;
-  -h | --help)
-    usage
-    ;;
+  -h | --help) usage 0 ;;
   *)
     echo "Unknown argument: $1" >&2
-    usage
+    usage 2
     ;;
   esac
 done
+
+# Clean up log file
+if [[ -f "$log_file" ]]; then
+  tail -n "$MAX_LOG_LINES" "$log_file" >"${log_file}.tmp" && mv "${log_file}.tmp" "$log_file"
+fi
+
+log() {
+  mkdir -p "$(dirname "$log_file")"
+  printf '%s\n' "$(date '+%F %T') - $*" | tee -a "$log_file"
+}
 
 if [[ -n "$group" ]]; then
   dir="$wallpapers_root/$group"
@@ -113,12 +109,45 @@ if [[ ! -d "$dir" ]]; then
 fi
 
 shopt -s nullglob
-files=("$dir"/*.{jpg,jpeg,png})
-if [[ ${#files[@]} -eq 0 ]]; then
+all_files=("$dir"/*.{jpg,jpeg,png})
+if [[ ${#all_files[@]} -eq 0 ]]; then
   echo "dynamic-wallpaper: no images found in $dir" >&2
   exit 1
 fi
-mapfile -t files < <(printf '%s\n' "${files[@]}" | sort -V)
+mapfile -t all_files < <(printf '%s\n' "${all_files[@]}" | sort -V)
+
+order_file="$dir/order.txt"
+files=()
+if [[ -f "$order_file" ]]; then
+  # If order.txt is empty/invalid, we fall back to all_files.
+  declare -A valid=()
+  for f in "${all_files[@]}"; do valid["$(basename "${f%.*}")"]=1; done
+
+  while IFS= read -r raw; do
+    line="${raw%%#*}"                       # strip inline comment
+    line="${line#"${line%%[![:space:]]*}"}" # ltrim
+    line="${line%"${line##*[![:space:]]}"}" # rtrim
+    [[ -z "$line" ]] && continue
+
+    for ext in jpg jpeg png; do
+      candidate="$dir/$line.$ext"
+      if [[ -f "$candidate" ]]; then
+        files+=("$candidate")
+        break
+      fi
+    done
+    if [[ ! -f "$dir/$line.jpg" && ! -f "$dir/$line.jpeg" && ! -f "$dir/$line.png" ]]; then
+      log "warning: order.txt references '$line' but no matching image found"
+    fi
+  done <"$order_file"
+
+  if [[ ${#files[@]} -eq 0 ]]; then
+    log "warning: order.txt produced an empty schedule; falling back to all images"
+    files=("${all_files[@]}")
+  fi
+else
+  files=("${all_files[@]}")
+fi
 count=${#files[@]}
 
 parse_minutes() {
@@ -148,10 +177,15 @@ for ((i = 0; i < count; i++)); do
 done
 
 log "directory: $dir"
-log "found $count images"
+log "total images in dir: ${#all_files[@]}"
+log "schedule length: ${#files[@]} (source: $([[ -f "$order_file" ]] && echo order.txt || echo directory))"
 log "interval: $interval minutes"
 # log "switch times: ${times[*]}"
-log "switch times:"$'\n'"$(printf '  %s\n' "${times[@]}")"
+log "switch times with corresponding wallpapers:"$'\n'"$(
+  for ((i = 0; i < count; i++)); do
+    printf '  %-5s  %s\n' "${times[$i]}" "$(basename "${files[$i]}")"
+  done
+)"
 
 if [[ -n "$fake_time" ]]; then
   minute_of_day=$(parse_minutes "$fake_time")
@@ -217,20 +251,25 @@ mkdir -p "$visible_dir"
 ext="${wall##*.}"
 copy_target="$visible_dir/current.$ext"
 
+# Keep only the current extension, prune others.
 base_keep="$(basename "$copy_target")"
 find "$visible_dir" -maxdepth 1 -type f -name 'current.*' ! -name "$base_keep" -delete
 
-# Atomic write with hardlink → reflink → copy
-tmp="${copy_target}.tmp.$$"
-if ln -f "$wall" "$tmp" 2>/dev/null; then
-  :
-elif cp --reflink=auto "$wall" "$tmp" 2>/dev/null; then
-  :
+# If the target already references the same inode as $wall, skip work.
+if [[ -e "$copy_target" ]] && [[ "$wall" -ef "$copy_target" ]]; then
+  log "cache already up to date: $copy_target"
 else
-  cp -f "$wall" "$tmp"
-fi
-mv -f "$tmp" "$copy_target"
+  # Write atomically inside the same filesystem/dir.
+  tmp="$(mktemp -p "$visible_dir" .current.tmp.XXXXXX)"
 
-log "mirrored current wallpaper to: $copy_target"
+  # Prefer reflink (fast on btrfs); fall back to a regular copy.
+  if ! cp --reflink=auto -f -- "$wall" "$tmp" 2>/dev/null; then
+    cp -f -- "$wall" "$tmp"
+  fi
+
+  # Atomically replace (even if $copy_target exists).
+  mv -fT -- "$tmp" "$copy_target"
+  log "mirrored current wallpaper to: $copy_target"
+fi
 
 exec "$swww_bin" img "$wall" --transition-type fade --transition-fps 144
