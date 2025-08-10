@@ -137,13 +137,18 @@ for zip in "$tmpdir"/*.zip; do
 
   unzip -q "$zip" -d "$workdir"
 
+  src="$workdir"
+  if [[ -d "$workdir/$group" ]]; then
+    src="$workdir/$group"
+  fi
+
   target="$wallpaper_root/$group"
   mkdir -p "$target"
 
   if $force; then
-    rsync -a "$workdir"/ "$target"/
+    rsync -a "$src"/ "$target"/
   else
-    rsync -a --ignore-existing "$workdir"/ "$target"/
+    rsync -a --ignore-existing "$src"/ "$target"/
   fi
 
   rm -rf "$workdir"
