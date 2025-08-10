@@ -119,27 +119,32 @@ mapfile -t all_files < <(printf '%s\n' "${all_files[@]}" | sort -V)
 order_file="$dir/order.txt"
 files=()
 if [[ -f "$order_file" ]]; then
-  declare -A seen=()
+  # If order.txt is empty/invalid, we fall back to all_files.
+  declare -A valid=()
+  for f in "${all_files[@]}"; do valid["$(basename "${f%.*}")"]=1; done
+
   while IFS= read -r raw; do
     line="${raw%%#*}"                       # strip inline comment
     line="${line#"${line%%[![:space:]]*}"}" # ltrim
     line="${line%"${line##*[![:space:]]}"}" # rtrim
     [[ -z "$line" ]] && continue
-    base="$dir/$line"
+
     for ext in jpg jpeg png; do
-      candidate="$base.$ext"
+      candidate="$dir/$line.$ext"
       if [[ -f "$candidate" ]]; then
         files+=("$candidate")
-        seen["$candidate"]=1
         break
       fi
     done
+    if [[ ! -f "$dir/$line.jpg" && ! -f "$dir/$line.jpeg" && ! -f "$dir/$line.png" ]]; then
+      log "warning: order.txt references '$line' but no matching image found"
+    fi
   done <"$order_file"
 
-  for f in "${all_files[@]}"; do
-    [[ -n "${seen[$f]:-}" ]] && continue
-    files+=("$f")
-  done
+  if [[ ${#files[@]} -eq 0 ]]; then
+    log "warning: order.txt produced an empty schedule; falling back to all images"
+    files=("${all_files[@]}")
+  fi
 else
   files=("${all_files[@]}")
 fi
@@ -172,7 +177,8 @@ for ((i = 0; i < count; i++)); do
 done
 
 log "directory: $dir"
-log "found $count images"
+log "total images in dir: ${#all_files[@]}"
+log "schedule length: ${#files[@]} (source: $([[ -f "$order_file" ]] && echo order.txt || echo directory))"
 log "interval: $interval minutes"
 # log "switch times: ${times[*]}"
 log "switch times with corresponding wallpapers:"$'\n'"$(
