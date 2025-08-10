@@ -2,7 +2,10 @@
 set -euo pipefail
 
 usage() {
-  cat <<EOF
+  local ec="${1:-0}"
+  local out="/dev/stdout"
+  ((ec != 0)) && out="/dev/stderr"
+  cat >"$out" <<'EOF'
 dynamic-wallpaper - change wallpaper depending on the time of day
 
 Usage: dynamic-wallpaper [options]
@@ -14,22 +17,17 @@ Options:
   --auto-light        Use the lightest wallpaper when GNOME is in light mode
                        (only after 06:00).
   --start TIME        Start time for the cycle (default: 06:00).
-                       Format: HH:MM, e.g., 06:00.
   --end TIME          End time for the cycle (default: 22:00).
-                       Format: HH:MM, e.g., 22:00.
   --time TIME         Use TIME instead of the current system time (HH:MM)
   -l, --log FILE      Write log output to FILE.
   -h, --help          Show this help text.
-
-The number of images in DIR determines how many times the wallpaper changes
-throughout the day. The cycle starts at 06:00. Images are sorted
-lexicographically; the first is assumed to be the lightest.
 Environment variables can also be used instead of command line options:
   DYNAMIC_WALLPAPER_DIR, DYNAMIC_WALLPAPER_GROUP,
   DYNAMIC_WALLPAPER_FORCE_LIGHT, DYNAMIC_WALLPAPER_AUTO_LIGHT,
   DYNAMIC_WALLPAPER_LOG, DYNAMIC_WALLPAPER_START,
   DYNAMIC_WALLPAPER_END, DYNAMIC_WALLPAPER_TIME.
 EOF
+  exit "$ec"
 }
 
 swww_bin="${SWWW_BIN:-swww}"
@@ -44,16 +42,6 @@ start_time="${DYNAMIC_WALLPAPER_START:-06:00}"
 end_time="${DYNAMIC_WALLPAPER_END:-22:00}"
 fake_time="${DYNAMIC_WALLPAPER_TIME:-}"
 MAX_LOG_LINES=500
-
-# Clean up log file
-if [[ -f "$log_file" ]]; then
-  tail -n "$MAX_LOG_LINES" "$log_file" >"${log_file}.tmp" && mv "${log_file}.tmp" "$log_file"
-fi
-
-log() {
-  mkdir -p "$(dirname "$log_file")"
-  printf '%s\n' "$(date '+%F %T') - $*" | tee -a "$log_file"
-}
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -89,15 +77,23 @@ while [[ $# -gt 0 ]]; do
     log_file="$2"
     shift 2
     ;;
-  -h | --help)
-    usage
-    ;;
+  -h | --help) usage 0 ;;
   *)
     echo "Unknown argument: $1" >&2
-    usage
+    usage 2
     ;;
   esac
 done
+
+# Clean up log file
+if [[ -f "$log_file" ]]; then
+  tail -n "$MAX_LOG_LINES" "$log_file" >"${log_file}.tmp" && mv "${log_file}.tmp" "$log_file"
+fi
+
+log() {
+  mkdir -p "$(dirname "$log_file")"
+  printf '%s\n' "$(date '+%F %T') - $*" | tee -a "$log_file"
+}
 
 if [[ -n "$group" ]]; then
   dir="$wallpapers_root/$group"
