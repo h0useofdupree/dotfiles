@@ -19,11 +19,13 @@
     wlr-randr
   ];
 
-  # Wayland compat
   home.sessionVariables = {
+    # Wayland compat
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
     XDG_SESSION_TYPE = "wayland";
+    # UWSM App2Unit compat
+    APP2UNIT_SLICES = "a=app-graphical.slice b=background-graphical.slice s=session-graphical.slice";
   };
   systemd.user.targets.tray.Unit.Requires = lib.mkForce ["graphical-session.target"];
 }
