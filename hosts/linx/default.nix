@@ -3,6 +3,7 @@
   pkgs,
   self,
   lib,
+  config,
   ...
 }: {
   imports = [
@@ -52,10 +53,6 @@
     LC_MEASUREMENT = "de_DE.UTF-8"; # Units (e.g., metric)
     LANG = "en_US.UTF-8"; # Interface language
     NH_FLAKE = "/home/h0useofdupree/.dotfiles";
+    OPENAI_API_KEY = "$(${pkgs.coreutils}/bin/cat ${config.age.secrets.openai-api-key.path})";
   };
-  environment.etc."profile.d/openai-api-key.sh".text = ''
-    if [ -f /run/agenix/openai-api-key ]; then
-      export OPENAI_API_KEY="$(${pkgs.coreutils}/bin/cat /run/agenix/openai-api-key)"
-    fi
-  '';
 }
