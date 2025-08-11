@@ -392,7 +392,14 @@
             };
           };
           noice.enable = true;
-          colorizer.enable = true;
+          colorizer = {
+            enable = true;
+            setupOpts = {
+              filetypes = {
+                "*" = {};
+              };
+            };
+          };
           illuminate.enable = true;
           breadcrumbs = {
             enable = false;
