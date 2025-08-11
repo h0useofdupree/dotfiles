@@ -145,6 +145,62 @@
         description = "fetches a gitignore template for a given language";
       };
 
+      wp-groups-summary = {
+        body = ''
+          set -l root ${config.home.homeDirectory}/.dotfiles/lib/wallpapers
+          if test (count $argv) -ge 1
+              set root $argv[1]
+          end
+
+          if not test -d "$root"
+              echo "wp-groups-summary: root not found: $root" >&2
+              return 1
+          end
+
+          if not type -q magick
+              echo "wp-groups-summary: ImageMagick 'magick' not in PATH" >&2
+              return 127
+          end
+
+          for clean in (command find "$root" -mindepth 1 -maxdepth 1 -type d -print0 | string split0)
+              set -l name (basename $clean)
+
+              # skip meta dirs
+              if test "$name" = archives -o "$name" = scripts
+                  continue
+              end
+
+              # collect images
+              set -l imgs (command find "$clean" -maxdepth 1 -type f \
+                  \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) \
+                  -print0 | string split0)
+              if test (count $imgs) -eq 0
+                  continue
+              end
+
+              set -l first_img $imgs[1]
+              set -l count (count $imgs)
+
+              # fast resolution probe
+              set -l res (magick identify -ping -format "%wx%h" -- "$first_img" 2>/dev/null)
+              if test -z "$res"; set res "unknown"; end
+
+              # average-ish color via 1x1
+              set -l avg_hex (magick "$first_img" -resize 1x1\! -colorspace sRGB -depth 8 txt:- 2>/dev/null \
+                  | string match -r '#[0-9A-Fa-f]{6}' | head -n 1)
+              if test -z "$avg_hex"; set avg_hex "#000000"; end
+
+              # brightness 0–100
+              set -l bright (magick identify -format "%[fx:100*mean]" -- "$first_img" 2>/dev/null)
+              if test -z "$bright"; set bright 0; end
+              set -l bright_pct (printf "%.0f" $bright)
+
+              echo "# - '$name' - $count images - $res - avg $avg_hex - ~$bright_pct% bright"
+          end
+        '';
+        description = "Get wallpaper group name, count, res, avg color, brightness";
+      };
+
       hyprlock-restart = {
         body = ''
           set logdir (test -n "$XDG_STATE_HOME"; and echo $XDG_STATE_HOME; or echo "$HOME/.local/state")
