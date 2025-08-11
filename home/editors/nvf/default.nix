@@ -172,7 +172,7 @@
           lightbulb.enable = true;
           lspsaga.enable = true;
           trouble.enable = true;
-          lspSignature.enable = true;
+          lspSignature.enable = false;
           otter-nvim.enable = true;
           nvim-docs-view = {
             enable = false;
@@ -301,8 +301,33 @@
         # '';
 
         autopairs.nvim-autopairs.enable = true;
-
-        autocomplete.nvim-cmp.enable = true;
+        autocomplete = {
+          nvim-cmp.enable = false;
+          blink-cmp = {
+            enable = true;
+            friendly-snippets.enable = true;
+            setupOpts = {
+              enabled = true;
+              signature = {
+                window = {
+                  border = "rounded";
+                };
+                trigger = {
+                  enabled = true;
+                  show_on_trigger_character = true;
+                  show_on_insert_on_trigger_character = true;
+                };
+              };
+              completion = {
+                documentation = {
+                  auto_show = true;
+                  auto_show_delay_ms = 200;
+                };
+                menu.auto_show = true;
+              };
+            };
+          };
+        };
         snippets = {
           luasnip = {
             enable = true;
@@ -405,7 +430,7 @@
             plugins = {
               fastaction.enable = true;
               lsp-signature.enable = true;
-              nvim-cmp.enable = true;
+              nvim-cmp.enable = false;
               which-key.enable = true;
             };
           };
