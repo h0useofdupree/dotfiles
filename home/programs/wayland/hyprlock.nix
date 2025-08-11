@@ -6,7 +6,6 @@
 }: {
   programs.hyprlock = {
     enable = true;
-
     package = inputs.hyprlock.packages.${pkgs.system}.hyprlock;
 
     settings = {
@@ -31,10 +30,24 @@
         }
       ];
 
+      image = [
+        {
+          monitor = "";
+          path = config.home.homeDirectory + "/.face.jpg";
+          size = 60;
+          rounding = -1;
+          border_size = 2;
+          border_color = "rgba(221, 221, 221, 1.0)";
+          position = "0, -50";
+          halign = "center";
+          valign = "top";
+          zindex = 1;
+        }
+      ];
+
       input-field = [
         {
           monitor = "";
-
           size = "250, 50";
           outline_thickness = 2;
 
@@ -54,29 +67,39 @@
       label = [
         {
           monitor = "";
-          text = "$TIME";
-          font_size = 65;
-          font_family = "Inter";
+          text = "cmd[update:1000] date +%H";
+          font_size = 120;
+          font_family = "Inter:style=Bold";
           color = "rgba(255, 255, 255, 1.0)";
-
-          position = "0, 300";
+          position = "0, 400";
           halign = "center";
           valign = "center";
-
           shadow_passes = 1;
           shadow_boost = 0.5;
         }
+
         {
           monitor = "";
-          text = "hi $USER !!!";
+          text = "cmd[update:1000] date +%M";
+          font_size = 80;
+          font_family = "Inter:style=Bold";
+          color = "rgba(255, 255, 255, 1.0)";
+          position = "0, 200";
+          halign = "center";
+          valign = "center";
+          shadow_passes = 1;
+          shadow_boost = 0.5;
+        }
+
+        {
+          monitor = "";
+          text = "hi $USER";
           font_size = 20;
           font_family = "Inter";
           color = "rgba(255, 255, 255, 1.0)";
-
-          position = "0, 240";
+          position = "0, -300";
           halign = "center";
           valign = "center";
-
           shadow_passes = 1;
           shadow_boost = 0.5;
         }
@@ -86,25 +109,21 @@
           font_size = 21;
           font_family = "Material Symbols Rounded";
           color = "rgba(255, 255, 255, 1.0)";
-
-          position = "0, 65";
+          position = "0, 100";
           halign = "center";
           valign = "bottom";
-
           shadow_passes = 1;
           shadow_boost = 0.5;
         }
         {
           monitor = "";
           text = "locked";
-          font_size = 14;
-          font_family = "Inter";
+          font_size = 30;
+          font_family = "Inter:style=Bold";
           color = "rgba(255, 255, 255, 1.0)";
-
           position = "0, 45";
           halign = "center";
           valign = "bottom";
-
           shadow_passes = 1;
           shadow_boost = 0.5;
         }
