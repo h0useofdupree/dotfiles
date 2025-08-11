@@ -9,17 +9,26 @@
     "${self}/hosts/linx/hardware-configuration.nix"
     ./hyprland.nix
   ];
+  age = {
+    secrets = {
+      spotify-client-id = {
+        file = "${self}/secrets/spotify-client-id.age";
+        owner = "h0useofdupree";
+        group = "users";
+      };
 
-  # age.secrets.weatherapi-key = {
-  #   file = "${self}/secrets/weatherapi-key.age";
-  #   owner = "h0useofdupree";
-  #   group = "users";
-  # };
+      openai-api-key = {
+        file = "${self}/secrets/openai-api-key.age";
+        owner = "h0useofdupree";
+        group = "users";
+      };
 
-  age.secrets.spotify-client-id = {
-    file = "${self}/secrets/spotify-client-id.age";
-    owner = "h0useofdupree";
-    group = "users";
+      # weatherapi-key = {
+      #   file = "${self}/secrets/weatherapi-key.age";
+      #   owner = "h0useofdupree";
+      #   group = "users";
+      # };
+    };
   };
 
   networking.hostName = "linx";
@@ -44,4 +53,9 @@
     LANG = "en_US.UTF-8"; # Interface language
     NH_FLAKE = "/home/h0useofdupree/.dotfiles";
   };
+  environment.etc."profile.d/openai-api-key.sh".text = ''
+    if [ -f /run/agenix/openai-api-key ]; then
+      export OPENAI_API_KEY="$(${pkgs.coreutils}/bin/cat /run/agenix/openai-api-key)"
+    fi
+  '';
 }

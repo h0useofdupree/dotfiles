@@ -8,4 +8,5 @@ in {
   "speakerctl-devices.age".publicKeys = [h0useofdupree nixus];
   "weatherapi-key.age".publicKeys = [h0useofdupree] ++ hosts;
   "spotify-client-id.age".publicKeys = [h0useofdupree] ++ hosts;
+  "openai-api-key.age".publicKeys = [h0useofdupree] ++ hosts;
 }
