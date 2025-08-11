@@ -308,7 +308,7 @@
 
         treesitter = {
           fold = true;
-          context.enable = true;
+          context.enable = false;
         };
 
         binds = {
