@@ -196,7 +196,16 @@
           enableExtraDiagnostics = true;
 
           assembly.enable = true;
-          nix.enable = true;
+          nix = {
+            enable = true;
+            lsp = {
+              enable = true;
+              server = "nil";
+            };
+            treesitter = {
+              enable = true;
+            };
+          };
           markdown = {
             enable = true;
             extensions = {
@@ -205,8 +214,11 @@
               };
             };
           };
-          bash.enable = true;
+          bash = {
+            enable = true;
+          };
           clang.enable = true;
+          csharp.enable = true;
           css.enable = true;
           html.enable = true;
           sql.enable = true;
@@ -233,11 +245,11 @@
             enable = true;
             crates.enable = true;
           };
+          svelte.enable = true;
           yaml.enable = true;
 
           astro.enable = false;
           nu.enable = false;
-          csharp.enable = false;
           julia.enable = false;
           vala.enable = false;
           scala.enable = false;
@@ -250,7 +262,6 @@
           ruby.enable = false;
 
           tailwind.enable = false;
-          svelte.enable = false;
           nim.enable = false;
         };
 
@@ -292,7 +303,14 @@
         autopairs.nvim-autopairs.enable = true;
 
         autocomplete.nvim-cmp.enable = true;
-        snippets.luasnip.enable = true;
+        snippets = {
+          luasnip = {
+            enable = true;
+            setupOpts = {
+              enable_autosnippets = true;
+            };
+          };
+        };
 
         tabline = {
           nvimBufferline = {
@@ -392,6 +410,7 @@
             };
           };
           noice.enable = true;
+          colorful-menu-nvim.enable = true;
           colorizer = {
             enable = true;
             setupOpts = {
@@ -480,6 +499,9 @@
         };
 
         assistant = {
+          chatgpt = {
+            enable = false;
+          };
           copilot = {
             enable = false;
             cmp.enable = true;
