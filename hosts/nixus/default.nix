@@ -56,7 +56,7 @@
   boot = {
     kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
     initrd.kernelModules = ["amdgpu"];
-    kernelModules = ["i2c-dev"];
+    kernelModules = ["i2c-dev" "i2c-piix4"];
   };
 
   users.groups.i2c = {};
