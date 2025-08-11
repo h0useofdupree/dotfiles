@@ -90,9 +90,9 @@ in {
         "Control $mod, Delete, global, caelestia:session"
 
         # lock screen
-        # "$mod $mod2, L, exec, ${runOnce "hyprlock"}"
+        "$mod2, L, exec, ${runOnce "hyprlock"}"
         # "$mod, L, global, systemctl --user start caelestia-shell.service"
-        "$mod2, L, global, caelestia:lock"
+        "$mod $mod2, L, global, caelestia:lock"
 
         # select area to perform OCR on
         "$mod, O, exec, ${runOnce "wl-ocr"}"
