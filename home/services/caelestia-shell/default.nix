@@ -128,7 +128,7 @@ in {
       wallpaperDir = config.home.homeDirectory + "/Pictures/WallpapersCache";
     };
     services = {
-      weatherLocation = "51.24,6.95";
+      weatherLocation = "51.12,7.4";
       useFahrenheit = false;
       useTwelveHourClock = false;
       audioIncrement = 0.05;
