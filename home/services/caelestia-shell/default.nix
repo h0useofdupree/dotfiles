@@ -12,6 +12,7 @@
     withI3 = false;
   };
   cliPkg = inputs.caelestia-cli.packages.${pkgs.system}.default;
+  colorSyncPkg = inputs.self.packages.${pkgs.system}.caelestia-colors;
   logging = lib.concatStringsSep ";" [
     "quickshell.dbus.properties.warning=false"
     "quickshell.dbus.dbusmenu.warning=false"
@@ -24,6 +25,7 @@ in {
     shellPkg
     quickshellPkg
     cliPkg
+    colorSyncPkg
   ];
 
   home.file.".config/caelestia/shell.json".text = builtins.toJSON {
@@ -144,17 +146,40 @@ in {
       };
     };
   };
+  # Services
+  systemd = {
+    user = {
+      services = {
+        caelestia-shell = {
+          Unit = {
+            Description = "Caelestia desktop shell";
+            After = ["graphical-session.target"];
+          };
+          Install.WantedBy = ["graphical-session.target"];
+          Service = {
+            ExecStart = lib.getExe shellPkg;
+            Environment = "QT_LOGGING_RULES=${logging}";
+            Restart = "on-failure";
+          };
+        };
 
-  systemd.user.services.caelestia-shell = {
-    Unit = {
-      Description = "Caelestia desktop shell";
-      After = ["graphical-session.target"];
-    };
-    Install.WantedBy = ["graphical-session.target"];
-    Service = {
-      ExecStart = lib.getExe shellPkg;
-      Environment = "QT_LOGGING_RULES=${logging}";
-      Restart = "on-failure";
+        caelestia-colors = {
+          Unit.Description = "Generate Hyprland colors from caelestia scheme";
+          Service = {
+            Type = "oneshot";
+            ExecStart = lib.getExe colorSyncPkg;
+          };
+        };
+      };
+
+      paths.caelestia-colors = {
+        Unit.Description = "Watch caelestia scheme for changes";
+        Path = {
+          PathModified = config.home.homeDirectory + "/.local/state/caelestia/scheme.json";
+          Unit = "caelestia-colors.service";
+        };
+        Install.WantedBy = ["graphical-session.target"];
+      };
     };
   };
   # systemd.user.services.caelestia-lock-once = {
