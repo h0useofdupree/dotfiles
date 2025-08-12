@@ -6,6 +6,7 @@
   imports = [
     ./keymaps
     ./plugins
+    ./theme.nix
   ];
   programs.nvf = {
     enable = true;
@@ -17,6 +18,14 @@
           enable = false;
           level = 16;
           logFile = "/tmp/nvim.log";
+        };
+        globals = {
+          neovide_padding_top = 0;
+          neovide_padding_bottom = 0;
+          neovide_padding_right = 0;
+          neovide_padding_left = 0;
+          neovide_opacity = 0.85;
+          neovide_normal_opacity = 0.8;
         };
 
         #TODO: Add some autocmds
@@ -288,13 +297,6 @@
           };
         };
 
-        theme = {
-          enable = true;
-          name = "catppuccin";
-          style = "frappe";
-          transparent = false;
-        };
-
         # FIX: Theme is ugly and unreadable
         # luaConfigPost = ''
         #   ${builtins.readFile ./lua/themes/m3scheme.lua}
@@ -307,8 +309,8 @@
             enable = true;
             friendly-snippets.enable = true;
             setupOpts = {
-              enabled = true;
               signature = {
+                enabled = true;
                 window = {
                   border = "rounded";
                 };
