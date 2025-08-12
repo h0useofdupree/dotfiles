@@ -13,7 +13,7 @@
 
       dynamic-wallpaper = pkgs.callPackage ./dynamic-wallpaper {};
 
-      caelestia-colors = pkgs.callPackage ./caelestia-colors {};
+      # caelestia-colors = pkgs.callPackage ./caelestia-colors {};
 
       caelestia-shell = inputs.caelestia-shell.packages.${pkgs.system}.default;
     };
