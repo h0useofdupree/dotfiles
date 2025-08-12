@@ -245,6 +245,7 @@ if [[ -n "$current_link" ]]; then
   ln -sf "$wall" "$current_link"
 fi
 
+# TODO: Maybe rework this. caelestia-shell 38506e60293df56d252a99f561cca3b40e25bd21 added some support for symlinks?
 visible_dir="$HOME/Pictures/WallpapersCache"
 mkdir -p "$visible_dir"
 

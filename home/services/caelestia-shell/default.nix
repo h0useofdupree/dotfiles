@@ -34,6 +34,7 @@ in {
           material = "Material Symbols Rounded";
           mono = "MesloLGLDZ Nerd Font Mono";
           sans = "Inter";
+          clock = "Inter";
         };
         size.scale = 1;
       };
@@ -42,7 +43,7 @@ in {
       spacing.scale = 1;
       transparency = {
         enabled = true;
-        base = 0.5;
+        base = 0.3;
         layers = 0.4;
       };
     };
@@ -156,4 +157,34 @@ in {
       Restart = "on-failure";
     };
   };
+  # systemd.user.services.caelestia-lock-once = {
+  #   Unit = {
+  #     Description = "Lock screen once after Caelestia shell is ready";
+  #     After = ["graphical-session.target" "caelestia-shell.service"];
+  #     Wants = ["caelestia-shell.service"];
+  #   };
+  #   Service = {
+  #     Type = "oneshot";
+  #     # tiny retry loop to avoid races without ugly sleeps
+  #     ExecStart = let
+  #       script =
+  #         pkgs.writeShellScript "caelestia-lock-once"
+  #         ''
+  #           set -euo pipefail
+  #           for i in $(seq 1 150); do
+  #             if ${lib.getExe cliPkg} shell lock lock >/dev/null 2>&1; then
+  #               exit 0
+  #             fi
+  #             sleep 0.1
+  #           done
+  #           echo "caelestia lock: shell not ready after 15s, giving up" >&2
+  #           exit 1
+  #         '';
+  #     in
+  #       script;
+  #     # Optional: cleaner logs
+  #     Environment = "PATH=${lib.makeBinPath [pkgs.coreutils cliPkg]}";
+  #   };
+  #   Install.WantedBy = ["graphical-session.target"];
+  # };
 }
