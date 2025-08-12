@@ -7,27 +7,14 @@
       in "^(${elements})$";
 
       lowopacity = [
-        "audiomenu"
-        "bar-0"
-        "bluetoothmenu"
-        "calendarmenu"
-        "dashboardmenu"
-        "energymenu"
-        "mediamenu"
-        "notificationsmenu"
-        "notifications-window"
-        "networkmenu"
+        "caelestia-border-exclusion"
+        "caelestia-drawers"
       ];
 
       highopacity = [
-        "anyrun"
         "indicator"
         "logout_dialog"
         "verification"
-        "powermenu"
-        "powerdropdownmenu"
-        "caelestia-border-exclusion"
-        "caelestia-drawers"
       ];
 
       blurred = lib.concatLists [
