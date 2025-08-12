@@ -23,6 +23,8 @@
     gnome-control-center
     grc
 
+    planify
+
     # TODO: Add seperate programs folder for latex and stuff
     # WARNING: Temporary
     jabref
