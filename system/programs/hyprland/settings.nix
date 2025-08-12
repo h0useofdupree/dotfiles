@@ -12,6 +12,7 @@ in {
       settings = {
         "$mod" = "ALT";
         "$mod2" = "SUPER";
+        # source = "/home/h0useofdupree/.config/hypr/scheme/current.conf";
         env = [
           "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
           "HYPRCURSOR_THEME,${cursorName}"
@@ -34,9 +35,9 @@ in {
           layout = "dwindle";
           gaps_in = 10;
           gaps_out = 20;
-          border_size = 6;
-          "col.active_border" = "rgba(AAAAAAAA)";
-          "col.inactive_border" = "rgba(000000AA)";
+          border_size = 4;
+          # "col.active_border" = "rgba($primarye6)";
+          # "col.inactive_border" = "rgba($onSurfaceVariant11)";
 
           allow_tearing = true;
           resize_on_border = false;
@@ -212,8 +213,8 @@ in {
 
           borders-plus-plus = {
             add_borders = 1;
-            "col.border_1" = "rgba(000000BB)";
-            border_size_1 = 4;
+            # "col.border_1" = "rgba($background)";
+            border_size_1 = 5;
             natural_rounding = "yes";
           };
 
