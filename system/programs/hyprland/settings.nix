@@ -34,9 +34,9 @@ in {
           layout = "dwindle";
           gaps_in = 10;
           gaps_out = 20;
-          border_size = 3;
-          "col.active_border" = "rgba(AAAAAA88)";
-          "col.inactive_border" = "rgba(00000088)";
+          border_size = 6;
+          "col.active_border" = "rgba(AAAAAAAA)";
+          "col.inactive_border" = "rgba(000000AA)";
 
           allow_tearing = true;
           resize_on_border = false;
@@ -208,6 +208,13 @@ in {
             bar_precedence_over_border = true;
             icon_on_hover = true;
             on_double_click = "hyprctl dispatch fullscreen 1";
+          };
+
+          borders-plus-plus = {
+            add_borders = 1;
+            "col.border_1" = "rgba(000000BB)";
+            border_size_1 = 4;
+            natural_rounding = "yes";
           };
 
           hyprexpo = {
