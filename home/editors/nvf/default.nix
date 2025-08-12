@@ -41,9 +41,10 @@
         diagnostics = {
           enable = true;
           config = {
-            virtual_lines = {
-              only_current_line = true;
-            };
+            # virtual_lines = {
+            #   only_current_line = true;
+            # };
+            virtual_lines = false;
             virtual_text = false;
             underline = true;
             signs = {
@@ -326,6 +327,7 @@
                   auto_show_delay_ms = 200;
                 };
                 menu.auto_show = true;
+                ghost_text.enabled = true;
               };
             };
           };
