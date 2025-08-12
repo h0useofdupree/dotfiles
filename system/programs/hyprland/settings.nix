@@ -24,8 +24,9 @@ in {
           "uwsm finalize"
           # set cursor for HL itself
           "hyprctl setcursor ${cursorName} ${toString 18}"
-          "hyprlock"
-          # "sleep 2 && caelestia shell lock lock"
+          # "hyprlock"
+          "openrgb --startminimized"
+          "sleep 1 && caelestia shell lock lock"
         ];
 
         general = {
@@ -160,6 +161,7 @@ in {
           enable_swallow = true;
           swallow_regex = "(foot|kitty|alacritty)";
           swallow_exception_regex = "(xev|wev)";
+          session_lock_xray = true;
 
           # enable variable refresh rate (effective depending on hardware)
           vrr = 1;
