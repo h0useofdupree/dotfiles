@@ -3,7 +3,9 @@
 All notable changes to my configuration will be documented in this file.
 ---
 
-## [unreleased]
+
+## [1.5.2](https://github.com/h0useofdupree/dotfiles/compare/wallpapers..v1.5.2) - 2025-08-13
+
 
 
 
@@ -56,7 +58,7 @@ All notable changes to my configuration will be documented in this file.
 ### Features
 
 
-- **(caelestia)** update and add new settings - ([4ba4eb6](https://github.com/h0useofdupree/dotfiles/commit/4ba4eb60c2714acb6af87d9fce9e562637991fd2)) - h0useofdupree
+- **(caelestia)** update and add new settings - ([f706824](https://github.com/h0useofdupree/dotfiles/commit/f7068244f5b036d0e1b4ae42b801bf030be8b156)) - h0useofdupree
 
 - **(caelestia)** add caelestia-colors module - ([4ab5aaa](https://github.com/h0useofdupree/dotfiles/commit/4ab5aaa50c463159a52a2a18fdb52cdef5407635)) - h0useofdupree
 
