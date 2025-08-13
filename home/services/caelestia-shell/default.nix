@@ -45,7 +45,7 @@ in {
       spacing.scale = 1;
       transparency = {
         enabled = true;
-        base = 0.3;
+        base = 0.5;
         layers = 0.4;
       };
     };
@@ -60,6 +60,44 @@ in {
       desktopClock = true;
     };
     bar = {
+      entries = [
+        {
+          id = "logo";
+          enabled = false;
+        }
+        {
+          id = "workspaces";
+          enabled = true;
+        }
+        {
+          id = "spacer";
+          enabled = true;
+        }
+        {
+          id = "activeWindow";
+          enabled = true;
+        }
+        {
+          id = "spacer";
+          enabled = true;
+        }
+        {
+          id = "tray";
+          enabled = true;
+        }
+        {
+          id = "clock";
+          enabled = true;
+        }
+        {
+          id = "statusIcons";
+          enabled = true;
+        }
+        {
+          id = "power";
+          enabled = true;
+        }
+      ];
       dragThreshold = 20;
       persistent = true;
       showOnHover = true;
@@ -70,6 +108,7 @@ in {
         label = "  ";
         occupiedBg = false;
         occupiedLabel = "󰮯 ";
+        perMonitorWorkspaces = true;
         rounded = true;
         showWindows = true;
         shown = 5;
@@ -134,6 +173,7 @@ in {
       useFahrenheit = false;
       useTwelveHourClock = false;
       audioIncrement = 0.05;
+      smartScheme = true;
     };
     session = {
       dragThreshold = 30;

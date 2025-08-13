@@ -7,10 +7,46 @@ All notable changes to my configuration will be documented in this file.
 
 
 
+### Added programs/tools
+
+
+
+
+
+-  TODO.md - ([86ad034](https://github.com/h0useofdupree/dotfiles/commit/86ad03403fd86621697101f0ccf202882ed115a4)) - h0useofdupree
+
+
+
+### Chores
+
+
+- **(flake.lock)** update nvf and caelestia-shell/cli - ([0ba1a7d](https://github.com/h0useofdupree/dotfiles/commit/0ba1a7d6d6cd68fbc09e0446936fc962892b352c)) - h0useofdupree
+
+- **(hyprland)** clean up rules - ([68754d7](https://github.com/h0useofdupree/dotfiles/commit/68754d736edace0e968b5fc18dcfc94f4217a204)) - h0useofdupree
+
+
+
+
+
+
+
+
 ### Documentation
 
 
+- **(TODO)** add some entries - ([d9a0182](https://github.com/h0useofdupree/dotfiles/commit/d9a0182aca0b1848f7da39ad5cc02123f7fe2769)) - h0useofdupree
+
+- **(TODO)** add some tasks - ([d014a74](https://github.com/h0useofdupree/dotfiles/commit/d014a74d3ec22214fee4f8d2155a5338473c2360)) - Joel R.
+
 - **(changelog)** update for release v1.5.0 - ([7532c47](https://github.com/h0useofdupree/dotfiles/commit/7532c478f1ad5191b039b8b2848e1601cf6cb388)) - h0useofdupree
+
+- **(dynamic-wallpaper)** update wp-group summaries - ([27dd58b](https://github.com/h0useofdupree/dotfiles/commit/27dd58b6ed1e7538a9e90ebef888ae45400e3d18)) - h0useofdupree
+
+
+
+
+
+
 
 
 
@@ -20,7 +56,25 @@ All notable changes to my configuration will be documented in this file.
 ### Features
 
 
-- **(caelestia)** use WallpapersCache as wallpaperDir - ([1b9329e](https://github.com/h0useofdupree/dotfiles/commit/1b9329e3bd885cee6ca4dee97386c11466e28395)) - h0useofdupree
+- **(caelestia)** update and add new settings - ([4ba4eb6](https://github.com/h0useofdupree/dotfiles/commit/4ba4eb60c2714acb6af87d9fce9e562637991fd2)) - h0useofdupree
+
+- **(caelestia)** add caelestia-colors module - ([4ab5aaa](https://github.com/h0useofdupree/dotfiles/commit/4ab5aaa50c463159a52a2a18fdb52cdef5407635)) - h0useofdupree
+
+- **(caelestia)** update and adjust some stuff - ([46e1f10](https://github.com/h0useofdupree/dotfiles/commit/46e1f10354ec3c85e2a00b2bd5dce93bd172220f)) - h0useofdupree
+
+- **(caelestia)** update + enable new options - ([debaccf](https://github.com/h0useofdupree/dotfiles/commit/debaccff90873f7bd359cf9d2d0029413e8dc850)) - h0useofdupree
+
+- **(caelestia)** use WallpapersCache as wallpaperDir - ([b466b97](https://github.com/h0useofdupree/dotfiles/commit/b466b97c282fd31800b7c004e20919f5f769ef1c)) - h0useofdupree
+
+- **(codex)** add codex - ([fb4be40](https://github.com/h0useofdupree/dotfiles/commit/fb4be404d379dd0d04b520213f4a1e89a8f6c7d2)) - h0useofdupree
+
+- **(dynamic-wallpaper)** add a fish function for generating wp-group-summary - ([ad1ea89](https://github.com/h0useofdupree/dotfiles/commit/ad1ea890b8f1111ef8f5a478ffe2637143b73aab)) - h0useofdupree
+
+- **(dynamic-wallpaper)** add order files where needed - ([c08b378](https://github.com/h0useofdupree/dotfiles/commit/c08b37880356fa9765da731dd49ac4a6deb98224)) - h0useofdupree
+
+- **(dynamic-wallpaper)** add wallpaper name to switch times in log - ([da075ed](https://github.com/h0useofdupree/dotfiles/commit/da075ed508c76c2131664994cdfdf397308b57ac)) - h0useofdupree
+
+- **(dynamic-wallpaper)** support order.txt file - ([afc1431](https://github.com/h0useofdupree/dotfiles/commit/afc1431b4b013e776c9374658204100be5967d85)) - h0useofdupree
 
 - **(dynamic-wallpaper)** add device specific group selection - ([ebf4bc4](https://github.com/h0useofdupree/dotfiles/commit/ebf4bc475360a846aa118c7899c010fcd3127978)) - h0useofdupree
 
@@ -28,7 +82,69 @@ All notable changes to my configuration will be documented in this file.
 
 - **(dynamic-wallpaper/fetch_wallpapers.sh)** use 'wallpapers' tag by default + minor improvements - ([7b0410e](https://github.com/h0useofdupree/dotfiles/commit/7b0410e6277decaef5c36ebbff5ad574310022e1)) - h0useofdupree
 
+- **(git)** fetch tags automatically - ([e49706e](https://github.com/h0useofdupree/dotfiles/commit/e49706e57256918dd670fe17b5bec85ae9a9f704)) - h0useofdupree
+
+- **(hyprland)** use caelestia-lock and fix transparency - ([7560575](https://github.com/h0useofdupree/dotfiles/commit/756057594943e9fa8a4211643768b4b3e82af8dc)) - h0useofdupree
+
+- **(hyprland)** better lock bindings - ([d6a710d](https://github.com/h0useofdupree/dotfiles/commit/d6a710d6a12a99f9fbbf7ef826593fcb38fad957)) - h0useofdupree
+
 - **(hyprland/linx)** use ctrl:nocaps and update q1-specific kn_options from nixus - ([4966c72](https://github.com/h0useofdupree/dotfiles/commit/4966c7241c12074c560445a43ad94155c5bb1d0b)) - h0useofdupree
+
+- **(nixus/kernel)** add i2c-piix4 module - ([d0c9966](https://github.com/h0useofdupree/dotfiles/commit/d0c9966c107afed41625df0cfd70fe92130c132a)) - h0useofdupree
+
+- **(nvf)** use blink.cmp - ([085f51e](https://github.com/h0useofdupree/dotfiles/commit/085f51e118d4ab55b7ef5f83eaf13d5756c3ed61)) - h0useofdupree
+
+- **(nvf)** disable treesitter-context - ([76d65aa](https://github.com/h0useofdupree/dotfiles/commit/76d65aa8e5965cd047b196513001a3a6312d8743)) - h0useofdupree
+
+- **(nvim)** minor adjustments - ([3fa29e8](https://github.com/h0useofdupree/dotfiles/commit/3fa29e8fb399286ca56618669401e400ca1f1c5b)) - h0useofdupree
+
+- **(openrgb)** install openrgb for nixus - ([e3c2d1a](https://github.com/h0useofdupree/dotfiles/commit/e3c2d1ab4b930d8b214b0fc52e2edfac9b40cd83)) - h0useofdupree
+
+- **(programs)** add planify - ([42b4d58](https://github.com/h0useofdupree/dotfiles/commit/42b4d587bc68446ebfbe397dd215b9230242fba3)) - h0useofdupree
+
+- **(secrets)** add openai-api-key - ([74d5269](https://github.com/h0useofdupree/dotfiles/commit/74d5269fa5f8df1bc52ef64668a7a713c06963f5)) - h0useofdupree
+
+- **(uwsm)** add APP2UNIT support [TEST] - ([ab952a2](https://github.com/h0useofdupree/dotfiles/commit/ab952a2139b88ce1e08512eff7dd2cbc38c53da6)) - h0useofdupree
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -46,7 +162,119 @@ All notable changes to my configuration will be documented in this file.
 ### Fixes
 
 
+- **(caelestia)** update weather lat/long - ([1ce2fd3](https://github.com/h0useofdupree/dotfiles/commit/1ce2fd3d8291fea916582d2baf0b020d075a0d2c)) - h0useofdupree
+
+- **(dynamic-wallpaper)** honor order.txt exactly - ([5a1368d](https://github.com/h0useofdupree/dotfiles/commit/5a1368d6ff7be8c7803e3344152ba67db0e21a73)) - h0useofdupree
+
+- **(dynamic-wallpaper)** only archive images - ([d8d3444](https://github.com/h0useofdupree/dotfiles/commit/d8d3444f704132a612e961d7e39991def37960c8)) - h0useofdupree
+
+- **(dynamic-wallpaper)** ensure help/usage output exit immediately to prevent infinite loop - ([e5de2e2](https://github.com/h0useofdupree/dotfiles/commit/e5de2e2f01faec8f3fe3cf1e2f4de1c6dbdbb979)) - h0useofdupree
+
 - **(dynamic-wallpaper)** unzip as <group>/<image-n>.jpg - ([15ba446](https://github.com/h0useofdupree/dotfiles/commit/15ba4464b9538c61f33a6c78b10a7cf77ad88340)) - h0useofdupree
+
+- **(hyprland)** re-enable nixos module to support hm-module - ([25072f3](https://github.com/h0useofdupree/dotfiles/commit/25072f306b9dfc3b90d5b94a05d821a6e1dc33c4)) - h0useofdupree
+
+- **(hyprland)** temporarly disable border color and sourcing before switching back to managing hyprland with home-manager - ([29922fe](https://github.com/h0useofdupree/dotfiles/commit/29922fe3002c544202b79d4f82d384d3f477dda2)) - h0useofdupree
+
+- **(hyprland)** fix caelestia lock bind - ([fe0cc43](https://github.com/h0useofdupree/dotfiles/commit/fe0cc43375b411d5ee08271a864b1c829ae55803)) - h0useofdupree
+
+- **(nixus/kernel)** add acpi_enforce_resources=lax kernelParam - ([5a822bd](https://github.com/h0useofdupree/dotfiles/commit/5a822bd58b2ee04a4bfdf023db00d50f97ade15c)) - h0useofdupree
+
+- **(nvf)** actually enable colorizer for filytypes - ([88ae593](https://github.com/h0useofdupree/dotfiles/commit/88ae593fb980343689f67ae19692d8b8b1fc6fd7)) - h0useofdupree
+
+- **(secrets)** correctly export API key env var - ([cc8a1d2](https://github.com/h0useofdupree/dotfiles/commit/cc8a1d2baf2a70e40be3e6948528b977c36dce36)) - h0useofdupree
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Other
+
+
+
+
+
+-  Merge pull request #8 from h0useofdupree/feature/move-hyprland-to-home-manager-config
+
+Feature/ Move hyprland to home manager config - ([96d04d6](https://github.com/h0useofdupree/dotfiles/commit/96d04d6f469bddb776cf50537e7770edf3d22945)) - Joel R.
+
+
+
+-  Update TODO.md - ([47b5f60](https://github.com/h0useofdupree/dotfiles/commit/47b5f6083eed475eab28234465336d60ba16eb40)) - Joel R.
+
+
+
+-  Merge pull request #7 from h0useofdupree/feature/add-order-file-dynamic-wallpaper
+
+Feature/add order file dynamic wallpaper - ([40edce6](https://github.com/h0useofdupree/dotfiles/commit/40edce6cb15acdd5e1b4632f47e8a67e2177afaa)) - Joel R.
+
+
+
+### Refactors
+
+
+- **(dynamic-wallpaper)** better comment parsing - ([5b3a86c](https://github.com/h0useofdupree/dotfiles/commit/5b3a86cd1215b43f20b8e6a1426b737cf8f15fae)) - h0useofdupree
+
+- **(hyprland)** finalize move to hm-module configuration - ([da93553](https://github.com/h0useofdupree/dotfiles/commit/da93553f3d093af4d0d2b87c8124a5c4a60082e8)) - h0useofdupree
+
+- **(hyprland)** move host-specific configs to home/profiles/<host>/ - ([155ca29](https://github.com/h0useofdupree/dotfiles/commit/155ca295da34da69dbc0ed88400238518758ee18)) - h0useofdupree
+
+- **(nvf)** modularize theme config as prep for base16 config - ([673213c](https://github.com/h0useofdupree/dotfiles/commit/673213c6915805c27bc74c6bb6369d9a6b85ce56)) - h0useofdupree
+
+
+
+
+
+
+
+
+
+
+
+
+### Reverts
+
+
+- **(caelestia)** disable caelestia-colors for now because I am stupid - ([6884134](https://github.com/h0useofdupree/dotfiles/commit/688413421e086b856698a75c7f858d479812ce91)) - h0useofdupree
+
+
+
+
+
+
+### Styling
+
+
+- **(hyprland)** adjust borders - ([4677391](https://github.com/h0useofdupree/dotfiles/commit/46773919905c08b6d650dfac2a88725e26de0f78)) - h0useofdupree
+
+- **(hyprlock)** new layout - ([324a830](https://github.com/h0useofdupree/dotfiles/commit/324a830c21c3f5d13716f3ee09b1df40d86a0c46)) - h0useofdupree
+
+- **(nvf)** disable virtual_lines for diagnostics - ([05392e5](https://github.com/h0useofdupree/dotfiles/commit/05392e5c2d705971b6cba01d2ad89ef003c1118c)) - h0useofdupree
+
+
+
+
 
 
 
@@ -1008,14 +1236,6 @@ Quickshell caelestia - ([273ca78](https://github.com/h0useofdupree/dotfiles/comm
 
 
 
--  update - ([5d333f3](https://github.com/h0useofdupree/dotfiles/commit/5d333f3f18d0d76b36c3ead582775a6bcbb52201)) - h0useofdupree
-
-
-
--  update - ([5df2b9c](https://github.com/h0useofdupree/dotfiles/commit/5df2b9cd62c2c890a2f7c4aec2a85de08fa68235)) - h0useofdupree
-
-
-
 ### Hyprland System
 
 
@@ -1109,10 +1329,6 @@ Quickshell caelestia - ([273ca78](https://github.com/h0useofdupree/dotfiles/comm
 
 
 -  add age config for speakerctl-devices - ([427ed82](https://github.com/h0useofdupree/dotfiles/commit/427ed82ca8e227852d629465ab65ab29f38eb18f)) - h0useofdupree
-
-
-
--  switch to cachyos kernel and enable amdgpu driver on startup - ([b59e2f7](https://github.com/h0useofdupree/dotfiles/commit/b59e2f792bc4960cb386a8ae385eaa4daff3999d)) - h0useofdupree
 
 
 
@@ -1586,6 +1802,77 @@ Add speakerctl (tinytuya python script) - ([3305f3f](https://github.com/h0useofd
 
 
 
+### Secrets
+
+
+
+
+
+-  add weatherapi-key.age - ([47aeade](https://github.com/h0useofdupree/dotfiles/commit/47aeadef69f52474637888e3924c37cbd7f95365)) - h0useofdupree
+
+
+
+-  add linx pub key - ([74c4860](https://github.com/h0useofdupree/dotfiles/commit/74c48609af8f0eb5713848c8c29addc3d43fef2d)) - h0useofdupree
+
+
+
+-  add linx pub key - ([0987eae](https://github.com/h0useofdupree/dotfiles/commit/0987eae662d9fd0dd58ef95b27eaf312c886bfc1)) - h0useofdupree
+
+
+
+-  add encrytped file - ([0f95c98](https://github.com/h0useofdupree/dotfiles/commit/0f95c9817bc9d776a1c7ea2222c073eae979d06c)) - h0useofdupree
+
+
+
+-  add secrets.nix - ([a7c150b](https://github.com/h0useofdupree/dotfiles/commit/a7c150b57d13a67d04278881d6df4ef4fc55fa9c)) - h0useofdupree
+
+
+---
+
+
+## [1.1.0](https://github.com/h0useofdupree/dotfiles/compare/v1.0.0..v1.1.0) - 2025-02-19
+
+
+
+
+### Flake Lock Updates
+
+
+
+
+
+-  update - ([5d333f3](https://github.com/h0useofdupree/dotfiles/commit/5d333f3f18d0d76b36c3ead582775a6bcbb52201)) - h0useofdupree
+
+
+
+-  update - ([5df2b9c](https://github.com/h0useofdupree/dotfiles/commit/5df2b9cd62c2c890a2f7c4aec2a85de08fa68235)) - h0useofdupree
+
+
+
+-  update - ([d0d4416](https://github.com/h0useofdupree/dotfiles/commit/d0d44169f4eec9a700fc3133e5071e409f1b5bc5)) - h0useofdupree
+
+
+
+-  update - ([37e64ea](https://github.com/h0useofdupree/dotfiles/commit/37e64ea51575b65b2bad2b8c6d4c8ff0210ad458)) - h0useofdupree
+
+
+
+### Nixus Host
+
+
+
+
+
+-  switch to cachyos kernel and enable amdgpu driver on startup - ([b59e2f7](https://github.com/h0useofdupree/dotfiles/commit/b59e2f792bc4960cb386a8ae385eaa4daff3999d)) - h0useofdupree
+
+
+
+### Other
+
+
+
+
+
 -  small design changes - ([ac86cdb](https://github.com/h0useofdupree/dotfiles/commit/ac86cdb54dc50d895d2005bf951dfc94cba2e699)) - h0useofdupree
 
 
@@ -1659,59 +1946,6 @@ Add speakerctl (tinytuya python script) - ([3305f3f](https://github.com/h0useofd
 
 
 -  add qutebrowser bind - ([c7e4c3d](https://github.com/h0useofdupree/dotfiles/commit/c7e4c3d3e180dc2839954f85a00678d88e13c2d3)) - h0useofdupree
-
-
-
-### Secrets
-
-
-
-
-
--  add weatherapi-key.age - ([47aeade](https://github.com/h0useofdupree/dotfiles/commit/47aeadef69f52474637888e3924c37cbd7f95365)) - h0useofdupree
-
-
-
--  add linx pub key - ([74c4860](https://github.com/h0useofdupree/dotfiles/commit/74c48609af8f0eb5713848c8c29addc3d43fef2d)) - h0useofdupree
-
-
-
--  add linx pub key - ([0987eae](https://github.com/h0useofdupree/dotfiles/commit/0987eae662d9fd0dd58ef95b27eaf312c886bfc1)) - h0useofdupree
-
-
-
--  add encrytped file - ([0f95c98](https://github.com/h0useofdupree/dotfiles/commit/0f95c9817bc9d776a1c7ea2222c073eae979d06c)) - h0useofdupree
-
-
-
--  add secrets.nix - ([a7c150b](https://github.com/h0useofdupree/dotfiles/commit/a7c150b57d13a67d04278881d6df4ef4fc55fa9c)) - h0useofdupree
-
-
----
-
-
-## [1.1.0](https://github.com/h0useofdupree/dotfiles/compare/v1.0.0..v1.1.0) - 2025-02-01
-
-
-
-
-### Flake Lock Updates
-
-
-
-
-
--  update - ([d0d4416](https://github.com/h0useofdupree/dotfiles/commit/d0d44169f4eec9a700fc3133e5071e409f1b5bc5)) - h0useofdupree
-
-
-
--  update - ([37e64ea](https://github.com/h0useofdupree/dotfiles/commit/37e64ea51575b65b2bad2b8c6d4c8ff0210ad458)) - h0useofdupree
-
-
-
-### Other
-
-
 
 
 

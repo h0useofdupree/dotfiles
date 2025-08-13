@@ -23,7 +23,7 @@
       ];
     in [
       "blur, ${toRegex blurred}"
-      "xray 1, ${toRegex lowopacity}"
+      # "xray 1, ${toRegex lowopacity}"
       "ignorealpha 0.5, ${toRegex highopacity}"
       "ignorealpha 0.2, ${toRegex lowopacity}"
     ];
