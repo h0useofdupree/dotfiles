@@ -8,7 +8,6 @@
 }: {
   imports = [
     "${self}/hosts/linx/hardware-configuration.nix"
-    ./hyprland.nix
   ];
   age = {
     secrets = {
