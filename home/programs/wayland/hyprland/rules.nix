@@ -7,16 +7,14 @@
       in "^(${elements})$";
 
       lowopacity = [
-        "bar"
-        "calendar"
-        "notifications"
-        "system-menu"
+        "caelestia-border-exclusion"
+        "caelestia-drawers"
       ];
 
       highopacity = [
-        "anyrun"
-        "osd"
+        "indicator"
         "logout_dialog"
+        "verification"
       ];
 
       blurred = lib.concatLists [
@@ -25,11 +23,9 @@
       ];
     in [
       "blur, ${toRegex blurred}"
-      "xray 1, ${toRegex ["bar"]}"
-      "ignorealpha 0.5, ${toRegex (highopacity ++ ["music"])}"
+      "xray 1, ${toRegex lowopacity}"
+      "ignorealpha 0.5, ${toRegex highopacity}"
       "ignorealpha 0.2, ${toRegex lowopacity}"
-      "blur, corner.*"
-      "ignorealpha 0.6, corner.*"
     ];
 
     # TODO: windowrulev2 is deprecated, switch to windowrule when nix updates the syntax

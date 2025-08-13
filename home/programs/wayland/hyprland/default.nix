@@ -15,18 +15,21 @@ in {
 
   home.packages = [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    inputs.self.packages.${pkgs.system}.bibata-hyprcursor
   ];
 
   xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 
   wayland.windowManager.hyprland = {
     enable = true;
-
     package = inputs.hyprland.packages.${pkgs.system}.default;
 
     plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
       hyprbars
       hyprexpo
+      borders-plus-plus
+      # hyprfocus
+      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
 
     systemd = {
