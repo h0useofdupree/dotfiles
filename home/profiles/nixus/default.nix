@@ -9,6 +9,7 @@
     ../../programs
     ../../programs/games
     ../../programs/wayland
+    ./hyprland.nix
 
     # Media services
     ../../services/media/playerctl.nix
