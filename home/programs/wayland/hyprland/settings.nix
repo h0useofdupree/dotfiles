@@ -188,19 +188,14 @@ in {
 
       debug.disable_logs = false;
 
-      # hyprbars-button = [
-      #   # close
-      #   "rgb(E2E2E2), 15, , hyprctl dispatch killactive"
-      #   # maximize
-      #   "rgb(C6C6C6), 15, , hyprctl dispatch fullscreen 1"
-      # ];
-
       plugin = {
         hyprbars = {
+          bar_color = "rgba($backgroundE6)";
+          "col.text" = "rgba($onBackgroundFF)";
           bar_height = 25;
           bar_blur = true;
-          bar_button_padding = 10;
-          bar_padding = 10;
+          bar_button_padding = 15;
+          bar_padding = 15;
           bar_precedence_over_border = true;
           icon_on_hover = true;
           on_double_click = "hyprctl dispatch fullscreen 1";
