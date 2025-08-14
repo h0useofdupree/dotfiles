@@ -152,6 +152,7 @@ in {
       };
     };
     lock = {
+      recolourLogo = true;
       maxNotifs =
         if isLaptop
         then 5
