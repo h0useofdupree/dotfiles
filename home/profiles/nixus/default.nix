@@ -17,6 +17,7 @@
     # System Services
     ../../services/system/gnome-keyring.nix
     ../../services/system/kdeconnect.nix
+    ../../services/system/libinput-gestures.nix
     ../../services/system/polkit-agent.nix
     ../../services/system/theme.nix
     ../../services/system/udiskie.nix

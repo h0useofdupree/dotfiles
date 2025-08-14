@@ -7,31 +7,28 @@
     libinput-gestures
     wl-clipboard
     wtype
+    wireplumber
     playerctl
   ];
 
   xdg.configFile."libinput-gestures.conf".text = ''
-    gesture swipe left  4 /run/current-system/sw/bin/hyprctl dispatch resizeactive -60 0
-    gesture swipe right 4 /run/current-system/sw/bin/hyprctl dispatch resizeactive  60 0
-    gesture swipe up    4 /run/current-system/sw/bin/hyprctl dispatch resizeactive  0 -60
-    gesture swipe down  4 /run/current-system/sw/bin/hyprctl dispatch resizeactive  0  60
+    # Either make larger increments or use entirely different commands.
+    gesture swipe left 4 ${pkgs.hyprland}/bin/hyprctl dispatch exec "${pkgs.playerctl}/bin/playerctl previous"
+    gesture swipe right 4 ${pkgs.hyprland}/bin/hyprctl dispatch exec "${pkgs.playerctl}/bin/playerctl next"
+    gesture swipe up 4 ${pkgs.hyprland}/bin/hyprctl dispatch exec "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%+"
+    gesture swipe down 4 ${pkgs.hyprland}/bin/hyprctl dispatch exec "${pkgs.wireplumber}/bin/wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%-"
 
-    gesture pinch in   4 /run/current-system/sw/bin/hyprctl dispatch exec "caelestia shell lock lock"
+    # Browser control
+    gesture swipe left_down 4 ${pkgs.hyprland}/bin/hyprctl dispatch exec "${pkgs.wtype}/bin/wtype -M ctrl w -m ctrl"
+    gesture swipe right_down 4 ${pkgs.hyprland}/bin/hyprctl dispatch exec "${pkgs.wtype}/bin/wtype -M ctrl t -m ctrl"
 
-    gesture pinch out  4 /run/current-system/sw/bin/hyprctl dispatch exec "caelestia shell picker openFreeze"
+    gesture pinch in   4 ${pkgs.hyprland}/bin/hyprctl dispatch exec "caelestia shell lock lock"
 
-    gesture pinch in   5 /run/current-system/sw/bin/hyprctl dispatch global caelestia:session
-    # gesture pinch in 4 /run/current-system/sw/bin/hyprctl dispatch global caelestia:session
+    # Screenshots
+    gesture swipe left_up  4 ${pkgs.hyprland}/bin/hyprctl dispatch exec "caelestia shell picker openFreeze"
+    gesture swipe right_up  4 ${pkgs.hyprland}/bin/hyprctl dispatch exec "caelestia screenshot"
 
-    gesture pinch out  5 /run/current-system/sw/bin/hyprctl dispatch global caelestia:showAll
-    # (Uncomment the 4-finger version below if your pad only reports up to 4 fingers)
-    # gesture pinch out 4 /run/current-system/sw/bin/hyprctl dispatch global caelestia:showAll
-
-    # --- Tips ---
-    # 1) After editing, reload:  libinput-gestures -r
-    # 2) If directions feel backwards, swap the +/- in the resize lines.
-    # 3) If commands don’t trigger, run them manually to check PATH. We invoke via hyprctl
-    #    to avoid PATH issues since libinput-gestures doesn’t run commands under a shell.
+    gesture hold on 4 ${pkgs.hyprland}/bin/hyprctl dispatch global caelestia:session
   '';
 
   systemd.user.services.libinput-gestures = {

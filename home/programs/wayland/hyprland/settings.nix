@@ -124,7 +124,7 @@ in {
 
         touchpad = {
           natural_scroll = "true";
-          scroll_factor = 2.5;
+          scroll_factor = 1.0;
         };
       };
 
@@ -177,6 +177,7 @@ in {
       gestures = {
         workspace_swipe = true;
         workspace_swipe_forever = true;
+        workspace_swipe_cancel_ratio = 0.1;
       };
 
       permission = [
