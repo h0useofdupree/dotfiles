@@ -120,6 +120,10 @@ in {
         showNetwork = isLaptop;
         showKbLayout = false;
       };
+      tray = {
+        background = true;
+        recolour = true;
+      };
     };
     border = {
       rounding = 25;
