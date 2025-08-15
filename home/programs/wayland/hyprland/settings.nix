@@ -21,11 +21,12 @@ in {
 
       exec-once = [
         "uwsm finalize"
-        # set cursor for HL itself
         "hyprctl setcursor ${cursorName} ${toString 18}"
-        # "hyprlock"
         "openrgb --startminimized"
         "sleep 1 && caelestia shell lock lock"
+
+        # Apps
+        "[workspace special silent] io.github.alainm23.planify"
       ];
 
       general = {

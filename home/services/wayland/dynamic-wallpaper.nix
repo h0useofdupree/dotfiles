@@ -4,7 +4,7 @@
   ...
 }: let
   groupLinx = "AnimeCity";
-  groupNixus = "Catalina";
+  groupNixus = "SillyWalker";
 in {
   services.swww.enable = true;
   dynamicWallpaper = {
