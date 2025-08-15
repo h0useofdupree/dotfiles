@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ./fonts.nix
     ./home-manager.nix
@@ -14,4 +14,8 @@
     # Key-management GUI for gnome-keyring
     seahorse.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    gparted
+  ];
 }
