@@ -3,6 +3,7 @@
     ./bat.nix
     ./btop.nix
     ./cli.nix
+    ./codex.nix
     ./fzf.nix
     ./git.nix
     ./nix.nix
