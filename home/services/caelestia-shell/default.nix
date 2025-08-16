@@ -109,7 +109,6 @@ in {
         occupiedBg = false;
         occupiedLabel = "󰮯 ";
         perMonitorWorkspaces = true;
-        rounded = true;
         showWindows = true;
         shown = 5;
       };
