@@ -53,6 +53,11 @@
     xserver.xkb.variant = "altgr-intl";
   };
 
+  # Extra packages
+  environment.systemPackages = with pkgs; [
+    clinfo
+  ];
+
   boot = {
     kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
     initrd.kernelModules = ["amdgpu"];

@@ -17,6 +17,8 @@ in {
       libva # VA-API video accleration
       vaapiVdpau # Legacy bridge
       # amdvlk
+      rocmPackages.clr.icd
+      rocmPackages.rocm-smi
     ];
 
     extraPackages32 = with pkgs.pkgsi686Linux; [
