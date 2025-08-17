@@ -322,12 +322,29 @@
                 };
               };
               completion = {
+                list.selection = {
+                  preselect = true;
+                  auto_insert = true;
+                };
                 documentation = {
                   auto_show = true;
                   auto_show_delay_ms = 200;
                 };
                 menu.auto_show = true;
                 ghost_text.enabled = true;
+              };
+              keymap = {
+                preset = "default";
+              };
+              cmdline = {
+                keymap = {
+                  preset = "default";
+                };
+                completion = {
+                  menu = {
+                    auto_show = true;
+                  };
+                };
               };
             };
           };
