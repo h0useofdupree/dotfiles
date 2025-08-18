@@ -17,6 +17,9 @@
       "fish/completions/dynamic-wallpaper.fish" = {
         source = "${inputs.self.packages.${pkgs.system}.dynamic-wallpaper}/share/fish/vendor_completions.d/dynamic-wallpaper.fish";
       };
+      "fish/completions/hyprctl.fish" = {
+        source = "${pkgs.hyprland}/share/fish/vendor_completions.d/hyprctl.fish";
+      };
     };
   };
 }
