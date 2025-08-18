@@ -34,7 +34,7 @@ in {
         layout = "dwindle";
         gaps_in = 10;
         gaps_out = 15;
-        border_size = 4;
+        border_size = 5;
         "col.active_border" = "rgba($primaryE6)";
         "col.inactive_border" = "rgba($backgroundE6)";
 
@@ -205,7 +205,7 @@ in {
         };
 
         borders-plus-plus = {
-          add_borders = 1;
+          add_borders = 0;
           "col.border_1" = "rgba($backgroundE6)";
           border_size_1 = 6;
           natural_rounding = "yes";

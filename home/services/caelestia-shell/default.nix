@@ -149,6 +149,28 @@ in {
         variants = true;
         wallpapers = true;
       };
+      # custom = [
+      #   {
+      #     name = "hello";
+      #     exec = [
+      #       "notify-send"
+      #       "hello"
+      #     ];
+      #   }
+      #   {
+      #     name = "Speakers";
+      #     submenu = [
+      #       {
+      #         name = "on";
+      #         exec = "speakerctl --on";
+      #       }
+      #       {
+      #         name = "off";
+      #         exec = "speakerctl --off";
+      #       }
+      #     ];
+      #   }
+      # ];
     };
     lock = {
       recolourLogo = true;

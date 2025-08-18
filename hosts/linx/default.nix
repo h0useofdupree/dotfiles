@@ -1,4 +1,3 @@
-# TODO: Fix trackpad accel curve (maybe fixes DELL sluggish mouse bug) https://gist.github.com/fufexan/e6bcccb7787116b8f9c31160fc8bc543
 {
   pkgs,
   self,
