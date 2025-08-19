@@ -123,6 +123,24 @@
         description = "reboot with speakers off";
       };
 
+      meet = {
+        body = ''
+          hyprctl keyword monitor "DP-1, 3440x1440@144,auto,1.6"
+          set action (notify-send \
+            -u normal \
+            -i dialog-information-symbolic \
+            -A disable="Disable" \
+            --wait \
+            "Meeting mode on" \
+            "Scale has been increased temporarily")
+
+          if test "$action" = "disable"
+            hyprctl reload
+          end
+        '';
+        description = "aio command for meetings (incl. larger scale)";
+      };
+
       nv = {
         body = "neovide --no-fork $argv";
         wraps = "neovide";
