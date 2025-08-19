@@ -12,7 +12,10 @@ in {
     autoLight = false;
     startTime = "06:00";
     endTime = "23:00";
-    refreshInterval = "5m";
+    refreshInterval =
+      if isLaptop
+      then "5m"
+      else "1m";
     group =
       if isLaptop
       then groupLinx
