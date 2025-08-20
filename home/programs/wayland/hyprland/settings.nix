@@ -26,7 +26,7 @@ in {
         "sleep 1 && caelestia shell lock lock"
 
         # Apps
-        "[workspace special silent] io.github.alainm23.planify"
+        # "[workspace special silent] io.github.alainm23.planify"
       ];
 
       general = {
