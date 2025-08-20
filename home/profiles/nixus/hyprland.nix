@@ -20,9 +20,25 @@ let
 in {
   wayland.windowManager.hyprland.settings =
     {
-      monitor = [
-        "DP-1, 3440x1440@144, auto, 1, bitdepth, 10, cm, auto"
-        ", preferred, auto, 1"
+      monitorv2 = [
+        {
+          output = "DP-1";
+          mode = "3440x1440@160";
+          position = "auto";
+          scale = 1.0;
+          transform = 0;
+          bitdepth = 10;
+          cm = "hdr";
+          vrr = 1;
+          sdrbrightness = 1.4;
+          sdrsaturation = 1.0;
+        }
+        {
+          output = "";
+          mode = "preferred";
+          position = "auto";
+          scale = 1.0;
+        }
       ];
       "device[keychron-keychron-q1]" = mkKeyboard;
       "device[keychron-keychron-q1-keyboard]" = mkKeyboard;
