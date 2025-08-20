@@ -13,6 +13,7 @@
             colors = import "${self}/lib/colors" prev.lib;
           };
       })
+      (import "${self}/pkgs/spotify-player.nix")
     ];
   };
 }
