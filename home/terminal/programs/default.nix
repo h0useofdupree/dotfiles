@@ -6,6 +6,7 @@
     ./codex.nix
     ./fzf.nix
     ./git.nix
+    ./ssh.nix
     ./nix.nix
     ./zoxide.nix
     ./xdg.nix

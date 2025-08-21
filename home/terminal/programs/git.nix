@@ -4,11 +4,17 @@
   ...
 }: let
   cfg = config.programs.git;
-  # TODO: key
   pubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1JYHp/ZXHErtQVer2eE393NoJgOB6LvVJ+x/IxayS9 joel.riekemann@gmail.com";
-  ghOwner = "h0useofdupree";
-  ghRepo = "dotfiles";
-  ghRepoUrl = "https://github.com/h0useofdupree/dotfiles";
+  privGhOwner = "h0useofdupree";
+  privGhRepoBasename = "dotfiles";
+  privGhRepoUrl = "https://github.com/h0useofdupree/dotfiles";
+
+  # Work
+  workDir = config.home.homeDirectory + "/Projects/PVO/";
+  workSshKey = config.home.homeDirectory + "/.ssh/id_ed25519_stroeer_gitlab";
+  workConfig = config.xdg.configHome + "/git/config-stroeer";
+  workUserName = "jriekemann";
+  workUserEmail = "jriekemann@stroeer.de";
 in {
   home.packages = [pkgs.gh];
 
@@ -51,6 +57,13 @@ in {
 
     ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
 
+    includes = [
+      {
+        condition = "gitdir:${workDir}";
+        path = workConfig;
+      }
+    ];
+
     signing = {
       key = "${config.home.homeDirectory}/.ssh/id_ed25519";
       signByDefault = true;
@@ -91,7 +104,7 @@ in {
           ---
           {% if version %}
               {% if previous.version %}
-                  ## [{{ version | trim_start_matches(pat="v") }}](${ghRepoUrl}/compare/{{ previous.version }}..{{ version }}) - {{ timestamp | date(format="%Y-%m-%d") }}
+                  ## [{{ version | trim_start_matches(pat="v") }}](${privGhRepoUrl}/compare/{{ previous.version }}..{{ version }}) - {{ timestamp | date(format="%Y-%m-%d") }}
               {% else %}
                   ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
               {% endif %}
@@ -103,12 +116,12 @@ in {
           ### {{ group | striptags | trim | upper_first }}
 
           {% for commit in commits | filter(attribute="scope") | sort(attribute="scope") %}
-          - **({{ commit.scope }})**{% if commit.breaking %} [**breaking**]{% endif %} {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](${ghRepoUrl}/commit/{{ commit.id }})) - {{ commit.author.name }}
+          - **({{ commit.scope }})**{% if commit.breaking %} [**breaking**]{% endif %} {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](${privGhRepoUrl}/commit/{{ commit.id }})) - {{ commit.author.name }}
           {% endfor %}
 
           {% for commit in commits %}
               {% if not commit.scope %}
-              - {% if commit.breaking %} [**breaking**]{% endif %} {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](${ghRepoUrl}/commit/{{ commit.id }})) - {{ commit.author.name }}
+              - {% if commit.breaking %} [**breaking**]{% endif %} {{ commit.message }} - ([{{ commit.id | truncate(length=7, end="") }}](${privGhRepoUrl}/commit/{{ commit.id }})) - {{ commit.author.name }}
               {% endif %}
           {% endfor %}
           {% endfor %}
@@ -216,5 +229,14 @@ in {
 
   xdg.configFile."git/allowed_signers".text = ''
     ${cfg.userEmail} namespaces="git" ${pubKey}
+  '';
+
+  xdg.configFile."git/config-stroeer".text = ''
+    [user]
+      name = "${workUserName}"
+      email = "${workUserEmail}"
+
+    [core]
+      sshCommand = "ssh -i ${workSshKey}"
   '';
 }
