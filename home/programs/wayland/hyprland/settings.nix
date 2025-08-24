@@ -178,7 +178,8 @@ in {
       gestures = {
         workspace_swipe = true;
         workspace_swipe_forever = true;
-        # workspace_swipe_cancel_ratio = 0.1;
+        workspace_swipe_cancel_ratio = 0.5;
+        workspace_swipe_distance = 1000;
       };
 
       permission = [

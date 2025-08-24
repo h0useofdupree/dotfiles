@@ -26,9 +26,9 @@ in {
 
     plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
       hyprbars
-      hyprexpo
-      borders-plus-plus
-      # hyprfocus
+      # hyprexpo
+      # borders-plus-plus
+      hyprfocus
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
 
