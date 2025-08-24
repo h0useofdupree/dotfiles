@@ -11,8 +11,6 @@
 
       speakerctl = pkgs.callPackage ./speakerctl {};
 
-      spotify-player = pkgs.spotify-player;
-
       dynamic-wallpaper = pkgs.callPackage ./dynamic-wallpaper {};
 
       # caelestia-colors = pkgs.callPackage ./caelestia-colors {};
