@@ -94,6 +94,10 @@ in {
           enabled = true;
         }
         {
+          id = "idleInhibitor";
+          enabled = true;
+        }
+        {
           id = "power";
           enabled = true;
         }
@@ -142,6 +146,7 @@ in {
         then 6
         else 10;
       maxWallpapers = 9;
+      specialPrefix = "@";
       useFuzzy = {
         apps = true;
         actions = false;
