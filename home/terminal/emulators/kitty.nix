@@ -17,7 +17,7 @@
 
       copy_on_select = "clipboard";
 
-      background_opacity = "0.50";
+      background_opacity = "0.60";
       window_padding_width = "20";
 
       bold_font = "auto";
