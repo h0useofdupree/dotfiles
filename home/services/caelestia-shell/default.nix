@@ -58,6 +58,12 @@ in {
     background = {
       enabled = false;
       desktopClock = true;
+      visualiser = {
+        enabled = true;
+        autoHide = true;
+        rounding = 1;
+        spacing = 1;
+      };
     };
     bar = {
       entries = [
@@ -134,7 +140,6 @@ in {
     };
     dashboard = {
       mediaUpdateInterval = 500;
-      visualiserBars = 45;
     };
     launcher = {
       actionPrefix = "!";
