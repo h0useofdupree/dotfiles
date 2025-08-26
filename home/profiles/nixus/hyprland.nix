@@ -28,10 +28,10 @@ in {
           scale = 1.0;
           transform = 0;
           bitdepth = 10;
-          cm = "hdr";
-          vrr = 1;
-          sdrbrightness = 1.4;
-          sdrsaturation = 1.0;
+          cm = "auto";
+          # cm = "hdr";
+          # sdrbrightness = 1.4;
+          # sdrsaturation = 1.0;
         }
         {
           output = "";
