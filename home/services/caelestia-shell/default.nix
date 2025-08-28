@@ -58,6 +58,12 @@ in {
     background = {
       enabled = false;
       desktopClock = true;
+      visualiser = {
+        enabled = true;
+        autoHide = true;
+        rounding = 1;
+        spacing = 1;
+      };
     };
     bar = {
       entries = [
@@ -91,6 +97,10 @@ in {
         }
         {
           id = "statusIcons";
+          enabled = true;
+        }
+        {
+          id = "idleInhibitor";
           enabled = true;
         }
         {
@@ -130,7 +140,6 @@ in {
     };
     dashboard = {
       mediaUpdateInterval = 500;
-      visualiserBars = 45;
     };
     launcher = {
       actionPrefix = "!";
@@ -142,6 +151,7 @@ in {
         then 6
         else 10;
       maxWallpapers = 9;
+      specialPrefix = "@";
       useFuzzy = {
         apps = true;
         actions = false;

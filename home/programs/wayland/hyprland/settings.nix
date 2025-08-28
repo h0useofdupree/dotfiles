@@ -26,7 +26,7 @@ in {
         "sleep 1 && caelestia shell lock lock"
 
         # Apps
-        "[workspace special silent] io.github.alainm23.planify"
+        # "[workspace special silent] io.github.alainm23.planify"
       ];
 
       general = {
@@ -178,7 +178,8 @@ in {
       gestures = {
         workspace_swipe = true;
         workspace_swipe_forever = true;
-        workspace_swipe_cancel_ratio = 0.1;
+        workspace_swipe_cancel_ratio = 0.3;
+        workspace_swipe_distance = 1400;
       };
 
       permission = [
@@ -198,8 +199,11 @@ in {
           bar_height = 25;
           bar_blur = true;
           bar_button_padding = 15;
+          bar_button_alignment = "left";
           bar_padding = 15;
           bar_precedence_over_border = true;
+          bar_part_of_window = true;
+          bar_title_enabled = false;
           icon_on_hover = true;
           on_double_click = "hyprctl dispatch fullscreen 1";
         };
@@ -214,7 +218,7 @@ in {
         hyprexpo = {
           columns = 3;
           gap_size = 30;
-          bg_col = "rgb(000000)";
+          bg_col = "rgba($backgroundE6)";
           workspace_method = "center current";
           skip_empty = true;
 

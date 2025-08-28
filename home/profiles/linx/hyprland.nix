@@ -21,10 +21,27 @@ let
 in {
   wayland.windowManager.hyprland.settings =
     {
-      monitor = [
-        "eDP-1, 1920x1200@60, auto, 1"
-        ", preferred, auto, 1"
-        ", preferred, auto, 1, mirror, eDP-1"
+      monitorv2 = [
+        {
+          output = "eDP-1";
+          mode = "1920x1200@60";
+          position = "auto";
+          scale = 1.0;
+          transform = 0;
+        }
+        {
+          output = "";
+          mode = "preferred";
+          position = "auto";
+          scale = 1.0;
+        }
+        {
+          output = "";
+          mode = "preferred";
+          position = "auto";
+          scale = 1.0;
+          mirror = "eDP-1";
+        }
       ];
       "device[keychron-keychron-q1]" = mkKeyboard;
       "device[keychron-keychron-q1-keyboard]" = mkKeyboard;
