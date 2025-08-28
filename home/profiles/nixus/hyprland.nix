@@ -22,6 +22,7 @@ in {
     {
       monitorv2 = [
         {
+          # LG 34GN850P
           output = "DP-1";
           mode = "3440x1440@160";
           position = "auto";
@@ -29,6 +30,21 @@ in {
           transform = 0;
           bitdepth = 10;
           cm = "auto";
+          vrr = 0;
+          # cm = "hdr";
+          # sdrbrightness = 1.4;
+          # sdrsaturation = 1.0;
+        }
+        {
+          # LG 27GR75Q-B
+          output = "DP-2";
+          mode = "2560x1440@180";
+          position = "auto-left";
+          scale = 1.0;
+          transform = 0;
+          bitdepth = 10;
+          cm = "auto";
+          vrr = 0;
           # cm = "hdr";
           # sdrbrightness = 1.4;
           # sdrsaturation = 1.0;
