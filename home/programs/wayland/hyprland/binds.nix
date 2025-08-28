@@ -45,11 +45,12 @@
   brightnessUp =
     if isLaptop
     then "brillo -q -u 300000 -A 5"
-    else "ddcutil setvcp 10 + 10";
+    else "ddcutil --display 1 setvcp 10 + 10 && ddcutil --display 2 setvcp 10 + 10";
+
   brightnessDown =
     if isLaptop
     then "brillo -q -u 300000 -U 5"
-    else "ddcutil setvcp 10 - 10";
+    else "ddcutil --display 1 setvcp 10 - 10 && ddcutil --display 2 setvcp 10 - 10";
 in {
   wayland.windowManager.hyprland.settings = {
     # mouse movements
