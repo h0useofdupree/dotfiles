@@ -30,6 +30,7 @@ in {
       # borders-plus-plus
       # hyprfocus
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      inputs."split-monitor-workspaces".packages.${pkgs.system}.split-monitor-workspaces
     ];
 
     systemd = {

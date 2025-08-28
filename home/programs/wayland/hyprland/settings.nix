@@ -215,6 +215,14 @@ in {
           natural_rounding = "yes";
         };
 
+        split-monitor-workspaces = {
+          count = 10;
+          keep_focused = true;
+          enable_notifications = false;
+          enable_persistent_workspaces = true;
+          enable_wrapping = true;
+        };
+
         hyprexpo = {
           columns = 3;
           gap_size = 30;

@@ -11,8 +11,8 @@
         in
           builtins.toString (x + 1 - (c * 10));
       in [
-        "$mod, ${ws}, workspace, ${toString (x + 1)}"
-        "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+        "$mod, ${ws}, split-workspace, ${toString (x + 1)}"
+        "$mod SHIFT, ${ws}, split-movetoworkspace, ${toString (x + 1)}"
       ]
     )
     10);
@@ -123,6 +123,8 @@ in {
         "$mod SHIFT, l, movewindow, r"
         "$mod SHIFT, k, movewindow, u"
         "$mod SHIFT, j, movewindow, d"
+        "$mod SHIFT, code:34, split-changemonitorsilent, prev"
+        "$mod SHIFT, code:35, split-changemonitorsilent, next"
 
         # screenshot
         ## area
@@ -149,13 +151,9 @@ in {
         "$mod SHIFT, code:20, movetoworkspace, special"
         "$mod, code:20, togglespecialworkspace"
 
-        # cycle workspaces
-        "$mod, bracketleft, workspace, m-1"
-        "$mod, bracketright, workspace, m+1"
-
         # cycle monitors
-        "$mod SHIFT, bracketleft, focusmonitor, l"
-        "$mod SHIFT, bracketright, focusmonitor, r"
+        "$mod, code:34, focusmonitor, l"
+        "$mod, code:35, focusmonitor, r"
       ]
       ++ workspaces;
 
