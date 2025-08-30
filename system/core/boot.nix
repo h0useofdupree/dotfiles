@@ -22,7 +22,8 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
       "plymouth.use-simpledrm"
-      "video=3440x1440"
+      "video=DP-1:3440x1440@160"
+      "video=DP-2:2560x1440@180"
     ];
 
     loader = {
@@ -42,10 +43,10 @@
 
     plymouth = {
       enable = true;
-      theme = "abstract_ring";
+      theme = "cuts";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
-          selected_themes = ["abstract_ring"];
+          selected_themes = ["cuts"];
         })
       ];
     };
