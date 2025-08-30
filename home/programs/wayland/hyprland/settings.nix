@@ -23,10 +23,8 @@ in {
         "uwsm finalize"
         "hyprctl setcursor ${cursorName} ${toString 18}"
         "openrgb --startminimized"
-        "sleep 1 && caelestia shell lock lock"
-
-        # Apps
-        # "[workspace special silent] io.github.alainm23.planify"
+        "sleep 2 && caelestia shell lock lock"
+        "hyprctl dispatch focusmonitor DP-1"
       ];
 
       general = {
