@@ -28,6 +28,7 @@ in {
           position = "auto";
           scale = 1.0;
           transform = 0;
+          vrr = 1;
         }
         {
           output = "";
