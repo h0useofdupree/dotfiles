@@ -13,6 +13,7 @@
       in [
         "$mod, ${ws}, split-workspace, ${toString (x + 1)}"
         "$mod SHIFT, ${ws}, split-movetoworkspace, ${toString (x + 1)}"
+        "$mod2 SHIFT, ${ws}, split-movetoworkspacesilent, ${toString (x + 1)}"
       ]
     )
     10);
