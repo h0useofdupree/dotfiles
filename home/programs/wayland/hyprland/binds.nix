@@ -70,8 +70,8 @@ in {
         "$mod SHIFT, D, fullscreen, 0"
         "$mod, D, fullscreen, 1"
         "$mod, G, togglegroup,"
-        "$mod SHIFT, N, changegroupactive, f"
-        "$mod SHIFT, P, changegroupactive, b"
+        "$mod CTRL, J, changegroupactive, f"
+        "$mod CTRL, K, changegroupactive, b"
         "$mod, S, togglesplit,"
         "$mod SHIFT, F, exec, ${toggleFloatResize}/bin/toggle-float-resize"
         "$mod, F, pseudo,"
@@ -87,8 +87,8 @@ in {
         "$mod2, B, exec, uwsm app -- qutebrowser"
 
         # logout menu
-        # "Control $mod, Delete, exec, ${toggle "wlogout"} -p layer-shell"
-        "Control $mod, Delete, global, caelestia:session"
+        # "CTRL $mod, Delete, exec, ${toggle "wlogout"} -p layer-shell"
+        "CTRL $mod, Delete, global, caelestia:session"
 
         # lock screen
         "$mod $mod2, L, exec, ${runOnce "hyprlock"}"

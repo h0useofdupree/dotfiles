@@ -104,14 +104,41 @@ in {
       ];
 
       group = {
+        auto_group = true;
+        insert_after_current = true;
+        focus_removed_window = true;
+        drag_into_group = 1; # 2 = Only drag into groupbar
+        merge_groups_on_drag = true;
+        merge_floated_into_tiled_on_groupbar = false;
+
         groupbar = {
-          font_size = 10;
-          gradients = false;
-          text_color = "rgb(b6c4ff)";
+          enabled = true;
+          font_size = 13;
+          font_weight_active = "bold";
+          font_weight_inactive = "normal";
+          height = 20;
+          indicator_height = 0;
+          # rounding = 20;
+          # rounding_power = 4;
+          round_only_edges = true;
+          gradients = true;
+          gradient_rounding = 15;
+          gradient_rounding_power = 4;
+          gradient_round_only_edges = true;
+          text_color = "rgba($backgroundE6)";
+          text_color_inactive = "rgba($textE6)";
+          gaps_in = 5;
+          gaps_out = 2;
+          keep_upper_gap = true;
+          "col.active" = "rgba($primaryE6)";
+          "col.inactive" = "rgba($backgroundE6)";
         };
 
-        "col.border_active" = "rgba(35447988)";
-        "col.border_inactive" = "rgba(dce1ff88)";
+        # TODO: Select proper colors
+        "col.border_active" = "rgba($primaryE6)";
+        "col.border_inactive" = "rgba($backgroundE6)";
+        "col.border_locked_active" = "rgba($primaryE6)";
+        "col.border_locked_inactive" = "rgba($backgroundE6)";
       };
 
       input = {
