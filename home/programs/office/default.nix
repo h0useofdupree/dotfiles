@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./zathura.nix
+    ./onedrive.nix
   ];
 
   home.packages = with pkgs; [
