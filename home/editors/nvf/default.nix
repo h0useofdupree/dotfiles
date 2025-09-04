@@ -169,6 +169,11 @@
           foldenable = true;
           foldmethod = "manual";
           # foldexpr = "nvim_treesitter#foldexpr()";
+
+          # Window title: show shortened file path (not CWD)
+          title = true;
+          # Use expand('%:p:~') for full path with '~', then pathshorten() to compact directories
+          titlestring = "%{pathshorten(expand('%:p:~'))}";
         };
 
         spellcheck = {
