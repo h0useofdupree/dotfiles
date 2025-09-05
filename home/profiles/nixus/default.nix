@@ -20,6 +20,7 @@
     ../../services/system/libinput-gestures.nix
     ../../services/system/polkit-agent.nix
     ../../services/system/theme.nix
+    ../../services/system/krk-keep-awake.nix
     ../../services/system/udiskie.nix
 
     # Wayland services
