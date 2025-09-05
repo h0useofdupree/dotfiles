@@ -1,5 +1,6 @@
 {pkgs, ...}: {
-  home.packages = [pkgs.speaker-test];
+  home.packages = [pkgs.alsa-utils];
+
   systemd = {
     user = {
       services.krk-keep-awake = {
@@ -8,7 +9,7 @@
         };
         Service = {
           Type = "oneshot";
-          ExecStart = "${pkgs.speaker-test}/bin/speaker-test -t sine -f 10 -l 1 -p 2000";
+          ExecStart = "${pkgs.alsa-utils}/bin/speaker-test -t sine -f 10 -l 1 -p 2000";
         };
         Install = {
           WantedBy = ["default.target"];
