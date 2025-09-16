@@ -2,7 +2,7 @@
   programs.mpv = {
     enable = true;
     defaultProfiles = ["gpu-hq" "hdr"];
-    scripts = [pkgs.mpvScripts.mpris];
+    scripts = [pkgs.mpvScripts.mpris pkgs.mpvScripts.dynamic-crop];
 
     profiles = {
       hdr = {
