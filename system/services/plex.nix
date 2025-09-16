@@ -10,6 +10,19 @@
     package = pkgs.plex;
   };
 
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    jellyfin
+    jellyfin-web
+    jellyfin-ffmpeg
+    jellyfin-mpv-shim
+  ];
+  users.users.jellyfin.extraGroups = ["video" "render"];
+
   # Allow hardware-accelerated transcoding by granting device access
-  users.users.plex.extraGroups = ["video" "render"];
+  # users.users.plex.extraGroups = ["video" "render"];
 }
