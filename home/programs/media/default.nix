@@ -2,6 +2,7 @@
   imports = [
     ./mpv.nix
     ./spotify-player
+    ./aria2.nix
   ];
 
   home.packages = with pkgs; [
