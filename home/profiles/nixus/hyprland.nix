@@ -29,11 +29,11 @@ in {
           scale = 1.0;
           transform = 0;
           bitdepth = 10;
-          cm = "auto";
+          # cm = "auto";
+          cm = "hdr";
           vrr = 0;
-          # cm = "hdr";
-          # sdrbrightness = 1.4;
-          # sdrsaturation = 1.0;
+          sdrbrightness = 1.4;
+          sdrsaturation = 1.0;
         }
         {
           # LG 27GR75Q-B
@@ -43,11 +43,11 @@ in {
           scale = 1.0;
           transform = 0;
           bitdepth = 10;
-          cm = "auto";
+          # cm = "auto";
+          cm = "hdr";
           vrr = 0;
-          # cm = "hdr";
-          # sdrbrightness = 1.4;
-          # sdrsaturation = 1.0;
+          sdrbrightness = 1.4;
+          sdrsaturation = 1.0;
         }
         {
           output = "";
