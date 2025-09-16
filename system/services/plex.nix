@@ -4,10 +4,10 @@
   ...
 }: {
   services.plex = {
-    enable = true;
+    enable = false;
     openFirewall = true;
     # Use the default Plex package; override here if you prefer Plex Pass
-    # package = pkgs.plex;
+    package = pkgs.plex;
   };
 
   # Allow hardware-accelerated transcoding by granting device access
