@@ -53,148 +53,153 @@
     then "brillo -q -u 300000 -U 5"
     else "ddcutil --display 1 setvcp 10 - 10 && ddcutil --display 2 setvcp 10 - 10";
 in {
-  wayland.windowManager.hyprland.settings = {
-    # mouse movements
-    bindm = [
-      "$mod, mouse:272, movewindow"
-      "$mod, mouse:273, resizewindow"
-      "$mod ALT, mouse:272, resizewindow"
-    ];
+  wayland.windowManager.hyprland = {
+    settings = {
+      # mouse movements
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+        # "$mod ALT, mouse:272, resizewindow"
+      ];
 
-    # binds
-    bind =
-      [
-        # compositor commands
-        "$mod SHIFT, R, exec, hyprctl reload"
-        "$mod2 SHIFT, R, exec, systemctl --user restart caelestia-shell.service"
-        "$mod, Q, killactive,"
-        "$mod SHIFT, D, fullscreen, 0"
-        "$mod, D, fullscreen, 1"
-        "$mod, G, togglegroup,"
-        "$mod CTRL, J, changegroupactive, f"
-        "$mod CTRL, K, changegroupactive, b"
-        "$mod, S, togglesplit,"
-        "$mod SHIFT, F, exec, ${toggleFloatResize}/bin/toggle-float-resize"
-        "$mod, F, pseudo,"
-        "$mod, M, layoutmsg, swapwithmaster"
-        "$mod SHIFT, M, layoutmsg, orientationcycle left center"
+      # binds
+      bind =
+        [
+          # compositor commands
+          "$mod SHIFT, R, exec, hyprctl reload"
+          "$mod2 SHIFT, R, exec, systemctl --user restart caelestia-shell.service"
+          "$mod, Q, killactive,"
+          "$mod SHIFT, D, fullscreen, 0"
+          "$mod, D, fullscreen, 1"
+          "$mod, G, togglegroup,"
+          "$mod CTRL, J, changegroupactive, f"
+          "$mod CTRL, K, changegroupactive, b"
+          "$mod, S, togglesplit,"
+          "$mod SHIFT, F, exec, ${toggleFloatResize}/bin/toggle-float-resize"
+          "$mod, F, pseudo,"
+          "$mod, M, layoutmsg, swapwithmaster"
+          "$mod SHIFT, M, layoutmsg, orientationcycle left center"
 
-        # utility
-        # terminal
-        "$mod, Return, exec, uwsm app -- kitty"
+          # utility
+          # terminal
+          "$mod, Return, exec, uwsm app -- kitty"
 
-        #browsers
-        "$mod, B, exec, uwsm app -- zen"
-        "$mod2, B, exec, uwsm app -- qutebrowser"
+          #browsers
+          "$mod, B, exec, uwsm app -- zen"
+          "$mod2, B, exec, uwsm app -- qutebrowser"
 
-        # logout menu
-        # "CTRL $mod, Delete, exec, ${toggle "wlogout"} -p layer-shell"
-        "CTRL $mod, Delete, global, caelestia:session"
+          # vesktop (discord) pass
+          "CTRL SHIFT, M, pass, class:^(vesktop)$"
 
-        # lock screen
-        "$mod $mod2, L, exec, ${runOnce "hyprlock"}"
-        # "$mod, L, global, systemctl --user start caelestia-shell.service"
-        "$mod2, L, global, caelestia:lock"
+          # logout menu
+          # "CTRL $mod, Delete, exec, ${toggle "wlogout"} -p layer-shell"
+          "CTRL $mod, Delete, global, caelestia:session"
 
-        # select area to perform OCR on
-        "$mod, O, exec, ${runOnce "wl-ocr"}"
-        ", XF86Favorites, exec, ${runOnce "wl-ocr"}"
+          # lock screen
+          "$mod $mod2, L, exec, ${runOnce "hyprlock"}"
+          # "$mod, L, global, systemctl --user start caelestia-shell.service"
+          "$mod2, L, global, caelestia:lock"
 
-        # gnome-apps
-        "$mod, C, exec, ${toggle "gnome-calculator"}"
-        "$mod SHIFT, C, exec, [float; center] ${toggle "gnome-clocks"}"
+          # select area to perform OCR on
+          "$mod, O, exec, ${runOnce "wl-ocr"}"
+          ", XF86Favorites, exec, ${runOnce "wl-ocr"}"
 
-        # open settings
-        # "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome ${runOnce "gnome-control-center"}"
+          # gnome-apps
+          "$mod, C, exec, ${toggle "gnome-calculator"}"
+          "$mod SHIFT, C, exec, [float; center] ${toggle "gnome-clocks"}"
 
-        # Caelestia misc
-        "$mod SHIFT, n, global, caelestia:clearNotifs"
-        "$mod, a, global, caelestia:showall"
-        "$mod, m, exec, caelestia shell drawers toggle dashboard"
+          # open settings
+          # "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome ${runOnce "gnome-control-center"}"
 
-        # move focus
-        "$mod, h, movefocus, l"
-        "$mod, l, movefocus, r"
-        "$mod, k, movefocus, u"
-        "$mod, j, movefocus, d"
-        "$mod, Tab, cyclenext"
-        "$mod, Tab, bringactivetotop"
+          # Caelestia misc
+          "$mod SHIFT, n, global, caelestia:clearNotifs"
+          "$mod, a, global, caelestia:showall"
+          "$mod, m, exec, caelestia shell drawers toggle dashboard"
 
-        # move window
-        "$mod SHIFT, h, movewindow, l"
-        "$mod SHIFT, l, movewindow, r"
-        "$mod SHIFT, k, movewindow, u"
-        "$mod SHIFT, j, movewindow, d"
-        "$mod SHIFT, code:34, split-changemonitorsilent, prev"
-        "$mod SHIFT, code:35, split-changemonitorsilent, next"
+          # move focus
+          "$mod, h, movefocus, l"
+          "$mod, l, movefocus, r"
+          "$mod, k, movefocus, u"
+          "$mod, j, movefocus, d"
+          "$mod, Tab, cyclenext"
+          "$mod, Tab, bringactivetotop"
 
-        # screenshot
-        ## area
-        # "$mod, Next, exec, ${runOnce "grimblast"} --notify copysave area"
-        "$mod, Next, global, caelestia:screenshot"
+          # move window
+          "$mod SHIFT, h, movewindow, l"
+          "$mod SHIFT, l, movewindow, r"
+          "$mod SHIFT, k, movewindow, u"
+          "$mod SHIFT, j, movewindow, d"
+          "$mod SHIFT, code:34, split-changemonitorsilent, prev"
+          "$mod SHIFT, code:35, split-changemonitorsilent, next"
 
-        ## area freeze
-        "$mod SHIFT, Next, global, caelestia:screenshotFreeze"
+          # screenshot
+          ## area
+          # "$mod, Next, exec, ${runOnce "grimblast"} --notify copysave area"
+          "$mod, Next, global, caelestia:screenshot"
 
-        ## current screen
-        # "$mod, Prior, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
-        "$mod, Prior, exec, caelestia screenshot"
+          ## area freeze
+          "$mod SHIFT, Next, global, caelestia:screenshotFreeze"
 
-        ## all screens
-        # "$mod $mod2, Next, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
+          ## current screen
+          # "$mod, Prior, exec, ${runOnce "grimblast"} --notify --cursor copysave output"
+          "$mod, Prior, exec, caelestia screenshot"
 
-        # screen-recording
-        ## Sound
-        "$mod, Insert, exec, caelestia record -s"
-        ## No-Sound
-        "$mod SHIFT, Insert, exec, caelestia record"
+          ## all screens
+          # "$mod $mod2, Next, exec, ${runOnce "grimblast"} --notify --cursor copysave screen"
 
-        # special workspace
-        "$mod SHIFT, code:20, movetoworkspace, special"
-        "$mod, code:20, togglespecialworkspace"
+          # screen-recording
+          ## Sound
+          "$mod, Insert, exec, caelestia record -s"
+          ## No-Sound
+          "$mod SHIFT, Insert, exec, caelestia record"
 
-        # cycle monitors
-        "$mod, code:34, focusmonitor, l"
-        "$mod, code:35, focusmonitor, r"
-      ]
-      ++ workspaces;
+          # special workspace
+          "$mod SHIFT, code:20, movetoworkspace, special"
+          "$mod, code:20, togglespecialworkspace"
 
-    binde = [
-      "$mod2 SHIFT, h, resizeactive, -10% 0"
-      "$mod2 SHIFT, l, resizeactive, 10% 0"
-      "$mod2 SHIFT, j, resizeactive, 0 10%"
-      "$mod2 SHIFT, k, resizeactive, 0 -10%"
-    ];
+          # cycle monitors
+          "$mod, code:34, focusmonitor, l"
+          "$mod, code:35, focusmonitor, r"
+        ]
+        ++ workspaces;
 
-    bindr = [
-      # launcher
-      # "$mod, R, exec, ${toggle "anyrun"}"
-      "$mod, R, global, caelestia:launcher"
-    ];
+      binde = [
+        "$mod2 SHIFT, h, resizeactive, -10% 0"
+        "$mod2 SHIFT, l, resizeactive, 10% 0"
+        "$mod2 SHIFT, j, resizeactive, 0 10%"
+        "$mod2 SHIFT, k, resizeactive, 0 -10%"
+      ];
 
-    bindl = [
-      # media controls
-      ", XF86AudioPlay, exec, playerctl play-pause"
-      ", XF86AudioPrev, exec, playerctl previous"
-      ", XF86AudioNext, exec, playerctl next"
+      bindr = [
+        # launcher
+        # "$mod, R, exec, ${toggle "anyrun"}"
+        "$mod, R, global, caelestia:launcher"
+      ];
 
-      # volume (mute)
-      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      bindl = [
+        # media controls
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, playerctl next"
 
-      # speaker control
-      "$mod2, 1, exec, speakerctl --on"
-      "$mod2, 0, exec, speakerctl --off"
-    ];
+        # volume (mute)
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-    bindle = [
-      # volume (up/down)
-      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%+"
-      ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%-"
+        # speaker control
+        "$mod2, 1, exec, speakerctl --on"
+        "$mod2, 0, exec, speakerctl --off"
+      ];
 
-      # backlight
-      ", XF86MonBrightnessUp, exec, ${brightnessUp}"
-      ", XF86MonBrightnessDown, exec, ${brightnessDown}"
-    ];
+      bindle = [
+        # volume (up/down)
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%-"
+
+        # backlight
+        ", XF86MonBrightnessUp, exec, ${brightnessUp}"
+        ", XF86MonBrightnessDown, exec, ${brightnessDown}"
+      ];
+    };
   };
 }
