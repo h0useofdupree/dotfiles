@@ -36,7 +36,7 @@ in {
         "col.active_border" = "rgba($primaryE6)";
         "col.inactive_border" = "rgba($backgroundE6)";
 
-        allow_tearing = true;
+        allow_tearing = false;
         resize_on_border = false;
       };
 
@@ -162,7 +162,7 @@ in {
         pseudotile = true;
         preserve_split = true;
         special_scale_factor = 0.85;
-        single_window_aspect_ratio = "14 9";
+        single_window_aspect_ratio = "16 9";
       };
 
       master = {
