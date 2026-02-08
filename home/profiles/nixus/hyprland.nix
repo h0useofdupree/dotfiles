@@ -29,8 +29,8 @@ in {
           scale = 1.0;
           transform = 0;
           bitdepth = 10;
-          # cm = "auto";
-          cm = "hdr";
+          cm = "auto";
+          # cm = "hdr";
           vrr = 0;
           sdrbrightness = 1.4;
           sdrsaturation = 1.0;
@@ -43,8 +43,8 @@ in {
           scale = 1.0;
           transform = 0;
           bitdepth = 10;
-          # cm = "auto";
-          cm = "hdr";
+          cm = "auto";
+          # cm = "hdr";
           vrr = 0;
           sdrbrightness = 1.4;
           sdrsaturation = 1.0;
