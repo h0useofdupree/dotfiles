@@ -43,6 +43,40 @@
         fi
     fi
   '';
+
+  toggleGameBindings = pkgs.writeShellScriptBin "toggle-game-bindings" ''
+        set -euo pipefail
+
+    state_file="''${XDG_RUNTIME_DIR:-/tmp}/hypr-game-bindings.disabled"
+
+        disable_bindings=(
+          "ALT, mouse:272"
+          "ALT, mouse:273"
+          "ALT, A"
+          "ALT, S"
+          "ALT, D"
+          "ALT, F"
+          "ALT, Q"
+          "ALT, G"
+        )
+
+        if [[ -f "$state_file" ]]; then
+          hyprctl reload >/dev/null
+          rm -f "$state_file"
+          notify-send "Hyprland game bindings" "Deactivated (bindings restored)"
+          exit 0
+        fi
+
+        for binding in "''${disable_bindings[@]}"; do
+          hyprctl keyword unbind "$binding" >/dev/null
+        done
+
+        hyprctl keyword bind "ALT SHIFT, Q, killactive," >/dev/null
+
+        touch "$state_file"
+        notify-send "Hyprland game bindings" "Activated (ALT bindings disabled)"
+  '';
+
   brightnessUp =
     if isLaptop
     then "brillo -q -u 300000 -A 5"
@@ -67,6 +101,7 @@ in {
         [
           # compositor commands
           "$mod SHIFT, R, exec, hyprctl reload"
+          "$mod CTRL, G, exec, ${toggleGameBindings}/bin/toggle-game-bindings"
           "$mod2 SHIFT, R, exec, systemctl --user restart caelestia-shell.service"
           "$mod, Q, killactive,"
           "$mod SHIFT, D, fullscreen, 0"
