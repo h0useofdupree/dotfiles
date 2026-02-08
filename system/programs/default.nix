@@ -17,5 +17,8 @@
 
   environment.systemPackages = with pkgs; [
     gparted
+    exfatprogs
+    dosfstools
+    ntfs3g
   ];
 }
