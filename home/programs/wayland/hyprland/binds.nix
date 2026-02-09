@@ -77,6 +77,35 @@
         notify-send "Hyprland game bindings" "Activated (ALT bindings disabled)"
   '';
 
+  toggleAudioOutput = pkgs.writeShellScriptBin "toggle-audio-output" ''
+    set -euo pipefail
+
+    interface_sink="alsa_output.usb-BEHRINGER_UMC204HD_192k-00.HiFi__Line1__sink"
+    aux_sink="alsa_output.pci-0000_12_00.6.analog-stereo"
+
+    current_sink="$(pactl get-default-sink)"
+
+    if [ "$current_sink" = "$interface_sink" ]; then
+      next_sink="$aux_sink"
+      next_label="Headphones (AUX)"
+    else
+      next_sink="$interface_sink"
+      next_label="Speakers (UMC204HD Line A)"
+    fi
+
+    if ! pactl list short sinks | awk '{print $2}' | grep -Fxq "$next_sink"; then
+      notify-send \
+        "Audio output switch failed" \
+        "Target sink unavailable: $next_label"
+      exit 1
+    fi
+
+    pactl set-default-sink "$next_sink"
+    notify-send \
+      "Audio output switched" \
+      "Now using: $next_label"
+  '';
+
   brightnessUp =
     if isLaptop
     then "brillo -q -u 300000 -A 5"
