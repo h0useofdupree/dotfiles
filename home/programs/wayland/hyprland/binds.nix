@@ -187,6 +187,8 @@ in {
           "$mod, l, movefocus, r"
           "$mod, k, movefocus, u"
           "$mod, j, movefocus, d"
+
+          # ALT+Tab-esque
           "$mod, Tab, cyclenext"
           "$mod, Tab, bringactivetotop"
 
