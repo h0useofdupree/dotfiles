@@ -13,7 +13,7 @@
       splashTheming = true;
       staticTitle = true;
       hardwareAcceleration = true;
-      discordBranch = "stable";
+      discordBranch = "canary";
     };
   };
 }
