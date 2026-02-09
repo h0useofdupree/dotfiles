@@ -105,6 +105,7 @@
     notify-send \
       "Audio output switched" \
       "Now using: $next_label"
+    sleep 3 && hyprctl dispatch global caelestia:clearNotifs
   '';
 
   brightnessUp =
