@@ -1,6 +1,7 @@
 {
   pkgs,
   isLaptop ? false,
+  lib,
   ...
 }: let
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
@@ -240,20 +241,25 @@ in {
         "$mod, R, global, caelestia:launcher"
       ];
 
-      bindl = [
-        # media controls
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86AudioNext, exec, playerctl next"
+      bindl =
+        [
+          # media controls
+          ", XF86AudioPlay, exec, playerctl play-pause"
+          ", XF86AudioPrev, exec, playerctl previous"
+          ", XF86AudioNext, exec, playerctl next"
 
-        # volume (mute)
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          # volume (mute)
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
-        # speaker control
-        "$mod2, 1, exec, speakerctl --on"
-        "$mod2, 0, exec, speakerctl --off"
-      ];
+          # speaker control
+          "$mod2, 1, exec, speakerctl --on"
+          "$mod2, 0, exec, speakerctl --off"
+        ]
+        ++ lib.optionals (!isLaptop) [
+          # switch audio output
+          "$mod2, e, exec, ${toggleAudioOutput}/bin/toggle-audio-output"
+        ];
 
       bindle = [
         # volume (up/down)
