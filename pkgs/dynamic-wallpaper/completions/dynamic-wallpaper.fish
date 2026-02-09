@@ -15,7 +15,6 @@ function __dynamic_wallpaper_groups
     echo -e Burnaby\t8 images 5120x2880
     echo -e Catalina\t9 images 6016x6016
     echo -e Colors\t23 images 5760x4096
-    echo -e DesertSands\t5 images 5160x2160
     echo -e Dome\t2 images 6016x6016
     echo -e Earth\t16 images 5120x2880
     echo -e Exodus\t4 images 5120x2880

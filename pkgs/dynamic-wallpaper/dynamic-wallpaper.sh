@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# TODO: Support shuffle folders for non-dynamic wallpapers
+
 usage() {
   local ec="${1:-0}"
   local out="/dev/stdout"
