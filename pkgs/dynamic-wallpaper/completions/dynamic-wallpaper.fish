@@ -42,5 +42,7 @@ complete -c dynamic-wallpaper -l auto-light -d 'Use the lightest wallpaper when 
 complete -c dynamic-wallpaper -l start -r -d 'Start time for the cycle (HH:MM)' -a '(__dynamic_wallpaper_times)' -f
 complete -c dynamic-wallpaper -l end -r -d 'End time for the cycle (HH:MM)' -a '(__dynamic_wallpaper_times)' -f
 complete -c dynamic-wallpaper -l time -r -d 'Use fake current time (HH:MM)' -a '(__dynamic_wallpaper_times)' -f
+complete -c dynamic-wallpaper -l shuffle-mode -r -d 'Shuffle behavior for shuffle_ groups' -a 'random fixed' -f
+complete -c dynamic-wallpaper -l image -r -d 'Image when --shuffle-mode fixed' -a '(__fish_complete_files)'
 complete -c dynamic-wallpaper -s l -l log -r -d 'Write log output to FILE' -a '(__fish_complete_files)'
 complete -c dynamic-wallpaper -s h -l help -d 'Show help text'

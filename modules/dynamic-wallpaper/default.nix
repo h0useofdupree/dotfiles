@@ -48,6 +48,18 @@ in {
       description = "End time of the wallpaper cycle (HH:MM).";
     };
 
+    shuffleMode = mkOption {
+      type = types.enum ["random" "fixed"];
+      default = "random";
+      description = "Behavior for groups prefixed with shuffle_.";
+    };
+
+    image = mkOption {
+      type = types.nullOr types.str;
+      default = null;
+      description = "Image to use when shuffleMode is fixed (filename, stem, or path).";
+    };
+
     refreshInterval = mkOption {
       type = types.str;
       default = "30m";
@@ -75,7 +87,11 @@ in {
         DYNAMIC_WALLPAPER_LINK = cfg.currentLink;
         DYNAMIC_WALLPAPER_START = cfg.startTime;
         DYNAMIC_WALLPAPER_END = cfg.endTime;
+        DYNAMIC_WALLPAPER_SHUFFLE_MODE = cfg.shuffleMode;
         DYNAMIC_WALLPAPERS_ROOT = "${config.home.homeDirectory}/.dotfiles/lib/wallpapers";
+      }
+      // optionalAttrs (cfg.image != null) {
+        DYNAMIC_WALLPAPER_IMAGE = cfg.image;
       }
       // (
         if cfg.directory != null
@@ -103,6 +119,9 @@ in {
           "DYNAMIC_WALLPAPER_LINK=${cfg.currentLink}"
           "DYNAMIC_WALLPAPER_START=${cfg.startTime}"
           "DYNAMIC_WALLPAPER_END=${cfg.endTime}"
+          "DYNAMIC_WALLPAPER_SHUFFLE_MODE=${cfg.shuffleMode}"
+        ] ++ lib.optionals (cfg.image != null) [
+          "DYNAMIC_WALLPAPER_IMAGE=${cfg.image}"
         ];
       };
     };

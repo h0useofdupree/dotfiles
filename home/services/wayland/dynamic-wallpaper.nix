@@ -3,7 +3,7 @@
   isLaptop,
   ...
 }: let
-  groupLinx = "AnimeCity";
+  groupLinx = "shuffle_Anime";
   groupNixus = "Fuji";
 in {
   services.swww.enable = true;
@@ -21,6 +21,12 @@ in {
       then groupLinx
       else groupNixus;
     currentLink = config.home.homeDirectory + "/.cache/dynamic-wallpaper/current";
+
+    # shuffleMode/image are only used for groups named with `shuffle_` prefix.
+    # - random: pick a random image from the folder each refresh.
+    # - fixed: pin one file (set image to file stem, filename, or full path).
+    shuffleMode = "random";
+    # image = "wallpaper-01";
 
     # NOTE: Available groups:
     # - 'Alps' - 19 images - 5120x2880 - avg #7C8DB6 - ~60% bright

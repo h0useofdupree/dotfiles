@@ -31,6 +31,8 @@ mapfile -t groups < <(find "$base" -mindepth 1 -maxdepth 1 -type d -printf '%f\n
   echo "> Images in groups need to be named \`<group_name>-n.<file_extenstion>\` in order"
   echo "> to work in a time-based manner. The appropriate wallpaper for the current time"
   echo "> will be selected by its n-index."
+  echo "> Folders prefixed with \`shuffle_\` are treated as non-time-based wallpaper pools"
+  echo "> and can be used with random or fixed image selection via module options."
   echo
   echo "## Packaging"
   echo "Use 'scripts/package_wallpapers.sh' to create zip archives and accompanying"
@@ -69,6 +71,8 @@ mapfile -t groups < <(find "$base" -mindepth 1 -maxdepth 1 -type d -printf '%f\n
   echo "complete -c dynamic-wallpaper -l start -r -d 'Start time for the cycle (HH:MM)' -a '(__dynamic_wallpaper_times)' -f"
   echo "complete -c dynamic-wallpaper -l end -r -d 'End time for the cycle (HH:MM)' -a '(__dynamic_wallpaper_times)' -f"
   echo "complete -c dynamic-wallpaper -l time -r -d 'Use fake current time (HH:MM)' -a '(__dynamic_wallpaper_times)' -f"
+  echo "complete -c dynamic-wallpaper -l shuffle-mode -r -d 'Shuffle behavior for shuffle_ groups' -a 'random fixed' -f"
+  echo "complete -c dynamic-wallpaper -l image -r -d 'Image when --shuffle-mode fixed' -a '(__fish_complete_files)'"
   echo "complete -c dynamic-wallpaper -s l -l log -r -d 'Write log output to FILE' -a '(__fish_complete_files)'"
   echo "complete -c dynamic-wallpaper -s h -l help -d 'Show help text'"
 } >"$completion"

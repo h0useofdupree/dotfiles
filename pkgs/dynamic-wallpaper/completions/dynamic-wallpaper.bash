@@ -5,11 +5,23 @@ _dynamic_wallpaper() {
   COMPREPLY=()
   cur="${COMP_WORDS[COMP_CWORD]}"
   prev="${COMP_WORDS[COMP_CWORD - 1]}"
-  opts="-d --dir --light --auto-light --start --end --time -l --log -h --help"
+  opts="-d --dir -g --group --light --auto-light --start --end --time --shuffle-mode --image -l --log -h --help"
 
   case "$prev" in
   -d | --dir)
     mapfile -t COMPREPLY < <(compgen -o dirnames -- "$cur")
+    return 0
+    ;;
+  -g | --group)
+    mapfile -t COMPREPLY < <(compgen -W "$(find "${DYNAMIC_WALLPAPERS_ROOT:-$HOME/.dotfiles/lib/wallpapers}" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' 2>/dev/null)" -- "$cur")
+    return 0
+    ;;
+  --shuffle-mode)
+    mapfile -t COMPREPLY < <(compgen -W "random fixed" -- "$cur")
+    return 0
+    ;;
+  --image)
+    mapfile -t COMPREPLY < <(compgen -f -- "$cur")
     return 0
     ;;
   -l | --log)

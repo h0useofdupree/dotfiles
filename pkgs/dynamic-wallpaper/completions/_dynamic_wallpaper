@@ -5,11 +5,14 @@ local -a times
 
 _arguments \
   '(-d --dir)'{-d,--dir}'[Directory containing wallpapers]:directory:_files -/' \
+  '(-g --group)'{-g,--group}'[Wallpaper group]:group:_files' \
   '--light[Always use the lightest wallpaper]' \
   '--auto-light[Use the lightest wallpaper when GNOME is in light mode]' \
   '--start[Start time for the cycle]:time:(${times})' \
   '--end[End time for the cycle]:time:(${times})' \
   '--time[Use fake current time]:time:(${times})' \
+  '--shuffle-mode[Shuffle behavior for shuffle_ groups]:mode:(random fixed)' \
+  '--image[Image when shuffle-mode is fixed]:image:_files' \
   '(-l --log)'{-l,--log}'[Write log output to FILE]:file:_files' \
   '(-h --help)'{-h,--help}'[Show help]' \
   '*:file:_files'

@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# TODO: Support shuffle folders for non-dynamic wallpapers
-
 usage() {
   local ec="${1:-0}"
   local out="/dev/stdout"
@@ -21,13 +19,16 @@ Options:
   --start TIME        Start time for the cycle (default: 06:00).
   --end TIME          End time for the cycle (default: 22:00).
   --time TIME         Use TIME instead of the current system time (HH:MM)
+  --shuffle-mode MODE Shuffle behavior for shuffle_* folders: random|fixed.
+  --image NAME        Image name/path to use when --shuffle-mode fixed.
   -l, --log FILE      Write log output to FILE.
   -h, --help          Show this help text.
 Environment variables can also be used instead of command line options:
   DYNAMIC_WALLPAPER_DIR, DYNAMIC_WALLPAPER_GROUP,
   DYNAMIC_WALLPAPER_FORCE_LIGHT, DYNAMIC_WALLPAPER_AUTO_LIGHT,
   DYNAMIC_WALLPAPER_LOG, DYNAMIC_WALLPAPER_START,
-  DYNAMIC_WALLPAPER_END, DYNAMIC_WALLPAPER_TIME.
+  DYNAMIC_WALLPAPER_END, DYNAMIC_WALLPAPER_TIME,
+  DYNAMIC_WALLPAPER_SHUFFLE_MODE, DYNAMIC_WALLPAPER_IMAGE.
 EOF
   exit "$ec"
 }
@@ -43,6 +44,8 @@ log_file="${DYNAMIC_WALLPAPER_LOG:-$HOME/.cache/dynamic-wallpaper/dynamic-wallpa
 start_time="${DYNAMIC_WALLPAPER_START:-06:00}"
 end_time="${DYNAMIC_WALLPAPER_END:-22:00}"
 fake_time="${DYNAMIC_WALLPAPER_TIME:-}"
+shuffle_mode="${DYNAMIC_WALLPAPER_SHUFFLE_MODE:-random}"
+selected_image="${DYNAMIC_WALLPAPER_IMAGE:-}"
 MAX_LOG_LINES=500
 
 while [[ $# -gt 0 ]]; do
@@ -73,6 +76,14 @@ while [[ $# -gt 0 ]]; do
     ;;
   --time)
     fake_time="$2"
+    shift 2
+    ;;
+  --shuffle-mode)
+    shuffle_mode="$2"
+    shift 2
+    ;;
+  --image)
+    selected_image="$2"
     shift 2
     ;;
   -l | --log)
@@ -117,6 +128,95 @@ if [[ ${#all_files[@]} -eq 0 ]]; then
   exit 1
 fi
 mapfile -t all_files < <(printf '%s\n' "${all_files[@]}" | sort -V)
+count_all_files=${#all_files[@]}
+
+dir_name="$(basename "$dir")"
+is_shuffle_group=0
+if [[ "$dir_name" == shuffle_* ]]; then
+  is_shuffle_group=1
+fi
+
+if ((is_shuffle_group)); then
+  case "$shuffle_mode" in
+  random)
+    index=$((RANDOM % count_all_files))
+    wall="${all_files[$index]}"
+    log "shuffle mode detected for '$dir_name': random"
+    ;;
+  fixed)
+    if [[ -z "$selected_image" ]]; then
+      echo "dynamic-wallpaper: --shuffle-mode fixed requires --image or DYNAMIC_WALLPAPER_IMAGE" >&2
+      exit 1
+    fi
+
+    resolved_image=""
+    if [[ -f "$selected_image" ]]; then
+      resolved_image="$selected_image"
+    elif [[ -f "$dir/$selected_image" ]]; then
+      resolved_image="$dir/$selected_image"
+    else
+      for ext in jpg jpeg png; do
+        if [[ -f "$dir/$selected_image.$ext" ]]; then
+          resolved_image="$dir/$selected_image.$ext"
+          break
+        fi
+      done
+    fi
+
+    if [[ -z "$resolved_image" ]]; then
+      echo "dynamic-wallpaper: selected image not found in $dir: $selected_image" >&2
+      exit 1
+    fi
+
+    wall="$resolved_image"
+    log "shuffle mode detected for '$dir_name': fixed ($selected_image)"
+    ;;
+  *)
+    echo "dynamic-wallpaper: invalid shuffle mode '$shuffle_mode' (expected random|fixed)" >&2
+    exit 1
+    ;;
+  esac
+
+  log "directory: $dir"
+  log "total images in dir: ${#all_files[@]}"
+  log "using file: $wall"
+
+  current_link="${DYNAMIC_WALLPAPER_LINK:-}"
+  if [[ -n "$current_link" ]]; then
+    mkdir -p "$(dirname "$current_link")"
+    ln -sf "$wall" "$current_link"
+  fi
+
+  # TODO: Maybe rework this. caelestia-shell 38506e60293df56d252a99f561cca3b40e25bd21 added some support for symlinks?
+  visible_dir="$HOME/Pictures/WallpapersCache"
+  mkdir -p "$visible_dir"
+
+  ext="${wall##*.}"
+  copy_target="$visible_dir/current.$ext"
+
+  # Keep only the current extension, prune others.
+  base_keep="$(basename "$copy_target")"
+  find "$visible_dir" -maxdepth 1 -type f -name 'current.*' ! -name "$base_keep" -delete
+
+  # If the target already references the same inode as $wall, skip work.
+  if [[ -e "$copy_target" ]] && [[ "$wall" -ef "$copy_target" ]]; then
+    log "cache already up to date: $copy_target"
+  else
+    # Write atomically inside the same filesystem/dir.
+    tmp="$(mktemp -p "$visible_dir" .current.tmp.XXXXXX)"
+
+    # Prefer reflink (fast on btrfs); fall back to a regular copy.
+    if ! cp --reflink=auto -f -- "$wall" "$tmp" 2>/dev/null; then
+      cp -f -- "$wall" "$tmp"
+    fi
+
+    # Atomically replace (even if $copy_target exists).
+    mv -fT -- "$tmp" "$copy_target"
+    log "mirrored current wallpaper to: $copy_target"
+  fi
+
+  exec "$swww_bin" img "$wall" --transition-type fade --transition-fps 144
+fi
 
 order_file="$dir/order.txt"
 files=()
