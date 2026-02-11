@@ -1,7 +1,7 @@
 # Laptop only
 {
   services = {
-    logind.powerKey = "suspend";
+    logind.settings.Login.HandlePowerKey = "suspend";
 
     power-profiles-daemon.enable = true;
 
