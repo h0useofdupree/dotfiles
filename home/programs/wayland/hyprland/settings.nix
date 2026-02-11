@@ -201,11 +201,19 @@ in {
 
       # touchpad gestures
       gestures = {
-        workspace_swipe = true;
         workspace_swipe_forever = true;
         workspace_swipe_cancel_ratio = 0.3;
         workspace_swipe_distance = 1400;
       };
+
+      gesture = [
+        "3, horizontal, workspace"
+        "3, down, mod: ALT, close"
+        "3, pinch, scale: 1.5, fullscreen"
+
+        # TODO: Maybe use toggleFloatResize from binds somehow
+        "4, pinch, scale: 1.5, float"
+      ];
 
       permission = [
         "${config.wayland.windowManager.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
