@@ -20,14 +20,14 @@
       if [ $? -eq 0 ]; then
       ${forEach (selector: ''
         hyprctl keyword workspace "${selector}, gapsout:${toString gaps_out}, gapsin:${toString gaps_in}"
-        hyprctl keyword windowrulev2 "bordersize ${toString border_size}, floating:0, onworkspace:${selector}"
-        hyprctl keyword windowrulev2 "rounding ${toString rounding}, floating:0, onworkspace:${selector}"
+        hyprctl keyword windowrule "border_size ${toString border_size}, match:float false, match:workspace ${selector}"
+        hyprctl keyword windowrule "rounding ${toString rounding}, match:float false, match:workspace ${selector}"
       '')}
       else
       ${forEach (selector: ''
         hyprctl keyword workspace "${selector}, gapsout:0, gapsin:0"
-        hyprctl keyword windowrulev2 "bordersize 0, floating:0, onworkspace:${selector}"
-        hyprctl keyword windowrulev2 "rounding 0, floating:0, onworkspace:${selector}"
+        hyprctl keyword windowrule "border_size 0, match:float false, match:workspace ${selector}"
+        hyprctl keyword windowrule "rounding 0, match:float false, match:workspace ${selector}"
       '')}
       fi
     '';
@@ -37,14 +37,14 @@ in {
   wayland.windowManager.hyprland.settings = {
     workspace = map (x: "${x}, gapsout:0, gapsin:0") workspaceSelectors;
 
-    windowrulev2 = flatten (map (x: [
-        "bordersize 0, floating:0, onworkspace:${x}"
-        "rounding 0, floating:0, onworkspace:${x}"
+    windowrule = flatten (map (x: [
+        "border_size 0, match:float false, match:workspace ${x}"
+        "rounding 0, match:float false, match:workspace ${x}"
       ])
       workspaceSelectors);
 
     bind = [
-      "$mod, M, exec, ${toggleSmartGaps}"
+      "$mod2, M, exec, ${toggleSmartGaps}"
     ];
   };
 }
