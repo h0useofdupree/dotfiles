@@ -6,13 +6,14 @@
   isLaptop,
   ...
 }: let
-  shellPkg = inputs.caelestia-shell.packages.${pkgs.system}.default;
-  quickshellPkg = inputs.quickshell.packages.${pkgs.system}.default.override {
+  inherit (pkgs.stdenv.hostPlatform) system;
+  shellPkg = inputs.caelestia-shell.packages.${system}.default;
+  quickshellPkg = inputs.quickshell.packages.${system}.default.override {
     withX11 = false;
     withI3 = false;
   };
-  cliPkg = inputs.caelestia-cli.packages.${pkgs.system}.default;
-  # colorSyncPkg = inputs.self.packages.${pkgs.system}.caelestia-colors;
+  cliPkg = inputs.caelestia-cli.packages.${system}.default;
+  # colorSyncPkg = inputs.self.packages.${system}.caelestia-colors;
   logging = lib.concatStringsSep ";" [
     "quickshell.dbus.properties.warning=false"
     "quickshell.dbus.dbusmenu.warning=false"

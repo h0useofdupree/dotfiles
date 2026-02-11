@@ -11,6 +11,7 @@ with lib; let
   # allowedGroups =
   #   attrNames (filterAttrs (_: v: v == "directory") (builtins.readDir repoWallpapers));
 in {
+  inherit (pkgs.stdenv.hostPlatform) system;
   options.dynamicWallpaper = {
     enable = mkOption {
       type = types.bool;
@@ -63,7 +64,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [
-      inputs.self.packages.${pkgs.system}.dynamic-wallpaper
+      inputs.self.packages.${system}.dynamic-wallpaper
     ];
 
     home.sessionVariables =
@@ -87,7 +88,7 @@ in {
       Unit.Description = "Update dynamic wallpaper";
       Service = {
         Type = "oneshot";
-        ExecStart = lib.getExe inputs.self.packages.${pkgs.system}.dynamic-wallpaper;
+        ExecStart = lib.getExe inputs.self.packages.${system}.dynamic-wallpaper;
         Environment = [
           "DYNAMIC_WALLPAPERS_ROOT=${config.home.homeDirectory}/.dotfiles/lib/wallpapers"
           (

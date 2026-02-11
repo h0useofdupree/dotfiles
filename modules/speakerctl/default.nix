@@ -18,7 +18,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [
-      inputs.self.packages.${pkgs.system}.speakerctl
+      inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.speakerctl
     ];
   };
 }
