@@ -6,7 +6,7 @@
 }: {
   services.hyprpaper = {
     enable = false;
-    package = inputs.hyprpaper.packages.${pkgs.system}.default;
+    package = inputs.hyprpaper.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
     settings = {
       preload = ["${config.theme.wallpaper}"];

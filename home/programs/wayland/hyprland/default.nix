@@ -3,8 +3,9 @@
   pkgs,
   ...
 }: let
+  inherit (pkgs.stdenv.hostPlatform) system;
   cursor = "Bibata-Modern-Classic-Hyprcursor";
-  cursorPackage = inputs.self.packages.${pkgs.system}.bibata-hyprcursor;
+  cursorPackage = inputs.self.packages.${system}.bibata-hyprcursor;
 in {
   imports = [
     ./binds.nix
@@ -14,23 +15,23 @@ in {
   ];
 
   home.packages = [
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-    inputs.self.packages.${pkgs.system}.bibata-hyprcursor
+    inputs.hyprland-contrib.packages.${system}.grimblast
+    inputs.self.packages.${system}.bibata-hyprcursor
   ];
 
   xdg.dataFile."icons/${cursor}".source = "${cursorPackage}/share/icons/${cursor}";
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default;
+    package = inputs.hyprland.packages.${system}.default;
 
-    plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+    plugins = with inputs.hyprland-plugins.packages.${system}; [
       hyprbars
       hyprexpo
       # borders-plus-plus
       # hyprfocus
-      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      inputs."split-monitor-workspaces".packages.${pkgs.system}.split-monitor-workspaces
+      # inputs.Hyprspace.packages.${system}.Hyprspace
+      inputs."split-monitor-workspaces".packages.${system}.split-monitor-workspaces
     ];
 
     systemd = {

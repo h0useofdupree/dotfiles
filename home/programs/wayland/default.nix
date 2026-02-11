@@ -14,7 +14,7 @@
     grim
     slurp
 
-    self.packages.${pkgs.system}.wl-ocr
+    self.packages.${pkgs.stdenv.hostPlatform.system}.wl-ocr
     wl-clipboard
     wlr-randr
   ];

@@ -7,7 +7,7 @@
     enable = false;
 
     config = {
-      plugins = with inputs.anyrun.packages.${pkgs.system}; [
+      plugins = with inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system}; [
         uwsm_app
         randr
         rink

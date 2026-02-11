@@ -16,7 +16,7 @@
     bitwarden-desktop
 
     signal-desktop
-    tdesktop
+    telegram-desktop
 
     gnome-calculator
     gnome-clocks
