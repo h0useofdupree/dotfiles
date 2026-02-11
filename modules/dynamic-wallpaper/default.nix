@@ -6,12 +6,12 @@
   ...
 }:
 with lib; let
+  inherit (pkgs.stdenv.hostPlatform) system;
   cfg = config.dynamicWallpaper;
   # repoWallpapers = "${inputs.self}/lib/wallpapers";
   # allowedGroups =
   #   attrNames (filterAttrs (_: v: v == "directory") (builtins.readDir repoWallpapers));
 in {
-  inherit (pkgs.stdenv.hostPlatform) system;
   options.dynamicWallpaper = {
     enable = mkOption {
       type = types.bool;
