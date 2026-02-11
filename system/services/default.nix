@@ -13,7 +13,7 @@
 
     ollama = {
       enable = true;
-      acceleration = "rocm";
+      package = "ollama-rocm";
     };
   };
 
