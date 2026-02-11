@@ -24,31 +24,8 @@ in {
     git = {
       enable = true;
 
-      aliases = let
-        log = "log --show-notes='*' --abbrev-commit --pretty=format:'%Cred%h %Cgreen(%aD)%Creset -%C(bold red)%d%Creset %s %C(bold blue)<%an>% %Creset' --graph";
-      in {
-        a = "add --patch";
-        ad = "add";
-
-        b = "branch";
-        ba = "branch -a";
-
-        c = "commit";
-        ca = "commit --amend";
-        cm = "commit -m";
-
-        co = "checkout";
-        cb = "checkout -b";
-
-        cl = "clone";
-
-        d = "diff";
-        ds = "diff --staged";
-
-        l = "log";
-        lp = "${log} --patch";
-        la = "${log} --all";
-      };
+      # extraConfig = {
+      # };
 
       ignores = ["*~" "*.swp" "*result*" ".direnv" "node_modules"];
 
@@ -62,22 +39,49 @@ in {
       signing = {
         key = "${config.home.homeDirectory}/.ssh/id_ed25519";
         signByDefault = true;
+        format = "ssh";
       };
 
-      extraConfig = {
-        gpg = {
-          format = "ssh";
-          ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
+      settings = {
+        alias = let
+          log = "log --show-notes='*' --abbrev-commit --pretty=format:'%Cred%h %Cgreen(%aD)%Creset -%C(bold red)%d%Creset %s %C(bold blue)<%an>% %Creset' --graph";
+        in {
+          a = "add --patch";
+          ad = "add";
+
+          b = "branch";
+          ba = "branch -a";
+
+          c = "commit";
+          ca = "commit --amend";
+          cm = "commit -m";
+
+          co = "checkout";
+          cb = "checkout -b";
+
+          cl = "clone";
+
+          d = "diff";
+          ds = "diff --staged";
+
+          l = "log";
+          lp = "${log} --patch";
+          la = "${log} --all";
         };
+
+        user = {
+          email = "joel.riekemann@gmail.com";
+          name = "h0useofdupree";
+        };
+
+        gpg.ssh.allowedSignersFile = config.home.homeDirectory + "/" + config.xdg.configFile."git/allowed_signers".target;
+
         pull.rebase = true;
         init.defaultBranch = "main";
         diff.colorMoved = "default";
         merge.conflictstyle = "diff3";
         fetch.tags = true;
       };
-
-      userEmail = "joel.riekemann@gmail.com";
-      userName = "h0useofdupree";
     };
 
     delta = {
