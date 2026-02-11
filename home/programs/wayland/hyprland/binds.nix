@@ -239,9 +239,9 @@ in {
       ];
 
       bindr = [
-        # launcher
-        # "$mod, R, exec, ${toggle "anyrun"}"
+        # launchers
         "$mod, R, global, caelestia:launcher"
+        "$mod2, R, exec, vicinae toggle"
       ];
 
       bindl =

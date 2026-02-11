@@ -71,8 +71,6 @@
       };
     };
 
-    anyrun.url = "github:fufexan/anyrun/launch-prefix";
-
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     hm = {
@@ -187,6 +185,9 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vicinae.url = "github:vicinaehq/vicinae";
+    vicinae-extensions.url = "github:vicinaehq/extensions";
 
     yazi.url = "github:sxyazi/yazi";
 

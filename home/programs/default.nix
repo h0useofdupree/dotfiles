@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./anyrun
     ./browsers/firefox.nix
     ./browsers/qutebrowser
     ./browsers/zen.nix
@@ -9,6 +8,7 @@
     ./office
     ./qt.nix
     ./scripts
+    ./vicinae
   ];
 
   home.packages = with pkgs; [
@@ -16,7 +16,6 @@
     bitwarden-desktop
 
     signal-desktop
-    telegram-desktop
 
     gnome-calculator
     gnome-clocks

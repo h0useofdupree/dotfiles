@@ -12,6 +12,7 @@
       ];
 
       highopacity = [
+        "vicinae"
         "indicator"
         "logout_dialog"
         "verification"
