@@ -4,7 +4,7 @@
     layerrule = let
       toRegex = list: let
         elements = lib.concatStringsSep "|" list;
-      in "^(${elements})$";
+      in "match:namespace ^(${elements})$";
 
       lowopacity = [
         "caelestia-border-exclusion"
@@ -22,68 +22,66 @@
         highopacity
       ];
     in [
-      "blur, ${toRegex blurred}"
-      # "xray 1, ${toRegex lowopacity}"
-      "ignorealpha 0.5, ${toRegex highopacity}"
-      "ignorealpha 0.2, ${toRegex lowopacity}"
+      "${toRegex blurred}, blur true"
+      # "${toRegex lowopacity}, xray true"
+      "${toRegex highopacity}, ignore_alpha 0.5,"
+      "${toRegex lowopacity}, ignore_alpha 0.2"
     ];
 
-    # TODO: windowrulev2 is deprecated, switch to windowrule when nix updates the syntax
-    # window rules
-    windowrulev2 = [
+    windowrule = [
       # telegram media viewer
-      "float, title:^(Media viewer)$"
+      "match:title ^(Media viewer)$, float on"
 
       # Bitwarden extension
-      "float, title:^(.*Bitwarden Password Manager.*)$"
+      "match:title ^(.*Bitwarden Password Manager.*)$, float on"
 
       # gnome calculator
-      "float, class:^(org.gnome.Calculator)$"
-      "size 360 490, class:^(org.gnome.Calculator)$"
+      "match:class ^(org.gnome.Calculator)$, float on"
+      "match:class ^(org.gnome.Calculator)$, size 360 490"
 
       # allow tearing in games
-      # "immediate, class:^(osu\!|cs2)$"
+      # "match:class ^(osu\\!|cs2)$, immediate on"
 
       # make Firefox/Zen PiP window floating and sticky
-      "float, title:^(Picture-in-Picture)$"
-      "pin, title:^(Picture-in-Picture)$"
+      "match:title ^(Picture-in-Picture)$, float on"
+      "match:title ^(Picture-in-Picture)$, pin on"
 
       # throw sharing indicators away
-      "workspace special silent, title:^(Firefox — Sharing Indicator)$"
-      "workspace special silent, title:^(Zen — Sharing Indicator)$"
-      "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
+      "match:title ^(Firefox — Sharing Indicator)$, workspace special silent"
+      "match:title ^(Zen — Sharing Indicator)$, workspace special silent"
+      "match:title ^(.*is sharing (your screen|a window)\\.)$, workspace special silent"
 
       # idle inhibit while watching videos
-      "idleinhibit focus, class:^(mpv|.+exe|celluloid)$"
-      "idleinhibit focus, class:^(zen)$, title:^(.*YouTube.*)$"
-      "idleinhibit fullscreen, class:^(zen)$"
+      "match:class ^(mpv|.+exe|celluloid)$, idle_inhibit focus"
+      "match:class ^(zen)$, match:title ^(.*YouTube.*)$, idle_inhibit focus"
+      "match:class ^(zen)$, idle_inhibit fullscreen"
 
-      "dimaround, class:^(gcr-prompter)$"
-      "dimaround, class:^(xdg-desktop-portal-gtk)$"
-      "dimaround, class:^(polkit-gnome-authentication-agent-1)$"
-      "dimaround, class:^(zen)$, title:^(File Upload)$"
+      "match:class ^(gcr-prompter)$, dim_around on"
+      "match:class ^(xdg-desktop-portal-gtk)$, dim_around on"
+      "match:class ^(polkit-gnome-authentication-agent-1)$, dim_around on"
+      "match:class ^(zen)$, match:title ^(File Upload)$, dim_around on"
 
       # fix xwayland apps
-      #"rounding 0, xwayland:1"
-      "center, class:^(.*jetbrains.*)$, title:^(Confirm Exit|Open Project|win424|win201|splash)$"
-      "size 640 400, class:^(.*jetbrains.*)$, title:^(splash)$"
+      # "match:xwayland true, rounding 0"
+      "match:class ^(.*jetbrains.*)$, match:title ^(Confirm Exit|Open Project|win424|win201|splash)$, center on"
+      "match:class ^(.*jetbrains.*)$, match:title ^(splash)$, size 640 400"
 
       # don't render hyprbars on tiling windows
-      "plugin:hyprbars:nobar, floating:0"
+      "match:float true, hyprbars:no_bar on"
 
       # less sensitive scroll for some windows
       # browser(-based)
-      "scrolltouchpad 0.1, class:^(zen|firefox|chromium-browser|chrome-.*)$"
-      "scrolltouchpad 0.1, class:^(obsidian)$"
+      "match:class ^(zen|firefox|chromium-browser|chrome-.*)$, scroll_touchpad 0.1"
+      "match:class ^(obsidian)$, scroll_touchpad 0.1"
       # GTK3
-      "scrolltouchpad 0.1, class:^(com.github.xournalpp.xournalpp)$"
-      "scrolltouchpad 0.1, class:^(libreoffice.*)$"
-      "scrolltouchpad 0.1, class:^(.virt-manager-wrapped)$"
-      "scrolltouchpad 0.1, class:^(xdg-desktop-portal-gtk)$"
+      "match:class ^(com.github.xournalpp.xournalpp)$, scroll_touchpad 0.1"
+      "match:class ^(libreoffice.*)$, scroll_touchpad 0.1"
+      "match:class ^(.virt-manager-wrapped)$, scroll_touchpad 0.1"
+      "match:class ^(xdg-desktop-portal-gtk)$, scroll_touchpad 0.1"
       # Qt5
-      "scrolltouchpad 0.1, class:^(org.kde.kdeconnect.app)$"
+      "match:class ^(org.kde.kdeconnect.app)$, scroll_touchpad 0.1"
       # Others
-      "scrolltouchpad 0.1, class:^(org.pwmt.zathura)$"
+      "match:class ^(org.pwmt.zathura)$, scroll_touchpad 0.1"
     ];
   };
 }
