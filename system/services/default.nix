@@ -13,7 +13,7 @@
 
     ollama = {
       enable = true;
-      package = "ollama-rocm";
+      package = pkgs.ollama-rocm;
     };
   };
 
