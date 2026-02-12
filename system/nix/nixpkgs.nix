@@ -1,9 +1,14 @@
 {self, ...}: {
   nixpkgs = {
-    config.allowUnfree = true;
-    config.permittedInsecurePackages = [
-      "electron-25.9.0"
-    ];
+    config = {
+      # NOTE: Still unsure why this was needed
+      replaceStdenv = {pkgs, ...}: pkgs.stdenv;
+
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "electron-25.9.0"
+      ];
+    };
 
     overlays = [
       (final: prev: {
