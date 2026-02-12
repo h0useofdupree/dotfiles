@@ -16,6 +16,7 @@
         };
       };
     };
-    xpadneo.enable = true;
+    # BUG: Re-enable once build is fixed
+    xpadneo.enable = false;
   };
 }

@@ -235,14 +235,16 @@
           clang.enable = true;
           csharp.enable = true;
           css.enable = true;
-          html.enable = true;
+          # BUG: Re-enable once build is fixed
+          html.enable = false;
           sql.enable = true;
           java.enable = true;
           kotlin.enable = true;
           ts.enable = true;
           go.enable = true;
           lua.enable = true;
-          zig.enable = true;
+          # BUG: Re-enable once build is fixed
+          zig.enable = false;
           python = {
             enable = true;
             format = {
