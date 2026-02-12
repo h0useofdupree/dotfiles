@@ -215,6 +215,11 @@ in {
         "4, pinch, scale: 1.5, float"
       ];
 
+      hyprexpo-gesture = [
+        "4, up, expo, on"
+        "4, down, expo, off"
+      ];
+
       permission = [
         "${config.wayland.windowManager.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
         "${lib.getExe pkgs.grim}, screencopy, allow"
@@ -262,11 +267,7 @@ in {
           bg_col = "rgba($backgroundE6)";
           workspace_method = "center current";
           skip_empty = true;
-
-          enable_gesture = true;
-          gesture_fingers = 3;
           gesture_distance = 300;
-          gesture_positive = false;
         };
 
         overview = {
