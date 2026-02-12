@@ -68,7 +68,7 @@
       "match:class ^(.*jetbrains.*)$, match:title ^(splash)$, size 640 400"
 
       # don't render hyprbars on tiling windows
-      "match:float true, hyprbars:no_bar on"
+      "match:float false, hyprbars:no_bar on"
 
       # less sensitive scroll for some windows
       # browser(-based)

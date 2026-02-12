@@ -314,6 +314,7 @@ in {
         };
       };
     };
+    # TODO: Fix buttons
     extraConfig = ''
       # hyprlang noerror true
       hyprbars-button = rgba($errorContainerAA), 15, , hyprctl dispatch killactive
