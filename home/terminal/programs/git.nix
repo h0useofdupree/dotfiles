@@ -5,8 +5,8 @@
 }: let
   cfg = config.programs.git;
   pubKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC1JYHp/ZXHErtQVer2eE393NoJgOB6LvVJ+x/IxayS9 joel.riekemann@gmail.com";
-  privGhOwner = "h0useofdupree";
-  privGhRepoBasename = "dotfiles";
+  # privGhOwner = "h0useofdupree";
+  # privGhRepoBasename = "dotfiles";
   privGhRepoUrl = "https://github.com/h0useofdupree/dotfiles";
 
   # Work
@@ -234,7 +234,7 @@ in {
   };
 
   xdg.configFile."git/allowed_signers".text = ''
-    ${cfg.userEmail} namespaces="git" ${pubKey}
+    ${cfg.settings.user.email} namespaces="git" ${pubKey}
   '';
 
   xdg.configFile."git/config-stroeer".text = ''

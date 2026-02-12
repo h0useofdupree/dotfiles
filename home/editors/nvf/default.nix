@@ -215,7 +215,7 @@
             enable = true;
             lsp = {
               enable = true;
-              server = "nil";
+              server = ["nil"];
             };
             treesitter = {
               enable = true;
@@ -247,18 +247,18 @@
             enable = true;
             format = {
               enable = true;
-              type = "black"; #NOTE: ["black", "black-and-isort", "isort", "ruff"]
+              type = ["black"]; #NOTE: ["black", "black-and-isort", "isort", "ruff"]
             };
             lsp = {
               enable = true;
-              server = "basedpyright";
+              server = ["basedpyright"];
             };
             treesitter.enable = true;
           };
           typst.enable = true;
           rust = {
             enable = true;
-            crates.enable = true;
+            extensions.crates-nvim.enable = true;
           };
           svelte.enable = true;
           yaml.enable = true;
