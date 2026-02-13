@@ -1,0 +1,31 @@
+Error detected while processing VIMINIT..script /nix/store/3rayxdlf0abn8ha8zmhy8lxyxxhqv1bb-mnw-configDir/init.lua:
+E5113: Error while calling lua chunk: ...pack/mnw/start/lzn-auto-require/lua/lzn-auto-require.lua:66: ...pack/mnw/start/lzn-auto-require/lua/lzn-auto-require.lua:66: ...pack/mnw/start/lzn-auto-require/lua/lzn-auto-require.lua:66: ...pack/mnw/start/lzn-auto-require/lua/lzn-auto-require.lua:66: module 'nvim-treesitter.ts_utils' not found:
+	no field package.preload['nvim-treesitter.ts_utils']
+	no file '/nix/store/rizkaz7ccp9gh69s27q7nf406nqmcnbf-luajit-2.1.1741730670-env/share/lua/5.1/nvim-treesitter/ts_utils.lua'
+	no file '/nix/store/rizkaz7ccp9gh69s27q7nf406nqmcnbf-luajit-2.1.1741730670-env/share/lua/5.1/nvim-treesitter/ts_utils/init.lua'
+	no file './nvim-treesitter/ts_utils.lua'
+	no file '/nix/store/4qxq4arv32ly13kl3g0m5q80gm3a35xr-luajit-2.1.1741730670/share/luajit-2.1/nvim-treesitter/ts_utils.lua'
+	no file '/usr/local/share/lua/5.1/nvim-treesitter/ts_utils.lua'
+	no file '/usr/local/share/lua/5.1/nvim-treesitter/ts_utils/init.lua'
+	no file '/nix/store/4qxq4arv32ly13kl3g0m5q80gm3a35xr-luajit-2.1.1741730670/share/lua/5.1/nvim-treesitter/ts_utils.lua'
+	no file '/nix/store/4qxq4arv32ly13kl3g0m5q80gm3a35xr-luajit-2.1.1741730670/share/lua/5.1/nvim-treesitter/ts_utils/init.lua'
+	no file '/nix/store/rizkaz7ccp9gh69s27q7nf406nqmcnbf-luajit-2.1.1741730670-env/lib/lua/5.1/nvim-treesitter/ts_utils.so'
+	no file './nvim-treesitter/ts_utils.so'
+	no file '/usr/local/lib/lua/5.1/nvim-treesitter/ts_utils.so'
+	no file '/nix/store/4qxq4arv32ly13kl3g0m5q80gm3a35xr-luajit-2.1.1741730670/lib/lua/5.1/nvim-treesitter/ts_utils.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/nix/store/3rayxdlf0abn8ha8zmhy8lxyxxhqv1bb-mnw-configDir/pack/mnw/opt/blink-cmp/lua/blink/cmp/fuzzy/rust/../../../../../target/release/libnvim-treesitter/ts_utils.so'
+	no file '/nix/store/3rayxdlf0abn8ha8zmhy8lxyxxhqv1bb-mnw-configDir/pack/mnw/opt/blink-cmp/lua/blink/cmp/fuzzy/rust/../../../../../target/release/nvim-treesitter/ts_utils.so'
+	no file '/nix/store/rizkaz7ccp9gh69s27q7nf406nqmcnbf-luajit-2.1.1741730670-env/lib/lua/5.1/nvim-treesitter.so'
+	no file './nvim-treesitter.so'
+	no file '/usr/local/lib/lua/5.1/nvim-treesitter.so'
+	no file '/nix/store/4qxq4arv32ly13kl3g0m5q80gm3a35xr-luajit-2.1.1741730670/lib/lua/5.1/nvim-treesitter.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file '/nix/store/3rayxdlf0abn8ha8zmhy8lxyxxhqv1bb-mnw-configDir/pack/mnw/opt/blink-cmp/lua/blink/cmp/fuzzy/rust/../../../../../target/release/libnvim-treesitter.so'
+	no file '/nix/store/3rayxdlf0abn8ha8zmhy8lxyxxhqv1bb-mnw-configDir/pack/mnw/opt/blink-cmp/lua/blink/cmp/fuzzy/rust/../../../../../target/release/nvim-treesitter.so'
+stack traceback:
+	[C]: in function 'error'
+	...pack/mnw/start/lzn-auto-require/lua/lzn-auto-require.lua:66: in function 'require'
+	/nix/store/fx32ha8wgljr0c1yb3zlamyfl7i7sdw1-init.lua:785: in main chunk
+	[C]: in function 'dofile'
+	.../3rayxdlf0abn8ha8zmhy8lxyxxhqv1bb-mnw-configDir/init.lua:5: in main chunk
