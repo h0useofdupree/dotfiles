@@ -162,6 +162,8 @@ in {
         pseudotile = true;
         preserve_split = true;
         special_scale_factor = 0.85;
+        # NOTE: Desktop bar/widgets, especially vertical bars affect area for windows.
+        default_split_ratio = 1.0;
         single_window_aspect_ratio = "16 9";
       };
 
