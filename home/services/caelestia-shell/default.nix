@@ -296,6 +296,22 @@ in {
           enabled = true;
           dangerous = false;
         }
+        {
+          name = "KRK on";
+          icon = "settings";
+          description = "Turn on KRKs";
+          command = ["speakerctl" "--on"];
+          enabled = true;
+          dangerous = false;
+        }
+        {
+          name = "KRK off";
+          icon = "settings";
+          description = "Turn off KRKs";
+          command = ["speakerctl" "--off"];
+          enabled = true;
+          dangerous = false;
+        }
       ];
     };
     lock = {
