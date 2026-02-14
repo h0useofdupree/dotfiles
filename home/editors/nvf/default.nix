@@ -28,8 +28,6 @@
           neovide_normal_opacity = 0.8;
         };
 
-        #TODO: Add some autocmds
-
         clipboard = {
           enable = true;
           providers = {
@@ -215,7 +213,7 @@
             enable = true;
             lsp = {
               enable = true;
-              server = ["nil"];
+              servers = ["nil"];
             };
             treesitter = {
               enable = true;
@@ -235,7 +233,7 @@
           clang.enable = true;
           csharp.enable = true;
           css.enable = true;
-          # BUG: Re-enable once build is fixed
+          # BUG: Broken
           html.enable = false;
           sql.enable = true;
           java.enable = true;
@@ -243,7 +241,7 @@
           ts.enable = true;
           go.enable = true;
           lua.enable = true;
-          # BUG: Re-enable once build is fixed
+          # BUG: Broken
           zig.enable = false;
           python = {
             enable = true;
@@ -253,7 +251,7 @@
             };
             lsp = {
               enable = true;
-              server = ["basedpyright"];
+              servers = ["basedpyright"];
             };
             treesitter.enable = true;
           };
@@ -404,7 +402,9 @@
         };
 
         minimap = {
-          codewindow.enable = true;
+          # BUG: Broken due to some ts_utils issue
+          codewindow.enable = false;
+          minimap-vim.enable = true;
         };
 
         dashboard = {
