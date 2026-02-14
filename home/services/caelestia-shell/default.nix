@@ -57,6 +57,7 @@ in {
       };
     };
     background = {
+      enabled = true;
       desktopClock = {
         enabled = true;
         scale = 1.5;
@@ -216,7 +217,9 @@ in {
     paths = {
       mediaGif = "root:/assets/bongocat.gif";
       sessionGif = "root:/assets/kurukuru.gif";
-      wallpaperDir = config.home.homeDirectory + "/Pictures/WallpapersCache";
+
+      # NOTE: Needed for dynamic-wallpaper if not completely reworked!
+      # wallpaperDir = config.home.homeDirectory + "/Pictures/WallpapersCache";
     };
     services = {
       weatherLocation = "51.12,7.4";
