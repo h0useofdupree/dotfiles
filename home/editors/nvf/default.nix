@@ -160,6 +160,9 @@
           textwidth = 0;
           sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,terminal";
 
+          # Persist folds + curso position across sessions with :mkview/:loadview
+          viewoptions = "folds,cursor";
+
           # Folding
           foldcolumn = "1";
           foldlevel = 99; # Folds deeper than this level are closed
@@ -173,6 +176,62 @@
           # Use expand('%:p:~') for full path with '~', then pathshorten() to compact directories
           titlestring = "%{pathshorten(expand('%:p:~'))}";
         };
+
+        augroups = [
+          {
+            name = "PersistFolds";
+            clear = true;
+          }
+        ];
+
+        autocmds = [
+          {
+            event = ["BufWinLeave"];
+            pattern = ["*"];
+            group = "PersistFolds";
+            desc = "Save folds and cursor position for real file buffers";
+            callback =
+              lib.generators.mkLuaInline
+              /*
+              lua
+              */
+              ''
+                function(args)
+                  local ignored_view_filetypes = {
+                    "gitcommit",
+                    "gitrebase",
+                    "svn",
+                    "hgcommit",
+                  }
+
+                  local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
+                  local filetype = vim.api.nvim_get_option_value("filetype", { buf = args.buf })
+                  local name = vim.api.nvim_buf_get_name(args.buf)
+
+                  if buftype ~= "" or filetype == "" then
+                    return
+                  end
+
+                  if name == "" or name:match("^/tmp/") then
+                    return
+                  end
+
+                  if vim.tbl_contains(ignored_view_filetypes, filetype) then
+                    return
+                  end
+
+                  vim.cmd("silent! mkview")
+                end
+              '';
+          }
+          {
+            event = ["BufWinEnter"];
+            pattern = ["*"];
+            group = "PersistFolds";
+            desc = "Restore folds and cursor position";
+            command = "silent! loadview";
+          }
+        ];
 
         spellcheck = {
           enable = false;
