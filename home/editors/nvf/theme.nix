@@ -1,8 +1,8 @@
 {
   programs.nvf.settings.vim.theme = {
     enable = true;
-    name = "tokyonight";
-    style = "night";
+    name = "catppuccin";
+    style = "auto";
     transparent = false;
   };
 }
