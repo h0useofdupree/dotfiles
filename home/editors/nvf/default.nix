@@ -28,8 +28,6 @@
           neovide_normal_opacity = 0.8;
         };
 
-        #TODO: Add some autocmds
-
         clipboard = {
           enable = true;
           providers = {
@@ -215,7 +213,7 @@
             enable = true;
             lsp = {
               enable = true;
-              server = "nil";
+              servers = ["nil"];
             };
             treesitter = {
               enable = true;
@@ -235,30 +233,32 @@
           clang.enable = true;
           csharp.enable = true;
           css.enable = true;
-          html.enable = true;
+          # BUG: Broken
+          html.enable = false;
           sql.enable = true;
           java.enable = true;
           kotlin.enable = true;
           ts.enable = true;
           go.enable = true;
           lua.enable = true;
-          zig.enable = true;
+          # BUG: Broken
+          zig.enable = false;
           python = {
             enable = true;
             format = {
               enable = true;
-              type = "black"; #NOTE: ["black", "black-and-isort", "isort", "ruff"]
+              type = ["black"]; #NOTE: ["black", "black-and-isort", "isort", "ruff"]
             };
             lsp = {
               enable = true;
-              server = "basedpyright";
+              servers = ["basedpyright"];
             };
             treesitter.enable = true;
           };
           typst.enable = true;
           rust = {
             enable = true;
-            crates.enable = true;
+            extensions.crates-nvim.enable = true;
           };
           svelte.enable = true;
           yaml.enable = true;
@@ -335,7 +335,13 @@
                   auto_show = true;
                   auto_show_delay_ms = 200;
                 };
-                menu.auto_show = true;
+                menu = {
+                  auto_show = true;
+                  draw = {
+                    padding = 3;
+                    gap = 3;
+                  };
+                };
                 ghost_text.enabled = true;
               };
               keymap = {
@@ -402,7 +408,9 @@
         };
 
         minimap = {
-          codewindow.enable = true;
+          # BUG: Broken due to some ts_utils issue
+          codewindow.enable = false;
+          minimap-vim.enable = true;
         };
 
         dashboard = {

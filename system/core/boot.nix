@@ -36,7 +36,7 @@
         device = "nodev";
         useOSProber = true;
         # theme = inputs.grub-themes.packages.${pkgs.system}.hyperfluent;
-        theme = "${inputs.elegant-grub.packages.${pkgs.system}.wave-right-dark-4k}/theme";
+        theme = "${inputs.elegant-grub.packages.${pkgs.stdenv.hostPlatform.system}.wave-right-dark-4k}/theme";
       };
       systemd-boot.enable = false;
     };

@@ -15,14 +15,15 @@ in {
 
     extraPackages = with pkgs; [
       libva # VA-API video accleration
-      vaapiVdpau # Legacy bridge
+      libva-vdpau-driver # Legacy bridge
       # amdvlk
       rocmPackages.clr.icd
       rocmPackages.rocm-smi
     ];
 
     extraPackages32 = with pkgs.pkgsi686Linux; [
-      libva
+      libva-vdpau-driver
+      libvdpau-va-gl
     ];
   };
 }

@@ -10,7 +10,7 @@
     comma
     curl
     cowsay
-    du-dust
+    dust
     duf
     fd
     file

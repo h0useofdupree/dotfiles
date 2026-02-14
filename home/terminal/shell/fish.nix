@@ -28,11 +28,11 @@
       bind --erase \cf
       bind --erase \ca
       bind --erase \cw
-      bind --erase -k nul
+      bind --erase ctrl-space
 
       bind \ca accept-autosuggestion
       bind \cf forward-bigword
-      bind -k nul forward-word
+      bind ctrl-space forward-word
       bind \cw backward-kill-word
     '';
 

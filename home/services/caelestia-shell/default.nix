@@ -6,13 +6,14 @@
   isLaptop,
   ...
 }: let
-  shellPkg = inputs.caelestia-shell.packages.${pkgs.system}.default;
-  quickshellPkg = inputs.quickshell.packages.${pkgs.system}.default.override {
+  inherit (pkgs.stdenv.hostPlatform) system;
+  shellPkg = inputs.caelestia-shell.packages.${system}.default;
+  quickshellPkg = inputs.quickshell.packages.${system}.default.override {
     withX11 = false;
     withI3 = false;
   };
-  cliPkg = inputs.caelestia-cli.packages.${pkgs.system}.default;
-  # colorSyncPkg = inputs.self.packages.${pkgs.system}.caelestia-colors;
+  cliPkg = inputs.caelestia-cli.packages.${system}.default;
+  # colorSyncPkg = inputs.self.packages.${system}.caelestia-colors;
   logging = lib.concatStringsSep ";" [
     "quickshell.dbus.properties.warning=false"
     "quickshell.dbus.dbusmenu.warning=false"
@@ -41,7 +42,7 @@ in {
         size.scale = 1;
       };
       padding.scale = 1;
-      rounding.scale = 1;
+      rounding.scale = 1.2;
       spacing.scale = 1;
       transparency = {
         enabled = true;
@@ -56,10 +57,24 @@ in {
       };
     };
     background = {
-      enabled = false;
-      desktopClock = true;
-      visualiser = {
+      enabled = true;
+      desktopClock = {
         enabled = true;
+        scale = 1.5;
+        position = "top-right";
+        shadow = {
+          enabled = true;
+          opacity = 0.7;
+          blur = 0.4;
+        };
+        background = {
+          enabled = true;
+          opacity = 0.3;
+          blur = true;
+        };
+      };
+      visualiser = {
+        enabled = false;
         autoHide = true;
         rounding = 1;
         spacing = 1;
@@ -194,7 +209,7 @@ in {
       clearThreshold = 0.3;
       defaultExpireTimeout = 5000;
       expandThreshold = 20;
-      expire = false;
+      expire = true;
     };
     osd = {
       hideDelay = 2000;
@@ -202,7 +217,9 @@ in {
     paths = {
       mediaGif = "root:/assets/bongocat.gif";
       sessionGif = "root:/assets/kurukuru.gif";
-      wallpaperDir = config.home.homeDirectory + "/Pictures/WallpapersCache";
+
+      # NOTE: Needed for dynamic-wallpaper if not completely reworked!
+      # wallpaperDir = config.home.homeDirectory + "/Pictures/WallpapersCache";
     };
     services = {
       weatherLocation = "51.12,7.4";

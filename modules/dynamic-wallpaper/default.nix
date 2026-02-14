@@ -6,6 +6,7 @@
   ...
 }:
 with lib; let
+  inherit (pkgs.stdenv.hostPlatform) system;
   cfg = config.dynamicWallpaper;
   # repoWallpapers = "${inputs.self}/lib/wallpapers";
   # allowedGroups =
@@ -63,7 +64,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [
-      inputs.self.packages.${pkgs.system}.dynamic-wallpaper
+      inputs.self.packages.${system}.dynamic-wallpaper
     ];
 
     home.sessionVariables =
@@ -87,7 +88,7 @@ in {
       Unit.Description = "Update dynamic wallpaper";
       Service = {
         Type = "oneshot";
-        ExecStart = lib.getExe inputs.self.packages.${pkgs.system}.dynamic-wallpaper;
+        ExecStart = lib.getExe inputs.self.packages.${system}.dynamic-wallpaper;
         Environment = [
           "DYNAMIC_WALLPAPERS_ROOT=${config.home.homeDirectory}/.dotfiles/lib/wallpapers"
           (

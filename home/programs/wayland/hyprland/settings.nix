@@ -201,11 +201,24 @@ in {
 
       # touchpad gestures
       gestures = {
-        workspace_swipe = true;
         workspace_swipe_forever = true;
         workspace_swipe_cancel_ratio = 0.3;
         workspace_swipe_distance = 1400;
       };
+
+      gesture = [
+        "3, horizontal, workspace"
+        "3, down, mod: ALT, close"
+        "3, pinch, scale: 1.5, fullscreen"
+
+        # TODO: Maybe use toggleFloatResize from binds somehow
+        "4, pinch, scale: 1.5, float"
+      ];
+
+      hyprexpo-gesture = [
+        "4, up, expo, on"
+        "4, down, expo, off"
+      ];
 
       permission = [
         "${config.wayland.windowManager.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
@@ -254,11 +267,7 @@ in {
           bg_col = "rgba($backgroundE6)";
           workspace_method = "center current";
           skip_empty = true;
-
-          enable_gesture = true;
-          gesture_fingers = 3;
           gesture_distance = 300;
-          gesture_positive = false;
         };
 
         overview = {
@@ -305,6 +314,7 @@ in {
         };
       };
     };
+    # TODO: Fix buttons
     extraConfig = ''
       # hyprlang noerror true
       hyprbars-button = rgba($errorContainerAA), 15, , hyprctl dispatch killactive

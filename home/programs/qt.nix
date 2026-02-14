@@ -7,8 +7,8 @@
   KvLibadwaita = pkgs.fetchFromGitHub {
     owner = "GabePoel";
     repo = "KvLibadwaita";
-    rev = "87c1ef9f44ec48855fd09ddab041007277e30e37";
-    hash = "sha256-K/2FYOtX0RzwdcGyeurLXAh3j8ohxMrH2OWldqVoLwo=";
+    rev = "1f4e0bec44b13dabfa1fe4047aa8eeaccf2f3557";
+    hash = "sha256-32RlnRBNJajD0Ps+vZSwVfDj6HzPpZjfm/LBG7u0eDg=";
     sparseCheckout = ["src"];
   };
 
@@ -26,14 +26,8 @@ in {
   qt = {
     enable = true;
     platformTheme.name = "qtct";
+    style.name = "kvantum";
   };
-
-  home.packages = [
-    pkgs.qt6Packages.qtstyleplugin-kvantum
-    pkgs.qt6Packages.qt6ct
-    pkgs.libsForQt5.qtstyleplugin-kvantum
-    pkgs.libsForQt5.qt5ct
-  ];
 
   xdg.configFile = {
     # Kvantum config
@@ -42,10 +36,7 @@ in {
       recursive = true;
     };
 
-    "Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=KvLibadwaitaDark
-    '';
+    # kvantum config in home/services/system/theme.nix
 
     # qtct config
     "qt5ct/qt5ct.conf".text = let

@@ -1,7 +1,7 @@
 {
   programs.nvf.settings.vim.utility = {
     leetcode-nvim = {
-      enable = true;
+      enable = false;
       setupOpts = {
         arg = "leetcode.nvim";
         image_support = false;
