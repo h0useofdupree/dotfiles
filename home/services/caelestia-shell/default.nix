@@ -42,7 +42,7 @@ in {
         size.scale = 1;
       };
       padding.scale = 1;
-      rounding.scale = 1;
+      rounding.scale = 1.2;
       spacing.scale = 1;
       transparency = {
         enabled = true;
@@ -57,10 +57,23 @@ in {
       };
     };
     background = {
-      enabled = false;
-      desktopClock = true;
-      visualiser = {
+      desktopClock = {
         enabled = true;
+        scale = 1.5;
+        position = "top-right";
+        shadow = {
+          enabled = true;
+          opacity = 0.7;
+          blur = 0.4;
+        };
+        background = {
+          enabled = true;
+          opacity = 0.3;
+          blur = true;
+        };
+      };
+      visualiser = {
+        enabled = false;
         autoHide = true;
         rounding = 1;
         spacing = 1;
@@ -195,7 +208,7 @@ in {
       clearThreshold = 0.3;
       defaultExpireTimeout = 5000;
       expandThreshold = 20;
-      expire = false;
+      expire = true;
     };
     osd = {
       hideDelay = 2000;

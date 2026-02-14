@@ -102,10 +102,6 @@
     fi
 
     pactl set-default-sink "$next_sink"
-    notify-send \
-      "Audio output switched" \
-      "Now using: $next_label"
-    sleep 3 && hyprctl dispatch global caelestia:clearNotifs
   '';
 
   brightnessUp =
@@ -178,6 +174,7 @@ in {
           # "$mod, U, exec, XDG_CURRENT_DESKTOP=gnome ${runOnce "gnome-control-center"}"
 
           # Caelestia misc
+          "$mod, n, global, caelestia:sidebar"
           "$mod SHIFT, n, global, caelestia:clearNotifs"
           "$mod, a, global, caelestia:showall"
           "$mod, m, exec, caelestia shell drawers toggle dashboard"
