@@ -335,7 +335,13 @@
                   auto_show = true;
                   auto_show_delay_ms = 200;
                 };
-                menu.auto_show = true;
+                menu = {
+                  auto_show = true;
+                  draw = {
+                    padding = 3;
+                    gap = 3;
+                  };
+                };
                 ghost_text.enabled = true;
               };
               keymap = {
