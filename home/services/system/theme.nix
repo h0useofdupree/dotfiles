@@ -5,8 +5,20 @@
   ...
 }: let
   themeScript = theme:
-    pkgs.writeShellScript "theme-start-${theme}" ''
+    pkgs.writeShellScript "theme-start-${theme}"
+    /*
+    bash
+    */
+    ''
+      set -euo pipefail
+
+      # GTK4/libadwaita preference
       ${lib.getExe pkgs.dconf} write /org/gnome/desktop/interface/color-scheme "'prefer-${theme}'"
+
+      # GTK3 theme name
+      # NOTE: Added specifically for zen. Don't know if needed elsewhere.
+      ${lib.getExe pkgs.dconf} write /org/gnome/desktop/interface/gtk-theme "'adw-gtk3-${theme}'"
+
       cat <<EOF > ${config.xdg.configHome}/Kvantum/kvantum.kvconfig
       [General]
       theme=KvLibadwaita${lib.optionalString (theme == "dark") "Dark"}
