@@ -3,7 +3,30 @@
   config,
   inputs,
   ...
-}: {
+}: let
+  favoriteThemes = [
+    "abstract_ring_alt"
+    "connect"
+    "cuts" # (off center with dual monitors)
+    "cuts_alt"
+    "colorful"
+    "dark_planet"
+    "deus_ex"
+    "hexagon"
+    "hexagon_2"
+    "hexagon_alt"
+    "hexagon_dots"
+    "hexagon_dots_alt"
+    "loader"
+    "loader_2"
+    "loader_alt"
+    "sliced"
+    "sphere"
+    "spinner_alt"
+    "splash"
+  ];
+  bootTheme = "dark_planet";
+in {
   boot = {
     initrd = {
       systemd.enable = true;
@@ -28,8 +51,6 @@
 
     loader = {
       efi.canTouchEfiVariables = true;
-      # timeout = 0;
-
       grub = {
         enable = true;
         efiSupport = true;
@@ -43,10 +64,10 @@
 
     plymouth = {
       enable = true;
-      theme = "cuts";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = ["cuts"];
+      theme = bootTheme;
+      themePackages = [
+        (pkgs.adi1090x-plymouth-themes.override {
+          selected_themes = [bootTheme];
         })
       ];
     };
