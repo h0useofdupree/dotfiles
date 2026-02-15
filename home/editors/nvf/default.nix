@@ -99,23 +99,41 @@
           jsonLsp = {
             package = pkgs.vimPlugins.nvim-lspconfig;
             setup = ''
-              local lspconfig = require("lspconfig")
               local schemastore = require("schemastore")
 
-              lspconfig.jsonls.setup {
-                cmd = { "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server", "--stdio" },
-                capabilities = capabilities,
-                on_attach = default_on_attach,
-                settings = {
-                  json = {
-                    schemas = schemastore.json.schemas(),
-                    validate = { enable = true },
+              -- Neovim 0.11+ / nvim-lspconfig v3 style
+              -- If using older nvim, vim.lsp.config might be nil, so we fallback
+              if vim.lsp.config then
+                vim.lsp.config('jsonls', {
+                  cmd = { "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server", "--stdio" },
+                  settings = {
+                    json = {
+                      schemas = schemastore.json.schemas(),
+                      validate = { enable = true },
+                    },
                   },
-                },
-                init_options = {
-                  provideFormatter = true,
-                },
-              }
+                  init_options = {
+                    provideFormatter = true,
+                  },
+                })
+                vim.lsp.enable('jsonls')
+              else
+                -- Fallback for older versions to avoid the traceback
+                require("lspconfig").jsonls.setup {
+                  cmd = { "${pkgs.vscode-langservers-extracted}/bin/vscode-json-language-server", "--stdio" },
+                  capabilities = capabilities,
+                  on_attach = default_on_attach,
+                  settings = {
+                    json = {
+                      schemas = schemastore.json.schemas(),
+                      validate = { enable = true },
+                    },
+                  },
+                  init_options = {
+                    provideFormatter = true,
+                  },
+                }
+              end
             '';
           };
         };
