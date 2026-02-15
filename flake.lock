@@ -198,11 +198,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1771164721,
-        "narHash": "sha256-B760h1cnJVjrrSHbhQ74lPYY1naUU2XzGv0FMTtiC6w=",
+        "lastModified": 1771166762,
+        "narHash": "sha256-yZv9TdOslNvPVrn1kvo8Qx8m8TBqkJFH9/13m44NIOI=",
         "owner": "h0useofdupree",
         "repo": "elegant-grub",
-        "rev": "2a7be85c98b49340069d4d546b7f0513d298ff86",
+        "rev": "7310172b6c474dea48c6f516f0b93d2f7f0ccb8f",
         "type": "github"
       },
       "original": {
