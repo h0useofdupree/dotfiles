@@ -15,6 +15,8 @@
     ausweisapp
     bitwarden-desktop
 
+    # cinny-desktop
+    element-desktop
     signal-desktop
 
     gnome-calculator
