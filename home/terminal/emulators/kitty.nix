@@ -11,8 +11,8 @@
       scrollback_lines = 10000;
       placement_strategy = "center";
 
-      allow_remote_control = "yes";
-      enable_audio_bell = "no";
+      allow_remote_control = true;
+      enable_audio_bell = false;
       visual_bell_duration = "0.1";
 
       copy_on_select = "clipboard";

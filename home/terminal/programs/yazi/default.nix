@@ -21,6 +21,7 @@
 
     enableFishIntegration = true;
     enableBashIntegration = true;
+    enableZshIntegration = true;
     shellWrapperName = "y";
 
     settings = {
