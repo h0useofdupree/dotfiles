@@ -49,21 +49,20 @@ in {
         rounding = 20;
         rounding_power = 4;
         dim_special = 0;
+
+        border_part_of_window = true;
+
         blur = {
           enabled = true;
           brightness = 1.0;
           contrast = 1.0;
           noise = 0.01;
-
           vibrancy = 0.2;
           vibrancy_darkness = 0.5;
-
           passes = 3;
           size = 6;
-
           popups = true;
           popups_ignorealpha = 0.2;
-
           special = true;
         };
 
@@ -107,38 +106,45 @@ in {
         auto_group = true;
         insert_after_current = true;
         focus_removed_window = true;
-        drag_into_group = 1; # 2 = Only drag into groupbar
-        merge_groups_on_drag = true;
+        drag_into_group = 1;
+        merge_groups_on_drag = false;
+        merge_groups_on_groupbar = true;
         merge_floated_into_tiled_on_groupbar = false;
 
-        groupbar = {
-          enabled = true;
-          font_size = 13;
-          font_weight_active = "bold";
-          font_weight_inactive = "normal";
-          height = 20;
-          indicator_height = 0;
-          # rounding = 20;
-          # rounding_power = 4;
-          round_only_edges = true;
-          gradients = true;
-          gradient_rounding = 15;
-          gradient_rounding_power = 4;
-          gradient_round_only_edges = true;
-          text_color = "rgba($backgroundE6)";
-          text_color_inactive = "rgba($textE6)";
-          gaps_in = 5;
-          gaps_out = 2;
-          keep_upper_gap = true;
-          "col.active" = "rgba($primaryE6)";
-          "col.inactive" = "rgba($backgroundE6)";
-        };
-
-        # TODO: Select proper colors
         "col.border_active" = "rgba($primaryE6)";
         "col.border_inactive" = "rgba($backgroundE6)";
         "col.border_locked_active" = "rgba($primaryE6)";
         "col.border_locked_inactive" = "rgba($backgroundE6)";
+
+        groupbar = {
+          enabled = true;
+          font_size = 14;
+          font_weight_active = "bold";
+          font_weight_inactive = "normal";
+          height = 25;
+          priority = 3;
+
+          # Indicators
+          indicator_height = 0;
+          # rounding = 10;
+          # rounding_power = 4;
+          # round_only_edges = true;
+
+          # Gradients (background)
+          gradients = true;
+          gradient_rounding = 18;
+          gradient_rounding_power = 4;
+          gradient_round_only_edges = true;
+          gaps_in = 0;
+          gaps_out = 5;
+          keep_upper_gap = false;
+
+          text_color = "rgba($backgroundE6)";
+          text_color_inactive = "rgba($textE6)";
+          blur = true;
+          "col.active" = "rgba($primary60)";
+          "col.inactive" = "rgba($background30)";
+        };
       };
 
       input = {
