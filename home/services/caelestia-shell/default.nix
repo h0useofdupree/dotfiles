@@ -60,6 +60,26 @@ in {
         terminal = ["kitty"];
         audio = ["pwvucontrol"];
       };
+
+      idle = {
+        lockBeforeSleep = true;
+        inhibitWhenAudio = true;
+        timeouts = [
+          {
+            timeout = 1200;
+            idleAction = "lock";
+          }
+          {
+            timeout = 1800;
+            idleAction = "dpms off";
+            returnAction = "dpms on";
+          }
+          {
+            timeout = 3600;
+            idleAction = ["systemctl" "suspend"];
+          }
+        ];
+      };
     };
     background = {
       enabled = true;
