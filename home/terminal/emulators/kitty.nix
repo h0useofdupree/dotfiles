@@ -11,6 +11,8 @@
       scrollback_lines = 10000;
       placement_strategy = "center";
 
+      enabled_layouts = "fat:bias=80;full_size=1;mirrored=false";
+
       allow_remote_control = true;
       enable_audio_bell = false;
       visual_bell_duration = "0.1";
