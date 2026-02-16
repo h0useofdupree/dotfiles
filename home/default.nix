@@ -10,6 +10,7 @@
     inputs.nix-index-db.homeModules.nix-index
     # TODO: Put these imports into their respective files ({default,<name>}.nix)
     inputs.nvf.homeManagerModules.default
+    inputs.direnv-instant.homeModules.direnv-instant
     inputs.agenix.homeManagerModules.default
     self.modules.theme
     inputs.self.homeModules.dynamicWallpaper

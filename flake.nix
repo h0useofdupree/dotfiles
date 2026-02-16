@@ -29,10 +29,14 @@
             name = "dots";
             DIRENV_LOG_FORMAT = "";
             # GIT_CLIFF_CONFIG = "${toString ./.}/cliff.toml";
-            shellHook = ''
-              echo "Welcome to NixOS, $USER";
-              ${config.pre-commit.installationScript}
-            '';
+            shellHook =
+              /*
+              bash
+              */
+              ''
+                echo "Welcome to NixOS, $USER"
+                ${config.pre-commit.installationScript}
+              '';
           };
           tinytuya = pkgs.mkShell {
             name = "tinytuya";
@@ -79,6 +83,8 @@
     };
 
     lanzaboote.url = "github:nix-community/lanzaboote";
+
+    direnv-instant.url = "github:Mic92/direnv-instant";
 
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
