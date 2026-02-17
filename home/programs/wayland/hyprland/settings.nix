@@ -274,6 +274,7 @@ in {
           enable_notifications = false;
           enable_persistent_workspaces = true;
           enable_wrapping = true;
+          monitor_priority = "DP-1, DP-2";
         };
 
         hyprexpo = {
