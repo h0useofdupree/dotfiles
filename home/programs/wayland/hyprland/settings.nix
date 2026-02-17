@@ -77,7 +77,10 @@ in {
         };
       };
 
-      animations.enabled = true;
+      animations = {
+        enabled = true;
+        workspace_wraparound = false;
+      };
 
       bezier = [
         "easeOutQuint,0.23,1,0.32,1"
@@ -209,24 +212,28 @@ in {
 
       # touchpad gestures
       gestures = {
-        workspace_swipe_forever = true;
-        workspace_swipe_cancel_ratio = 0.3;
-        workspace_swipe_distance = 1400;
+        workspace_swipe_distance = 700;
+        workspace_swipe_cancel_ratio = 0.2;
+        workspace_swipe_direction_lock = true;
+        workspace_swipe_direction_lock_threshold = 10;
+        workspace_swipe_forever = false;
+        workspace_swipe_create_new = true;
       };
 
       gesture = [
         "3, horizontal, workspace"
         "3, down, mod: ALT, close"
-        "3, pinch, scale: 1.5, fullscreen"
+        "3, pinch, scale: 1.0, fullscreen"
 
         # TODO: Maybe use toggleFloatResize from binds somehow
-        "4, pinch, scale: 1.5, float"
+        "4, pinchout, scale: 1.0, float, float"
+        "4, pinchin, scale: 1.0, float, tile"
       ];
 
-      hyprexpo-gesture = [
-        "4, up, expo, on"
-        "4, down, expo, off"
-      ];
+      # hyprexpo-gesture = [
+      #   "4, up, expo, on"
+      #   "4, down, expo, off"
+      # ];
 
       permission = [
         "${config.wayland.windowManager.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
