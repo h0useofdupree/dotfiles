@@ -230,10 +230,10 @@ in {
         "4, pinchin, scale: 1.0, float, tile"
       ];
 
-      # hyprexpo-gesture = [
-      #   "4, up, expo, on"
-      #   "4, down, expo, off"
-      # ];
+      hyprexpo-gesture = [
+        "4, up, expo, on"
+        "4, down, expo, off"
+      ];
 
       permission = [
         "${config.wayland.windowManager.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
@@ -282,7 +282,7 @@ in {
           gap_size = 30;
           bg_col = "rgba($backgroundE6)";
           workspace_method = "center current";
-          skip_empty = true;
+          skip_empty = false;
           gesture_distance = 300;
         };
 

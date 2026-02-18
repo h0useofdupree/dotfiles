@@ -30,7 +30,7 @@ in {
       hyprexpo
       # borders-plus-plus
       # hyprfocus
-      inputs.Hyprspace.packages.${system}.Hyprspace
+      # inputs.Hyprspace.packages.${system}.Hyprspace
       inputs."split-monitor-workspaces".packages.${system}.split-monitor-workspaces
     ];
 
