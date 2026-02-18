@@ -40,6 +40,22 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-uuid/1b4e3529-7ac3-4498-a05b-8b9e7422bbf4";
+    fsType = "btrfs";
+    options = [
+      "subvol=@games"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
+
+  systemd.tmpfiles.rules = [
+    # NOTE: Maybe use this:
+    # "d /mnt/games 0755 ${config.users.users.h0useofdupree.name} users -"
+    "d /mnt/games 0755 h0useofdupree users -"
+  ];
+
   swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
