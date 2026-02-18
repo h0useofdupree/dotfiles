@@ -231,8 +231,8 @@ in {
       ];
 
       hyprexpo-gesture = [
-        "4, up, expo, on"
-        "4, down, expo, off"
+        "3, up, expo, on"
+        "3, down, expo, off"
       ];
 
       permission = [
