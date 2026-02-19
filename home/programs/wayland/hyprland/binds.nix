@@ -81,7 +81,7 @@
     set -euo pipefail
 
     interface_sink="alsa_output.usb-BEHRINGER_UMC204HD_192k-00.HiFi__Line1__sink"
-    aux_sink="$(pactl list short sinks | awk '$2 ~ /^alsa_output\\.pci-.*\\.analog-stereo$/ { print $2; exit }')"
+    aux_sink="$(pactl list short sinks | awk '$2 ~ /^alsa_output\.pci-.*\.analog-stereo$/ { print $2; exit }')"
 
     if [ -z "$aux_sink" ]; then
       notify-send \
@@ -108,9 +108,9 @@
     fi
 
     pactl set-default-sink "$next_sink"
-    notify-send \
-      "Audio output switched" \
-      "Now using: $next_label"
+    # notify-send \
+    #   "Audio output switched" \
+    #   "Now using: $next_label"
   '';
 
   brightnessUp =
