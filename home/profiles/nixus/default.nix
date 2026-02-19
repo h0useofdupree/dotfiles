@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     # Editors
     ../../editors/vscode
@@ -34,5 +38,10 @@
     ../../terminal/emulators/kitty.nix
     ../../terminal/emulators/alacritty.nix
   ];
-  home.packages = [pkgs.ddcutil];
+  home = {
+    packages = [pkgs.ddcutil];
+
+    # NOTE: Symlink for nvme1n1 to ~/Games
+    file."Games".source = config.lib.file.mkOutOfStoreSymlink "/mnt/games";
+  };
 }
