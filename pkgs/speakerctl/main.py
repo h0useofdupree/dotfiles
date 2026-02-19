@@ -3,6 +3,7 @@ import argparse
 import json
 import os
 import sys
+import time
 import tinytuya as tt
 
 CONFIG_PATH = os.environ.get(
@@ -16,12 +17,14 @@ def load_devices():
             data = json.load(f)
             devices = []
             for d in data:
+                # Pass connection_timeout directly to the constructor
                 device = tt.OutletDevice(
                     dev_id=d["id"],
                     address=d["ip"],
                     local_key=d["key"],
+                    connection_timeout=5,  # This is the correct way for most versions
                 )
-                device.set_version(d.get("version", 3.3))
+                device.set_version(float(d.get("version", 3.3)))
                 devices.append(device)
             return devices
     except Exception as e:
@@ -29,24 +32,43 @@ def load_devices():
         sys.exit(1)
 
 
-def set_state(devices, state):
+def set_state(devices, state, retries=3):
     for device in devices:
-        try:
-            if state == 1:
-                device.turn_on()
-            else:
-                device.turn_off()
-        except Exception as e:
-            print(f"Error setting state for device {device.id}: {e}")
+        success = False
+        for attempt in range(retries):
+            try:
+                if state == 1:
+                    result = device.turn_on()
+                else:
+                    result = device.turn_off()
+
+                if "Error" not in result:
+                    success = True
+                    break
+                else:
+                    print(
+                        f"Attempt {attempt + 1} failed for {device.address}: {result.get('Error')}"
+                    )
+            except Exception as e:
+                print(f"Attempt {attempt + 1} exception for {device.address}: {e}")
+
+            time.sleep(1)  # Wait before retry
+
+        if not success:
+            print(
+                f"FAILED: Could not switch device {device.address} after {retries} attempts."
+            )
 
 
 def print_status(devices):
-    for i, device in enumerate(devices, start=1):
+    for device in devices:
         try:
+            # heartbeat/status check
             status = device.status()
-            print(f"Device {i} ({device.id} @ {device.address}): {status}")
+            print(f"Device {device.id} (@{device.address}):")
+            print(json.dumps(status, indent=2))
         except Exception as e:
-            print(f"Error getting status for device {device.id}: {e}")
+            print(f"Error getting status for {device.address}: {e}")
 
 
 def main():
