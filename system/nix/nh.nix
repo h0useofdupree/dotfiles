@@ -4,7 +4,7 @@
 
     clean = {
       enable = true;
-      extraArgs = "--keep-since 14d";
+      extraArgs = "--keep-since 7d --keep 4";
     };
   };
 }
