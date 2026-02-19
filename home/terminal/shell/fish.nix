@@ -11,29 +11,64 @@
     enable = true;
     generateCompletions = true;
 
-    interactiveShellInit = ''
-      set fish_greeting # Disable greeting
-      command cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
+    interactiveShellInit =
+      /*
+      bash
+      */
+      ''
+        set fish_greeting # Disable greeting
+        command cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
 
-      nitch
+        nitch
 
-      ${lib.optionalString config.services.gpg-agent.enable ''
-        if test -n "$XDG_RUNTIME_DIR"
-          set -l gnupg_path (ls $XDG_RUNTIME_DIR/gnupg)
-          set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/$gnupg_path/S.gpg-agent.ssh"
-      ''}
-    '';
+        fish_vi_key_bindings
+        # The sequence delay: how long fish waits for the second 'j'
+        # 200ms is a solid middle ground; 150ms is snappier but requires fast fingers.
+        set -g fish_sequence_key_delay_ms 200
 
-    shellInitLast = ''
-      bind --erase \ca
-      bind --erase \cf
-      bind --erase ctrl-space
-      bind --erase \cw
+        ${lib.optionalString config.services.gpg-agent.enable
+          /*
+          bash
+          */
+          ''
+            if test -n "$XDG_RUNTIME_DIR"
+              set -l gnupg_path (ls $XDG_RUNTIME_DIR/gnupg)
+              set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gnupg/$gnupg_path/S.gpg-agent.ssh"
+          ''}
+      '';
+    binds = {
+      "\\ca" = {
+        mode = "insert";
+        command = "accept-autosuggestion";
+      };
 
-      bind \ca accept-autosuggestion
-      bind \cf forward-bigword
-      bind ctrl-space forward-word
-      bind \cw backward-kill-word
+      "\\cf" = {
+        mode = "insert";
+        command = "forward-bigword";
+      };
+
+      "ctrl-space" = {
+        mode = "insert";
+        command = "forward-word";
+      };
+
+      "\\cw" = {
+        mode = "insert";
+        command = "backward-kill-word";
+      };
+
+      "jj" = {
+        mode = "insert";
+        setsMode = "default";
+        command = "commandline -f backward-delete-char repaint-mode";
+      };
+    };
+
+    shellInit = ''
+      set fish_cursor_default block
+      set fish_cursor_insert line
+      set fish_cursor_replace_one underscore
+      set fish_cursor_visual block
     '';
 
     shellAliases = lib.mkForce {};
