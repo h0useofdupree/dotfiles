@@ -81,7 +81,14 @@
     set -euo pipefail
 
     interface_sink="alsa_output.usb-BEHRINGER_UMC204HD_192k-00.HiFi__Line1__sink"
-    aux_sink="alsa_output.pci-0000_12_00.6.analog-stereo"
+    aux_sink="$(pactl list short sinks | awk '$2 ~ /^alsa_output\\.pci-.*\\.analog-stereo$/ { print $2; exit }')"
+
+    if [ -z "$aux_sink" ]; then
+      notify-send \
+        "Audio output switch failed" \
+        "No onboard AUX/analog sink found"
+      exit 1
+    fi
 
     current_sink="$(pactl get-default-sink)"
 
@@ -101,6 +108,9 @@
     fi
 
     pactl set-default-sink "$next_sink"
+    notify-send \
+      "Audio output switched" \
+      "Now using: $next_label"
   '';
 
   brightnessUp =
@@ -256,7 +266,7 @@ in {
           "$mod2, 0, exec, speakerctl --off"
         ]
         ++ lib.optionals (!isLaptop) [
-          # switch audio output
+          # switch audio output on nixus
           "$mod2, e, exec, ${toggleAudioOutput}/bin/toggle-audio-output"
         ];
 
