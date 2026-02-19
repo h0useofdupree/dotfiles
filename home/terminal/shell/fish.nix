@@ -25,10 +25,10 @@
     '';
 
     shellInitLast = ''
-      bind --erase \cf
       bind --erase \ca
-      bind --erase \cw
+      bind --erase \cf
       bind --erase ctrl-space
+      bind --erase \cw
 
       bind \ca accept-autosuggestion
       bind \cf forward-bigword
@@ -44,6 +44,7 @@
       g = "git";
       lg = "lazygit";
       ls = "eza";
+      nhc = "nh clean all --keep 3";
       nhs = "nh os switch";
       py = "python3";
       watch = "viddy";
