@@ -1,5 +1,4 @@
 {
-  config,
   inputs,
   pkgs,
   lib,
@@ -34,6 +33,7 @@ in {
     # colorSyncPkg
   ];
 
+  # TODO: Switch to hm module or rework how we handle the flake/shell.json config
   home.file.".config/caelestia/shell.json".text = builtins.toJSON {
     appearance = {
       anim.durations.scale = 1;
@@ -83,6 +83,7 @@ in {
     };
     background = {
       enabled = true;
+      wallpaperEnabled = true;
       desktopClock = {
         enabled = true;
         scale = 1.5;
@@ -156,7 +157,7 @@ in {
         activeLabel = "󰮯 ";
         activeTrail = true;
         label = "  ";
-        occupiedBg = false;
+        occupiedBg = true;
         occupiedLabel = "󰮯 ";
         perMonitorWorkspaces = true;
         showWindows = true;
@@ -166,8 +167,11 @@ in {
         showAudio = true;
         showBattery = isLaptop;
         showBluetooth = true;
-        showNetwork = isLaptop;
         showKbLayout = false;
+        showMicrophone = false;
+        showNetwork = true;
+        showWifi = isLaptop;
+        showLockStatus = true;
       };
       tray = {
         background = true;
@@ -194,11 +198,14 @@ in {
       specialPrefix = "@";
       useFuzzy = {
         apps = true;
-        actions = false;
+        actions = true;
         schemes = true;
         variants = true;
         wallpapers = true;
       };
+      # TODO: Add favorites
+      # favouriteApps = [
+      # ];
       actions = [
         {
           name = "Calculator";
@@ -349,6 +356,9 @@ in {
       expire = true;
     };
     osd = {
+      enabled = true;
+      enableBrightness = true;
+      enableMicrophone = isLaptop;
       hideDelay = 2000;
     };
     paths = {
@@ -363,9 +373,11 @@ in {
       useFahrenheit = false;
       useTwelveHourClock = false;
       audioIncrement = 0.05;
+      brightnessIncrement = 0.1;
       smartScheme = true;
     };
     session = {
+      enabled = true;
       dragThreshold = 30;
       vimKeybinds = true;
       commands = {
@@ -374,6 +386,40 @@ in {
         hibernate = ["systemctl" "suspend"];
         reboot = ["systemctl" "reboot"];
       };
+    };
+    sidebar = {
+      enabled = true;
+      dragThreshold = 80;
+    };
+    utilities = {
+      enabled = true;
+      maxToasts = 2;
+      toasts = {
+        audioInputChanged = true;
+        audioOutputChanged = true;
+        capsLockChanged = true;
+        chargingChanged = isLaptop;
+        configLoaded = true;
+        dndChanged = true;
+        gameModeChanged = true;
+        kbLayoutChanged = true;
+        kbLimit = true;
+        numLockChanged = true;
+        vpnChanged = true;
+        nowPlaying = true;
+      };
+    };
+    vpn = {
+      enabled = false;
+      # TODO: Add NordVPN with WireGuard
+      # provider = [
+      #   {
+      #     name = "wireguard";
+      #     interface = "your-connection-name";
+      #     displayName = "Wireguard (Your VPN)";
+      #     enabled = false;
+      #   }
+      # ];
     };
   };
   # Services
