@@ -64,21 +64,43 @@ in {
       idle = {
         lockBeforeSleep = true;
         inhibitWhenAudio = true;
-        timeouts = [
-          {
-            timeout = 1200;
-            idleAction = "lock";
-          }
-          {
-            timeout = 1800;
-            idleAction = "dpms off";
-            returnAction = "dpms on";
-          }
-          {
-            timeout = 3600;
-            idleAction = ["systemctl" "suspend"];
-          }
-        ];
+        timeouts =
+          if isLaptop
+          then [
+            {
+              timeout = 300; # 5 mins
+              idleAction = "lock";
+            }
+            {
+              timeout = 600; # 10 mins
+              idleAction = "dpms off";
+              returnAction = "dpms on";
+            }
+            {
+              timeout = 900; # 15 mins
+              idleAction = ["systemctl" "suspend"];
+            }
+          ]
+          else [
+            {
+              timeout = 599; # 9:59 mins
+              idleAction = "dpms off DP-2";
+              returnAction = "dpms on DP-2";
+            }
+            {
+              timeout = 600; # 10 mins
+              idleAction = "lock";
+            }
+            {
+              timeout = 1800; # 20 mins
+              idleAction = "dpms off";
+              returnAction = "dpms on";
+            }
+            {
+              timeout = 3600; # 60 mins
+              idleAction = ["systemctl" "suspend"];
+            }
+          ];
       };
     };
     background = {

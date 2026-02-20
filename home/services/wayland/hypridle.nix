@@ -14,7 +14,7 @@
   timeout = 1200;
 in {
   services.hypridle = {
-    enable = true;
+    enable = false;
 
     package = inputs.hypridle.packages.${pkgs.stdenv.hostPlatform.system}.hypridle;
 
