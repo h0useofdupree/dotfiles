@@ -16,7 +16,9 @@
         };
       };
     };
-    # BUG: Re-enable once build is fixed
+    # WARN: Build is/was broken upstream last time
     xpadneo.enable = false;
+
+    xone.enable = true;
   };
 }
