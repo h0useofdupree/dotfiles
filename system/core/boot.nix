@@ -7,7 +7,7 @@
   favoriteThemes = [
     "abstract_ring_alt"
     "connect"
-    "cuts" # (off center with dual monitors)
+    "cuts"
     "cuts_alt"
     "colorful"
     "dark_planet"
@@ -25,17 +25,17 @@
     "spinner_alt"
     "splash"
   ];
-  bootTheme = "dark_planet";
+  bootTheme = "hexagon_dots";
 in {
   boot = {
     initrd = {
       systemd.enable = true;
+      verbose = false;
     };
-
     kernelPackages = pkgs.linuxPackages_latest;
 
     consoleLogLevel = 0;
-    initrd.verbose = false;
+
     kernelParams = [
       "quiet"
       "splash"
@@ -44,7 +44,10 @@ in {
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+      "systemd.show_status=auto"
+      "vt.global_cursor_default=0"
       "plymouth.use-simpledrm"
+
       "video=DP-1:3440x1440@160"
       "video=DP-2:2560x1440@180"
     ];
