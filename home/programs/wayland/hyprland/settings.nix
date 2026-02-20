@@ -23,7 +23,7 @@ in {
         "uwsm finalize"
         "hyprctl setcursor ${cursorName} ${toString 18}"
         "openrgb --startminimized"
-        "sleep 2 && caelestia shell lock lock"
+        "sleep 3 && caelestia shell lock lock"
         "hyprctl dispatch focusmonitor DP-1"
       ];
 
