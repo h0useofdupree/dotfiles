@@ -12,7 +12,8 @@
     };
 
     ollama = {
-      enable = true;
+      # FIX: Re-enable once upstream fixed rocblas build error
+      enable = false;
       package = pkgs.ollama-rocm;
     };
   };
