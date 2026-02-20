@@ -1,11 +1,12 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   services.greetd = let
     session = {
-      command = "${lib.getExe config.programs.uwsm.package} start hyprland.desktop";
+      command = "${lib.getExe' pkgs.coreutils "env"} UWSM_SILENT_START=1 ${lib.getExe config.programs.uwsm.package} start hyprland.desktop";
       user = "h0useofdupree";
     };
   in {
