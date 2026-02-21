@@ -61,6 +61,7 @@ in {
         useOSProber = true;
         # theme = inputs.grub-themes.packages.${pkgs.system}.hyperfluent;
         theme = "${inputs.elegant-grub.packages.${pkgs.stdenv.hostPlatform.system}.forest-blur-left-dark-4k}/theme";
+        configurationLimit = 5;
       };
       systemd-boot.enable = false;
     };
