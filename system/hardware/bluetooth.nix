@@ -18,7 +18,9 @@
     };
     # WARN: Build is/was broken upstream last time
     xpadneo.enable = false;
+    xpad-noone.enable = false;
 
     xone.enable = true;
+    firmware = [pkgs.xone-dongle-firmware];
   };
 }
