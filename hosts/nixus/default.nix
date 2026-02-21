@@ -59,7 +59,7 @@
   ];
 
   boot = {
-    kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+    # kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
     initrd.kernelModules = ["amdgpu"];
     kernelModules = ["i2c-dev" "i2c-piix4"];
     kernelParams = ["acpi_enforce_resources=lax"];
