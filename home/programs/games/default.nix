@@ -15,7 +15,6 @@
     gamescope
     # (lutris.override {extraPkgs = p: [p.libnghttp2];})
     winetricks
-    # TODO: Add protontricks if needed
-    # protontricks
+    protontricks
   ];
 }
