@@ -19,11 +19,16 @@ in {
       # amdvlk
       rocmPackages.clr.icd
       rocmPackages.rocm-smi
+
+      freetype
+      libunwind
+      libusb1
     ];
 
     extraPackages32 = with pkgs.pkgsi686Linux; [
       libva-vdpau-driver
       libvdpau-va-gl
+      freetype
     ];
   };
 }

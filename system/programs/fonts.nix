@@ -31,4 +31,7 @@
       emoji = ["Noto Color Emoji"];
     };
   };
+  environment.systemPackages = with pkgs; [
+    freetype
+  ];
 }
