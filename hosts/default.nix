@@ -27,7 +27,7 @@
 
           "${mod}/services/gnome-services.nix"
           "${mod}/services/location.nix"
-          "${mod}/services/plex.nix"
+          # "${mod}/services/plex.nix"
 
           {
             home-manager = {
