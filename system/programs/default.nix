@@ -20,5 +20,6 @@
     exfatprogs
     dosfstools
     ntfs3g
+    python3
   ];
 }
