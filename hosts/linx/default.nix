@@ -39,7 +39,8 @@
     libinput.enable = true;
   };
 
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos;
+  # NOTE: Switch to xanmod_latest like nixus if problems occur
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
