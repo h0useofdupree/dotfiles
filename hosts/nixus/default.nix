@@ -46,11 +46,14 @@
       ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1022" ATTR{device}=="0x43f7" ATTR{power/wakeup}="disabled"
       KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
     '';
-
-    # xserver.displayManager.gdm.enable = true;
-    # xserver.desktopManager.gnome.enable = true;
-    xserver.xkb.layout = "us";
-    xserver.xkb.variant = "altgr-intl";
+    xserver = {
+      displayManager.gdm.enable = false;
+      desktopManager.gnome.enable = false;
+      xkb = {
+        layout = "us";
+        variant = "altgr-intl";
+      };
+    };
   };
 
   # Extra packages
@@ -65,9 +68,10 @@
     kernelModules = ["i2c-dev" "i2c-piix4"];
     kernelParams = ["acpi_enforce_resources=lax"];
   };
-
-  users.groups.i2c = {};
-  users.users.h0useofdupree.extraGroups = ["i2c"];
+  users = {
+    groups.i2c = {};
+    users.h0useofdupree.extraGroups = ["i2c"];
+  };
   # Set user preferences for environment variables
   environment.variables = {
     LC_TIME = "de_DE.UTF-8"; # Time format
