@@ -60,7 +60,9 @@
       "jj" = {
         mode = "insert";
         setsMode = "default";
-        command = "commandline -f backward-delete-char repaint-mode";
+        # BUG: This example from fish docs includes a backward-delete-char - find out why
+        # command = "commandline -f backward-delete-char repaint-mode";
+        command = "commandline -f repaint-mode";
       };
     };
 
