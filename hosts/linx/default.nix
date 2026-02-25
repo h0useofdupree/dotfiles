@@ -35,6 +35,9 @@
   services = {
     fstrim.enable = true;
 
+    displayManager.gdm.enable = false;
+    desktopManager.gnome.enable = false;
+
     xserver.xkb.layout = "de";
     libinput.enable = true;
   };

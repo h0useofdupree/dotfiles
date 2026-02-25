@@ -46,13 +46,13 @@
       ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1022" ATTR{device}=="0x43f7" ATTR{power/wakeup}="disabled"
       KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
     '';
-    xserver = {
-      displayManager.gdm.enable = false;
-      desktopManager.gnome.enable = false;
-      xkb = {
-        layout = "us";
-        variant = "altgr-intl";
-      };
+
+    displayManager.gdm.enable = false;
+    desktopManager.gnome.enable = false;
+
+    xserver.xkb = {
+      layout = "us";
+      variant = "altgr-intl";
     };
   };
 
