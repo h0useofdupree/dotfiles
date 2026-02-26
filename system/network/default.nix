@@ -11,5 +11,6 @@
       enable = true;
       settings.UseDns = true;
     };
+    # TODO: Add vpn support (WireGuard/wgnord/NordLynx/etc)
   };
 }
