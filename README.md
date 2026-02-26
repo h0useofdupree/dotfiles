@@ -2,10 +2,12 @@
 
 ## Build
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/h0useofdupree/dotfiles/.github%2Fworkflows%2Fnix-flake-check.yml?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/h0useofdupree/dotfiles?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/h0useofdupree/dotfiles?style=for-the-badge)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/h0useofdupree/dotfiles/latest?style=for-the-badge)
+![GitHub Actions workflow status](https://img.shields.io/github/actions/workflow/status/h0useofdupree/dotfiles/.github%2Fworkflows%2Fnix-flake-check.yml?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/h0useofdupree/dotfiles?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/h0useofdupree/dotfiles?style=social)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/h0useofdupree/dotfiles?style=social)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/h0useofdupree/dotfiles/latest?style=social)
+![GitHub license](https://img.shields.io/github/license/h0useofdupree/dotfiles?style=social)
 
 <!--toc:start-->
 
