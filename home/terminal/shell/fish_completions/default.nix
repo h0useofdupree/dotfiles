@@ -20,6 +20,9 @@
       "fish/completions/hyprctl.fish" = {
         source = "${pkgs.hyprland}/share/fish/vendor_completions.d/hyprctl.fish";
       };
+      "fish/completions/nh.fish" = {
+        source = "${pkgs.nh}/share/fish/vendor_completions.d/nh.fish";
+      };
     };
   };
 }

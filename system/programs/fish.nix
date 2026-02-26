@@ -6,6 +6,8 @@
 
     fish = {
       enable = true;
+      vendor.completions.enable = true;
+      generateCompletions = true;
     };
   };
 }
