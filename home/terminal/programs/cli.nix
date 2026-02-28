@@ -17,11 +17,14 @@
     fortune
     gnumake
     go
+    httpie
     jaq
     lazygit
+    ncdu
     nitch
     ripgrep
     ripdrag
+    librespeed-cli
     tldr
     wget
   ];
