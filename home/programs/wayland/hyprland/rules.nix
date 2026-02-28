@@ -83,6 +83,20 @@
       "match:class ^(org.kde.kdeconnect.app)$, scroll_touchpad 0.1"
       # Others
       "match:class ^(org.pwmt.zathura)$, scroll_touchpad 0.1"
+
+      # global Steam client / Big Picture overlay fixes
+      "match:class ^(steam)$, workspace 9"
+      "match:class ^(steam)$, monitor DP-1"
+      "match:class ^(steam)$, immediate on"
+      "match:class ^(steam)$, no_blur on"
+      "match:class ^(steam)$, no_shadow on"
+
+      # Game-specific: Pin all Steam games to Workspace 10 on Monitor DP-1
+      # ^(steam_app_\d+)$ matches the XWayland/Wayland class assigned to games
+      "match:class ^(steam_app_.*)$, workspace 10"
+      "match:class ^(steam_app_.*)$, monitor DP-1"
+      "match:class ^(steam_app_.*)$, fullscreen on"
+      "match:class ^(steam_app_.*)$, idle_inhibit focus"
     ];
   };
 }
