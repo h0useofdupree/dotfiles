@@ -29,74 +29,110 @@
       "${toRegex lowopacity}, ignore_alpha 0.2"
     ];
 
-    windowrule = [
-      # telegram media viewer
-      "match:title ^(Media viewer)$, float on"
+    windowrule = let
+      steamRegex = ids: let
+        elements = lib.concatStringsSep "|" (map toString ids);
+      in "match:class ^(steam_app_(${elements}))$";
 
+      nativeRegex = classes: let
+        elements = lib.concatStringsSep "|" classes;
+      in "match:class ^(${elements})$";
+
+      gamesOnSecondary = [
+        1245620 # Elden Ring
+      ];
+      gamesCentered = [];
+
+      nativeTearingGames = [
+        "osu\\!"
+        "cs2"
+      ];
+      # Regex for steam_app_<id> games only
+      allSteamGames = "match:class ^(steam_app_[0-9]+)$";
+      # Combined regex for any game (steam ID or native)
+      anyGame = "match:class ^(steam_app_[0-9]+|${lib.concatStringsSep "|" nativeTearingGames})$";
+    in [
+      # --- UI Elements & Utilities ---
+      # Telegram media viewer
+      "match:title ^(Media viewer)$, float on"
       # Bitwarden extension
       "match:title ^(.*Bitwarden Password Manager.*)$, float on"
-
-      # gnome calculator
+      # Gnome calculator
       "match:class ^(org.gnome.Calculator)$, float on"
       "match:class ^(org.gnome.Calculator)$, size 360 490"
 
-      # allow tearing in games
-      # "match:class ^(osu\\!|cs2)$, immediate on"
-
-      # make Firefox/Zen PiP window floating and sticky
+      # --- Web Browsers ---
+      # Picture-in-Picture
       "match:title ^(Picture-in-Picture)$, float on"
       "match:title ^(Picture-in-Picture)$, pin on"
-
-      # throw sharing indicators away
+      # Sharing indicators (Special Workspace)
       "match:title ^(Firefox — Sharing Indicator)$, workspace special silent"
       "match:title ^(Zen — Sharing Indicator)$, workspace special silent"
       "match:title ^(.*is sharing (your screen|a window)\\.)$, workspace special silent"
+      # File upload dialogs
+      "match:class ^(zen)$, match:title ^(File Upload)$, dim_around on"
 
-      # idle inhibit while watching videos
+      # --- Media & Idle Inhibition ---
+      # Video players
       "match:class ^(mpv|.+exe|celluloid)$, idle_inhibit focus"
+      # Browser media
       "match:class ^(zen)$, match:title ^(.*YouTube.*)$, idle_inhibit focus"
       "match:class ^(zen)$, idle_inhibit fullscreen"
 
+      # --- Dialogs & Authentication ---
       "match:class ^(gcr-prompter)$, dim_around on"
       "match:class ^(xdg-desktop-portal-gtk)$, dim_around on"
       "match:class ^(polkit-gnome-authentication-agent-1)$, dim_around on"
-      "match:class ^(zen)$, match:title ^(File Upload)$, dim_around on"
 
-      # fix xwayland apps
-      # "match:xwayland true, rounding 0"
+      # --- Development & IDEs ---
+      # JetBrains popups
       "match:class ^(.*jetbrains.*)$, match:title ^(Confirm Exit|Open Project|win424|win201|splash)$, center on"
       "match:class ^(.*jetbrains.*)$, match:title ^(splash)$, size 640 400"
 
-      # don't render hyprbars on tiling windows
+      # --- XWayland fixes ---
+      # "match:xwayland true, rounding 0"
+
+      # --- Global Styling ---
+      # Disable hyprbars on tiled windows
       "match:float false, hyprbars:no_bar on"
 
-      # less sensitive scroll for some windows
-      # browser(-based)
+      # --- Input & Scrolling Overrides ---
+      # Browser-based
       "match:class ^(zen|firefox|chromium-browser|chrome-.*)$, scroll_touchpad 0.1"
       "match:class ^(obsidian)$, scroll_touchpad 0.1"
-      # GTK3
+      # GTK / Productivity
       "match:class ^(com.github.xournalpp.xournalpp)$, scroll_touchpad 0.1"
       "match:class ^(libreoffice.*)$, scroll_touchpad 0.1"
       "match:class ^(.virt-manager-wrapped)$, scroll_touchpad 0.1"
       "match:class ^(xdg-desktop-portal-gtk)$, scroll_touchpad 0.1"
-      # Qt5
+      # Qt / System
       "match:class ^(org.kde.kdeconnect.app)$, scroll_touchpad 0.1"
-      # Others
       "match:class ^(org.pwmt.zathura)$, scroll_touchpad 0.1"
 
-      # global Steam client / Big Picture overlay fixes
+      # --- Steam Client Rules ---
       "match:class ^(steam)$, workspace 9"
       "match:class ^(steam)$, monitor DP-1"
       "match:class ^(steam)$, immediate on"
       "match:class ^(steam)$, no_blur on"
       "match:class ^(steam)$, no_shadow on"
 
-      # Game-specific: Pin all Steam games to Workspace 10 on Monitor DP-1
-      # ^(steam_app_\d+)$ matches the XWayland/Wayland class assigned to games
-      "match:class ^(steam_app_.*)$, workspace 10"
-      "match:class ^(steam_app_.*)$, monitor DP-1"
-      "match:class ^(steam_app_.*)$, fullscreen on"
-      "match:class ^(steam_app_.*)$, idle_inhibit focus"
+      # --- Game Rules ---
+      # General defaults for all steam games
+      "${anyGame}, workspace 10"
+      "${anyGame}, monitor DP-1"
+      "${anyGame}, fullscreen on"
+      "${anyGame}, idle_inhibit focus"
+
+      # Specific overrides for secondary
+      "${steamRegex gamesOnSecondary}, monitor DP-2"
+
+      # Specific overrides for centering on primary
+      "${steamRegex gamesCentered}, monitor DP-1"
+      "${steamRegex gamesCentered}, float on"
+      "${steamRegex gamesCentered}, center on"
+      "${steamRegex gamesCentered}, size 2560 1440"
+
+      "${nativeRegex nativeTearingGames}, immediate on"
     ];
   };
 }
