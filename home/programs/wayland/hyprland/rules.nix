@@ -52,6 +52,14 @@
       # Combined regex for any game (steam ID or native)
       anyGame = "match:class ^(steam_app_[0-9]+|${lib.concatStringsSep "|" nativeTearingGames})$";
     in [
+      # INFO:
+      # --- Workspace IDs ---
+      # > Using split-monitor-workspaces with `enable_persistent_workspaces = true;`, the workspaces are labeled 1-20 with 10 workspaces/monitor.
+      # DP-1: Workspaces 1-10
+      # DP-2: Workspaces 11-20
+      # > Setting a monitor with `monitor <ID>` is done for redundance, in case either the plugin is dropped or internal logic changes
+      # ------
+
       # --- UI Elements & Utilities ---
       # Telegram media viewer
       "match:title ^(Media viewer)$, float on"
@@ -78,6 +86,9 @@
       # Browser media
       "match:class ^(zen)$, match:title ^(.*YouTube.*)$, idle_inhibit focus"
       "match:class ^(zen)$, idle_inhibit fullscreen"
+      # Communication
+      "match:class ^(vesktop)$, monitor DP-2"
+      "match:class ^(vesktop)$, workspace 11"
 
       # --- Dialogs & Authentication ---
       "match:class ^(gcr-prompter)$, dim_around on"
