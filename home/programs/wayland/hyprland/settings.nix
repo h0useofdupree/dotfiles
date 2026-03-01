@@ -217,7 +217,7 @@ in {
 
       # touchpad gestures
       gestures = {
-        workspace_swipe_distance = 700;
+        workspace_swipe_distance = 1500;
         workspace_swipe_cancel_ratio = 0.2;
         workspace_swipe_direction_lock = true;
         workspace_swipe_direction_lock_threshold = 10;
@@ -226,11 +226,11 @@ in {
       };
 
       gesture = [
-        "3, horizontal, workspace"
+        "3, horizontal, scale: 0.5, workspace"
         "3, down, mod: ALT, close"
         "3, pinch, scale: 1.0, fullscreen"
 
-        # TODO: Maybe use toggleFloatResize from binds somehow
+        # TODO: Maybe implement toggleFloatResize from binds somehow
         "4, pinchout, scale: 1.0, float, float"
         "4, pinchin, scale: 1.0, float, tile"
       ];
