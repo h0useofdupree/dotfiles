@@ -135,7 +135,7 @@ in {
         entries = [
           {
             id = "logo";
-            enabled = true;
+            enabled = false;
           }
           {
             id = "workspaces";
@@ -175,16 +175,25 @@ in {
             enabled = true;
           }
         ];
+        clock.showIcon = false;
         dragThreshold = 20;
         persistent = true;
         showOnHover = true;
         workspaces = {
           activeIndicator = true;
-          activeLabel = "󰮯 ";
-          activeTrail = true;
+          # activeLabel = "󰮯 ";
+          activeLabel = "󰬸 ";
+          # occupiedLabel = "󰮯 ";
+          occupiedLabel = "󰺕 ";
           label = "  ";
-          occupiedBg = true;
-          occupiedLabel = "󰮯 ";
+          specialWorkspaceIcons = [
+            {
+              name = "special";
+              icon = "󰍶";
+            }
+          ];
+          activeTrail = true;
+          occupiedBg = false;
           perMonitorWorkspaces = true;
           showWindows = true;
           shown = 5;
