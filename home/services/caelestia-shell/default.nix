@@ -295,9 +295,9 @@ in {
             name = "Light";
             icon = "light_mode";
             description = "Change the scheme to light mode";
+            command = ["setMode" "light"];
             # HACK: Use custom theme command to also set the gtk3 theme with dconf
-            # command = ["setMode" "light"];
-            command = mkThemeCommand "light";
+            # command = mkThemeCommand "light";
             enabled = true;
             dangerous = false;
           }
@@ -305,9 +305,9 @@ in {
             name = "Dark";
             icon = "dark_mode";
             description = "Change the scheme to dark mode";
+            command = ["setMode" "dark"];
             # HACK: Use custom theme command to also set the gtk3 theme with dconf
-            # command = ["setMode" "dark"];
-            command = mkThemeCommand "dark";
+            # command = mkThemeCommand "dark";
             enabled = true;
             dangerous = false;
           }
@@ -387,14 +387,14 @@ in {
       notifs = {
         actionOnClick = true;
         clearThreshold = 0.3;
-        defaultExpireTimeout = 5000;
+        defaultExpireTimeout = 4000;
         expandThreshold = 20;
         expire = true;
       };
       osd = {
         enabled = true;
         enableBrightness = true;
-        enableMicrophone = isLaptop;
+        enableMicrophone = !isLaptop;
         hideDelay = 2000;
       };
       paths = {
@@ -410,7 +410,8 @@ in {
         useTwelveHourClock = false;
         audioIncrement = 0.05;
         brightnessIncrement = 0.1;
-        smartScheme = true;
+        # Auto dark/light based on wallpaper lightness
+        smartScheme = false;
       };
       session = {
         enabled = true;
