@@ -179,9 +179,13 @@ in {
       master = {
         orientation = "center";
         slave_count_for_center_master = 0;
-        new_status = "slave";
-        new_on_top = false;
+        center_master_fallback = "left";
+        always_keep_position = false;
         mfact = 0.55;
+        new_status = "inherit";
+        new_on_top = false;
+        smart_resizing = true;
+        drop_at_cursor = true;
         special_scale_factor = 0.85;
       };
 
@@ -194,6 +198,7 @@ in {
         animate_mouse_windowdragging = true;
 
         enable_swallow = true;
+        # TODO: Handle nix shell swallow exception
         swallow_regex = "(foot|kitty|alacritty)";
         swallow_exception_regex = "(xev|wev)";
         session_lock_xray = true;
