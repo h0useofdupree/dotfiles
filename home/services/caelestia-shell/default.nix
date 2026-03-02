@@ -135,7 +135,7 @@ in {
         entries = [
           {
             id = "logo";
-            enabled = false;
+            enabled = true;
           }
           {
             id = "workspaces";
