@@ -251,6 +251,11 @@ in {
       debug.disable_logs = false;
 
       plugin = {
+        csgo-vulkan-fix = {
+          # NOTE: CS2 launch options: `-vulkan -window -w <RESX> -h <RESY> -vulkan`
+          fix_mouse = true;
+          vkfix-app = "cs2, 2560, 1440";
+        };
         hyprbars = {
           bar_color = "rgba($backgroundE6)";
           "col.text" = "rgba($onBackgroundFF)";

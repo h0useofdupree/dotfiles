@@ -28,6 +28,7 @@ in {
     plugins = with inputs.hyprland-plugins.packages.${system}; [
       hyprbars
       hyprexpo
+      csgo-vulkan-fix
       # borders-plus-plus
       # hyprfocus
       # inputs.Hyprspace.packages.${system}.Hyprspace

@@ -62,7 +62,6 @@
   ];
 
   boot = {
-    # TODO: Enable once EDGE >= 6.19.0
     kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
     initrd.kernelModules = ["amdgpu"];
     kernelModules = ["i2c-dev" "i2c-piix4"];
