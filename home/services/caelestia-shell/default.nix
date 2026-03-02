@@ -65,6 +65,8 @@ in {
         };
 
         idle = {
+          # WARN: Suspend still causes hyprland or the "lock screen" to crash, even though hyprlock isn't used anymore...
+          # FIX: Leave suspend disabled, at least for nixus
           lockBeforeSleep = true;
           inhibitWhenAudio = true;
           timeouts =
@@ -99,10 +101,10 @@ in {
                 idleAction = "dpms off";
                 returnAction = "dpms on";
               }
-              {
-                timeout = 3600; # 60 mins
-                idleAction = ["systemctl" "suspend"];
-              }
+              # {
+              #   timeout = 3600; # 60 mins
+              #   idleAction = ["systemctl" "suspend"];
+              # }
             ];
         };
       };
