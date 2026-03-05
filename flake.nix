@@ -163,7 +163,7 @@
       };
     };
 
-    "split-monitor-workspaces" = {
+    split-monitor-workspaces = {
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
@@ -179,7 +179,8 @@
     };
 
     caelestia-shell = {
-      url = "github:caelestia-dots/shell";
+      # WARN: Latest stable commit. More recent commits are unstable and upstream is quiet at the moment.
+      url = "github:caelestia-dots/shell/4be8fc9693e439c487f091413289b782d78130e7";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         quickshell.follows = "quickshell";
