@@ -189,6 +189,7 @@
         description = "fetches a gitignore template for a given language";
       };
 
+      # NOTE: Subject for deletion if dynamic-wallpaper is not used anymore
       wp-groups-summary = {
         body = ''
           set -l root ${config.home.homeDirectory}/.dotfiles/lib/wallpapers
@@ -245,6 +246,7 @@
         description = "Get wallpaper group name, count, res, avg color, brightness";
       };
 
+      # NOTE: Subject for deletion if not using hyprlock anymore
       hyprlock-restart = {
         body = ''
           set logdir (test -n "$XDG_STATE_HOME"; and echo $XDG_STATE_HOME; or echo "$HOME/.local/state")
@@ -293,6 +295,59 @@
           _log "========================================"
         '';
         description = "Restart hyprlock after a crash, with automatic logging and state info";
+      };
+
+      caelestia-lock-repair = {
+        body =
+          /*
+          bash
+          */
+          ''
+            set logdir (test -n "$XDG_STATE_HOME"; and echo $XDG_STATE_HOME; or echo "$HOME/.local/state")
+            set logfile "$logdir/caelestia-lock-repair.log"
+
+            function _log
+              echo -n (date "+%Y-%m-%d %H:%M:%S")" | " >> $logfile
+              echo $argv >> $logfile
+            end
+
+            _log "===== Caelestia Lock Repair Triggered ====="
+
+            # 1. Open the door for a new lock process
+            echo "[repair] Allowing session lock restore..."
+            command hyprctl --instance 0 "keyword misc:allow_session_lock_restore 1"
+
+            # 2. Try the "Soft Repair" (IPC)
+            echo "[repair] Attempting IPC lock trigger..."
+            if command caelestia shell lock lock ^/dev/null
+                _log "IPC lock command sent. Checking for success..."
+                sleep 1
+            else
+                _log "IPC unreachable. Initiating Hard Restart..."
+
+                # 3. The "Hard Repair" (Systemd)
+                echo "[repair] Restarting caelestia-shell.service..."
+                command systemctl --user restart caelestia-shell.service
+
+                # Give Quickshell time to load the QML and register IPC targets
+                _log "Waiting for service to initialize..."
+                sleep 3
+
+                # Force it back into locked state (NOTE: Test if cmd needs to be bound to instance)
+                # command caelestia shell lock lock
+                command hyprctl --instance 0 "dispatch exec caelestia shell lock lock"
+                _log "Post-restart lock command sent"
+            end
+
+            # 4. Close the security hole
+            echo "[repair] Disabling session lock restore..."
+            command hyprctl --instance 0 "keyword misc:allow_session_lock_restore 0"
+
+            echo "[repair] Done. You can now switch back to TTY1 ({Ctrl+}Alt+F1)"
+            _log "Repair complete."
+            _log "========================================"
+          '';
+        description = "Restores Caelestia lock screen via systemd after a suspend/resume crash";
       };
     };
 
