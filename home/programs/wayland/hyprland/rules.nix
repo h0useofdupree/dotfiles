@@ -89,6 +89,8 @@
       # Communication
       "match:class ^(vesktop)$, monitor DP-2"
       "match:class ^(vesktop)$, workspace 11"
+      # Music players
+      "match:class ^(spotify)$, workspace 12"
 
       # --- Dialogs & Authentication ---
       "match:class ^(gcr-prompter)$, dim_around on"
