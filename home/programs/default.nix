@@ -31,6 +31,7 @@
     jabref
 
     overskride
+    papirus-folders
     resources
     wineWow64Packages.wayland
 
