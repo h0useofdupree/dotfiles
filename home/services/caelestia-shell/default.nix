@@ -76,10 +76,16 @@ in {
                 timeout = 300; # 5 mins
                 idleAction = "lock";
               }
+              # BUG: DPMS currently broken on hyprland
+              # {
+              #   timeout = 600; # 10 mins
+              #   idleAction = "dpms off";
+              #   returnAction = "dpms on";
+              # }
               {
                 timeout = 600; # 10 mins
-                idleAction = "dpms off";
-                returnAction = "dpms on";
+                idleAction = "caelestia shell brightness set 0";
+                returnAction = "caelestia shell brightness set 1";
               }
               {
                 timeout = 900; # 15 mins
@@ -96,15 +102,21 @@ in {
                 timeout = 600; # 10 mins
                 idleAction = "lock";
               }
+              # BUG: DPMS currently broken on hyprland
+              # {
+              #   timeout = 1800; # 20 mins
+              #   idleAction = "dpms off";
+              #   returnAction = "dpms on";
+              # }
               {
                 timeout = 1800; # 20 mins
-                idleAction = "dpms off";
-                returnAction = "dpms on";
+                idleAction = "caelestia shell brightness set 0";
+                returnAction = "caelestia shell brightness set 1";
               }
-              # {
-              #   timeout = 3600; # 60 mins
-              #   idleAction = ["systemctl" "suspend"];
-              # }
+              {
+                timeout = 3600; # 60 mins
+                idleAction = ["systemctl" "suspend"];
+              }
             ];
         };
       };
