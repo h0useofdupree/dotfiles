@@ -65,8 +65,7 @@ in {
         };
 
         idle = {
-          # WARN: Suspend still causes hyprland or the "lock screen" to crash, even though hyprlock isn't used anymore...
-          # FIX: Leave suspend disabled, at least for nixus
+          # BUG: DPMS currently broken on hyprland with quickshell
           lockBeforeSleep = true;
           inhibitWhenAudio = true;
           timeouts =
@@ -76,7 +75,6 @@ in {
                 timeout = 300; # 5 mins
                 idleAction = "lock";
               }
-              # BUG: DPMS currently broken on hyprland
               # {
               #   timeout = 600; # 10 mins
               #   idleAction = "dpms off";
@@ -93,16 +91,15 @@ in {
               }
             ]
             else [
-              {
-                timeout = 599; # 9:59 mins
-                idleAction = "dpms off DP-2";
-                returnAction = "dpms on DP-2";
-              }
+              # {
+              #   timeout = 599; # 9:59 mins
+              #   idleAction = "dpms off DP-2";
+              #   returnAction = "dpms on DP-2";
+              # }
               {
                 timeout = 600; # 10 mins
                 idleAction = "lock";
               }
-              # BUG: DPMS currently broken on hyprland
               # {
               #   timeout = 1800; # 20 mins
               #   idleAction = "dpms off";
