@@ -16,9 +16,10 @@
       })
       inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
       gamescope
+      lutris
       # (lutris.override {extraPkgs = p: [p.libnghttp2];})
       winetricks
-      # protontricks
+      protontricks
     ]
     ++ lib.optional (!isLaptop) oversteer;
 }
