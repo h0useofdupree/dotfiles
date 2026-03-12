@@ -274,6 +274,8 @@ in {
         # volume (up/down)
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%-"
+        "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 10%+"
+        "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 10%-"
 
         # backlight
         ", XF86MonBrightnessUp, exec, ${brightnessUp}"
