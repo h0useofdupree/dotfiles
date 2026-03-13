@@ -203,6 +203,9 @@ in {
         swallow_exception_regex = "(xev|wev)";
         session_lock_xray = true;
 
+        # Allow {min,max}_size to affect tiled windows
+        size_limits_tiled = true;
+
         vrr = 1;
       };
 

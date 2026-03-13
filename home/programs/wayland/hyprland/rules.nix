@@ -89,8 +89,10 @@
       # Communication
       "match:class ^(vesktop)$, monitor DP-2"
       "match:class ^(vesktop)$, workspace 11"
+      "match:class ^(vesktop)$, no_initial_focus on" # BUG: Not working
       # Music players
       "match:class ^(spotify)$, workspace 12"
+      # "match:class ^(spotify)$, no_initial_focus on"
 
       # --- Dialogs & Authentication ---
       "match:class ^(gcr-prompter)$, dim_around on"
@@ -128,6 +130,15 @@
       "match:class ^(steam)$, immediate on"
       "match:class ^(steam)$, no_blur on"
       "match:class ^(steam)$, no_shadow on"
+      # Fix initial sign in window position on startup
+      "match:title ^(Sign in to Steam)$, float on"
+      "match:title ^(Sign in to Steam)$, center on"
+      # Tile friends list silently and adjust size
+      "match:title ^(Friends List)$, tile on"
+      "match:title ^(Friends List)$, size (monitor_w*0.12) (monitor_h*0.7)"
+      "match:title ^(Friends List)$, min_size 300 400"
+      "match:title ^(Friends List)$, max_size (monitor_w*0.3) (monitor_h*0.8)"
+      "match:title ^(Friends List)$, no_initial_focus on" # BUG: Not working
 
       # --- Game Rules ---
       # General defaults for all steam games
