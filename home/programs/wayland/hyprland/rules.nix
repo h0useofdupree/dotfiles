@@ -82,10 +82,10 @@
 
       # --- Media & Idle Inhibition ---
       # Video players
-      "match:class ^(mpv|.+exe|celluloid)$, idle_inhibit focus"
+      # "match:class ^(mpv|.+exe|celluloid)$, idle_inhibit focus"
       # Browser media
-      "match:class ^(zen)$, match:title ^(.*YouTube.*)$, idle_inhibit focus"
-      "match:class ^(zen)$, idle_inhibit fullscreen"
+      # "match:class ^(zen)$, match:title ^(.*YouTube.*)$, idle_inhibit focus"
+      # "match:class ^(zen)$, idle_inhibit fullscreen"
       # Communication
       "match:class ^(vesktop)$, monitor DP-2"
       "match:class ^(vesktop)$, workspace 11"
