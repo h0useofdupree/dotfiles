@@ -161,6 +161,7 @@ in {
 
           # vesktop (discord) pass
           "CTRL SHIFT, M, pass, class:^(vesktop)$"
+          "CTRL SHIFT, D, pass, class:^(vesktop)$"
 
           # logout menu
           # "CTRL $mod, Delete, exec, ${toggle "wlogout"} -p layer-shell"
