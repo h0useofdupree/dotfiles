@@ -22,7 +22,7 @@
     ../../services/system/udiskie.nix
 
     # Wayland services
-    ../../services/caelestia-shell
+    ../../services/caelestia
     ../../services/wayland/gammastep.nix
     ../../services/wayland/hypridle.nix
     ../../services/wayland/hyprpaper.nix
