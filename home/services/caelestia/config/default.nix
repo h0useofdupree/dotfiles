@@ -9,7 +9,7 @@
   launcher = import ./launcher.nix {inherit isLaptop;};
   features = import ./features.nix {inherit config isLaptop;};
 in
-  lib.mkMerge [
+  lib.foldl' lib.recursiveUpdate {} [
     appearance
     general
     bar
