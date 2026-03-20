@@ -538,54 +538,7 @@ in {
             Restart = "on-failure";
           };
         };
-
-        #   caelestia-colors = {
-        #     Unit.Description = "Generate Hyprland colors from caelestia scheme";
-        #     Service = {
-        #       Type = "oneshot";
-        #       ExecStart = lib.getExe colorSyncPkg;
-        #     };
-        #   };
-        # };
-        #
-        # paths.caelestia-colors = {
-        #   Unit.Description = "Watch caelestia scheme for changes";
-        #   Path = {
-        #     PathModified = config.home.homeDirectory + "/.local/state/caelestia/scheme.json";
-        #     Unit = "caelestia-colors.service";
-        #   };
-        #   Install.WantedBy = ["graphical-session.target"];
       };
     };
   };
-  # systemd.user.services.caelestia-lock-once = {
-  #   Unit = {
-  #     Description = "Lock screen once after Caelestia shell is ready";
-  #     After = ["graphical-session.target" "caelestia-shell.service"];
-  #     Wants = ["caelestia-shell.service"];
-  #   };
-  #   Service = {
-  #     Type = "oneshot";
-  #     # tiny retry loop to avoid races without ugly sleeps
-  #     ExecStart = let
-  #       script =
-  #         pkgs.writeShellScript "caelestia-lock-once"
-  #         ''
-  #           set -euo pipefail
-  #           for i in $(seq 1 150); do
-  #             if ${lib.getExe cliPkg} shell lock lock >/dev/null 2>&1; then
-  #               exit 0
-  #             fi
-  #             sleep 0.1
-  #           done
-  #           echo "caelestia lock: shell not ready after 15s, giving up" >&2
-  #           exit 1
-  #         '';
-  #     in
-  #       script;
-  #     # Optional: cleaner logs
-  #     Environment = "PATH=${lib.makeBinPath [pkgs.coreutils cliPkg]}";
-  #   };
-  #   Install.WantedBy = ["graphical-session.target"];
-  # };
 }
