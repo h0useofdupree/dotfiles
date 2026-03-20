@@ -123,7 +123,7 @@ in {
         desktopClock = {
           enabled = true;
           scale = 1.5;
-          position = "top-right";
+          position = "bottom-right";
           shadow = {
             enabled = true;
             opacity = 0.7;
@@ -134,6 +134,7 @@ in {
             opacity = 0.3;
             blur = true;
           };
+          invertColors = false;
         };
         visualiser = {
           enabled = false;
@@ -146,7 +147,7 @@ in {
         entries = [
           {
             id = "logo";
-            enabled = true;
+            enabled = false;
           }
           {
             id = "workspaces";
@@ -186,7 +187,16 @@ in {
             enabled = true;
           }
         ];
-        clock.showIcon = false;
+        activeWindow = {
+          compact = true;
+          inverted = true;
+          showIcon = true;
+        };
+        clock = {
+          showIcon = false;
+          showDate = true;
+          background = true;
+        };
         dragThreshold = 20;
         persistent = true;
         showOnHover = true;
@@ -204,7 +214,7 @@ in {
             }
           ];
           activeTrail = true;
-          occupiedBg = false;
+          occupiedBg = true;
           perMonitorWorkspaces = true;
           showWindows = true;
           shown = 5;
@@ -411,12 +421,13 @@ in {
       paths = {
         mediaGif = "root:/assets/bongocat.gif";
         sessionGif = "root:/assets/kurukuru.gif";
+        lyricsDir = "~/Music/lyrics";
 
         # NOTE: Needed for dynamic-wallpaper if not completely reworked!
         # wallpaperDir = config.home.homeDirectory + "/Pictures/WallpapersCache";
       };
       services = {
-        weatherLocation = "51.12,7.4";
+        weatherLocation = "51.25278, 6.97778";
         useFahrenheit = false;
         useTwelveHourClock = false;
         audioIncrement = 0.05;
@@ -434,6 +445,12 @@ in {
           hibernate = ["systemctl" "suspend"];
           reboot = ["systemctl" "reboot"];
         };
+        icons = {
+          logout = "logout";
+          shutdown = "power_settings_new";
+          hibernate = "bedtime";
+          reboot = "cached";
+        };
       };
       sidebar = {
         enabled = true;
@@ -441,7 +458,10 @@ in {
       };
       utilities = {
         enabled = true;
-        maxToasts = 2;
+        maxToasts =
+          if isLaptop
+          then 1
+          else 2;
         toasts = {
           audioInputChanged = true;
           audioOutputChanged = true;
@@ -454,7 +474,7 @@ in {
           kbLimit = true;
           numLockChanged = true;
           vpnChanged = true;
-          nowPlaying = true;
+          nowPlaying = false;
         };
       };
       vpn = {
