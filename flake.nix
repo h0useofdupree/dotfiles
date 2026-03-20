@@ -179,8 +179,7 @@
     };
 
     caelestia-shell = {
-      # WARN: Latest stable commit. More recent commits are unstable and upstream is quiet at the moment.
-      url = "github:caelestia-dots/shell/4be8fc9693e439c487f091413289b782d78130e7";
+      url = "github:caelestia-dots/shell";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         quickshell.follows = "quickshell";
