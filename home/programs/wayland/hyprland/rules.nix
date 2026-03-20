@@ -125,7 +125,7 @@
       "match:class ^(org.pwmt.zathura)$, scroll_touchpad 0.1"
 
       # --- Steam Client Rules ---
-      "match:class ^(steam)$, workspace 9"
+      "match:class ^(steam)$, workspace 4"
       "match:class ^(steam)$, monitor DP-1"
       "match:class ^(steam)$, immediate on"
       "match:class ^(steam)$, no_blur on"
@@ -142,7 +142,7 @@
 
       # --- Game Rules ---
       # General defaults for all steam games
-      "${anyGame}, workspace 10"
+      "${anyGame}, workspace 5"
       "${anyGame}, monitor DP-1"
       "${anyGame}, fullscreen on"
       "${anyGame}, idle_inhibit focus"
