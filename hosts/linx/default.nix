@@ -22,6 +22,12 @@
         group = "users";
       };
 
+      nordvpn-private-key = {
+        file = "${self}/secrets/nordvpn-private-key.age";
+        owner = "h0useofdupree";
+        group = "users";
+      };
+
       # weatherapi-key = {
       #   file = "${self}/secrets/weatherapi-key.age";
       #   owner = "h0useofdupree";
