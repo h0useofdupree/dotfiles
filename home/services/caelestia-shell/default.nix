@@ -478,17 +478,48 @@ in {
         };
       };
       vpn = {
-        enabled = false;
-        # TODO: Add NordVPN with WireGuard
-        # provider = [
-        #   {
-        #     name = "wireguard";
-        #     interface = "your-connection-name";
-        #     displayName = "Wireguard (Your VPN)";
-        #     enabled = false;
-        #   }
-        # ];
+        enabled = true;
+        provider = [
+          {
+            name = "wireguard";
+            interface = "nordvpn";
+            displayName = "NordVPN";
+            enabled = true;
+            connectCmd = ["pkexec" "systemctl" "start" "wg-quick-nordvpn"];
+            disconnectCmd = ["pkexec" "systemctl" "stop" "wg-quick-nordvpn"];
+          }
+        ];
       };
+      quicktoggles = [
+        {
+          id = "wifi";
+          enabled = true;
+        }
+        {
+          id = "bluetooth";
+          enabled = true;
+        }
+        {
+          id = "mic";
+          enabled = true;
+        }
+        {
+          id = "settings";
+          enabled = true;
+        }
+        {
+          id = "gameMode";
+          enabled = true;
+        }
+        {
+          id = "dnd";
+          enabled = true;
+        }
+        {
+          id = "vpn";
+          enabled = true;
+        }
+      ];
     };
   };
   # Services
