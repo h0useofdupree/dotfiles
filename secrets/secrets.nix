@@ -9,4 +9,5 @@ in {
   "weatherapi-key.age".publicKeys = [h0useofdupree] ++ hosts;
   "spotify-client-id.age".publicKeys = [h0useofdupree] ++ hosts;
   "openai-api-key.age".publicKeys = [h0useofdupree] ++ hosts;
+  "nordvpn-private-key.age".publicKeys = [h0useofdupree] ++ hosts;
 }
