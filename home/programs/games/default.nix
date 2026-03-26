@@ -20,6 +20,8 @@
       # (lutris.override {extraPkgs = p: [p.libnghttp2];})
       winetricks
       protontricks
+
+      teamspeak6-client
     ]
     ++ lib.optional (!isLaptop) oversteer;
 }

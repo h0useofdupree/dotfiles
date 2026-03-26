@@ -65,8 +65,6 @@
     mediaGif = "root:/assets/bongocat.gif";
     sessionGif = "root:/assets/kurukuru.gif";
     lyricsDir = "~/Music/lyrics";
-
-    # NOTE: Needed for dynamic-wallpaper if not completely reworked!
     # wallpaperDir = config.home.homeDirectory + "/Pictures/WallpapersCache";
   };
 

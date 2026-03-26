@@ -68,7 +68,7 @@
         }
       ];
       activeTrail = true;
-      occupiedBg = true;
+      occupiedBg = false;
       perMonitorWorkspaces = true;
       showWindows = true;
       shown = 5;
