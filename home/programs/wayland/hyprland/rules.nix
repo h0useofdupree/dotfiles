@@ -140,7 +140,16 @@
       "match:title ^(Friends List)$, max_size (monitor_w*0.3) (monitor_h*0.8)"
       "match:title ^(Friends List)$, no_initial_focus on" # BUG: Not working
 
+      # --- Heroic Games Launcher ---
+      "match:class ^(heroic)$, workspace 4"
+      "match:class ^(heroic)$, monitor DP-1"
+      "match:class ^(heroic)$, immediate on"
+      "match:class ^(heroic)$, no_blur on"
+      "match:class ^(heroic)$, no_shadow on"
+
       # --- Game Rules ---
+      # TODO: Add rules for heroic launched games, if not always launched as `steam_app_*`
+
       # General defaults for all steam games
       "${anyGame}, workspace 5"
       "${anyGame}, monitor DP-1"

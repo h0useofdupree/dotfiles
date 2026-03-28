@@ -16,8 +16,10 @@
       })
       inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.osu-lazer-bin
       gamescope
+      heroic
       lutris
       # (lutris.override {extraPkgs = p: [p.libnghttp2];})
+      mangohud
       winetricks
       protontricks
 

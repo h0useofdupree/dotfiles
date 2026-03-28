@@ -34,6 +34,7 @@
         enabled = true;
         dangerous = false;
       }
+      # TODO: Do a `hyprctl reload` after switching wallpaper/scheme/variant to apply colors
       {
         name = "Wallpaper";
         icon = "image";
