@@ -101,8 +101,8 @@ in {
         "layersOut, 1, 3, linear, slide top"
         "fadeLayersIn, 1, 2, almostLinear"
         "fadeLayersOut, 1, 3, almostLinear"
-        "workspaces, 1, 2, almostLinear, slide"
-        "specialWorkspace, 1, 2, almostLinear, slidevert"
+        "workspaces, 1, 2, almostLinear, slidevert"
+        "specialWorkspace, 1, 2, almostLinear, slide"
       ];
 
       group = {
