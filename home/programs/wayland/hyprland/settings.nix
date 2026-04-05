@@ -93,8 +93,10 @@ in {
       animation = [
         "global, 1, 4, default"
         "border, 1, 5, easeOutQuint"
+        # TODO: Add borderangle
+
         # "windows, 1, 3, easeOutQuint, popin 80%"
-        "windows, 1, 4, default, gnomed"
+        "windows, 1, 5, default, gnomed"
         "fade, 1, 3, quick"
         "layers, 1, 4, easeInOutCubic, slide top"
         "layersIn, 1, 2, easeOutQuint, slide top"

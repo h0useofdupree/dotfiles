@@ -21,5 +21,6 @@
     dosfstools
     ntfs3g
     python3
+    ouch
   ];
 }
