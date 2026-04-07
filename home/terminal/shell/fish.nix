@@ -92,7 +92,7 @@
       spt = {
         body = ''
           kitten @ set-spacing padding=10
-          spotify_player
+          spotify_player $argv
           kitten @ set-spacing padding=default
         '';
         wraps = "spotify-player";
