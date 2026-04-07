@@ -1,5 +1,12 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.spotify-folders];
+{
+  inputs,
+  pkgs,
+  ...
+}: let
+  inherit (pkgs.stdenv.hostPlatform) system;
+  inherit (inputs.self.packages.${system}) spotify-folders;
+in {
+  home.packages = [spotify-folders];
   systemd = {
     user = {
       services.spotify-folders-sync = {
@@ -10,7 +17,7 @@
         Service = {
           Type = "oneshot";
           ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/.cache/spotify-player";
-          ExecStart = "${pkgs.bash}/bin/sh -c '${pkgs.spotify-folders}/bin/spotify-folders > %h/.cache/spotify-player/PlaylistFolders_cache.json'";
+          ExecStart = "${pkgs.bash}/bin/sh -c '${spotify-folders}/bin/spotify-folders > %h/.cache/spotify-player/PlaylistFolders_cache.json'";
         };
       };
       timers.spotify-folders-sync = {
