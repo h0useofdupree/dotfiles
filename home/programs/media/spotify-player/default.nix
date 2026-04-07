@@ -1,11 +1,12 @@
 {pkgs, ...}: {
-  imports = [./themes.nix];
+  imports = [./themes.nix ./spotify-folders.nix];
 
   programs.spotify-player = {
     enable = true;
     settings = {
       theme = "default";
       playback_window_position = "Top";
+      enable_audio_visualization = true;
       copy_command = {
         command = "wl-copy";
         args = [];
