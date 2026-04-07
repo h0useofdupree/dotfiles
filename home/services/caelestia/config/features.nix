@@ -127,9 +127,9 @@
     provider = [
       {
         name = "wireguard";
+        enabled = true;
         interface = "nordvpn";
         displayName = "NordVPN";
-        enabled = true;
         connectCmd = ["pkexec" "systemctl" "start" "wg-quick-nordvpn"];
         disconnectCmd = ["pkexec" "systemctl" "stop" "wg-quick-nordvpn"];
       }
