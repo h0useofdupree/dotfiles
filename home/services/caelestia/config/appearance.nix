@@ -1,6 +1,10 @@
 {
   appearance = {
-    anim.durations.scale = 1;
+    anim = {
+      durations.scale = 1;
+      mediaGifSpeedAdjustment = 200;
+      sessionGifSpeed = 0.7;
+    };
     font = {
       family = {
         material = "Material Symbols Rounded";

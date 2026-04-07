@@ -6,7 +6,7 @@
     };
 
     idle = {
-      # BUG: DPMS currently broken on hyprland with quickshell
+      # TODO: DPMS fixed upstream in Hyprland 0.54.3 apparently. Use dpms again after update
       lockBeforeSleep = true;
       inhibitWhenAudio = true;
       timeouts =
@@ -20,6 +20,8 @@
             timeout = 600; # 10 mins
             idleAction = "caelestia shell brightness set 0";
             returnAction = "caelestia shell brightness set 1";
+            # idleAction = "dpms off";
+            # returnAction = "dpms on";
           }
           {
             timeout = 900; # 15 mins
@@ -35,6 +37,8 @@
             timeout = 1800; # 20 mins
             idleAction = "caelestia shell brightness set 0";
             returnAction = "caelestia shell brightness set 1";
+            # idleAction = "dpms off";
+            # returnAction = "dpms on";
           }
           {
             timeout = 3600; # 60 mins

@@ -62,7 +62,7 @@
   };
 
   paths = {
-    mediaGif = config.home.homeDirectory + "./dotfiles/home/services/caelestia/media/chika.gif";
+    mediaGif = config.home.homeDirectory + "/.dotfiles/home/services/caelestia/media/dancing.gif";
     # mediaGif = "root:/assets/bongocat.gif";
     sessionGif = "root:/assets/kurukuru.gif";
     lyricsDir = "~/Music/lyrics";
