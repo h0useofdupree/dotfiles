@@ -33,6 +33,12 @@
       ];
       flake-registry = "/etc/nix/registry.json";
 
+      # Performance / Networking
+      cores = 0; # Default: "machine-specific"
+      max-jobs = "auto"; # Default: 1
+      http-connections = 50; # Default: 25
+      stalled-download-timeout = 150; # Default: 300
+
       # for direnv GC roots
       keep-derivations = true;
       keep-outputs = true;
