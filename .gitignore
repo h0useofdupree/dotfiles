@@ -20,3 +20,4 @@ lib/wallpapers/**/*.sha256
 macos_accel.py
 
 Session.vim
+/.codex
