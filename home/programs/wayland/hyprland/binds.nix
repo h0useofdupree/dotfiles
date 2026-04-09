@@ -145,7 +145,7 @@ in {
           "$mod, G, togglegroup,"
           "$mod CTRL, J, changegroupactive, f"
           "$mod CTRL, K, changegroupactive, b"
-          "$mod, S, togglesplit,"
+          "$mod, S, layoutmsg, togglesplit"
           "$mod SHIFT, F, exec, ${toggleFloatResize}/bin/toggle-float-resize"
           "$mod, F, pseudo,"
           "$mod, M, layoutmsg, swapwithmaster"

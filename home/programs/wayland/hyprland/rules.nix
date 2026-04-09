@@ -109,7 +109,7 @@
 
       # --- Global Styling ---
       # Disable hyprbars on tiled windows
-      "match:float false, hyprbars:no_bar on"
+      # "match:float false, hyprbars:no_bar on"
 
       # --- Input & Scrolling Overrides ---
       # Browser-based
