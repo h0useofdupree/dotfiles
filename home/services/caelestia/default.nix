@@ -12,7 +12,9 @@
     withX11 = false;
     withI3 = false;
   };
-  cliPkg = inputs.caelestia-cli.packages.${system}.default;
+  cliPkg = inputs.caelestia-cli.packages.${system}.default.override {
+    python3 = pkgs.python314;
+  };
   # colorSyncPkg = inputs.self.packages.${system}.caelestia-colors;
   logging = lib.concatStringsSep ";" [
     "quickshell.dbus.properties.warning=false"
