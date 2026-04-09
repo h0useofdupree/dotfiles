@@ -26,8 +26,8 @@ in {
     package = inputs.hyprland.packages.${system}.default;
 
     plugins = with inputs.hyprland-plugins.packages.${system}; [
-      hyprbars
-      hyprexpo
+      # hyprbars
+      # hyprexpo
       # csgo-vulkan-fix
       # borders-plus-plus
       # hyprfocus

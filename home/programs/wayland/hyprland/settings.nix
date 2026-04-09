@@ -245,10 +245,10 @@ in {
         "4, pinchin, scale: 1.0, float, tile"
       ];
 
-      hyprexpo-gesture = [
-        "3, up, expo, on"
-        "3, down, expo, off"
-      ];
+      # hyprexpo-gesture = [
+      #   "3, up, expo, on"
+      #   "3, down, expo, off"
+      # ];
 
       permission = [
         "${config.wayland.windowManager.hyprland.portalPackage}/libexec/.xdg-desktop-portal-hyprland-wrapped, screencopy, allow"
@@ -297,14 +297,14 @@ in {
           monitor_priority = "DP-1, DP-2";
         };
 
-        hyprexpo = {
-          columns = 3;
-          gap_size = 30;
-          bg_col = "rgba($backgroundE6)";
-          workspace_method = "center current";
-          skip_empty = false;
-          gesture_distance = 300;
-        };
+        # hyprexpo = {
+        #   columns = 3;
+        #   gap_size = 30;
+        #   bg_col = "rgba($backgroundE6)";
+        #   workspace_method = "center current";
+        #   skip_empty = false;
+        #   gesture_distance = 300;
+        # };
 
         overview = {
           # Color
