@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./browsers/firefox.nix
-    ./browsers/qutebrowser
+    # ./browsers/qutebrowser
     ./browsers/zen.nix
     ./media
     ./gtk.nix
@@ -12,8 +12,8 @@
   ];
 
   home.packages = with pkgs; [
-    ausweisapp
-    bitwarden-desktop
+    # ausweisapp
+    # bitwarden-desktop
 
     # cinny-desktop
     element-desktop
@@ -27,8 +27,6 @@
     planify
 
     # TODO: Add seperate programs folder for latex and stuff
-    # WARNING: Temporary
-    jabref
 
     overskride
     papirus-folders

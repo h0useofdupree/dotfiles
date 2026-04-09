@@ -82,7 +82,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lanzaboote.url = "github:nix-community/lanzaboote";
+    # lanzaboote.url = "github:nix-community/lanzaboote";
 
     direnv-instant.url = "github:Mic92/direnv-instant";
 
@@ -186,6 +186,11 @@
         caelestia-cli.follows = "caelestia-cli";
       };
     };
+
+    # TODO:
+    # ambxst = {
+    #   url = "github:Axenide/ambxst";
+    # };
 
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
