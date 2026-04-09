@@ -310,15 +310,13 @@
           clang.enable = true;
           csharp.enable = true;
           css.enable = true;
-          # BUG: Broken
-          html.enable = false;
+          html.enable = true;
           sql.enable = true;
           java.enable = true;
-          kotlin.enable = true;
+          kotlin.enable = false;
           ts.enable = true;
           go.enable = true;
           lua.enable = true;
-          # BUG: Broken
           zig.enable = false;
           python = {
             enable = true;
