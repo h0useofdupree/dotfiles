@@ -6,7 +6,7 @@
   groupLinx = "AnimeCity";
   groupNixus = "";
 in {
-  services.swww.enable = true;
+  services.awww.enable = true;
   dynamicWallpaper = {
     enable = false;
     autoLight = false;

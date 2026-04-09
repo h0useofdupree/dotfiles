@@ -32,7 +32,7 @@ EOF
   exit "$ec"
 }
 
-swww_bin="${SWWW_BIN:-swww}"
+awww_bin="${awww_BIN:-awww}"
 wallpapers_root="${DYNAMIC_WALLPAPERS_ROOT:-@wallpapers@}"
 default_group="@default_group@"
 dir="${DYNAMIC_WALLPAPER_DIR:-}"
@@ -275,4 +275,4 @@ else
   log "mirrored current wallpaper to: $copy_target"
 fi
 
-exec "$swww_bin" img "$wall" --transition-type fade --transition-fps 144
+exec "$awww_bin" img "$wall" --transition-type fade --transition-fps 144
