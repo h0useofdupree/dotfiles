@@ -5,8 +5,6 @@
     enable = true;
     settings = {
       theme = "default";
-      playback_window_position = "Top";
-      enable_audio_visualization = true;
       copy_command = {
         command = "wl-copy";
         args = [];
@@ -19,8 +17,13 @@
         bitrate = 320;
       };
       enable_notify = false;
+      enable_audio_visualization = true;
+      playback_window_position = "Top";
+      playback_metadata_fields = ["repeat" "shuffle" "device" "volume"];
       play_icon = "▌▌";
       pause_icon = "▶";
+      border_type = "Rounded";
+      genre_num = 5;
       client_id_command = {
         command = "${pkgs.coreutils}/bin/cat";
         args = ["/run/agenix/spotify-client-id"];

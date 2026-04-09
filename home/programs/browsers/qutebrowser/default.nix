@@ -1,9 +1,9 @@
 {
-  home.file.".config/qutebrowser/catppuccin/setup.py".source = ./catppuccin/setup.py;
-  home.file.".config/qutebrowser/catppuccin/__init__.py".source = ./catppuccin/__init__.py;
+  # home.file.".config/qutebrowser/catppuccin/setup.py".source = ./catppuccin/setup.py;
+  # home.file.".config/qutebrowser/catppuccin/__init__.py".source = ./catppuccin/__init__.py;
 
   programs.qutebrowser = {
-    enable = true;
+    enable = false;
     loadAutoconfig = true;
     enableDefaultBindings = true;
 
