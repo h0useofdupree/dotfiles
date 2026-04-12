@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       model_provider = "openai";
-      model = "gtp-5";
+      model = "gpt-5.3-codex";
 
       approval_policy = "untrusted";
       sandbox_mode = "workspace-write";

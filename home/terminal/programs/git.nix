@@ -10,6 +10,7 @@
   privGhRepoUrl = "https://github.com/h0useofdupree/dotfiles";
 
   # Work
+  # TODO: Remove!
   workDir = config.home.homeDirectory + "/Projects/PVO/";
   workSshKey = config.home.homeDirectory + "/.ssh/id_ed25519_stroeer_gitlab";
   workConfig = config.xdg.configHome + "/git/config-stroeer";
