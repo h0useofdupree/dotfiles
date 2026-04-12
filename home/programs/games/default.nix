@@ -24,8 +24,6 @@
       protontricks
 
       prismlauncher
-
-      teamspeak6-client
     ]
     ++ lib.optional (!isLaptop) oversteer;
 }
