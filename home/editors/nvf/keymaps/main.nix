@@ -107,6 +107,46 @@
       action = ":if &background ==# 'dark'<BAR>set background=light<BAR>else<BAR>set background=dark<BAR>endif<CR>";
       desc = "Toggle dark/light mode";
     }
+    {
+      key = "<C-+>";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      action = "<cmd>lua if vim.g.neovide then vim.g.neovide_scale_factor = (vim.g.neovide_scale_factor or 1) + 0.1 end<CR>";
+      desc = "Neovide zoom in";
+    }
+    {
+      key = "<C-=>";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      action = "<cmd>lua if vim.g.neovide then vim.g.neovide_scale_factor = (vim.g.neovide_scale_factor or 1) + 0.1 end<CR>";
+      desc = "Neovide zoom in";
+    }
+    {
+      key = "<C-->";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      action = "<cmd>lua if vim.g.neovide then vim.g.neovide_scale_factor = (vim.g.neovide_scale_factor or 1) - 0.1 end<CR>";
+      desc = "Neovide zoom out";
+    }
+    {
+      key = "<C-0>";
+      mode = [
+        "n"
+        "v"
+      ];
+      silent = true;
+      action = "<cmd>lua if vim.g.neovide then vim.g.neovide_scale_factor = 1 end<CR>";
+      desc = "Neovide zoom reset";
+    }
 
     # Buffer navigation
     {
