@@ -163,7 +163,7 @@
 
       meet = {
         body = ''
-          hyprctl keyword monitor "DP-1, 3440x1440@144,auto,1.6"
+          hyprctl keyword monitor "DP-1, auto,auto,1.6"
           set action (notify-send \
             -u normal \
             -i dialog-information-symbolic \
@@ -244,110 +244,6 @@
           end
         '';
         description = "Get wallpaper group name, count, res, avg color, brightness";
-      };
-
-      # NOTE: Subject for deletion if not using hyprlock anymore
-      hyprlock-restart = {
-        body = ''
-          set logdir (test -n "$XDG_STATE_HOME"; and echo $XDG_STATE_HOME; or echo "$HOME/.local/state")
-          set logfile "$logdir/hyprlock-restart.log"
-
-          function _log
-            echo -n (date "+%Y-%m-%d %H:%M:%S")" | " >> $logfile
-            echo $argv >> $logfile
-          end
-
-          _log "===== Hyprlock Restart Triggered ====="
-          _log "TTY: "(tty)
-          _log "Uptime: "(uptime -p)
-          _log "Kernel: "(uname -r)
-          _log "User: $USER"
-          _log "Shell: $SHELL"
-          _log "Fish Version: "(fish --version)
-          _log "Hyprctl instance list:"
-          command hyprctl instances >> $logfile ^/dev/null
-
-          echo "[hyprlock-restart] Allowing session lock restore..."
-          _log "Enabling session lock restore"
-          command hyprctl --instance 0 "keyword misc:allow_session_lock_restore 1"
-
-          if pgrep -x hyprlock > /dev/null
-            echo "[hyprlock-restart] Killing existing hyprlock process..."
-            _log "Existing hyprlock process found. Killing it."
-            command killall -9 hyprlock
-            sleep 1
-          else
-            _log "No running hyprlock instance detected"
-          end
-
-          echo "[hyprlock-restart] Starting hyprlock..."
-          _log "Starting new hyprlock instance..."
-          command hyprctl --instance 0 "dispatch exec hyprlock"
-
-          sleep 2
-
-          echo "[hyprlock-restart] Disabling session lock restore..."
-          _log "Disabling session lock restore"
-          command hyprctl --instance 0 "keyword misc:allow_session_lock_restore 0"
-
-          echo "[hyprlock-restart] Done. You can now switch back to TTY1 (Ctrl+Alt+F1)"
-          _log "Restart complete — waiting for user to switch TTY"
-          _log "========================================"
-        '';
-        description = "Restart hyprlock after a crash, with automatic logging and state info";
-      };
-
-      caelestia-lock-repair = {
-        body =
-          /*
-          bash
-          */
-          ''
-            set logdir (test -n "$XDG_STATE_HOME"; and echo $XDG_STATE_HOME; or echo "$HOME/.local/state")
-            set logfile "$logdir/caelestia-lock-repair.log"
-
-            function _log
-              echo -n (date "+%Y-%m-%d %H:%M:%S")" | " >> $logfile
-              echo $argv >> $logfile
-            end
-
-            _log "===== Caelestia Lock Repair Triggered ====="
-
-            # 1. Open the door for a new lock process
-            echo "[repair] Allowing session lock restore..."
-            command hyprctl --instance 0 "keyword misc:allow_session_lock_restore 1"
-
-            # 2. Try the "Soft Repair" (IPC)
-            echo "[repair] Attempting IPC lock trigger..."
-            if command caelestia shell lock lock ^/dev/null
-                _log "IPC lock command sent. Checking for success..."
-                sleep 1
-            else
-                _log "IPC unreachable. Initiating Hard Restart..."
-
-                # 3. The "Hard Repair" (Systemd)
-                echo "[repair] Restarting caelestia-shell.service..."
-                command systemctl --user restart caelestia-shell.service
-
-                # Give Quickshell time to load the QML and register IPC targets
-                _log "Waiting for service to initialize..."
-                sleep 3
-
-                # Force it back into locked state (NOTE: Test if cmd needs to be bound to instance)
-                # command caelestia shell lock lock
-                command hyprctl --instance 0 "dispatch exec caelestia shell lock lock"
-                _log "Post-restart lock command sent"
-            end
-
-            # 4. Close the security hole
-            echo "[repair] Disabling session lock restore..."
-            command hyprctl --instance 0 "keyword misc:allow_session_lock_restore 0"
-
-            echo "[repair] Done. You can now switch back to TTY1 ({Ctrl+}Alt+F1)"
-            _log "Repair complete."
-            _log "========================================"
-          '';
-        description = "Restores Caelestia lock screen via systemd after a suspend/resume crash";
       };
     };
 
