@@ -15,7 +15,6 @@
   cliPkg = inputs.caelestia-cli.packages.${system}.default.override {
     python3 = pkgs.python314;
   };
-  # colorSyncPkg = inputs.self.packages.${system}.caelestia-colors;
   logging = lib.concatStringsSep ";" [
     "quickshell.dbus.properties.warning=false"
     "quickshell.dbus.dbusmenu.warning=false"
@@ -23,18 +22,12 @@
     "quickshell.service.sni.host.warning=false"
     "qt.qpa.wayland.textinput.warning=false"
   ];
-  mkThemeCommand = mode: [
-    "sh"
-    "-c"
-    "caelestia scheme set -m ${mode} && ${lib.getExe pkgs.dconf} write /org/gnome/desktop/interface/gtk-theme \"'adw-gtk3-${mode}'\""
-  ];
 in {
   home = {
     packages = [
       shellPkg
       quickshellPkg
       cliPkg
-      # colorSyncPkg
     ];
 
     # TODO: Switch to hm module or rework how we handle the flake/shell.json config
