@@ -29,8 +29,6 @@
     "caelestia scheme set -m ${mode} && ${lib.getExe pkgs.dconf} write /org/gnome/desktop/interface/gtk-theme \"'adw-gtk3-${mode}'\""
   ];
 in {
-  # NOTE: zen-theme currently not working - probably dropped from upstream in the future
-  # imports = [./zen-browser-theme];
   home = {
     packages = [
       shellPkg
