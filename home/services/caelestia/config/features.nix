@@ -85,7 +85,7 @@
     commands = {
       logout = ["loginctl" "terminate-user" ""];
       shutdown = ["systemctl" "poweroff"];
-      hibernate = ["systemctl" "suspend"];
+      hibernate = ["systemctl" "suspend-then-hibernate"];
       reboot = ["systemctl" "reboot"];
     };
     icons = {

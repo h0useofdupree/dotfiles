@@ -25,6 +25,7 @@
           }
           {
             timeout = 900; # 15 mins
+            # TODO: Add swap/zram for linx
             idleAction = ["systemctl" "suspend"];
           }
         ]
@@ -42,7 +43,7 @@
           }
           {
             timeout = 3600; # 60 mins
-            idleAction = ["systemctl" "suspend"];
+            idleAction = ["systemctl" "suspend-then-hibernate"];
           }
         ];
     };
