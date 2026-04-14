@@ -62,6 +62,34 @@
     };
   };
 
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 25;
+    priority = 100;
+  };
+
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      priority = 10;
+    }
+  ];
+
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-uuid/6680d70d-e9cd-42b9-bce1-a5effa035fc7";
+    fsType = "btrfs";
+    options = ["subvol=@swap" "noatime"];
+  };
+
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = true;
+    AllowHibernation = true;
+    AllowSuspendThenHibernate = true;
+    AllowHybridSleep = false;
+    HibernateDelaySec = "1h";
+  };
+
   # Extra packages
   environment.systemPackages = with pkgs; [
     clinfo
@@ -71,7 +99,11 @@
     kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
     initrd.kernelModules = ["amdgpu"];
     kernelModules = ["i2c-dev" "i2c-piix4"];
-    kernelParams = ["acpi_enforce_resources=lax"];
+    kernelParams = [
+      "acpi_enforce_resources=lax"
+      "resume_offset=31749371"
+    ];
+    resumeDevice = "/dev/disk/by-uuid/6680d70d-e9cd-42b9-bce1-a5effa035fc7";
   };
   users = {
     groups.i2c = {};
