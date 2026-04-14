@@ -173,29 +173,15 @@
     #   inputs.hyprland.follows = "hyprland";
     # };
 
-    caelestia-cli = {
-      url = "github:caelestia-dots/cli";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        quickshell.follows = "quickshell";
-        caelestia-cli.follows = "caelestia-cli";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # TODO:
     # ambxst = {
     #   url = "github:Axenide/ambxst";
     # };
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     vicinae.url = "github:vicinaehq/vicinae";
     vicinae-extensions.url = "github:vicinaehq/extensions";

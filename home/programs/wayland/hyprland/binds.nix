@@ -138,7 +138,7 @@ in {
           # compositor commands
           "$mod SHIFT, R, exec, hyprctl reload"
           "$mod CTRL, G, exec, ${toggleGameBindings}/bin/toggle-game-bindings"
-          "$mod2 SHIFT, R, exec, systemctl --user restart caelestia-shell.service"
+          "$mod2 SHIFT, R, exec, systemctl --user restart caelestia.service"
           "$mod, Q, killactive,"
           "$mod SHIFT, D, fullscreen, 0"
           "$mod, D, fullscreen, 1"
@@ -169,7 +169,7 @@ in {
 
           # lock screen
           # "$mod $mod2, L, exec, ${runOnce "hyprlock"}"
-          # "$mod, L, global, systemctl --user start caelestia-shell.service"
+          # "$mod, L, global, systemctl --user start caelestia.service"
           "$mod2, L, global, caelestia:lock"
 
           # select area to perform OCR on

@@ -15,8 +15,6 @@
 
       # caelestia-colors = pkgs.callPackage ./caelestia-colors {};
 
-      caelestia-shell = inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default;
-
       spotify-folders = pkgs.callPackage ./spotify-folders {};
     };
   };
