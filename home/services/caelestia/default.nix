@@ -21,6 +21,7 @@
           "qt.qpa.wayland.textinput.warning=false"
         ];
       in [
+        "QS_DROP_EXPENSIVE_FONTS=1"
         "QT_LOGGING_RULES=${logging}"
       ];
     };
