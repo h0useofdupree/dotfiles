@@ -195,6 +195,28 @@ in {
         special_scale_factor = 0.85;
       };
 
+      # TODO: Try scrolling layout.
+      scrolling = {
+        # When enabled, a single column on a workspace will always span the entire screen.
+        fullscreen_on_one_column = true;
+        # The default width of a column, [0.1 - 1.0].
+        column_width = 0.5;
+        # When a column is focused, what method should be used to bring it into view. [0 = center, 1 = fit]
+        focus_fit_method = 1;
+        # When a window is focused, should the layout move to bring it into view automatically
+        follow_focus = true;
+        # When a window is focused, require that at least a given fraction of it is visible for focus to follow. Hard input (e.g. binds, clicks) will always follow. [0.0 - 1.0]
+        follow_min_visible = 0.4;
+        # A comma-separated list of preconfigured widths for colresize +conf/-conf. [Default: "0.333, 0.5, 0.667, 1.0"]
+        explicit_column_widths = "0.333, 0.5, 0.667, 1.0";
+        # When enabled, causes layoutmsg focus l/r to wrap around at the beginning and end.
+        wrap_focus = true;
+        # When enabled, causes layoutmsg swapcol l/r to wrap around at the beginning and end.
+        wrap_swapcol = true;
+        # Direction in which new windows appear and the layout scrolls. [left/right/down/up]
+        direction = "right";
+      };
+
       misc = {
         disable_autoreload = true;
 

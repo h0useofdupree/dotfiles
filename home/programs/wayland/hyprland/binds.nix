@@ -207,6 +207,12 @@ in {
           "$mod SHIFT, code:34, split-changemonitorsilent, prev"
           "$mod SHIFT, code:35, split-changemonitorsilent, next"
 
+          # Scrolling Layout
+          # NOTE: Move the layout horizontally, by either a relative logical px (-200, +200) or columns (+col, -col)
+          # ",,layoutmsg, move, <val>"
+
+          # NOTE: resize the current column, to either a value or by a relative value e.g. 0.5, +0.2, -0.2 or cycle the preconfigured ones with +conf or -conf. Can also be all (number) for resizing all columns to a specific width
+
           # screenshot
           ## area
           # "$mod, Next, exec, ${runOnce "grimblast"} --notify copysave area"
