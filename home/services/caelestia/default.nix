@@ -21,8 +21,10 @@
           "qt.qpa.wayland.textinput.warning=false"
         ];
       in [
-        "QS_DROP_EXPENSIVE_FONTS=1"
         "QT_LOGGING_RULES=${logging}"
+        # ---
+        # NOTE: Maybe irrelevant after https://github.com/NixOS/nixpkgs/pull/506383#event-24496114538
+        "QS_DROP_EXPENSIVE_FONTS=1"
       ];
     };
     settings = import ./config {
