@@ -1,3 +1,4 @@
+# TODO: Update
 {
   programs.codex = {
     enable = true;
@@ -15,13 +16,6 @@
         };
       };
       profiles = {
-        # main = {
-        #   model_provider = "openai";
-        #   model = "gpt-5";
-        #   approval_policy = "untrusted";
-        #   sandbox_mode = "workspace-write";
-        # };
-
         local = {
           model_provider = "oss";
           model = "gtp-oss:20b";
