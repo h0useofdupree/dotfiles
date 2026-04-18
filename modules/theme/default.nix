@@ -20,5 +20,27 @@
       type = lib.types.path;
       example = lib.literalExample "./wallpaper.png";
     };
+
+    auto = {
+      enable = lib.mkEnableOption "automatic light/dark theme switching";
+
+      lightTime = lib.mkOption {
+        description = ''
+          Time at which automatic theme switching should start using light mode.
+        '';
+        type = lib.types.str;
+        default = "07:00";
+        example = lib.literalExample "08:30";
+      };
+
+      darkTime = lib.mkOption {
+        description = ''
+          Time at which automatic theme switching should start using dark mode.
+        '';
+        type = lib.types.str;
+        default = "17:00";
+        example = lib.literalExample "18:45";
+      };
+    };
   };
 }
