@@ -46,7 +46,7 @@ in {
       };
 
       decoration = {
-        rounding = 20;
+        rounding = 25;
         rounding_power = 4;
         dim_special = 0;
 
@@ -57,13 +57,15 @@ in {
           brightness = 1.0;
           contrast = 1.0;
           noise = 0.01;
-          vibrancy = 0.2;
+          vibrancy = 0.5;
           vibrancy_darkness = 0.5;
           passes = 3;
-          size = 6;
+          size = 10;
           popups = true;
-          popups_ignorealpha = 0.2;
+          popups_ignorealpha = 0.6;
           special = true;
+          input_methods = true;
+          input_methods_ignorealpha = 0.8;
         };
 
         shadow = {
