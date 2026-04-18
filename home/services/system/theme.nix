@@ -5,6 +5,8 @@
   ...
 }: let
   inherit (config.theme.auto) darkTime enable lightTime;
+  hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
+  hyprSchemePath = "${config.xdg.configHome}/hypr/scheme/current.conf";
 
   themeApply = pkgs.writeShellScript "theme-apply" ''
     set -euo pipefail
@@ -111,57 +113,80 @@
     EOF
   '';
 in {
-  systemd.user.services =
-    {
-      theme-set-dark = {
-        Unit.Description = "Apply dark theme";
-        Service = {
-          Type = "oneshot";
-          ExecStart = "${themeApply} dark";
-          TimeoutStopSec = 5;
+  systemd = {
+    user = {
+      services =
+        {
+          theme-set-dark = {
+            Unit.Description = "Apply dark theme";
+            Service = {
+              Type = "oneshot";
+              ExecStart = "${themeApply} dark";
+              TimeoutStopSec = 5;
+            };
+          };
+
+          theme-set-light = {
+            Unit.Description = "Apply light theme";
+            Service = {
+              Type = "oneshot";
+              ExecStart = "${themeApply} light";
+              TimeoutStopSec = 5;
+            };
+          };
+
+          hyprland-reload-theme = {
+            Unit.Description = "Reload Hyprland after generated theme changes";
+            Service = {
+              Type = "oneshot";
+              ExecStart = "${hyprctl} reload";
+              TimeoutStopSec = 5;
+            };
+          };
+        }
+        // lib.optionalAttrs enable {
+          theme-sync-auto = {
+            Unit.Description = "Apply automatic theme for the current time";
+            Install.WantedBy = ["graphical-session.target"];
+            Service = {
+              Type = "oneshot";
+              ExecStart = "${themeApply} auto";
+              TimeoutStopSec = 5;
+            };
+          };
+        };
+
+      timers = lib.optionalAttrs enable {
+        theme-auto-dark = {
+          Unit.Description = "Apply dark theme on schedule";
+          Timer = {
+            OnCalendar = ["*-*-* ${darkTime}:00"];
+            Persistent = true;
+          };
+          Timer.Unit = "theme-set-dark.service";
+          Install.WantedBy = ["timers.target"];
+        };
+
+        theme-auto-light = {
+          Unit.Description = "Apply light theme on schedule";
+          Timer = {
+            OnCalendar = ["*-*-* ${lightTime}:00"];
+            Persistent = true;
+          };
+          Timer.Unit = "theme-set-light.service";
+          Install.WantedBy = ["timers.target"];
         };
       };
 
-      theme-set-light = {
-        Unit.Description = "Apply light theme";
-        Service = {
-          Type = "oneshot";
-          ExecStart = "${themeApply} light";
-          TimeoutStopSec = 5;
+      # Caelestia rewrites this file for wallpaper, mode, variant, and scheme changes.
+      paths.hyprland-reload-theme = {
+        Unit.Description = "Watch generated Hyprland theme config for changes";
+        Path = {
+          PathChanged = hyprSchemePath;
+          Unit = "hyprland-reload-theme.service";
         };
-      };
-    }
-    // lib.optionalAttrs enable {
-      theme-sync-auto = {
-        Unit.Description = "Apply automatic theme for the current time";
         Install.WantedBy = ["graphical-session.target"];
-        Service = {
-          Type = "oneshot";
-          ExecStart = "${themeApply} auto";
-          TimeoutStopSec = 5;
-        };
       };
-    };
-
-  systemd.user.timers = lib.optionalAttrs enable {
-    theme-auto-dark = {
-      Unit.Description = "Apply dark theme on schedule";
-      Timer = {
-        OnCalendar = ["*-*-* ${darkTime}:00"];
-        Persistent = true;
-      };
-      Timer.Unit = "theme-set-dark.service";
-      Install.WantedBy = ["timers.target"];
-    };
-
-    theme-auto-light = {
-      Unit.Description = "Apply light theme on schedule";
-      Timer = {
-        OnCalendar = ["*-*-* ${lightTime}:00"];
-        Persistent = true;
-      };
-      Timer.Unit = "theme-set-light.service";
-      Install.WantedBy = ["timers.target"];
     };
   };
 }
