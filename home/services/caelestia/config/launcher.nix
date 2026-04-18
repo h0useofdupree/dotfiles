@@ -71,7 +71,7 @@
         name = "Light";
         icon = "light_mode";
         description = "Change the scheme to light mode";
-        command = ["setMode" "light"];
+        command = ["systemctl" "--user" "start" "theme-set-light.service"];
         enabled = true;
         dangerous = false;
       }
@@ -79,7 +79,7 @@
         name = "Dark";
         icon = "dark_mode";
         description = "Change the scheme to dark mode";
-        command = ["setMode" "dark"];
+        command = ["systemctl" "--user" "start" "theme-set-dark.service"];
         enabled = true;
         dangerous = false;
       }
