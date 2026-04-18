@@ -44,4 +44,9 @@
     # NOTE: Symlink for nvme1n1 to ~/Games
     file."Games".source = config.lib.file.mkOutOfStoreSymlink "/mnt/games";
   };
+  theme.auto = {
+    enable = true;
+    lightTime = "07:00";
+    darkTime = "18:27";
+  };
 }
