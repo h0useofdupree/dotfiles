@@ -1,7 +1,7 @@
 {
   appearance = {
     anim = {
-      durations.scale = 1;
+      durations.scale = 0.8;
       mediaGifSpeedAdjustment = 200;
       sessionGifSpeed = 0.7;
     };
@@ -15,11 +15,11 @@
       size.scale = 1;
     };
     padding.scale = 1;
-    rounding.scale = 1.2;
+    rounding.scale = 1.3;
     spacing.scale = 1;
     transparency = {
       enabled = true;
-      base = 0.5;
+      base = 0.7;
       layers = 0.4;
     };
   };

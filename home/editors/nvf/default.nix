@@ -24,8 +24,8 @@
           neovide_padding_bottom = 0;
           neovide_padding_right = 0;
           neovide_padding_left = 0;
-          neovide_opacity = 0.85;
-          neovide_normal_opacity = 0.8;
+          neovide_opacity = 0.7;
+          neovide_normal_opacity = 0.7;
         };
 
         clipboard = {
